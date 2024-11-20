@@ -2307,10 +2307,11 @@ Now, we will make a smart cup which can show liquid temperature. We divide 100 i
 xht11 xht(26);                         //Define DHT11 to pin IO26
 unsigned char dat[4] = { 0, 0, 0, 0 };  //Define an array to store temperature and humidity data
 
+int red_led = 12;
 int yellow_led = 13;   //Define yellow_led to io13
 int green_led = 14;    //Define green_led to io14
 int blue_led = 27;     //Define blue_led to io27
-int temperature = 0;  //Set a variable to save the temperature value
+int temperature = 0;  //Set an variable to save the temperature value
 void setup() {
   // put your setup code here, to run once:
   pinMode(red_led, OUTPUT);     //Set io12 to ouput 
