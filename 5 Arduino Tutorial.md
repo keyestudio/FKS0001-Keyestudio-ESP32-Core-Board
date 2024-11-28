@@ -3244,3 +3244,664 @@ void show_pot() {  //Read the analog value of potentiometer
 After connecting the wiring and uploading code, we can see the corresponding contents on LCD by pressing buttons. OK button clears the sensor display.
 
 ![30](./media/30.png)
+
+
+
+### **Project 31: ESP32 WiFi**
+
+#### **1. Description**
+
+ESP32 boasts a built-in Wi-Fi and Bluetooth nodule that is widely used in Internet of Things (IoT). With this function, it can remotely control the data transmission through the wireless network. 
+
+In applications, ESP32 can be used as a client to connect to a Wi-Fi network, or as a hotspot to create its own network. Through these connections, ESP32 receives commands to control external devices, such as turning on/off lights and adjusting temperature. In the code, protocols like HTTP and MQTT are used to communicate with the server to achieve data sending and receiving, so as to remotely control and monitoring.
+
+#### **2. ESP32 wifi**
+
+ESP32 development board comes with built-in Wi-Fi (2.4G) and Bluetooth (4.2), which enable it to easily connect to Wi-Fi network and communicate with other devices in the network. You can display web pages in your browser via ESP32.
+
+![6-34-3-1](./media/6-34-3-1.png)
+
+- Base station mode (STA / Wi-Fi Client mode): ESP32 is connected to Wi-Fi hotspot (AP).
+- AP mode (Soft-AP / Wi-Fi hotspot mode): Wi-Fi device(s) is(are) connected to ESP32.
+- AP-STA mode: ESP32 is both Wi-Fi hotspot and a Wi-Fi device connected to another Wi-Fi.
+- These modes supports multiple security modes, including WPA, WPA2 and WEP.
+- It is able to scan Wi-Fi hotspot (active or passive)
+- It support promiscuous mode monitoring IEEE802.11 Wi-Fi packets.
+
+------
+
+For more wifi reference, please visit: https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/network/esp_wifi.html
+
+espressif official: https://www.espressif.com.cn/en/home
+
+![6-34-3-2](./media/6-34-3-2.png)
+
+#### **3. Cautions**
+
+1. The ESP32 can only connect to wifi at 2.4GHz frequency
+2. After connecting to wifi, ESP32 consumes much power. So only a computer USB port power supply may not meet the needs of ESP32, so an external power supply is required.
+3. The network of the wifi and the controlled device must belong to the same LAN, otherwise they cannot be connected.
+
+#### **4. Test Code**
+
+With the ESP32 WiFi, connect to network and display the IP address of the ESP32 on LCD1602.
+
+```C
+/*
+  keyestudio ESP32 Inventor Learning Kit
+  Project 31 ESP32 WiFi
+  http://www.keyestudio.com
+*/
+#include <WiFi.h>
+#include <LiquidCrystal_I2C.h>
+
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+
+const char* ssid = "your_SSID"; // set to your WiFi name
+const char* password = "your_password"; // set your WiFi password
+
+WiFiServer server(80);
+
+int i = 0;
+
+void setup() {
+  lcd.init();  // initialize the lcd
+  // We start by connecting to a WiFi network
+  lcd.backlight();
+
+  lcd.setCursor(0, 0);
+  lcd.print("IP:");
+
+  WiFi.begin(ssid, password);
+
+  while (WiFi.status() != WL_CONNECTED) {
+    lcd.setCursor(i, 1);
+    lcd.print(".");
+    delay(500);
+    i++;
+    if (i > 15) {
+      i = 0;
+      lcd.setCursor(0, 1);
+      lcd.print("                ");
+    }
+  }
+  lcd.setCursor(0, 1);
+  lcd.print("                ");
+  lcd.setCursor(0, 1);
+  lcd.print(WiFi.localIP());
+}
+
+void loop() {
+}
+
+```
+
+#### **5. Test Result**
+
+After uploading the code, LCD1602 shows the IP address of the wifi connected to ESP32.
+
+![sadad1](./media/sadad1.png)
+
+#### **6. HTML Page Display**
+
+Display “Holly World!”.
+
+**Test code:**
+
+```c++
+#include <WiFi.h>
+#include <ESPAsyncWebServer.h>
+#include <LiquidCrystal_I2C.h>
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+
+// WiFi configuration
+// const char* ssid = "your-SSID";    // your WiFi name
+// const char* password = "your-PASSWORD";  // your WiFi password
+
+const char* ssid = "ChinaNet_2.4G";     // your WiFi name
+const char* password = "ChinaNet@233";  // your WiFi password
+
+// Create a Web Server
+AsyncWebServer server(80);
+
+void setup() {
+  lcd.init();  // initialize the lcd
+  lcd.backlight();
+  lcd.setCursor(0, 0);
+  lcd.print("IP:");
+
+  // WiFi connection
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    lcd.setCursor(i, 1);
+    lcd.print(".");
+    delay(500);
+    i++;
+    if (i > 15) {
+      i = 0;
+      lcd.setCursor(0, 1);
+      lcd.print("                ");
+    }
+  }
+  lcd.setCursor(0, 1);
+  lcd.print("                ");
+  lcd.setCursor(0, 1);
+  lcd.print(WiFi.localIP());
+
+  // Process the client request and return to the page
+  server.on("/", HTTP_GET, [](AsyncWebServerRequest* request) {
+    String html = generateHTML();
+    request->send(200, "text/html", html);
+  });
+  // Start the Web server
+  server.begin();
+}
+
+String generateHTML() {
+  // Generate HTML page
+  String html = "<html><head>";
+  html += "<h1>Hello, World!</h1>";
+  html += "</head></html>";
+  return html;
+}
+
+void loop() {
+}
+
+```
+
+**Test result：**
+
+Connect your computer/mobile phone and ESP32 to the same wifi, and access the IP address shown on the LCD1602 and you will see “Hello world”.
+
+![asdas56](./media/asdas56.png)
+
+
+
+### **Project 32: ESP32 WiFi Control LED**
+
+#### **1. Description**
+
+We have learned how to use the ESP32 to connect to wifi and display the IP address on the LCD1602. Next we will learn to control the LED through wifi on a mobile phone or a computer, but they just need to be in the same LAN.
+
+#### **2. Wiring Diagram**
+
+![6](./media/6.jpg)
+
+#### **3. Test Code**
+
+Connect the ESP32 to WiFi, and display the IP address of the ESP32 on LCD1602. The web page displays 4  colors of buttons to control the corresponding LED.
+
+Note: The code involves extracurricular knowledge like `HTML`, `CSS`, `JS`, if you want to know, please check the relevant information online.
+
+```C
+#include <WiFi.h>
+#include <ESPAsyncWebServer.h>
+#include <LiquidCrystal_I2C.h>
+
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+
+// WiFi configuration
+const char* ssid = "your-SSID";    // your WiFi name
+const char* password = "your-PASSWORD";  // your WiFi password
+
+// Create a Web Server
+AsyncWebServer server(80);
+
+// LED pin configuration
+#define redLED = 12;
+#define yellowLED = 13;
+#define greenLED = 14;
+#define blueLED = 15;
+
+// LED state
+bool redLEDState = false;
+bool yellowLEDState = false;
+bool greenLEDState = false;
+bool blueLEDState = false;
+int i = 0;
+
+// Create HTML page
+String generateHTML() {
+  String html = "<html><head><style>";
+  html += "button { font-size: 30px; padding: 15px; margin: 10px; border: none; cursor: pointer; width: 200px; height: 100px; }";
+  html += "button.on { background-color: #4CAF50; color: white; }";   // color of LED on
+  html += "button.off { background-color: #f44336; color: white; }";  // color of LED off
+  html += "</style></head><body>";
+
+  // Concatenation after converting a constant String to a String object using String()
+  html += "<button id='btn0' class='" + String(redLEDState ? "on" : "off") + "' onclick='toggleLed(0)'>red LED</button>";
+  html += "<button id='btn1' class='" + String(yellowLEDState ? "on" : "off") + "' onclick='toggleLed(1)'>yellow LED</button>";
+  html += "<button id='btn2' class='" + String(greenLEDState ? "on" : "off") + "' onclick='toggleLed(2)'>green LED</button>";
+  html += "<button id='btn3' class='" + String(blueLEDState ? "on" : "off") + "' onclick='toggleLed(3)'>blue LED</button>";
+    
+  html += "<script>";
+  html += "function toggleLed(led) {";
+  html += "  var xhr = new XMLHttpRequest();";
+  html += "  xhr.open('GET', '/toggle?led=' + led, true);";
+  html += "  xhr.send();";
+  html += "  var button = document.getElementById('btn' + led);";
+  html += "  if (button.classList.contains('off')) {";
+  html += "    button.classList.remove('off');";
+  html += "    button.classList.add('on');";
+  html += "  } else {";
+  html += "    button.classList.remove('on');";
+  html += "    button.classList.add('off');";
+  html += "  }";
+  html += "}";
+  html += "</script></body></html>";
+  return html;
+}
+
+void setup() {
+  // Initialize serial port
+  Serial.begin(115200);
+
+  // Set LED pins to output
+  pinMode(redLED, OUTPUT);
+  pinMode(yellowLED, OUTPUT);
+  pinMode(greenLED, OUTPUT);
+  pinMode(blueLED, OUTPUT);
+  digitalWrite(redLED, LOW);  // Initially, all leds are off
+  digitalWrite(yellowLED, LOW);
+  digitalWrite(greenLED, LOW);
+  digitalWrite(blueLED, LOW);
+
+  lcd.init();  // initialize the lcd
+  // We start by connecting to a WiFi network
+  lcd.backlight();
+  lcd.setCursor(0, 0);
+  lcd.print("IP:");
+
+  // WiFi connection
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    lcd.setCursor(i, 1);
+    lcd.print(".");
+    delay(500);
+    i++;
+    if (i > 15) {
+      i = 0;
+      lcd.setCursor(0, 1);
+      lcd.print("                ");
+    }
+  }
+  lcd.setCursor(0, 1);
+  lcd.print("                ");
+  lcd.setCursor(0, 1);
+  lcd.print(WiFi.localIP());
+
+  // Process client requests
+  server.on("/", HTTP_GET, [](AsyncWebServerRequest* request) {
+    request->send(200, "text/html", generateHTML());  // Back to HTML page
+  });
+
+  // Control LED state
+  server.on("/toggle", HTTP_GET, [](AsyncWebServerRequest* request) {
+    if (request->hasParam("led")) {
+      int led = request->getParam("led")->value().toInt();
+      if (led == 0) {
+        redLEDState = !redLEDState;
+        digitalWrite(redLED, redLEDState ? HIGH : LOW);
+      } else if (led == 1) {
+        yellowLEDState = !yellowLEDState;
+        digitalWrite(yellowLED, yellowLEDState ? HIGH : LOW);
+      } else if (led == 2) {
+        greenLEDState = !greenLEDState;
+        digitalWrite(greenLED, greenLEDState ? HIGH : LOW);
+      } else if (led == 3) {
+        blueLEDState = !blueLEDState;
+        digitalWrite(blueLED, blueLEDState ? HIGH : LOW);
+      }
+    }
+    request->send(200, "text/plain", "OK");  // Back response
+  });
+
+  // Start the Web server
+  server.begin();
+}
+
+void loop() {
+  // Nothing needs to be done in loop(), all processing is done by the asynchronous Web server
+}
+
+```
+
+#### **4. Test Result**
+
+After uploading the code, LCD1602 shows the IP address after connecting to wifi. Open the browser and enter the IP address, you will see the control page.
+
+Pressing the button turns it to green and the corresponding LED lights up. Press it again, the button turns red, and the led goes off.
+
+![image-20241126141253377](./media/image-20241126141253377.png)
+
+
+
+### **Project 33: ESP32 WiFi Read Data**
+
+#### **1. Description**
+
+We learned how to control the led over ESP32 wifi and display the IP address on the LCD1602. Next, we read the sensor data over wifi and transmit it to the web page.
+
+#### **2. Wiring Diagram**
+
+![e8762f8999f01074eb3f1cba1358d4a2](./media/e8762f8999f01074eb3f1cba1358d4a2.jpeg)
+
+#### **3. Test Code**
+
+Connect the ESP32 to WiFi, display the ESP32 IP address on the LCD1602.
+
+```C
+#include <WiFi.h>
+#include <ESPAsyncWebServer.h>
+#include <xht11.h>
+#include <LiquidCrystal_I2C.h>
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+
+// WiFi configuration
+// const char* ssid = "your-SSID";    // your WiFi name
+// const char* password = "your-PASSWORD";  // your WiFi password
+
+// Create a Web Server
+AsyncWebServer server(80);
+
+// DHT11 configuration
+xht11 xht(26);                         //set DHT11 sensor pin to IO26
+unsigned char dat[] = { 0, 0, 0, 0 };  //Define an array to store temperature and humidity values
+int i = 0;
+
+// photoresistor configuration
+#define LDRPIN 34  // connect photoresistor to GPIO34(analog input)
+
+void setup() {
+  lcd.init();  // initialize the lcd
+  lcd.backlight();
+  lcd.setCursor(0, 0);
+  lcd.print("IP:");
+
+  // WiFi connection
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    lcd.setCursor(i, 1);
+    lcd.print(".");
+    delay(500);
+    i++;
+    if (i > 15) {
+      i = 0;
+      lcd.setCursor(0, 1);
+      lcd.print("                ");
+    }
+  }
+  lcd.setCursor(0, 1);
+  lcd.print("                ");
+  lcd.setCursor(0, 1);
+  lcd.print(WiFi.localIP());
+
+  // Process the client request and return to the page
+  server.on("/", HTTP_GET, [](AsyncWebServerRequest* request) {
+    String html = generateHTML();
+    request->send(200, "text/html", html);
+  });
+
+  // Start the Web server
+  server.begin();
+}
+
+String generateHTML() {
+  // acquire photoresistor value
+  int lightValue = analogRead(LDRPIN);  // read photoresistor analog value
+
+  // Generate HTML page
+  String html = "<html><head><style>";
+  html += "body { font-family: Arial, sans-serif; background-color: #f4f4f4; }";
+  html += "h2 { color: #333; }";
+  html += "div.sensor { background-color: #fff; padding: 20px; margin: 15px; border-radius: 10px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); }";
+  html += "div.sensor h3 { margin: 0; }";
+  html += "div.sensor p { font-size: 20px; color: #555; }";
+  html += "</style>";
+  // add automatic refresh, refresh the page every 5 seconds
+  html += "<meta http-equiv='refresh' content='5'>";
+  html += "</head><body>";
+
+  // diaplay temperature and humidity
+  html += "<div class='sensor'>";
+  html += "<h3>Temperature</h3>";
+  html += "<p>" + String(dat[2]) + " &deg;C</p>";
+  html += "</div>";
+
+  html += "<div class='sensor'>";
+  html += "<h3>Humidity</h3>";
+  html += "<p>" + String(dat[0]) + " %</p>";
+  html += "</div>";
+
+  // diaplay photoresistor resistance value
+  html += "<div class='sensor'>";
+  html += "<h3>Luminance</h3>";
+  html += "<p>" + String(lightValue) + "</p>";
+  html += "</div>";
+  html += "</body></html>";
+
+  return html;
+}
+
+void loop() {
+  // Update temperature, humidity and light intensity every 2 seconds
+  if (!xht.receive(dat)) {
+    Serial.println("sensor error");
+  }
+  delay(2000);
+}
+
+```
+
+#### **4. Test Result**
+
+After uploading the code, LCD1602 shows the IP address. Open the browser and enter the IP address, you can see the sensor values on the control page which refresh every 5 seconds.
+
+![df5f1561](./media/df5f1561.png)
+
+
+
+### **Project 34: ESP32 WiFi Comprehension**
+
+#### **1. Description**
+
+We combined the previous two wifi control projects to a page that can both control sensors and read values.
+
+#### **2. Wiring Diagram**
+
+The LED wiring is the same as Project 32, and the temperature and humidity sensor and photosensor wiring is the same as Project 33.
+
+![df3d150766e085a2df6c60cbdd329434](./media/df3d150766e085a2df6c60cbdd329434.jpg)
+
+#### **3. Test Code**
+
+Connect the ESP32 to WiFi and the LCD1602 shows ESP32 IP address. It not only controls the LED but also reads sensor data.
+
+```C
+#include <WiFi.h>
+#include <ESPAsyncWebServer.h>
+#include <xht11.h>
+#include <LiquidCrystal_I2C.h>
+
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+
+// WiFi configuration
+const char* ssid = "ChinaNet_2.4G";     // your WiFi name
+const char* password = "ChinaNet@233";  // your WiFi password
+
+// DHT11 configuration
+xht11 xht(26);                         //set DHT11 sensor pin to IO26
+unsigned char dat[] = { 0, 0, 0, 0 };  //Define an array to store temperature and humidity values
+int i = 0;
+
+// photoresistor analog pin
+#define LDR_PIN 34  // connect the photoresistor to GPIO 34
+
+// LED pins
+#define redLED_PIN 12
+#define yellowLED_PIN 13
+#define greenLED_PIN 14
+#define blueLED_PIN 15
+// LED state
+bool redLEDState = false;
+bool yellowLEDState = false;
+bool greenLEDState = false;
+bool blueLEDState = false;
+
+// Web server
+AsyncWebServer server(80);
+
+String generateHTML() {
+  String html = "<html><head><style>";
+
+  // basic format
+  html += "body { font-family: Arial, sans-serif; background-color: #f4f4f4; }";
+  html += "h2 { color: #333; }";
+  html += "div.sensor { background-color: #fff; padding: 20px; margin: 15px; border-radius: 10px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); }";
+  html += "div.sensor h3 { margin: 0; }";
+  html += "div.sensor p { font-size: 20px; color: #555; }";
+
+  // button format
+  html += "button { font-size: 30px; padding: 15px; margin: 10px; border: none; cursor: pointer; width: 200px; height: 100px; }";
+  html += "button.on { background-color: #4CAF50; color: white; }";   // color of LED on
+  html += "button.off { background-color: #f44336; color: white; }";  // color of LED off
+
+  html += "</style>";
+  html += "<meta http-equiv='refresh' content='5'>";  // Automatically refresh every 5 seconds
+  html += "</head><body>";
+
+  // temperature
+  html += "<h2>Sensor Data</h2>";
+
+  html += "<div class='sensor'>";
+  html += "<h3>Temperature</h3>";
+  html += "<p>" + String(dat[2]) + " &deg;C</p>";
+  html += "</div>";
+  // humidity
+  html += "<div class='sensor'>";
+  html += "<h3>Humidity</h3>";
+  html += "<p>" + String(dat[0]) + " %</p>";
+  html += "</div>";
+
+  // diaplay photoresistor resistance value
+  int lightValue = analogRead(LDR_PIN);  // photoresistor value
+  html += "<div class='sensor'>";
+  html += "<h3>Luminance</h3>";
+  html += "<p>" + String(lightValue) + "</p>";
+  html += "</div>";
+
+  // LED control button
+  html += "<h2>Control LEDs</h2>";
+  html += "<button id='btn0' class='" + String(redLEDState ? "on" : "off") + "' onclick='toggleLed(0)'>Red LED</button>";
+  html += "<button id='btn1' class='" + String(yellowLEDState ? "on" : "off") + "' onclick='toggleLed(1)'>Yellow LED</button>";
+  html += "<button id='btn2' class='" + String(greenLEDState ? "on" : "off") + "' onclick='toggleLed(2)'>Green LED</button>";
+  html += "<button id='btn3' class='" + String(blueLEDState ? "on" : "off") + "' onclick='toggleLed(3)'>Blue LED</button>";
+
+  // JavaScript control LED On/Off
+  html += "<script>";
+  html += "function toggleLed(led) {";
+  html += "  var xhr = new XMLHttpRequest();";
+  html += "  xhr.open('GET', '/toggle?led=' + led, true);";
+  html += "  xhr.send();";
+
+  html += "  var button = document.getElementById('btn' + led);";
+  html += "  if (button.classList.contains('off')) {";
+  html += "    button.classList.remove('off');";
+  html += "    button.classList.add('on');";
+  html += "  } else {";
+  html += "    button.classList.remove('on');";
+  html += "    button.classList.add('off');";
+  html += "  }";
+  html += "}";
+  html += "</script>";
+
+  html += "</body></html>";
+
+  return html;
+}
+
+void setup() {
+  // Initialize serial port
+  Serial.begin(115200);
+
+  lcd.init();  // initialize the lcd
+  lcd.backlight();
+  lcd.setCursor(0, 0);
+  lcd.print("IP:");
+
+  // WiFi connection
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    lcd.setCursor(i, 1);
+    lcd.print(".");
+    delay(500);
+    i++;
+    if (i > 15) {
+      i = 0;
+      lcd.setCursor(0, 1);
+      lcd.print("                ");
+    }
+  }
+  lcd.setCursor(0, 1);
+  lcd.print("                ");
+  lcd.setCursor(0, 1);
+  lcd.print(WiFi.localIP());
+
+  // Set LED pins to output
+  pinMode(redLED_PIN, OUTPUT);
+  pinMode(yellowLED_PIN, OUTPUT);
+  pinMode(greenLED_PIN, OUTPUT);
+  pinMode(blueLED_PIN, OUTPUT);
+
+  // Process Web requests
+  server.on("/", HTTP_GET, [](AsyncWebServerRequest* request) {
+    if (!xht.receive(dat)) {
+      Serial.println("sensor error");
+    }
+    String html = generateHTML();
+    request->send(200, "text/html", html);
+  });
+
+  // Control the end of the LED
+  server.on("/toggle", HTTP_GET, [](AsyncWebServerRequest* request) {
+    String led = request->getParam("led")->value();
+    int ledNum = led.toInt();
+    if (ledNum == 0) {
+      redLEDState = !redLEDState;
+      digitalWrite(redLED_PIN, redLEDState ? HIGH : LOW);  //  LED 1
+    } else if (ledNum == 1) {
+      yellowLEDState = !yellowLEDState;
+      digitalWrite(yellowLED_PIN, yellowLEDState ? HIGH : LOW);  //  LED 2
+    } else if (ledNum == 2) {
+      greenLEDState = !greenLEDState;
+      digitalWrite(greenLED_PIN, greenLEDState ? HIGH : LOW);  //  LED 3
+    } else if (ledNum == 3) {
+      blueLEDState = !blueLEDState;
+      digitalWrite(blueLED_PIN, blueLEDState ? HIGH : LOW);  //  LED 4
+    }
+    request->redirect("/");  // Go back to home page
+  });
+
+  // Start the Web server
+  server.begin();
+}
+
+void loop() {
+  // Read the temperature and humidity values and update the web page
+  if (!xht.receive(dat)) {
+    Serial.println("sensor error");
+  }
+    delay(2000);  // Refresh the page every 2 seconds
+}
+
+```
+
+#### **4. Test Result**
+
+After uploading the code, LCD1602 shows the IP address. Open the browser, enter the IP address and you will see the control page. 
+
+Pressing the button turns it to green and the corresponding LED lights up. Press it again, the button turns red, and the led goes off. The sensor values on the control page refresh every 5 seconds.
+
+![12344](./media/12344.png)
+

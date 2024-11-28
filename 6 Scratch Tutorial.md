@@ -1,20 +1,238 @@
 # Scratch Tutorial
 
-#### **Scratch Code file download**
+## Install Kidsblock
 
-Click on the link to download the Scratch code file:[Download-Scartch-Codes](./Scratch-Codes.zip)
+### Windows
+
+1.Download Kidsblock package: http://xiazai.keyesrobot.cn/KidsBlock.exe
+
+2.Click “KidsBlock Desktop.exe” ![k1](./media/k1.jpg)
+
+3.Tick “**Anyone who uses this computer(all users)**” and click “**Next**”.
+
+![img](./media/k2.jpg)
+
+4.Click “**Browse...**” to choose a path for the software (here we choose Disk C) and then “**Install**”.
+
+![k3](./media/k3.png)
+
+![k4](./media/k4.png)
+
+5.Click “Finish” and open Kidsblock.
+
+![5](./media/k5.png)
+
+6.If a warning interface pops up, just “**Allow access**”. 
+
+​	Main interface of Kidsblock:
+
+![6](./media/k6.png)
+
+
+
+### MacOS
+
+1.Download Kidsblock package: [https://xiazai.keyesrobot.cn/KidsBlock.dmg](https://xiazai.keyesrobot.cn/KidsBlock.dmg)
+
+![k7](./media/k7.png)
+
+2.After downloading, Click KidsBlock. Drag the icon of KidsBlock Desktop into Applications.
+
+![8](./media/k8.png)
+
+3.After installation, you can see the icon of KidsBlock.
+
+![k9](./media/k9.png)
+
+
+
+## Kidsblock
+
+(**Here we demonstrate on Windows, and it can be a reference for MacOS.**)
+
+### 1. Main Interface Functions 1
+
+![k10](./media/k10.png)
+
+### 2. Languages
+
+Click ![img](./media/k11.jpg) to choose “English” or “简体中文”: ![image-k12](./media/k12.png)
+
+### 3. Driver
+
+**NOTE: If the driver has already installed on your computer, please skip the following steps.**
+
+Click ![img](./media/k13.jpg) to choose “**Install driver**”.
+
+![k14](./media/k14.png)
+
+A. Welcome to the Device Driver Installation Wizard and click “**Next**”.
+
+![k15](./media/k15.png)
+
+B. “**Finish**”.
+
+![k16](./media/k16.png)
+
+C. “**Next**”
+
+![k17](./media/k17.png)
+
+D. “**Finish**”
+
+![k18](./media/k18.png)
+
+E. If a warning interface pops up, just “**Allow**”. And then click “**Install**”.
+
+![k19](./media/k19.png)
+
+F.“**Install**”
+
+G. “**Finish**”
+
+![k20](./media/k20.png)
+
+H. “**Extract**”
+
+![k21](./media/k21.png)
+
+I. “**Next**”
+
+![k22](./media/k22.png)
+
+J. Tick “**I accept this agreement**” and then “**Next**”.
+
+![k23](./media/k23.png)
+
+K. “**Finish**”
+
+![k24](./media/k24.png)
+
+L. “**INSTALL**”
+
+![k25](./media/k25.png)
+
+M. Wait for the completion of driver installing. And click “**OK**”.
+
+![k26](./media/k26.png)
+
+### 4. Development Board
+
+Click ![img](./media/k27.jpg) to choose a control board. We have integrated the board we need in this software: click “Kit” and find “ESP32 Inventor Starter kit” to “**Connect**”. After connecting, “**Go to Editor**”. 
+
+![](./media/k31.png)
+
+![](./media/k32.png)
+
+![](./media/k33.png)
+
+![img](./media/k27.jpg) changes into ![](./media/k29.png), and ![img](./media/k28.jpg) changes into ![](./media/k30.png). These means ESP32 board and COM port are both connected.
+
+![](./media/k34.png)
+
+### 5. Serial Port
+
+If the ESP32 board is connected but ![img](./media/k28.jpg) does not change into ![](./media/k35.png), we need to set a COM port manually. 
+
+Click ![img](./media/k28.jpg) and “**Connect**”. When you see "connected", the port is set.
+
+![](./media/k36.png)
+
+![](./media/k37.png)
+
+![](./media/k38.png)
+
+Disconnection: click ![](./media/k39.png) and “**Disconnect**”.
+
+![](./media/k40.png)
+
+![](./media/k41.png)
+
+### 6. Main Interface Functions 2
+
+![](./media/k42.jpg)
+
+### 7. Extensions
+
+**NOTE: All required modules are integrated in main board, so this section is for reference.**
+
+Extensions: ![img](./media/k43.jpg)
+
+Click ![img](./media/k43.jpg) to search and load sensors/modules. For instance, click “passive buzzer” ![img](./media/k44.jpg) and “**Not loaded**” changes into “**Loaded**”. Passive buzzer is added.
+
+![img](./media/k45.jpg)![img](./media/k46.png)   ![img](./media/k47.jpg)
+
+Click ![img](./media/k48.jpg) to back to editor, and you will see the Passive buzzer block.
+
+![img](./media/k49.jpg)
+
+If you want to remove it, enter ![img](./media/k43.jpg) and click ![img](./media/k44.jpg) again, and “Loaded” changes into “Not loaded”. That means this block is removed. 
+
+![img](./media/k47.jpg)![img](./media/k46.png)   ![img](./media/k45.jpg) 
+
+### 8. Code
+
+**Method 1:**
+
+Click the SB3 file you want to load. If you want to open ![](./media/k50.png), click it to directly load to the software. After that, connect to the board and port.
+
+![](./media/k51.png)
+
+**Method 2:**
+
+Open Kidsblock and click “**file**” to choose “**Load from your computer**”, open a file of .SB3, for example, ![](./media/k50.png).
+
+![](./media/k52.png)
+
+![](./media/k53.png)
+
+![](./media/k54.png)
+
+
+
+## Upload Code and Set Baud Rate
+
+### 1. Upload Code
+
+Load ![](./media/k50.png) into Kidsblock, and set the development board and port. Click ![image-20230425155752592](./media/k55.png).
+
+![](./media/k56.png)
+
+![](./media/k57.png)
+
+After uploading, the printing box of Kidsblock prints “Hello Keyestudio!”.
+
+![](./media/k58.png)
+
+### 2. Set Baud Rate
+
+Set printing box: ![](./media/k59.png)
+
+![](./media/k60.png): small
+
+![](./media/k61.png): large
+
+![](./media/k63.png): none
+
+If there is no output or it outputs garbled words, please click ![](./media/k62.png) to set baud rate first. The baud rate should be consistent with the code. Here it is 9600.
+
+![](./media/k64.png)
+
+
 
 ## Scratch Project
 
+### **Scratch Code Download**
+
+Click on the link to download the Scratch code file: [Download-Scratch-Codes](./Scratch-Codes.zip)
+
 ### **Project 1: LED Blinking**
-
-
 
 #### **1. Description**
 
 LED blinking is a simple project designed for starters. You only need to install an LED on Arduino board and upload the code on Arduino IDE. This project reinforces the learning of Arduino conceptual framework and using methods for starters. 
 
-###  **2. Working Principle**
+####  **2. Working Principle**
 
 ![](./media/led-1684551913165-2.png)
 
@@ -28,7 +246,7 @@ LED blinking is a simple project designed for starters. You only need to install
 
 ![1](./media/1.jpg)
 
-###  **4. Test Code**
+####  **4. Test Code**
 
 According to previous principles, we can control LED via levels of pins on the development board.
 
@@ -68,7 +286,7 @@ According to previous principles, we can control LED via levels of pins on the d
 
 
 
-###  **5. Test Result**
+####  **5. Test Result**
 
 After uploading the code and powering on, LED will be on for 1s and off for 1s.
 
@@ -2020,4 +2238,188 @@ The blocks are so many that we adopt "Make a Block" function. By doing this, num
 Click “My Block” to make a self-defined block, and you may build your own code blocks. 
 
 ![image-20230331145236585](./media/image-20230331145236585.png)
+
+
+
+### **Project 31: ESP32 WiFi**
+
+#### **1. Description**
+
+ESP32 boasts a built-in Wi-Fi and Bluetooth nodule that is widely used in Internet of Things (IoT). With this function, it can remotely control the data transmission through the wireless network. 
+
+In applications, ESP32 can be used as a client to connect to a Wi-Fi network, or as a hotspot to create its own network. Through these connections, ESP32 receives commands to control external devices, such as turning on/off lights and adjusting temperature. In the code, protocols like HTTP and MQTT are used to communicate with the server to achieve data sending and receiving, so as to remotely control and monitoring.
+
+#### **2. ESP32 wifi**
+
+ESP32 development board comes with built-in Wi-Fi (2.4G) and Bluetooth (4.2), which enable it to easily connect to Wi-Fi network and communicate with other devices in the network. You can display web pages in your browser via ESP32.
+
+![6-34-3-1](./media/6-34-3-1.png)
+
+- Base station mode (STA / Wi-Fi Client mode): ESP32 is connected to Wi-Fi hotspot (AP).
+- AP mode (Soft-AP / Wi-Fi hotspot mode): Wi-Fi device(s) is(are) connected to ESP32.
+- AP-STA mode: ESP32 is both Wi-Fi hotspot and a Wi-Fi device connected to another Wi-Fi.
+- These modes supports multiple security modes, including WPA, WPA2 and WEP.
+- It is able to scan Wi-Fi hotspot (active or passive)
+- It support promiscuous mode monitoring IEEE802.11 Wi-Fi packets.
+
+------
+
+For more wifi reference, please visit: https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/network/esp_wifi.html
+
+espressif official: https://www.espressif.com.cn/en/home
+
+![6-34-3-2](./media/6-34-3-2.png)
+
+#### **3. Cautions**
+
+1. The ESP32 can only connect to wifi at 2.4GHz frequency
+2. After connecting to wifi, ESP32 consumes much power. So only a computer USB port power supply may not meet the needs of ESP32, so an external power supply is required.
+3. The network of the wifi and the controlled device must belong to the same LAN, otherwise they cannot be connected. 
+4. Modify the `ssid` and `password` in the block ![image-20241127140906028](./media/image-20241127140906028.png) to your WiFi at 2.4GHz frequency.
+
+#### **4. Test Code**
+
+With the ESP32 WiFi, connect to network and display the IP address of the ESP32 on LCD1602.
+
+![sadsad](./media/sadsad.png)
+
+#### **5. Test Result**
+
+After uploading the code, LCD1602 shows the IP address of the wifi connected to ESP32.
+
+![sadad1](./media/sadad1.png)
+
+#### **6. Web Page Building**
+
+**Add an extension:**
+
+- Click ![st130](./media/st130-1732689417314-16.png) to add an extension.
+
+- Click Communication to choose “**Web Page Editing PRO**”.
+
+	![st131](./media/st131-1732689425375-18.png)
+
+Connect to the WiFi and set the name and passwords of your wifi in block.
+
+![image-20241127145458436](./media/image-20241127145458436.png)
+
+Display the IP address of the wifi on the OLED.
+
+![image-20241127145540573](./media/image-20241127145540573.png)
+
+Set up a web element named `temperature` in the unit of ℃.
+
+![image-20241127145652092](./media/image-20241127145652092.png)
+
+![st136-1](./media/st136-1.png)
+
+Add a button component named `LED`.
+
+![image-20241127150032199](./media/image-20241127150032199.png)
+
+![st141-1](./media/st141-1.png)
+
+**Complete code:**
+
+![LED-1732690866780](./media/LED-1732690866780.png)
+
+
+
+**Test result:**
+
+Connect your computer/mobile phone and ESP32 to the same wifi, and access the IP address shown on the LCD1602 and you will see the control page. 
+
+The network of the wifi and the controlled device must belong to the same LAN. It is best to connect to the same wifi.
+
+![image-20241127151452348](./media/image-20241127151452348.png)
+
+
+
+### **Project 32: ESP32 WiFi Control LED**
+
+#### **1. Description**
+
+We have learned how to use the ESP32 to connect to wifi and display the IP address on the LCD1602. Next we will learn to control the LED through wifi on a mobile phone or a computer, but they just need to be in the same LAN.
+
+#### **2. Wiring Diagram**
+
+![6](./media/6.jpg)
+
+#### **3. Test Code**
+
+The web page shows four LED control buttons. For instance, click the red LED button to enter its internal code:
+
+![image-20241128080718856](./media/image-20241128080718856.png)
+
+Tap red LED button for the first time, execute the code. Variable `redLEDState` initial value = 0: execute the code in `if` (assign `redLEDState` to 1 and LED on).
+
+Tap red LED button for the first time, execute the code. Now variable `redLEDState` = 1: execute the code in `else` (assign `redLEDState` to 0 and LED off).
+
+Through these operation, click the button to turn on LED, click again to turn it off.
+
+**Complete code:**
+
+![WiFi_controlled_LED](./media/WiFi_controlled_LED.png)
+
+
+
+#### **4. Test Result**
+
+After uploading the code, LCD1602 shows the IP address after connecting to wifi. Open the browser and enter the IP address, you will see the control page.
+
+Pressing the button turns it to green and the corresponding LED lights up. Press it again, the button turns grey, and the led goes off.
+
+![image-20241127141614047](./media/image-20241127141614047.png)
+
+
+
+### **Project 33: ESP32 WiFi Read Data**
+
+#### **1. Description**
+
+We learned how to control the led over ESP32 wifi and display the IP address on the LCD1602. Next, we read the sensor data over wifi and transmit it to the web page.
+
+#### **2. Wiring Diagram**
+
+![](./media/e8762f8.jpg)
+
+#### **3. Test Code**
+
+![WiFi_read_Data](./media/WiFi_read_Data.png)
+
+#### **4. Test Result**
+
+After uploading the code, LCD1602 shows the IP address. Open the browser and enter the IP address, you can see the sensor values on the control page which refresh per second.
+
+![image-20241127142023367](./media/image-20241127142023367.png)
+
+
+
+
+
+### **Project 34: ESP32 WiFi Comprehension**
+
+#### **1. Description**
+
+We combined the previous two wifi control projects to a page that can both control sensors and read values.
+
+#### **2. Wiring Diagram**
+
+The LED wiring is the same as Project 32, and the temperature and humidity sensor and photosensor wiring is the same as Project 33.
+
+![df3d150766e085a2df6c60cbdd329434](./media/df3d150766e085a2df6c60cbdd329434.jpg)
+
+#### **3. Test Code**
+
+Connect the ESP32 to WiFi and the LCD1602 shows ESP32 IP address. 
+
+![WiFi_Comprehensive_Tutorial](./media/WiFi_Comprehensive_Tutorial.png)
+
+#### **4. Test Result**
+
+After uploading the code, LCD1602 shows the IP address. Open the browser, enter the IP address and you will see the control page. 
+
+Pressing the button turns it to green and the corresponding LED lights up. Press it again, the button turns grey, and the led goes off. The sensor values on the control page refresh per second.
+
+![image-20241127164411747](./media/image-20241127164411747.png)
 
