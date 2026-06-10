@@ -1,110 +1,110 @@
-### プロジェクト5 レインボーアンビエントライト
+### Project 5 Regenboog Sfeerverlichting
 
-**1. 説明**
+**1. Beschrijving**
 
-2812RGB LEDはプログラム可能なカラフルで夢のような光であり、その色、明るさ、リズムを調整できます。このレインボーアンビエントライトは、動的な装飾として自由に使用できます。また、「音楽に合わせて踊る」ように制御することも可能です。重要なのは、アラームとしても改良できる点です。内蔵センサーが周囲環境を検知し、色、明るさ、リズムを変化させてユーザーに警告します。
+2812RGB LED is een programmeerbare kleurrijke dromerige lamp, waarvan kleur, helderheid en ritme verstelbaar zijn. Deze regenboog sfeerverlichting kan naar wens worden gebruikt als dynamische decoratie. Of je kunt het laten "dansen met muziek". Belangrijk is dat het kan worden verbeterd als alarm. De ingebouwde sensor detecteert de omgeving om gebruikers te waarschuwen door de kleur, helderheid en het ritme te veranderen.
 
-**2. 動作原理**
+**2. Werking**
 
 ![](media/A53.png)
 
-データプロトコルはシングルラインのリターン・トゥ・ゼロコード通信モードを採用しています。電源投入後にピクセルがリセットされると、DIN端子がコントローラーからのデータを受信します。最初に到着した24bitのデータは最初のピクセルによって抽出され、内部データレジスタに送られます。
+Het dataprotocol gebruikt een communicatiemodus van enkelvoudige lijn return-to-zero code. Nadat de pixel is gereset bij inschakeling, ontvangt de DIN-terminal data van de controller. De eerst binnenkomende 24bit data wordt door de eerste pixel uitgelezen en naar het interne dataregister gestuurd.
 
-残りのデータは増幅回路によって増幅され、DOUTポートを通じて次のカスケードされたピクセルに送信されます。  
-ピクセルを通過するごとに信号は24bitずつ減少します。
+De resterende data wordt versterkt door een versterkingscircuit en via de DOUT-poort doorgestuurd naar de volgende gekoppelde pixel.  
+Tijdens het doorgeven via pixels neemt het signaal elke keer met 24bit af.
 
-さらに、ピクセルは自動整形および転送技術を採用しているため、ピクセルのカスケード数は信号伝送速度によってのみ制限されます。
+Daarnaast gebruikt de pixel automatische vormgeving en doorstuurtechnologie, waardoor het aantal gekoppelde pixels alleen wordt beperkt door de signaaltransmissiesnelheid.
 
-**3. 配線図**
+**3. Aansluitschema**
 
 ![](media/A54.png)
 
-**4. テストコード**
+**4. Testcode**
 
-2812 RGBを点灯させ、その色を設定する方法を学びましょう。
+Laten we leren hoe we de 2812 RGB kunnen aansteken en de kleuren kunnen instellen.
 
-1. 2つのコードブロックをドラッグします。
+1. Sleep de twee codeblokken.
 
 ![](media/A55.png)
 
-2. 「RGB LED」パートから以下のブロックをドラッグし、ピンをIO15、LEDの数を6に設定します。
+2. Sleep het volgende blok uit het onderdeel "RGB LED" en stel de pin in op IO15 en het aantal LED's op 6.
 
 ![](media/A56.png)
 
-3. 「RGB LED」パートから以下のブロックをドラッグし、明るさを20に設定します。
+3. Sleep het volgende blok uit het onderdeel "RGB LED" en stel de helderheid in op 20.
 
 ![](media/A57.png)
 
-4. 以下のブロックをドラッグし、LEDの番号を0、1、2、3、4、5に設定し、それぞれ赤、緑、青、黄、紫、白の色を選択します。
+4. Sleep de volgende blokken en stel het aantal LED's in op 0, 1, 2, 3, 4 en 5, kies vervolgens rood, groen, blauw, geel, paars en wit als kleuren.
 
 ![](media/A58.png)
 
-5. 以下のブロックを追加します。
+5. Voeg het volgende blok toe.
 
 ![](media/A59.png)
 
-**完成コード：**
+**Volledige code:**
 
 ![](media/A60.png)
 
-**5. テスト結果**
+**5. Testresultaat**
 
-コードをアップロードし、配線を接続して電源を入れると、LEDが以下のように異なる色で点灯します。
+Na het uploaden van de code, het aansluiten van de bedrading en het inschakelen, zullen de LED's oplichten in verschillende kleuren, zoals hieronder weergegeven:
 
 ![](media/A61.png)
 
-**6. 知識拡張**
+**6. Kennisuitbreiding**
 
-この拡張プロジェクトでは、ミニライトショーを作りましょう！
+In dit uitbreidingsproject maken we een mini lichtshow!
 
-4つの「繰り返し」ブロックを入れ子にし、その中に「変数＋」を追加し、各ループの最後に対応する変数を0にクリアします。
+Nest vier "herhaal" blokken en voeg een "variabele +" toe in elk, en zet de corresponderende variabelen aan het einde van elke lus terug naar 0.
 
 ![](media/A62.png)
 
-上記の3つの変数を「RGB」ブロックに入れて色の値を制御し、リフレッシュモジュールを追加します。
+Plaats de bovenstaande drie variabelen in het "RGB" blok zodat deze kleurwaarden worden aangestuurd. Voeg daarna een verfrissingsmodule toe.
 
 ![](media/A63.png)
 
-RGBを「色を表示」ブロックに入れて色を表示し、表示するLEDを制御する変数itemを定義します。
+Plaats de RGB in een "toon kleur" blok om kleuren weer te geven. Definieer ook een variabele item om de weergegeven LED te regelen.
 
 ![](media/A64.png)
 
-foreverモジュールを使ってRGB LEDを制御し、0から5までサイクルして順に点灯させます。
+De "voor altijd" module wordt gebruikt om de RGB LED's te besturen, die zullen cyclus van 0-5 om geleidelijk elke lamp aan te steken.
 
 ![](media/A65.png)
 
-**完成コード**
+**Volledige code**
 
 ![](media/A66.png)
 
-**7. コード説明**
+**7. Code-uitleg**
 
-1. 2812 RGBの数を設定します。開発ボードのピンは複数の2812 RGB LEDを制御できるため、事前に数を設定し、接続されたピンを選択します。
+1. Stel het aantal 2812 RGB in. Een ontwikkelbord pin kan meerdere 2812 RGB LED's aansturen, dus we moeten het aantal vooraf instellen en de aangesloten pin selecteren.
 
 ![](media/A67.png)
 
-2. 2812 RGBの明るさを設定します。0〜255の範囲で明るさの値を入力し、255が最も明るいです。
+2. Stel de helderheid van 2812 RGB in. Voer een helderheidswaarde in tussen 0-255, waarbij 255 het helderst is.
 
 ![](media/A68.png)
 
-3. このブロックはすべての2812 RGBを消灯します。
+3. Dit blok schakelt alle 2812 RGB's uit.
 
 ![](media/A69.png)
 
-4. 2812 RGBの表示を制御します。ピンを選択した後、空欄に点灯させるLED番号と色を指定できます。例えば「0から0」は最初のLEDのみ点灯を意味します。コードをアップロードすると、最初のLEDが設定した色で点灯します。
+4. Bestuur de weergave van 2812 RGB's. We kunnen de velden invullen om de aan te steken LED en de kleur te regelen nadat de pin is geselecteerd. Bijvoorbeeld, "0 tot 0" betekent dat alleen de eerste LED oplicht. Na het uploaden van de code zal de eerste LED in de ingestelde kleur aan gaan.
 
-**注意：** 空欄には変数も入れられるため、ライトショーを作成可能です。
+**OPMERKING:** De twee velden kunnen ook met variabelen worden ingevuld, zodat een lichtshow kan worden gevormd.
 
 ![](media/A70.png)
 
-5. 2812 RGBの色を設定します。赤、緑、青の値で表示色を調整できます。このブロックは2812 RGBの色設定に追加可能です。
+5. Stel de kleur van 2812 RGB's in. De weergegeven kleur kan worden aangepast door de waarden van rood, groen en blauw. We kunnen dit blok toevoegen in de kleurinstellingen van 2812 RGB.
 
 ![](media/A71.png)
 
-6. 制御したいLED番号を入力し、色を選択することで単一の2812 RGB表示を制御できます。
+6. Hiermee kan een enkele 2812 RGB worden aangestuurd door het nummer van de LED in te voeren en de kleur te selecteren.
 
 ![](media/A72.png)
 
-7. 2812 RGBはリフレッシュ後に設定した色を表示します。
+7. De 2812 RGB toont de ingestelde kleur pas na verversen.
 
 ![](media/A73.png)

@@ -1,22 +1,22 @@
-### プロジェクト7 アクティブブザー
+### Project 7 Actieve Buzzer
 
-**1. 説明**
+**1. Beschrijving**
 
-アクティブブザーは、アラーム、リマインダー、またはエンターテインメントデバイスとして使用される部品で、信頼性の高い音を発します。さらに、高度に制御可能な音を発生させることができるため、プロジェクトをより面白くします。
+Een actieve buzzer is een component die wordt gebruikt als alarm, herinnering of als een vermakelijk apparaat, en levert een betrouwbare geluidssignaal. Bovendien maakt het mogelijk om zeer controleerbare geluiden te stimuleren, waardoor onze projecten interessanter worden.
 
-**2. 動作原理**
+**2. Werkingsprincipe**
 
 ![](media/A26.png)
 
-アクティブブザーはマルチバイブレータを内蔵しているため、直流電圧のみで音を出します。ブザーのピン1はVCCに接続され、ピン2はトライオードによって制御されます。トライオードのベース（ピン1）に高レベルが供給されると、コレクタ（ピン3）とエミッタ（ピン2）がGNDに接続され、ブザーが音を発します。
+Een actieve buzzer bevat een multivibrator, waardoor hij alleen geluid maakt via DC-spanning. Pin 1 van de buzzer is verbonden met VCC en pin 2 wordt aangestuurd door een triode. Wanneer een hoog niveau wordt aangeboden aan de basis (pin 1) van de triode, verbinden de collector (pin 3) en emitter (pin 2) zich met GND, en dan geeft de buzzer geluid.
 
-逆に、ベースに低レベルを供給すると、他のピンは切断されるため、ブザーは静かなままになります。
+Omgekeerd, als we een laag niveau aan de basis geven, worden de overige pinnen losgekoppeld, waardoor de buzzer stil blijft.
 
-**3. 配線図**
+**3. Aansluitschema**
 
 ![](media/A27.png)
 
-**4. テストコード**
+**4. Testcode**
 
 ```
  /*
@@ -40,6 +40,6 @@ void loop()
 }
 ```
 
-**5. テスト結果**
+**5. Testresultaat**
 
-コードをアップロードして電源を入れると、ブザーは1秒間音を出し、1秒間静かになります。
+Na het uploaden van de code en het inschakelen, geeft de buzzer 1 seconde geluid en blijft daarna 1 seconde stil.

@@ -1,77 +1,77 @@
-### プロジェクト25 超音波距離計
+### Project 25 Ultrasone Afstandsmeter
 
-**1. 説明**
+**1. Beschrijving**
 
-この超音波距離計は、音波を発信し、そのエコーを受信することで障害物までの距離を測定します。つまり、距離は即時の値ではなく、発信と受信の時間差を理論的に計算して得られる観測値です。
+Deze ultrasone afstandsmeter meet de afstand van obstakels door geluidsgolven uit te zenden en vervolgens de echo te ontvangen. Met andere woorden, de afstand is geen directe waarde, maar een waargenomen waarde door een theoretische berekening van het tijdsverschil tussen zender en ontvanger.
 
-超音波は物体の形状検出、自動ドアの設置、流速や圧力の推定に利用できます。
+Ultrasoon kan de vorm van objecten detecteren, automatische deuren aansturen en de stroomsnelheid en druk inschatten.
 
-さらに、コンピュータとの連携も可能です。そのため、測定値はArduinoボードを介してコンピュータに送信できます。
+Bovendien ondersteunt het samenwerking met computers. Hierdoor kan de gemeten waarde via een Arduino-board naar computers worden verzonden.
 
-日常生活では、モーター、サーボ、LEDだけでなく、自動航行、制御、セキュリティ監視システムなどにも広く使われています。
+In het dagelijks leven wordt het veel gebruikt voor motoren, servo’s en LED’s evenals systemen (automatische navigatie-, controle- en beveiligingsmonitoringsystemen).
 
-**2. 動作原理**
+**2. Werkingsprincipe**
 
 ![](media/B91.png)
 
-ご存知の通り、超音波は高周波の人間には聞こえない音波信号の一種です。コウモリのように、このモジュールは波の発信とエコー受信の時間差を計算して障害物までの距離を測定します。
+Zoals we allemaal weten, is ultrasoon een soort onhoorbare geluidsgolf met een hoge frequentie. Vergelijkbaar met een vleermuis meet deze module de afstand van obstakels door het tijdsverschil te berekenen tussen het uitzenden van de golf en het ontvangen van de echo.
 
-- **最大距離:** 3M
+- **Maximale afstand:** 3M
 
-- **最小距離:** 5cm
+- **Minimale afstand:** 5cm
 
-- **検出角度:** ≤15°
+- **Detectiehoek:** ≤15°
 
-**3. 配線図**
+**3. Aansluitschema**
 
 ![](media/B92.png)
 
-**4. テストコード**
+**4. Testcode**
 
-「forever」ブロック内に2つの「serial print」ブロックを作成し、「Ultrasonic」から「read distance」ブロックをドラッグします。trigピンをIO13、echoピンをIO14に設定し、単位はcmにします。0.5秒の遅延を忘れないでください。
+In het "forever" blok, bouw twee "serial print" blokken en sleep een "read distance" blok uit “Ultrasonic”. Stel de trig pin in op IO13 en de echo pin op IO14, beide in cm. Vergeet niet een vertraging van 0,5s toe te voegen.
 
 ![](media/B93.png)
 
-**5. テスト結果**
+**5. Testresultaat**
 
-配線を接続しコードをアップロードした後、シリアルモニターを開きボーレートを9600に設定すると、シリアルポートが距離の値を出力し始めます。
+Na het aansluiten van de bedrading en het uploaden van de code, open je de seriële monitor en stel je de baudrate in op 9600. De seriële poort begint dan de afstandswaarde te printen.
 
 ![](media/B94.png)
 
-**6. 知識拡張**
+**6. Kennisuitbreiding**
 
-距離計を作ってみましょう。
+Laten we een afstandsmeter maken.
 
-LCD 1602に文字を表示します。プログラムでは(3,0)に「Keyestudio」、(0,1)に「distance:」を表示し、(9,1)に距離の値を表示します。
+We tonen tekens op een LCD 1602. Programmeer om "Keyestudio" te tonen op (3,0) en “distance:” op (0,1) gevolgd door de afstandswaarde op (9,1).
 
-値が100（または10）未満の場合、3桁目（または2桁目）の残りが残ることがあります。したがって、特定の条件を判定するために「if」文が必要です。
+Wanneer de waarde kleiner is dan 100 (of 10), blijft er een rest van het derde (of het tweede) cijfer zichtbaar. Daarom is een "if" controle nodig om een bepaalde conditie te bepalen.
 
-**配線図：**
+**Aansluitschema：**
 
 ![](media/B95.png)
 
-**コード：**
+**Code：**
 
-1. 基本ブロックを2つドラッグします。
+1. Sleep de twee basisblokken.
 
-2. 「LCD」でLCDを初期化します。「LCD print」ブロックをドラッグし、文字列「Keyestudio」を追加します（この表示は固定なので「forever」ブロックの外に置いても構いません）。「variable」ブロックを追加し、型をint、名前を「distance」、初期値を0に設定します。
+2. Initialiseer in "LCD" het LCD. Sleep een “LCD print” blok en voeg de tekenreeks “Keyestudio” toe (dit kan ook buiten het "forever" blok geplaatst worden omdat deze weergave vast is). Voeg een "variable" blok toe, stel het type in op int en noem het "distance" met een initiële waarde van 0.
 
 ![](media/B96.png)
 
-3. 読み取った距離の値を変数「distance」に代入します。LCDに「Distance：」を表示し、その後に距離の値を表示します（前に表示する文字数を計算してカーソル位置を設定する必要があります）。
+3. Ken de gelezen afstandswaarde toe aan de variabele "distance". Stel het LCD in om “Distance：” te printen gevolgd door de afstandswaarde (en we moeten de eerder weergegeven tekens vooraf berekenen om de cursor erachter te plaatsen).
 
 ![](media/B97.png)
 
-4. 表示桁数が減ったときに残った表示をクリアするブロックを作成します。まず距離が100（または10）未満かどうかを判定し、該当する場合は3桁目（または2桁目）の残りにスペースを印刷して前の表示を消します。最後に0.5秒の遅延を追加するのを忘れないでください。
+4. Bouw een "clear display residue" blok wanneer het aantal weergegeven cijfers afneemt. We gebruiken eerst een conditie om te controleren of de afstand kleiner is dan 100 (of 10). Als dat zo is, wordt er een spatie geprint op de rest van het derde (of tweede) cijfer om de vorige weergave te wissen. Vergeet tot slot niet een vertraging van 0,5s toe te voegen.
 
 ![](media/B98.png)
 
-**完成コード:**
+**Volledige code:**
 
 ![](media/B99.png)
 
-**7. コード説明**
+**7. Code-uitleg**
 
-trigピンとechoピンを設定した後、距離を読み取ります。表示される値の単位は任意で（cmまたはinch）選択可能です。
+Lees de afstand uit nadat de trig pin en echo pin zijn ingesteld. De eenheid van de weergegeven waarde is optioneel (cm of inch).
 
 ![](media/B100.png)

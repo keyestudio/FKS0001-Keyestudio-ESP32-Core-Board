@@ -1,24 +1,24 @@
-### プロジェクト5 レインボーアンビエントライト
+### Project 5 Rainbow Ambient Light
 
-**1. 説明**
+**1. Beschrijving**
 
-Arduino 2812RGB LEDは、色、明るさ、リズムを調整可能なプログラム可能なカラフルで夢のようなライトです。このレインボーアンビエントライトは、動的な装飾として自由に使用できます。また、「音楽に合わせて踊る」ように制御することも可能です。重要なのは、アラームとしても改良できる点です。内蔵センサーが周囲環境を検知し、色、明るさ、リズムを変化させてユーザーに警告します。
+Arduino 2812RGB LED is een programmeerbare kleurrijke dromerige lichtbron, waarvan kleur, helderheid en ritme verstelbaar zijn. Dit regenboog sfeerverlichting kan naar wens worden gebruikt als dynamische decoratie. Of je kunt het laten "dansen met muziek". Belangrijk is dat het kan worden verbeterd als alarm. De ingebouwde sensor detecteert de omgeving om gebruikers te waarschuwen door kleur, helderheid en ritme te veranderen.
 
-**2. 動作原理**
+**2. Werking**
 
 ![](media/A22.png)
 
-データプロトコルは、単一線のリターン・トゥ・ゼロコードの通信モードを採用しています。電源投入時にピクセルがリセットされると、DIN端子がコントローラーからデータを受信します。最初に到着した24ビットのデータは最初のピクセルによって抽出され、内部データレジスタに送られます。
+Het dataprotocol gebruikt een communicatiemodus van single-line return-to-zero code. Nadat de pixel is gereset bij inschakeling, ontvangt de DIN-terminal data van de controller. De eerst binnenkomende 24bit data wordt door de eerste pixel uitgelezen en naar het interne dataregister gestuurd.
 
-残りのデータは増幅回路によって増幅され、DOUTポートを通じて次のカスケードされたピクセルに送信されます。ピクセルを通過するごとに信号は24ビットずつ減少します。
+De resterende data wordt versterkt door een versterkingscircuit en via de DOUT-poort doorgestuurd naar de volgende gekoppelde pixel. Bij doorgifte via pixels neemt het signaal telkens met 24bit af.
 
-さらに、ピクセルは自動整形および転送技術を採用しているため、ピクセルのカスケード数は信号伝送速度によってのみ制限されます。
+Daarnaast gebruikt de pixel automatische vormgeving en doorstuurtechnologie, waardoor het aantal gekoppelde pixels alleen wordt beperkt door de signaaltransmissiesnelheid.
 
-**3. 配線図**
+**3. Aansluitschema**
 
 ![](media/A23.png)
 
-**4. テストコード**
+**4. Testcode**
 
 ```
 /*
@@ -51,22 +51,22 @@ void loop()
 }
 ```
 
-**5. テスト結果**
+**5. Testresultaat**
 
-コードをアップロードして電源を入れると、LEDが異なる色で点灯します。
+Na het uploaden van de code en inschakelen, zal de LED oplichten in verschillende kleuren.
 
-左から右へ：
+Van links naar rechts:
 
-- 1番目のRGB LEDは赤色
-- 2番目のRGB LEDは緑色
-- 3番目のRGB LEDは青色
-- 4番目のRGB LEDは黄色
-- 5番目のRGB LEDは紫色
-- 6番目のRGB LEDは白色
+- De eerste RGB LED is rood  
+- De tweede RGB LED is groen  
+- De derde RGB LED is blauw  
+- De vierde RGB LED is geel  
+- De vijfde RGB LED is paars  
+- De zesde RGB LED is wit  
 
 ![](media/A24.png)
 
-**6. 拡張コード**
+**6. Uitgebreide code**
 
 ```
 /*
@@ -205,6 +205,6 @@ uint32_t Wheel(byte WheelPos)
 }
 ```
 
-**7. テスト結果**
+**7. Testresultaat**
 
-コードをアップロードして電源を入れると、LEDがさまざまな色で点灯し、ライトショーを行います。
+Na het uploaden van de code en inschakelen, zal de LED oplichten in verschillende kleuren en een lichtshow geven.

@@ -1,104 +1,104 @@
-### プロジェクト29 IRリモコン制御
+### Project 29 IR Afstandsbediening
 
-**1. 説明**
+**1. Beschrijving**
 
-IRリモコンはIR信号を使ってLEDを制御します。これにより、LEDの制御プロセスが大幅に簡素化されます。
+De IR-afstandsbediening gebruikt IR-signalen om een LED te bedienen, wat het proces van het aansturen van een LED aanzienlijk vereenvoudigt.
 
-**2. 動作原理**
+**2. Werking**
 
 ![](media/B113.png)
 
-このプロジェクトでは、約38Kのキャリア周波数を変調に使用することが多いです。
+In dit project gebruiken we vaak een draaggolf van ongeveer 38K voor modulatie.
 
-IRリモコンシステムは変調、送信、受信を含みます。データを変調して送信することで、伝送効率が向上し、消費電力が削減されます。
+Het IR-afstandsbedieningssysteem omvat modulatie, uitzenden en ontvangen. Het verzendt data door modulatie, wat de transmissie-efficiëntie verbetert en het energieverbruik vermindert.
 
-一般的に、キャリア変調の周波数は30kHz～60kHzの範囲内（通常は38kHz）です。矩形波のデューティ比は1/3で、下図のように送信側の455kHz水晶発振器によって決まります。  
-この端の水晶発振器には整数分周が必須で、周波数係数は通常12と評価されます。したがって、455kHz÷12 ≈ 37.9kHz ≈ 38kHzとなります。
+Over het algemeen ligt de frequentie van de draaggolfmodulatie tussen 30kHz en 60kHz (meestal 38kHz). De duty cycle van de vierkante golf is 1/3, zoals hieronder weergegeven, wat wordt bepaald door de 455kHz kristaloscillator aan de zendzijde.  
+Een gehele frequentiedeling is essentieel voor de kristaloscillator aan deze kant, en de frequentiefactor is meestal 12. Daarom is 455kHz ÷ 12 ≈ 37,9kHz ≈ 38kHz.
 
-38kHzキャリア（完全）送信図：
+38kHz draaggolf (volledig) zenddiagram:
 
 ![](media/B114.jpg)
 
-- **キャリア周波数:** 38kHz
+- **Draaggolffrequentie:** 38kHz
 
-- **波長:** 940nm
+- **Golflengte:** 940nm
 
-- **受信角度:** 90°
+- **Ontvangshoek:** 90°
 
-- **制御距離:** 6m
+- **Bedieningsafstand:** 6M
 
-**リモコンボタンの回路図：**
+**Schema van afstandsbedieningsknoppen:**
 
 ![](media/B115.png)
 
-**3. 配線図**
+**3. Aansluitschema**
 
 ![](media/B116.png)
 
-**4. テストコード**
+**4. Testcode**
 
-1. 基本ブロックを2つドラッグします。
+1. Sleep de twee basisblokken.
 
-2. 「IR Remote」から「IR remote init」ブロックを見つけてドラッグし、ピンをIO19に設定します。「serial」から「baud rate」ブロックを追加し、9600に設定します。
+2. Zoek en sleep het blok "IR remote init" uit “IR Remote” en stel de pin in op IO19. Voeg een "baud rate" blok toe uit "serial" en stel deze in op 9600.
 
-![](media/B117.png)
+![](media/B117.png)、
 
-3. 「if」ブロックをドラッグし、その条件に「Received data」を設定します。IRモジュールがデータを受信した時のみ、「if」内のコードブロックが実行されます。
+3. Sleep een "if" blok en vul de voorwaarde met "Received data". Alleen wanneer de IR-module data ontvangt, worden de codeblokken binnen "if" uitgevoerd.
 
 ![](media/B118.png)
 
-4. もう一つ「if」ブロックをドラッグし、条件を「Read the data ＞ 0」に設定します。この条件が満たされた場合のみ、シリアルポートがデータの出力を開始します。
+4. Sleep nog een "if" blok en stel de voorwaarde in op "Read the data ＞ 0". Alleen wanneer aan deze voorwaarde wordt voldaan, begint de seriële poort met het afdrukken van data.
 
-   このセンサーは非常に高速に動作するため、制御ボタンを押している間にコードが2回以上実行されることがあります。しかし、同じコマンドの2回目は0の値を送信するため、重複を避けるために「＞」ブロックが必要です。
+   Deze sensor werkt zo snel dat de code mogelijk twee keer of vaker wordt uitgevoerd terwijl je de bedieningsknoppen indrukt. De tweede keer dat hetzelfde commando wordt verzonden, wordt echter een waarde van 0 uitgezonden, dus een ">" blok is noodzakelijk om duplicatie te voorkomen.
 
 ![](media/B119.png)
 
-5. 「then」の後に「serial print」ブロックを追加し、「IR remote」モジュールから読み取ったデータを「warp」モードで出力するよう設定します。
+5. Voeg een "serial print" blok toe na "then". Stel in om de gelezen data van de "IR remote" module af te drukken in de modus "warp".
 
 ![](media/B120.png)
 
-6. 最後に、実行後にデータをリフレッシュすることを忘れないでください。
+6. Vergeet tot slot niet om de data te verversen na uitvoering.
 
 ![](media/B121.png)
 
-**完成コード：**
+**Volledige code:**
 
 ![](media/B122.png)
 
-**5. テスト結果**
+**5. Testresultaat**
 
-配線を接続しコードをアップロードした後、シリアルモニターを開き、ボーレートを9600に設定します。リモコンのボタンを押すと、16進数の値が表示されます。
+Na het aansluiten van de bedrading en het uploaden van de code, open je de seriële monitor en stel je de baudrate in op 9600. Druk op de knop van de afstandsbediening en je ziet de waarde in hexadecimale notatie.
 
 ![](media/B123.png)
 
-**6. 拡張コード**
+**6. Uitbreidingscode**
 
-この拡張コードでは、IRリモコンスイッチで制御されるライトを作成します。OKボタンを押すとLEDが点灯し、再度押すと消灯します。
+In deze uitbreidingscode maken we een lamp die wordt bediend door een IR-afstandsbedieningsschakelaar. Druk op OK om de LED aan te zetten en druk nogmaals om deze uit te schakelen.
 
-この繰り返し操作を実現するために、変数「item」がコード全体で重要です。初回はitem = 0なので、「else」内のコードが実行され1に再代入されます。2回目はitem = 1なので、「if」ブロックが実行され0に再代入されます。
+Om deze herhaalbare werking te realiseren, is de variabele "item" essentieel in de hele code. De eerste keer is item = 0, zodat de code in "else" wordt uitgevoerd om 1 als nieuwe waarde toe te wijzen. De tweede keer, wanneer item = 1 is, wordt het "if" blok uitgevoerd om deze afwisselend weer op 0 te zetten.
 
-**配線図：**
+**Aansluitschema:**
 
 ![](media/B124.png)
 
-**コード：**
+**Code:**
 
 ![](media/B125.png)
 
-**7. コード説明**
+**7. Code-uitleg**
 
-1. 受信ピンを設定した後、IRリモコンモジュールを初期化します。
+1. Initialiseer de IR remote module na het instellen van de ontvangpin.
 
 ![](media/B126.png)
 
-2. センサーがデータを受信したかどうかを判定します。受信していれば、関連するコードブロックが実行されます。
+2. Controleer of de sensor data heeft ontvangen. Zo ja, worden de gerelateerde codeblokken uitgevoerd.
 
 ![](media/B127.png)
 
-3. IRリモコンから受信したデータを読み取ります。
+3. Lees de ontvangen data van de IR-afstandsbediening.
 
 ![](media/B128.png)
 
-4. 受信処理が完了した後、受信データをリフレッシュします。
+4. Vernieuw de ontvangen data na elke volledige ontvangstuitvoering.
 
 ![](media/B129.png)

@@ -1,63 +1,63 @@
-### プロジェクト17 侵入警報
+### Project 17 Inbraakalarm
 
-**1. 説明**
+**1. Beschrijving**
 
-この侵入警報システムは、住宅や小規模オフィス内の侵入者を検知し、ホストに警告して適時対策を取れるようにします。
+Dit inbraakalarmsysteem kan indringers in huizen of kleine kantoren detecteren en de bewoner waarschuwen om tijdig maatregelen te nemen.
 
-本プロジェクトでは、センサーが特定のエリアを監視します。Arduinoボード上のデバイスが、そのゾーンで動きを検知するとLEDを点灯させ、ブザーを鳴らして注意を促します。さらに、感度は調整可能で、より正確な検出が可能です。
+In dit project bewaakt de sensor een bepaald gebied. Een apparaat op de Arduino-board zal een LED laten oplichten en een buzzer laten piepen als er beweging wordt gedetecteerd in die zone. Bovendien is de gevoeligheid instelbaar voor een nauwkeurigere detectie.
 
-実際、このモジュールは実用性が高く、設置が簡単でコストも低いです。住宅やオフィスだけでなく、工場、倉庫、市場などにも適用でき、財産の安全を大いに守ります。
+In feite kenmerkt deze module zich door praktische bruikbaarheid, eenvoudige installatie en lage kosten. Naast thuis en kantoor is het ook toepasbaar in fabrieken, magazijnen en markten, wat in grote mate de eigendomsveiligheid beschermt.
 
-**2. 動作原理**
+**2. Werking**
 
 ![](media/B14.png)
 
-人体（37°C）は常に波長10μmの赤外線を放射しており、これはセンサーが検出する波長に近いです。
+Het menselijk lichaam (37°C) zendt altijd infraroodstraling uit met een golflengte van 10μm, wat ongeveer overeenkomt met die van de sensor.
 
-このため、このモジュールは人体の動きを検知できます。動きがあるとPIRセンサーは約3秒間ハイレベルを出力し、その後ローに戻ります。
+Hierdoor kan deze module menselijke beweging detecteren. Als er beweging is, geeft de PIR-sensor ongeveer 3 seconden een hoog signaal en daarna een laag signaal.
 
-**3. 配線図**
+**3. Aansluitschema**
 
 ![](media/B15.png)
 
-**4. テストコード**
+**4. Testcode**
 
-1. 2つの基本ブロックを追加し、その間に「Serial」から「baud rate」ブロックをドラッグします。シリアルのボーレートを9600に設定します。
+1. Voeg de twee basisblokken toe en sleep een "baud rate" blok van “Serial” ertussen. Stel de seriële baudrate in op 9600.
 
 ![](media/B16.png)
 
-2. 「if else」ブロックを追加します。六角形のボックスに「read PIR motion sensor」ブロックを入れ、インターフェースをIO5に設定します。これで人体の動きを判定します。「then」と「else」の後にそれぞれ「serial print」ブロックを2つ追加し、両方のモードを「warp」に設定します。条件が満たされた場合は「Someone Invaded」と表示し、そうでなければ「No one」と表示します。最後に1秒の遅延時間を追加します。
+2. Voeg een "if else" blok toe. Plaats een "read PIR motion sensor" blok in het zeshoekige vak en stel de interface in op IO5, zodat het kan bepalen of er menselijke beweging is. Voeg twee "serial print" blokken toe na "then" en "else" en stel beide modi in op "warp". Als de voorwaarde waar is, print dan “Someone Invaded”. Anders print “No one”, en voeg daarna een vertraging van 1s toe.
 
 ![](media/B17.png)
 
-**完成コード：**
+**Volledige code:**
 
 ![](media/B18.png)
 
-**5. テスト結果**
+**5. Testresultaat**
 
-配線を接続しコードをアップロードした後、シリアルモニターを開きボーレートを9600に設定します。センサーが動きを検知するとシリアルポートに「Someone Invaded」と表示され、動きがなければ「No One」と表示されます。
+Na het aansluiten van de bedrading en het uploaden van de code, open je de seriële monitor en stel je de baudrate in op 9600. Wanneer de sensor beweging detecteert, print de seriële poort "Someone Invaded", anders print het “No One”.
 
 ![](media/B19.png)
 
-**6. 拡張コード**
+**6. Uitbreidingscode**
 
-侵入警報を作りましょう。PIRセンサーが人体を検知するとLEDが点灯し、ブザーが鳴ります。逆に、LEDは消灯しブザーは静かになります。
+Laten we een inbraakalarm maken. Wanneer de PIR-sensor een mens detecteert, gaat de LED aan en geeft de buzzer geluid. Anders gaat de LED uit en blijft de buzzer stil.
 
-**フローチャート：**
+**Stroomschema：**
 
 ![](media/B20.png)
 
-**配線図：**
+**Aansluitschema：**
 
 ![](media/B21.png)
 
-**コード：**
+**Code：**
 
 ![](media/B22.png)
 
-**7. コード説明**
+**7. Code-uitleg**
 
-PIRが人体の動きを感知するとハイレベルを出力します。したがって、このセンサーに接続された開発ボードのピンを読み取ることで動きの有無を判断できます。
+Wanneer de PIR menselijke bewegingen detecteert, geeft deze een hoog signaal. Daarom kunnen we bepalen of er beweging is door de pin van de ontwikkelboard die met deze sensor is verbonden uit te lezen.
 
 ![](media/B23.png)

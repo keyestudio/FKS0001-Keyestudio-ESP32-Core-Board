@@ -1,77 +1,77 @@
-### プロジェクト1 LED点滅
+### Project 1 LED Knipperen
 
-**1. 説明**
+**1. Beschrijving**
 
-LED点滅は初心者向けのシンプルなプロジェクトです。ArduinoボードにLEDを取り付け、Arduino IDEでコードをアップロードするだけで完成します。このプロジェクトはArduinoの概念的な枠組みと使用方法を初心者に強化することを目的としています。
+LED knipperen is een eenvoudig project ontworpen voor beginners. Je hoeft alleen een LED op de Arduino board te installeren en de code te uploaden via de Arduino IDE. Dit project versterkt het begrip van het Arduino conceptuele kader en het gebruik van methoden voor beginners.
 
-**2. 動作原理**
+**2. Werking**
 
 ![](media/A7.png)
 
-**LED:** 一般的に、出力電流が制限されたIOポートではLEDの明るさが低くなることがあるため、回路にはスイッチとしてNPNトランジスタ(Q2)が使用されています。この場合、トランジスタのベース(pin 1)が高レベルのときにLEDが点灯します。逆に、ベースが低レベルのときはLEDは消灯します。
+**LED:** Over het algemeen kan de beperkte uitgangsstroom van IO-poorten zorgen voor een lage helderheid van de LED, daarom wordt een NPN-transistor (Q2) in het circuit gebruikt als schakelaar. In dit geval zal de LED oplichten als de basis(pin 1) van de transistor op een hoog niveau staat. Omgekeerd gaat de LED uit wanneer de basis laag is.
 
-**トランジスタスイッチ:** 簡単に言うと、ベース(pin 1)が高レベルのときにLEDが点灯します。同時に、コレクタ(pin 3)とエミッタ(pin 2)が接続され、VCCから電流制限抵抗を経てLEDを通り、最終的にGNDに流れる回路が形成されます。逆に、ベースが低レベルのときはコレクタとエミッタが切断され、LEDは消灯します。
+**Transistor schakelaar:** Kort gezegd, de LED licht op wanneer de basis(pin 1) op een hoog niveau staat. Tegelijkertijd zijn de collector(pin 3) en emitter(pin 2) verbonden, en vervolgens gaat VCC via een stroombegrenzende weerstand naar de LED en uiteindelijk naar GND, wat een circuit vormt. Omgekeerd gaat de LED uit wanneer de basis laag is. In dit geval zijn de collector en emitter niet verbonden en gaat de LED uit.
 
-**3. 配線図**
+**3. Aansluitschema**
 
 ![](media/A8.png)
 
-**4. テストコード**
+**4. Testcode**
 
-前述の原理に従い、開発ボードのピンのレベルでLEDを制御できます。
+Volgens de bovenstaande principes kunnen we de LED aansturen via de niveaus van de pinnen op de ontwikkelboard.
 
-1. 「Events」パートから以下のブロックをドラッグします。
+1. Sleep het volgende blok in het onderdeel "Events".
 
 ![](media/A9.png)
 
-2. 「Control」パートから以下のブロックをドラッグします。
+2. Sleep het volgende blok in het onderdeel "Control".
 
 ![](media/A10.png)
 
-3. 「Pins」パートから以下のブロックをドラッグし、IO5ピンを出力に設定します。
+3. Sleep het volgende blok in het onderdeel "Pins" en stel de IO5 pin in als output.
 
    ![](media/A11.png)
 
-4. 「LED」パートから以下のブロックをドラッグし、IO5ピンをHIGHに設定します。
+4. Sleep het volgende blok in het onderdeel "LED" en stel de IO5 pin in op HIGH.
 
 ![](media/A12.png)
 
-5. 「Control」パートから以下のブロックをドラッグします。
+5. Sleep het volgende blok in het onderdeel "Control".
 
 ![](media/A13.png)
 
-6. 以下のブロックをドラッグし、IO5ピンをLOWに設定します。
+6. Sleep de volgende blokken en stel de IO5 pin in op LOW.
 
 ![](media/A14.png)
 
-**完成コード：**
+**Volledige code：**
 
 ![](media/A15.png)
 
-**5. テスト結果**
+**5. Testresultaat**
 
-コードをアップロードして電源を入れると、LEDは1秒間点灯し、1秒間消灯します。
+Na het uploaden van de code en het inschakelen van de voeding zal de LED 1 seconde aan zijn en 1 seconde uit.
 
-**6. コード説明**
+**6. Code-uitleg**
 
-<p style="color:red;">注意：LEDモジュールを使用する際はピンモードを「出力(output)」に設定する必要があります。<p>
+<p style="color:red;">Opmerking: De pinmodus moet worden ingesteld op "output" bij gebruik van de LED-module.<p>
 
-1. 以下のブロックが存在しないとコードブロックは実行されません。
+1. Codeblokken worden niet uitgevoerd als het volgende blok niet aanwezig is.
 
 ![](media/A16.png)
 
-2. 以下のブロック内のコードブロックはループで実行されます。
+2. Codeblokken in het volgende blok worden in een lus uitgevoerd.
 
 ![](media/A17.png)
 
-3. ピンモードを設定するモジュールです（LEDやブザーは「出力(output)」モード、センサーモジュールは「入力(input)」モードで制御します）。
+3. Dit is een module die wordt gebruikt om de pinmodus in te stellen (voor het aansturen van LED en buzzer op “output” modus, en het uitlezen van sensormodules op “input”).
 
 ![](media/A18.png)
 
-4. ピンとレベル（"HIGH"と"LOW"）を設定するモジュールです。
+4. Dit is een module die wordt gebruikt om de pin en de niveaus ("HIGH" en "LOW") in te stellen.
 
 ![](media/A19.png)
 
-5. 遅延時間を設定するモジュールです。
+5. Dit is een module die wordt gebruikt om de vertragingstijd in te stellen.
 
 ![](media/A20.png)

@@ -1,91 +1,91 @@
-### プロジェクト10 ドットマトリックスディスプレイ
+### Project 10 Dot Matrix Display
 
-**1. 説明**
+**1. Beschrijving**
 
-このモジュールは、各行および各列に1つずつの制御ピンを持つ8x8のLEDドットマトリックスで構成されており、LEDの明るさを調整できます。Arduinoボードと接続することで、Arduinoプログラミングを通じてLEDの明るさを制御し、文字や図形を表示します。この方法により、簡単な文字、数字、図形を表示することが可能です。また、ゲーム機やスクリーンにも応用できます。
+Deze module bestaat uit een 8x8 LED dot matrix met één besturingspin voor elke rij en kolom om de helderheid van de LED aan te passen. Door verbinding te maken met een Arduino board, wordt de helderheid van de LED geregeld om karakters en figuren weer te geven via Arduino-programmering. Op deze manier kunnen eenvoudige karakters, cijfers en figuren worden weergegeven. Het kan ook worden toegepast in spelmachines of schermen.
 
 ![](media/A109.png)
 
-MAX7219はSPI通信を持つICで、8x8ドットマトリックスの制御に使用できます。MAX7219のSPI通信は当社のライブラリに統合されており、直接呼び出すことができます。
+MAX7219 is een IC met SPI-communicatie en kan worden gebruikt om de 8x8 dot matrix te besturen. De MAX7219 SPI-communicatie is geïntegreerd in onze bibliotheken en kan direct worden aangeroepen.
 
-**2. 配線図**
+**2. Aansluitschema**
 
 ![](media/A110.png)
 
-**3. テストコード**
+**3. Testcode**
 
-1. 基本のコードブロックを2つドラッグします。
+1. Sleep de twee basis codeblokken.
 
 ![](media/A111.png)
 
-2. “Matrix”から「init matrix display」をドラッグし、CSをIO15に設定します。DINとCLKはそれぞれ固定ピンでIO23とIO18です。
+2. Sleep een "init matrix display" uit “Matrix” en stel CS in op IO15. DIN en CLK zijn respectievelijk vaste pinnen op IO23 en IO18.
 
 ![](media/A112.png)
 
-3. 「set brightness」ブロックをドラッグし、3に設定します。
+3. Sleep een "set brightness" blok en stel deze in op 3.
 
 ![](media/A113.png)
 
-4. 「image」ブロックをドラッグし、ハートのアイコンを選択します。
+4. Sleep een "image" blok en kies het hart-icoon.
 
 ![](media/A114.png)
 
-5. 最後に「refresh」ブロックを追加します。
+5. Voeg aan het einde een "refresh" blok toe.
 
 ![](media/A115.png)
 
-**完成コード：**
+**Volledige code：**
 
 ![](media/A116.png)
 
-**4. テスト結果**
+**4. Testresultaat**
 
-配線を接続しコードをアップロードすると、下図のようにドットマトリックスにハートが表示されます。
+Na het aansluiten van de bedrading en het uploaden van de code, wordt er een hart weergegeven op de dot matrix, zoals hieronder getoond.
 
 ![](media/A117.png)
 
-**5. コード説明**
+**5. Code-uitleg**
 
-1. CSピンを設定します。コード内ではDINは固定でio23、SLKはio18ですが、CSピンは任意です。配線の便宜上、io15を選択しています。
+1. Stel de CS-pin in. In de code is DIN vastgezet op io23 en SLK op io18, terwijl de CS-pin optioneel is. Voor gemakkelijke bedrading kiezen we io15.
 
 ![](media/A118.png)
 
-2. ピクセルを描画します。このコードブロックは、x軸とy軸の座標でドットマトリックスのピクセルを点灯または消灯します。赤は点灯、黒は消灯を示します。
+2. Teken pixels. Dit codeblok schakelt pixels op de dot matrix aan of uit via de x- en y-as, met rood voor aan en zwart voor uit.
 
 ![](media/A119.png)
 
-3. 線を描画します。2組の座標点で線を指定し、赤は点灯、黒は消灯を示します。
+3. Teken lijn. Plaats de lijn met twee groepen coördinaten, ook met rood voor aan en zwart voor uit.
 
 ![](media/A120.png)
 
-4. 文字を表示します。文字ライブラリを追加しているため、文字を入力するだけでドットマトリックスに表示できます。なお、「rotation 180°」ブロックと併用する必要があります。
+4. Toon karakters. We hebben karakterbibliotheken toegevoegd, dus je hoeft alleen een letter te typen om deze op de dot matrix weer te geven. Daarnaast moet het in combinatie met een "rotation 180°" blok worden gebruikt.
 
 ![](media/A121.png)
 
-5. 数字を表示します。同様に、数字を入力するだけでドットマトリックスに表示でき、「rotation 180°」ブロックと併用が必要です。
+5. Toon cijfers. Op dezelfde manier hoef je alleen een cijfer te typen om het op de dot matrix weer te geven, en ook dit moet in combinatie met een "rotation 180°" blok worden gebruikt.
 
 ![](media/A122.png)
 
-6. スクロール文字列を表示します。「rotation 180°」ブロックと組み合わせて、速度を設定すると指定したスクロール文字列が表示されます。
+6. Toon scrollende tekenreeksen. In combinatie met een "rotation 180°" blok worden de opgegeven scrollende tekenreeksen weergegeven na het instellen van de snelheid.
 
 ![](media/A123.png)
 
-7. 画像を表示します。便利なように、いくつかの感情アイコンを統合しており、直接選択可能です。
+7. Toon afbeelding. Voor het gemak hebben we enkele emotie-iconen geïntegreerd die direct geselecteerd kunnen worden.
 
 ![](media/A124.png)
 
-8. 塗りつぶし色を表示します。黒（LED消灯）または赤（LED点灯）に設定できます。
+8. Toon vulkleuren. Je kunt instellen op zwart (LED uit) of rood (LED aan).
 
 ![](media/A125.png)
 
-9. ディスプレイをリフレッシュします。何かを表示する場合はドットマトリックスをリフレッシュする必要があります。そうしないとエラーが発生する可能性があります。
+9. Vernieuw het display. De dot matrix moet worden ververst als er iets wordt weergegeven. Anders kan er een fout optreden.
 
 ![](media/A126.png)
 
-10. 明るさを設定します。デバッグ時に明るさを下げて目を保護することができます。
+10. Stel de helderheid in. Je kunt de helderheid verlagen tijdens het debuggen om je ogen te sparen.
 
 ![](media/A127.png)
 
-11. 回転角度を設定します。より多くのコードとの高い互換性のために、一部のデータやアイコンは反転表示を避けるために回転が必要です。そのため、コード内で「rotation 180°」ブロックが必要となります。
+11. Stel rotatiehoeken in. Voor hoge compatibiliteit met meer code moeten sommige data en iconen worden geroteerd om een omgekeerde weergave te voorkomen. Daarom is een "rotation 180°" blok noodzakelijk in de code.
 
 ![](media/A128.png)

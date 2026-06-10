@@ -1,52 +1,52 @@
-### プロジェクト9 デジタルチューブディスプレイ
+### Project 9 Digitale Buizen Display
 
-**1. 説明**
+**1. Beschrijving**
 
-この4桁のデジタルチューブディスプレイは、カウントや時間を表示するためのデバイスで、0～9の数字および簡単な文字を表示できます。4つのデジタルチューブで構成されており、それぞれに7つの発光ダイオード（LED）が搭載されています。
+Deze 4-cijferige buisdisplay is een apparaat dat wordt gebruikt om tellingen of tijd weer te geven, en kan cijfers van 0 ~ 9 en eenvoudige letters tonen. Het bestaat uit vier digitale buizen, elk met zeven lichtgevende diodes (LED).
 
-さらに、ピンをArduino開発ボードに接続することで、時計機能やゲームの保存など複数の機能を実現できます。
+Bovendien kunnen meerdere functies worden gerealiseerd door hun pinnen aan te sluiten op de Arduino ontwikkelbord, zoals tijdregistratie en het opslaan van enkele spellen.
 
-**2. 動作原理**
+**2. Werking**
 
 ![](media/A33.png)
 
-TM1650はIICプロトコルを利用し、2本のバスライン（SDAとSCL）を採用しています。
+TM1650 maakt gebruik van het IIC-protocol en gebruikt twee buslijnen (SDA en SCL).
 
-**データコマンド:** 0x48  
-このコマンドはTM1650にデジタルチューブを点灯させるよう指示し、キーのスキャンは行いません。
+**Data Commando:** 0x48.  
+Dit commando vertelt de TM1650 om de digitale buizen te verlichten in plaats van toetsen te scannen.
 
-**表示コマンド:**
+**Display Commando:**
 
 ![](media/A34.png)
 
-実際には1バイトのデータで、異なるビットが異なる機能を表します。  
-**bit[6:4]:** LEDの明るさを設定します。000は最も明るいことを示します。  
-**bit[3]:** 小数点の有無を決定します。  
-**bit[0]:** 表示のオン・オフを決定します。
+In feite is het één byte data waarbij verschillende bits verschillende functies vertegenwoordigen.  
+**bit[6:4]:** Stel de helderheid van de LED in. Let op dat 000 de helderste stand aangeeft.  
+**bit[3]:** Bepaalt of er een decimale punt is.  
+**bit[0]:** Bepaalt of het display aan moet staan.
 
-**デジタルチューブの点灯**  
-例として、小数点なしのレベル8の明るさは0x05を示します。  
-手順：開始信号 — 0x48送信 — スレーブデバイス受信 — 0x05送信 — スレーブデバイス受信 — 終了信号  
-点灯後は、デジタルチューブの機能が確定しているため、0x48を繰り返し送信する必要はありません。  
-また、明るさや表示方法は複数のデータを一括で列挙できるため、分かりやすく省スペースです。
+**Digitale Buis Aan**  
+Een voorbeeld: Helderheid niveau 8 zonder punt betekent 0x05.  
+Stappen: Startsignaal — Verstuur 0x48 — Slave-apparaat ontvangt — Verstuur 0x05 — Slave-apparaat ontvangt — Eindsignaal  
+Na het inschakelen hoeft 0x48 niet herhaaldelijk te worden verzonden, omdat de functie van de digitale buis bevestigd is.  
+Daarnaast kunnen helderheid en weergavemethoden met meerdere data op één plek worden opgesomd, zodat het overzichtelijk en ruimtebesparend is.
 
-**デジタルチューブの消灯**  
-手順：開始信号 — 0x48送信 — スレーブデバイス受信 — 0x00送信 — スレーブデバイス受信 — 終了信号
+**Digitale Buis Uit**  
+Stappen: Startsignaal — Verstuur 0x48 — Slave-apparaat ontvangt — Verstuur 0x00 — Slave-apparaat ontvangt — Eindsignaal
 
-**デジタルチューブの数字表示**  
-まずTM1650に特定のチューブに数字を表示するよう指示します。すると数字が表示されます。8ビットは8つのセグメントに対応し、1は点灯、0は消灯を意味します。対応関係に疑問がある場合は、ループでビットごとに点灯させて確認できます。
+**Digitale Buis Toont Cijfers**  
+We vertellen eerst de TM1650 om cijfers op de vooraf bepaalde buis weer te geven. Daarna wordt het cijfer getoond. De acht bits corresponderen met acht segmenten, waarbij 1 betekent aan en 0 uit. Als er twijfel is over de corresponderende relatie, kunt u bit voor bit in een lus aanzetten.
 
-例えば、ビット1が点灯して8を表示する場合、データは0x68です。小数点がある場合は、0x7fを送信すると8が表示されます。  
-手順：開始信号 — 0x68送信 — スレーブデバイス受信 — 0x7f送信 — スレーブデバイス受信 — 終了信号  
-結果：ビット1に8が表示されます。
+Bijvoorbeeld, wanneer bit 1 aan is en 8 toont, is de data 0x68. Als er een punt is, wordt 8 ook weergegeven bij het verzenden van 0x7f.  
+Stappen: Startsignaal — Verstuur 0x68 — Slave-apparaat ontvangt — Verstuur 0x7f — Slave-apparaat ontvangt — Eindsignaal  
+Resultaat: 8 wordt weergegeven op Bit 1.
 
-便宜上、0～9に対応する値の配列を作成できます。さらに改良すれば、数字表示、明るさ調整、小数点やチューブのシフトが可能です。
+Voor het gemak kan een array worden gemaakt met corresponderende waarden voor 0~9. Na verdere verbetering kan het cijfers weergeven, helderheid aanpassen, de decimale punt verschuiven en buizen bedienen.
 
-**3. 配線図**
+**3. Aansluitschema**
 
 ![](media/A35.png)
 
-**4. テストコード**
+**4. Testcode**
 
 ```
 /*
@@ -73,13 +73,13 @@ void loop()
 }
 ```
 
-**5. テスト結果**
+**5. Testresultaat**
 
-配線を接続しコードをアップロードすると、デジタルチューブディスプレイに「9999」が表示されます。下図参照。
+Na het aansluiten van de bedrading en uploaden van de code, toont de digitale buisdisplay "9999", zoals hieronder weergegeven.
 
 ![](media/A36.png)
 
-**6. 拡張コード**
+**6. Uitgebreide Code**
 
 ```
 /*
@@ -103,13 +103,13 @@ void setup()
 void loop()
 {
   for(int num=0; num<10000; num++)
-  {   //numが10000未満の場合、1サイクルごとにnumが1ずつ増加します
-    DigitalTube.displayFloatNum(num);   //括弧内の値や変数をデジタルチューブで表示可能
+  {   //Als num minder is dan 10000, wordt num met 1 verhoogd per cyclus
+    DigitalTube.displayFloatNum(num);   //Waarden of variabelen in de haakjes kunnen via de digitale buis worden weergegeven
     delay(100);
   }
 }
 ```
 
-**7. テスト結果**
+**7. Testresultaat**
 
-コードをアップロード後、デジタルチューブは「for」ループにより1～9999を表示します。
+Na het uploaden van de code toont de digitale buis de cijfers 1~9999 via een "for" lus.

@@ -1,35 +1,35 @@
-### プロジェクト30 スマートホーム
+### Project 30 Smart Home
 
-**1. 説明**
+**1. Beschrijving**
 
-この技術時代において、私たちはスマートホームに慣れ親しんでいます。これはボタンを介して電気機器を制御できるシステムです。
+In dit technologische tijdperk zijn we allemaal vertrouwd met smart home. Het is een systeem dat elektrische apparaten kan bedienen via knoppen.
 
-本プロジェクトでは、IRリモコンを使ってスマートホームを模擬します。Arduino MCUをコアにして、照明、エアコン、テレビ、セキュリティモニターの制御に利用できます。
+In dit project proberen we een smart home te simuleren via een IR afstandsbediening. Met Arduino MCU als kern kan het worden gebruikt om licht, airconditioners, TV en beveiligingsmonitoren te bedienen.
 
-**2. フローチャート**
+**2. Stroomschema**
 
 ![](media/B130.png)
 
-**3. 配線図**
+**3. Aansluitschema**
 
 ![](media/B131.png)
 
-**4. テストコード**
+**4. Testcode**
 
-IRリモコンを使い、このスマートホームはLCDに温湿度センサー、音センサー、フォトレジスター、ポテンショメーター、超音波センサーなどの各種センサー値を表示します。
+Met de IR afstandsbediening toont deze smart home verschillende sensorwaarden op het LCD, waaronder een temperatuur- en vochtigheidssensor, een geluidsensor, een fotoweerstand, een potentiometer en een ultrasone sensor.
 
 ![](media/B132.png)
 
-**5. テスト結果**
+**5. Testresultaat**
 
-配線を接続しコードをアップロードした後、ボタンを押すとLCDに対応する内容が表示されます。OKボタンでセンサー表示をクリアします。
+Na het aansluiten van de bedrading en het uploaden van de code, kunnen we de bijbehorende inhoud op het LCD zien door op knoppen te drukken. De OK-knop wist de sensordisplay.
 
 ![](media/B133.png)
 
-**6. コード説明**
+**6. Code-uitleg**
 
-ブロック数が多いため、「Make a Block」機能を採用しています。これにより、多数のブロックがパッケージ化され直接呼び出せるため、プログラム全体が大幅に簡素化されます。
+De blokken zijn zo talrijk dat we de functie "Make a Block" gebruiken. Hiermee worden talrijke blokken verpakt en kunnen direct worden opgeroepen, wat het hele programma aanzienlijk vereenvoudigt.
 
-「My Block」をクリックして自作ブロックを作成し、自分だけのコードブロックを構築できます。
+Klik op “My Block” om een zelfgedefinieerd blok te maken, en je kunt je eigen codeblokken bouwen.
 
 ![](media/B134.png)

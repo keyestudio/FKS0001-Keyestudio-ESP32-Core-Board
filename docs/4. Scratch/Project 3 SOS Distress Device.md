@@ -1,61 +1,61 @@
-### プロジェクト3 SOS 救難装置
+### Project 3 SOS Noodapparaat
 
-**1. 説明**
+**1. Beschrijving**
 
-SOS装置はモールス信号の原理に基づいて救難信号を発信することができます。緊急時に便利です。
+Het SOS-apparaat kan noodsignalen uitzenden, wat overeenkomt met het principe van de Morse-code. Het is handig voor noodgevallen.
 
-**2. 配線図**
+**2. Aansluitschema**
 
 ![](media/A36.png)
 
-**3. テストコード**
+**3. Testcode**
 
-まず最初に明確にすべきは、SOS救難ライトの点滅方法です：LEDは「S」のために素早く3回点滅し、「O」のためにゆっくり3回点滅します。
+Wat we eerst moeten verduidelijken is hoe het SOS-noodlicht knippert: de LED knippert snel 3 keer voor “S” en langzaam 3 keer voor “O”.
 
-次に、"for"文を使って点滅回数と点滅時間を制御し、文字間の間隔時間を設定します。
+Vervolgens regelen we het aantal knipperingen en de duur via de "for" lus en stellen we de intervaltijd tussen letters in.
 
-1. 2つのコードブロックをドラッグします。
+1. Sleep de twee codeblokken.
 
 ![](media/A37.png)
 
-2. 「Pins」パートから以下のブロックをドラッグし、IO5ピンを出力に設定します。
+2. Sleep het volgende blok uit het onderdeel "Pins" en stel de IO5 pin in als output.
 
 ![](media/A38.png)
 
-**文字「S」**
+**Letter "S"**
 
-3. 「Control」パートから以下のブロックをドラッグし、3回に設定します。「S」は3回点滅を意味します。
+3. Sleep het volgende blok uit het onderdeel "Control" en stel het in op 3 keer, omdat "S" betekent 3 keer knipperen.
 
 ![](media/A39.png)
 
-4. 「LED」パートから以下のブロックをドラッグし、IO5ピンをHIGHに設定します。次に遅延時間を0.15秒に設定します。
+4. Sleep de volgende blokken uit het onderdeel "LED" en zet de IO5 pin op HIGH. Stel daarna de vertraging in op 0,15s.
 
 ![](media/A40.png)
 
-5. 「LED」パートから以下のブロックをドラッグし、IO5ピンをLOWに設定します。次に遅延時間を0.1秒に設定します。
+5. Sleep de volgende blokken uit het onderdeel "LED" en zet de IO5 pin op LOW. Stel daarna de vertraging in op 0,1s.
 
 ![](media/A41.png)
 
-**文字「O」**
+**Letter O**
 
-6. 前の手順を参考にして以下のコードブロックを作成します。HIGH出力の遅延を0.4秒、LOWを0.2秒に変更します。
+6. Volg de vorige stappen om de volgende codeblokken te maken. Pas de HIGH-uitgang aan naar een vertraging van 0,4s en LOW naar 0,2s.
 
 ![](media/A42.png)
 
-**文字「S」**
+**Letter S**
 
-7. ステップ3、4、5を再度実行します。
+7. Voer stap 3, 4 en 5 opnieuw uit.
 
 ![](media/A43.png)
 
-8. 最後に5秒の遅延時間を追加し、「SOS」が5秒ごとに繰り返されるようにします。
+8. Voeg aan het einde een vertraging van 5s toe, en "SOS" zal elke 5s herhalen.
 
    ![](media/A44.png)
 
-**完成コード：**
+**Volledige code：**
 
 ![](media/A45.png)
 
-**4. テスト結果**
+**4. Testresultaat**
 
-コードをアップロードすると、LEDはそれぞれ3回ずつ速く、そして遅く点滅します。
+Na het uploaden van de code knippert de LED respectievelijk 3 keer snel en langzaam.

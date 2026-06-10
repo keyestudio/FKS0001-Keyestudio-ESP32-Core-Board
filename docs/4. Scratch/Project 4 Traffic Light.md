@@ -1,51 +1,51 @@
-### プロジェクト4 交通信号機
+### Project 4 Verkeerslicht
 
-**1. 説明**
+**1. Beschrijving**
 
-交通信号機モジュールは、歩行者や車両の通行を制御するための装置です。赤、黄、緑の3つのライトがあり、それぞれ異なる指示を示します。
+De verkeerslichtmodule is een apparaat dat wordt gebruikt om de route van voetgangers en voertuigen te regelen. Het bevat een rood, geel en groen licht, die verschillende instructies impliceren.
 
-**赤は停止:** 歩行者と車両は進行を停止します。
+**Rood voor Stop:** Voetgangers en voertuigen stoppen met doorgaan.
 
-**黄は注意:** 歩行者と車両は停止の準備をします。すでに走行中の場合は速度を落とすべきです。
+**Geel voor Voorzichtigheid:** Voetgangers en voertuigen maken zich klaar om te stoppen. Als het rijden al bezig is, moet de snelheid laag zijn.
 
-**緑は進行:** 歩行者と車両は交通規則を守りながら進み続けます。
+**Groen voor Doorgaan:** Voetgangers en voertuigen gaan door met inachtneming van de verkeersregels.
 
-このプロジェクトでは、Arduinoを使って交通信号機を制御するコードを書くことができます。例えば、各ライトの点灯時間やそれらの間の間隔時間を設定します。さらに、タイマーを追加してライトの色をスケジュールに合わせて変更することも可能です。
+In dit project kun je Arduino gebruiken om code te schrijven om verkeerslichten te bedienen. Bijvoorbeeld, stel de duur van elk licht en de intervaltijd ertussen in. Daarnaast kun je ook een timer toevoegen om de lichtkleuren volgens een schema te wijzigen.
 
-**2. 配線図**
+**2. Aansluitschema**
 
 ![](media/A46.png)
 
-**3. テストコード**
+**3. Testcode**
 
-交通信号機を簡単にシミュレートします：緑のLEDが5秒間点灯し、黄のLEDが3回点滅し、赤のLEDが5秒間点灯します。これをループさせます。
+We simuleren eenvoudig de verkeerslichten: het groene LED licht gaat 5s aan, het gele LED knippert 3 keer, en het rode LED gaat 5s aan. En we stellen dit in om te herhalen.
 
-黄のLEDの点滅は、プロジェクト3で紹介した`for()`文を利用できます。したがって、点灯時間を設定するだけで交通信号機を完成させることができます。
+Het knipperen van het gele LED kan gebruikmaken van de for()-statement die we in project 3 hebben genoemd. Dus hoeven we alleen de verlichtingstijd in te stellen om een verkeerslichtcyclus te voltooien.
 
-1. 2つのコードブロックをドラッグします。
+1. Sleep de twee codeblokken.
 
 ![](media/A47.png)
 
-2. ピンモードを「output」に設定します。
+2. Stel de pinmodus in op “output”
 
 ![](media/A48.png)
 
-3. 「LED」パーツから以下のブロックをドラッグし、IO27ピンをHIGHにしてからLOWにします。遅延時間を5秒に設定します。
+3. Sleep de volgende blokken uit het "LED"-gedeelte en stel de IO27 pin in op HIGH en daarna LOW. Stel vervolgens de vertragingstijd in op 5s.
 
 ![](media/A49.png)
 
-4. 「Control」パーツから以下のブロックをドラッグし、繰り返し回数を3に設定します。次にIO26ピンをHIGHにしてからLOWにします。遅延時間を0.5秒に設定します。
+4. Sleep de volgende blokken uit het "Control"-gedeelte en stel het aantal herhalingen in op 3, stel dan de IO26 pin in op HIGH en daarna LOW. Stel de vertragingstijd in op 0,5s.
 
 ![](media/A50.png)
 
-5. ステップ3を繰り返し、ピンをIO25に設定します。
+5. Herhaal stap 3, en stel de pin in op IO25.
 
 ![](media/A51.png)
 
-**完成コード：**
+**Volledige code：**
 
 ![](media/A52.png)
 
-**4. テスト結果**
+**4. Testresultaat**
 
-コードをアップロードすると、緑のLEDが5秒間点灯し、黄のLEDが3回点滅し、赤のLEDが5秒間点灯します。
+Na het uploaden van de code zal het groene LED 5s branden, het gele LED 3 keer knipperen, en het rode LED 5s aan zijn.

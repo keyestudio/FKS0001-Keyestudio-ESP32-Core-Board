@@ -1,20 +1,20 @@
-### プロジェクト28 インテリジェントゲート
+### Project 28 Intelligente Poort
 
-**1. 説明**
+**1. Beschrijving**
 
-インテリジェントゲートは、MCUと超音波センサーを統合したインテリジェント駐車場システムであり、車両の距離に応じてゲートを自動的に制御し、車両の出入りをより適切に管理します。
+De intelligente poort is een intelligent parkeersysteem dat een MCU en ultrasone sensor integreert, welke automatisch de poort bestuurt op basis van de afstand van auto's, om zo de toegang van auto's beter te regelen.
 
-一定の距離に達すると、MCUはセンサーから信号を受信し、信号の強度から距離を推定します。車が近づくまたは離れる場合、MCUはサーボを介してゲートを開閉します。
+Wanneer een bepaalde afstand wordt bereikt, ontvangt de MCU het signaal van de sensor en schat de afstand via de signaalsterkte. Als de auto nadert of vertrekt, zal de MCU de poort openen of sluiten via een servo.
 
-**2. フローチャート**
+**2. Stroomschema**
 
 ![](media/B39.png)
 
-**3. 配線図**
+**3. Aansluitschema**
 
 ![](media/B40.png)
 
-**4. テストコード**
+**4. Testcode**
 
 ```
 /*
@@ -80,6 +80,6 @@ void loop()
 }
 ```
 
-**5. テスト結果**
+**5. Testresultaat**
 
-配線を接続しコードをアップロードすると、検出距離が30cm未満の場合、サーボは5秒間180°回転します。逆に、距離が30cm以上の場合はサーボが0°に回転します。
+Na het aansluiten van de bedrading en het uploaden van de code zal de servo 180° draaien gedurende 5 seconden als de gedetecteerde afstand minder is dan 30 cm. Anders zal de servo naar 0° draaien.

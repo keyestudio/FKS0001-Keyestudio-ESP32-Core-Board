@@ -1,20 +1,20 @@
-### プロジェクト30 スマートホーム
+### Project 30 Slimme Woning
 
-**1. 説明**
+**1. Beschrijving**
 
-この技術の時代において、私たちは皆スマートホームに馴染みがあります。これはボタンを介して電気機器を制御できるシステムです。
+In dit technologische tijdperk zijn we allemaal vertrouwd met slimme woningen. Het is een systeem dat elektrische apparaten kan bedienen via knoppen.
 
-本プロジェクトでは、IRリモコンを使ってスマートホームを模擬します。Arduino MCUをコアに、照明、エアコン、テレビ、セキュリティモニターの制御に利用できます。
+In dit project willen we een slimme woning simuleren via een IR-afstandsbediening. Met Arduino MCU als kern kan het worden gebruikt om licht, airconditioners, TV en beveiligingsmonitoren te bedienen.
 
-**2. フローチャート**
+**2. Stroomschema**
 
 ![](media/B47.png)
 
-**3. 配線図**
+**3. Aansluitschema**
 
 ![](media/B48.png)
 
-**4. テストコード**
+**4. Testcode**
 
 ```
 /*
@@ -218,8 +218,8 @@ void show_pot()  //Read the analog value of potentiometer
 }
 ```
 
-**5. テスト結果**
+**5. Testresultaat**
 
-配線を接続しコードをアップロードした後、ボタンを押すとLCDに対応する内容が表示されます。OKボタンでセンサー表示をクリアします。
+Na het aansluiten van de bedrading en het uploaden van de code, kunnen we de overeenkomstige inhoud op het LCD zien door op knoppen te drukken. De OK-knop wist het sensorweergave.
 
 ![](media/B49.png)

@@ -1,66 +1,66 @@
-### プロジェクト15 レスポンダー
+### Project 15 Responder
 
-**1. 説明**
+**1. Beschrijving**
 
-このプログラム可能なレスポンダーは、Arduino開発ボードと複数のボタンを通じて信号を入力・受信し、LEDを使って回答の正誤を判定します。学生の反応能力を鍛え、質問への注意を引きつける良い教材です。正解の場合、回答者は多くの得点を獲得します。
+Deze programmeerbare responder ontvangt en verzendt signalen via een Arduino-ontwikkelbord en een groep knoppen, en beoordeelt de juistheid van antwoorden via een LED. Het is een goed hulpmiddel om de reactievermogen van studenten te oefenen en hun aandacht op vragen te richten. Als het antwoord correct is, krijgt de respondent veel punten.
 
-さらに、教師の質問取り扱いを簡素化し、回答の混乱を減らします。学生の学習意欲を刺激することも期待できます。
+Bovendien vereenvoudigt het de bediening van vraaggrijpers door docenten en vermindert het de rommel van antwoorden. Het kan zelfs de interesse van studenten in leren stimuleren.
 
-**2. フローチャート**
+**2. Stroomschema**
 
 ![](media/A184.png)
 
-**3. 配線図**
+**3. Aansluitschema**
 
 ![](media/A185.png)
 
-**4. テストコード**
+**4. Testcode**
 
-1. 2つの基本ブロックをドラッグし、その間に「変数」ブロックを配置します。変数の型をint、名前をitem、初期値を0に設定します。LEDピンを「出力」、ボタンピンを「入力」に設定します。
+1. Sleep de twee basisblokken en plaats een "variabele" blok ertussen. Stel het variabeltype in op int en de naam op item met een initiële toewijzing van 0. Stel de LED-pin in op “output” en de knop-pin op “input”.
 
 ![](media/A186.png)
 
-2. 「LED出力」ブロックを追加し、ピンをIO27に設定、出力をHIGHにします。  
-3. 「if」ブロックをドラッグし、条件に「interface IO19 ボタンが押されたか？」を追加します。
+2. Voeg een "LED output" blok toe, definieer de pin als IO27 en zet de output op HIGH.  
+3. Sleep een "if" blok en voeg de voorwaarde toe "interface IO19 button was be pushed?".
 
 ![](media/A187.png)
 
-4. 「then」内に変数設定と4つのLED出力ブロックを追加します。そのうち変数itemを「0」に設定し、ピン12、13、14、27のすべてのLED出力をLOWにします（レスポンダーはすべてのLEDが消灯しているときのみ動作します）。同様に0.2秒の遅延も忘れずに。
+4. Voeg een variabele instelling en vier LED output blokken toe onder "then". Noem de variabele "item" met een toewijzing van "0", en zet alle outputs respectievelijk op LOW bij pin 12, 13, 14 en 27 (de responder werkt alleen wanneer alle LED’s uit zijn). Vergeet ook niet een vertraging van 0,2s.
 
 ![](media/A188.png)
 
-5. 「repeat until」ブロックを追加し、「until」を「item = 1」に設定します。itemが1になるとループを抜けます。
+5. Voeg een "repeat until" blok toe en stel "until" in op "item = 1", zoals hieronder weergegeven. Wanneer item = 1, verlaat de lus.
 
 ![](media/A189.png)
 
-6. もう一つ「if」ブロックをドラッグし、条件に「Interface IO16 ボタンが押されたか？」を設定します。「then」内に「LED出力」ブロックを追加し、ピンIO12の出力をHIGHに設定します。そして「item変数を1に設定」してこの条件ブロックを抜けます。
+6. Sleep nog een "if" blok en stel de voorwaarde in op "Interface IO16 button was be pushed?". Voeg een "LED output" blok toe onder "then" en zet de output op HIGH bij pin IO12. Voeg ook een "set item variable by 1" toe om deze conditie te verlaten.
 
 ![](media/A190.png)
 
-7. ステップ6を繰り返しますが、インターフェースをIO17、LEDピンをIO13に設定します。
+7. Herhaal stap 6, maar stel interface in op IO17 en LED-pin op IO13.
 
 ![](media/A191.png)
 
-8. ステップ6を再度操作しますが、インターフェースをIO18、LEDピンをIO14に設定します。
+8. Voer stap 6 opnieuw uit, maar stel interface in op IO18 en LED-pin op IO14.
 
 ![](media/A192.png)
 
-**完成コード:**
+**Volledige code:**
 
 ![](media/A193.png)
 
-**5. テスト結果**
+**5. Testresultaat**
 
-配線を接続し、コードをアップロードします。回答者の回答は赤色LEDが消灯（赤ボタンが押されている）時のみ有効です。
+Sluit de bedrading aan en upload de code. De antwoorden van respondenten zijn alleen geldig wanneer de rode LED uit is (rode knop is ingedrukt).
 
-誰かが自分のボタン（黄色、緑、青）を押すと、対応するLEDと赤色LEDが点灯します。この状態では他のLEDは点灯しません。再度赤ボタンが押されるまで、回答動作は行えません。
+Wanneer iemand zijn/haar knop indrukt (geel, groen of blauw), gaan de bijbehorende LED en de rode LED aan. Op dat moment kunnen de andere LED’s niet aangaan bij het indrukken van knoppen. De responsactie kan alleen worden uitgevoerd wanneer de rode knop opnieuw wordt ingedrukt.
 
-**6. コード説明**
+**6. Code-uitleg**
 
-1. 条件ループモジュール。モジュールのひし形ボックス内の条件が満たされると、ループを抜けます。
+1. Conditielusmodule. Wanneer de voorwaarden in het diamantvormige vak van de module zijn voldaan, verlaat de lus.
 
 ![](media/A194.png)
 
-2. 「=」ブロックは2つの値が等しいかどうかを判定します。
+2. Het "=" blok wordt gebruikt om te beoordelen of de twee waarden gelijk zijn.
 
 ![](media/A195.png)

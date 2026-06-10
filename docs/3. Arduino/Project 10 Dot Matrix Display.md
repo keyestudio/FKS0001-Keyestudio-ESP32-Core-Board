@@ -1,42 +1,42 @@
-### プロジェクト10 ドットマトリックスディスプレイ
+### Project 10 Dot Matrix Display
 
-**1. 説明**
+**1. Beschrijving**
 
-このモジュールは8x8のLEDドットマトリックスで構成されており、各行および各列に1つずつ制御ピンがあり、LEDの明るさを調整します。Arduinoボードと接続することで、Arduinoプログラミングを通じてLEDの明るさを制御し、文字や図形を表示します。この方法により、簡単な文字、数字、図形を表示することが可能です。また、ゲーム機やスクリーンにも応用できます。
+Deze module bestaat uit een 8x8 LED dot matrix met één besturingspin voor elke rij en elke kolom om de helderheid van de LED aan te passen. Door verbinding te maken met een Arduino board, wordt de helderheid van de LED geregeld om karakters en figuren weer te geven via Arduino programmering. Op deze manier kunnen eenvoudige karakters, cijfers en figuren worden weergegeven. Het kan ook worden toegepast in spelmachines of schermen.
 
-**2. 動作原理**
+**2. Werking**
 
 ![](media/A37.png)
 
-MAX7219はSPI通信を持つICで、8x8ドットマトリックスの制御に使用できます。MAX7219のSPI通信は当社のライブラリに統合されており、直接呼び出すことができます。
+MAX7219 is een IC met SPI-communicatie en kan worden gebruikt om de 8x8 dot matrix te besturen. De MAX7219 SPI-communicatie is geïntegreerd in onze libraries en kan direct worden aangeroepen.
 
-**ドットマトリックスモジュロ操作**
+**Dot Matrix Modulo Operatie**
 
-モジュロのリンクはこちら：[http://dotmatrixtool.com/#](http://dotmatrixtool.com/#)
+Klik op de link voor Modulo ：[http://dotmatrixtool.com/#](http://dotmatrixtool.com/#)
 
-**手順:**
+**Stappen:**
 
-1. リンクをクリックし、ドットマトリックスの高さと幅を設定します。ここでは両方とも8に設定します。
+1. Klik op de link en stel de hoogte en breedte van de dot matrix in. Hier stellen we beide in op 8.
 
 ![](media/A38.png)
 
-2. 「Byte Order」を「Column Major」に設定します。
+2. Stel "Byte Order" in op "Column Major".
 
 ![](media/A39.png)
 
-3. 「Endian」を「Big Endian」に設定します。
+3. Stel "Endian" in op "Big Endian".
 
 ![](media/A40.png)
 
-4. 白いタイルをクリックして表示したいパターンを作成します（再度クリックすると選択解除）。その後「Generate」をクリックしてこのアイコンの配列を生成します。この配列をコピーしてコードに貼り付けると、パターンがドットマトリックスに表示されます。
+4. Klik op de witte tegels om een patroon te vormen dat je wilt (klik nogmaals om te deselecteren), en klik vervolgens op "Generate" om een array voor dit icoon te genereren. Kopieer deze array en plak deze in de code, waarna het patroon op de dot matrix wordt weergegeven.
 
 ![](media/A41.png)
 
-**3. 配線図**
+**3. Aansluitschema**
 
 ![](media/A42.png)
 
-**4. テストコード**
+**4. Testcode**
 
 ```
 /*
@@ -55,9 +55,9 @@ const byte IMAGES[8] = {0x30, 0x78, 0x7c, 0x3e, 0x3e, 0x7c, 0x78, 0x30};
 void setup() 
 {
   lc.shutdown(0,false);
-  // Set brightness to a medium value
+  // Stel helderheid in op een gemiddelde waarde
   lc.setIntensity(0,8);
-  // Clear the display
+  // Maak het display leeg
   lc.clearDisplay(0);  
 }
 
@@ -70,8 +70,8 @@ void loop()
 }
 ```
 
-**5. テスト結果**
+**5. Testresultaat**
 
-配線を接続しコードをアップロードすると、下図のようにドットマトリックスにハートが表示されます。
+Na het aansluiten van de bedrading en het uploaden van de code, wordt er een hart weergegeven op de dot matrix, zoals hieronder getoond.
 
 ![](media/A43.png)

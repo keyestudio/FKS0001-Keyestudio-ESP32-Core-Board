@@ -1,14 +1,14 @@
-### プロジェクト18 ビートするハート
+### Project 18 Kloppend Hart
 
-**1. 説明**
+**1. Beschrijving**
 
-このプロジェクトでは、Arduinoボード、8X8ドットマトリックスディスプレイ、回路基板およびいくつかの電子部品を使ってビートするハートを表現します。プログラミングにより、ビートの周波数、ハートの大きさ、明るさを制御できます。
+In dit project wordt een kloppend hart weergegeven via een Arduino board, een 8X8 dot matrix display, een printplaat en enkele elektronische componenten. Door te programmeren kun je de klopsnelheid, de afmeting van het hart en de helderheid ervan regelen.
 
-**2. 配線図**
+**2. Bedradingsschema**
 
 ![](media/B1.png)
 
-**3. テストコード**
+**3. Testcode**
 
 ```
 /*
@@ -49,8 +49,8 @@ void loop()
 }
 ```
 
-**4. テスト結果**
+**4. Testresultaat**
 
-配線を接続しコードをアップロードすると、2つのサイズのハートが交互に表示されます。
+Na het aansluiten van de bedrading en het uploaden van de code worden de twee formaten harten afwisselend weergegeven.
 
 ![image-20251013113903734](media/B2.png)

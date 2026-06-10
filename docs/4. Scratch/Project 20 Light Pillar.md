@@ -1,71 +1,71 @@
-### プロジェクト20 ライトピラー
+### Project 20 Lichtzuil
 
-**1. 説明**
+**1. Beschrijving**
 
-フォトレジスタの抵抗値（1KΩ未満）は光の強さによって変化し、それによってドットマトリクスの明るさを制御できます。制御する際には、この抵抗をボードのアナログピンに接続して抵抗の変化を監視します。こうすることで、光が自動的にディスプレイの明るさを調整します。
+De weerstand (minder dan 1KΩ) van de fotoweerstand varieert met het licht, waardoor het de helderheid van de dotmatrix kan regelen. Bij het aansturen verbinden we deze weerstand met een analoge pin op de board om de verandering in weerstand te monitoren. Op deze manier regelt het licht automatisch de helderheid van het display.
 
-また、フォトレジスタは日常生活でも広く応用されています。例えば、カーテンが外の光の強さに応じて自動的に開閉するなどです。
+Daarnaast wordt de fotoweerstand veel toegepast in ons dagelijks leven. Bijvoorbeeld, een gordijn dat automatisch opent of sluit afhankelijk van de lichtintensiteit buiten.
 
-**2. 動作原理**
+**2. Werking**
 
 ![](media/B43.png)
 
-完全に暗い状態では、抵抗は0.2MΩとなり、信号端子（ポイント2）の電圧は0Vに近づきます。光が強くなるほど、抵抗と電圧は小さくなります。
+Wanneer het volledig donker is, is de weerstand gelijk aan 0.2MΩ en nadert de spanning op het signaalknooppunt (punt 2) 0V. Hoe sterker het licht, hoe kleiner de weerstand en spanning zullen zijn.
 
-**3. 配線図**
+**3. Aansluitschema**
 
 ![](media/B44.png)
 
-**4. テストコード**
+**4. Testcode**
 
-フォトレジスタのアナログ値を読み取る方法：
+De analoge waarde van de fotoweerstand kan worden uitgelezen:
 
-1. 基本ブロックを2つドラッグし、その間にボーレート設定ブロックを置き、9600に設定します。
+1. Sleep de twee basisblokken. Plaats het baudrate-instelblok ertussen en stel deze in op 9600.
 
-2. 「forever」ループ内に「シリアルプリント」ブロックを追加し、モードを「warp」に設定します。
+2. Voeg een "serial print" blok toe in de "forever" lus met de modus "warp".
 
-3. 「Light」から「値を読む」ブロックをドラッグして「シリアルプリント」ブロックに接続し、ピンをIO33に設定します。
+3. Sleep een "lees de waarde" blok van “Light” naar het "serial print" blok en stel de pin in op IO33.
 
 ![](media/B45.png)
 
-**5. テスト結果**
+**5. Testresultaat**
 
-配線を接続しコードをアップロードした後、シリアルモニターを開きボーレートを9600に設定すると、アナログ値が0～4095の範囲で表示されます。
+Na het aansluiten van de bedrading en uploaden van de code, open je de seriële monitor en stel je de baudrate in op 9600. De analoge waarde wordt weergegeven binnen het bereik van 0-4095.
 
 ![](media/B46.png)
 
-**6. 拡張コード**
+**6. Uitbreidingscode**
 
-この拡張プロジェクトでは、フォトレジスタを使って周囲の光の強さを検知します。中央の2列を使って光の強さを表現し、明るいほど点灯するLEDが多くなります。これにより「ライトピラー」が形成されます。
+In dit uitbreidingsproject gebruiken we de fotoweerstand om de omgevingslichtintensiteit te meten. De middelste twee kolommen zijn opgenomen in dit experiment om de lichtintensiteit weer te geven. Hoe lichter het is, hoe meer LED's oplichten. Dit vormt een "lichtzuil".
 
-**配線図：**
+**Aansluitschema:**
 
 ![](media/B47.png)
 
-1. 基本ブロックを2つドラッグします。
+1. Sleep de twee basisblokken.
 
-2. 「Matrix」でドットマトリクスディスプレイを初期化し、ピンCSをIO15に設定します。「明るさ設定」ブロックを追加し、値を3に設定します。
+2. Initialiseer in "Matrix" het dotmatrixdisplay en stel pin CS in op IO15. Voeg een "helderheid instellen" blok toe en stel deze in op 3.
 
 ![](media/B48.png)
 
-3. 「変数」ブロックをドラッグし、範囲をローカル、型をint、名前をlightに設定します。
+3. Sleep een "variabele" blok. Stel het bereik in op Local, het type op int en de naam op light.
 
 ![](media/B49.png)
 
-4. 変数にマップ関数を割り当てます。「Light」から「IO33の値を読む」ブロックをマップ関数の値に追加し、範囲を(0,4095)から(0,7)に設定します。
+4. Ken een map-functie toe aan de variabele. Voeg "lees de waarde van light IO33" van "Light" toe aan de waarde van de map-functie, met bereik van (0,4095) naar (0,7).
 
 ![](media/B50.png)
 
-5. 「Matrix」内の以下のブロックを見つけます。まずディスプレイをクリアし、次にドット(x0:3  y0:0, x1:3  y1:変数light)と(x0:4  y0:0, x1:4  y1:変数light)に線を描画します。最後にマトリクスの表示を更新します。
+5. Zoek de volgende blokken in "Matrix". Maak eerst het display leeg, en teken vervolgens lijnen op het display bij de punten (x0:3  y0:0, x1:3  y1: variabele light) en (x0:4  y0:0, x1:4  y1: variabele light). Vernieuw tenslotte het matrixdisplay.
 
 ![](media/B51.png)
 
-**完成コード：**
+**Volledige code:**
 
 ![](media/B52.png)
 
-**7. コード説明**
+**7. Code-uitleg**
 
-ピンを設定してフォトレジスタのアナログ値を読み取ります。
+Lees de analoge waarde van de fotoweerstand uit door de pin in te stellen.
 
 ![](media/B53.png)

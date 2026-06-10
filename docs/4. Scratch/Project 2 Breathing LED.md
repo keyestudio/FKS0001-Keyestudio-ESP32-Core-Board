@@ -1,83 +1,83 @@
-### プロジェクト2 ブリージングLED
+### Project 2 Ademend LED
 
-**1. 説明**
+**1. Beschrijving**
 
-ArduinoのブリージングLEDは、オンボードのプログラム可能なPWMを利用してアナログ波形を出力します。電源を入れると、波形のデューティサイクルを調整することでLEDの明るさを変化させ、最終的にブリージングLEDの効果を実現します。
+Arduino ademend LED maakt gebruik van on-board programmeerbare PWM om een analoge golfvorm uit te voeren. Na het inschakelen kan de helderheid van de LED worden aangepast via de duty cycle van de golfvorm om uiteindelijk het effect van een ademend LED te realiseren.
 
-この方法により、時間経過に伴ってLEDの明るさを変化させることで環境光をシミュレートできます。また、ブリージングLEDはカラフルなミニライトとして、落ち着いた暖かい雰囲気を作り出すことができます。
+Op deze manier kan omgevingslicht worden gesimuleerd door de helderheid van de LED in de tijd te veranderen. Ook kan een ademend LED een kleurrijk mini-licht vormen om een rustige en warme sfeer te creëren.
 
-**2. PWMとは？**
+**2. Wat is PWM?**
 
-PWMはデジタル手段でアナログ出力を制御するもので、波形のデューティサイクル（高レベルと低レベルが周期的に切り替わる信号）を調整できます。
+PWM bestuurt analoge output via digitale middelen, waarmee de duty cycle van de golf (een signaal dat cyclisch wisselt tussen hoog niveau en laag niveau) kan worden aangepast.
 
-Arduinoの場合、電圧出力のデジタルポートはLOWとHIGHで、それぞれ0Vと5Vに対応します。一般的にLOWを0、HIGHを1と定義します。Arduinoは1秒間に500回の0または1の信号を出力します。もしそれらがすべて「1」であれば5Vが出力されます。逆にすべて0なら0Vが出力されます。あるいは0101010101...のように交互であれば、平均出力は2.5Vになります。
+Voor Arduino zijn digitale poorten met spanningsuitgang LOW en HIGH, die respectievelijk overeenkomen met 0V en 5V. Over het algemeen definiëren we LOW als 0 en HIGH als 1. Arduino zal binnen 1s 500 signalen van 0 of 1 uitsturen. Als ze "1" zijn, wordt 5V uitgegeven. Omgekeerd, als ze allemaal 0 zijn, is de uitgang 0V. Of als ze 010101010101... zijn, is de gemiddelde uitgang 2,5V.
 
-つまり、0と1の出力比率が電圧値に影響し、単位時間あたりに出力される0と1の信号が多いほど制御はより正確になります。
+Met andere woorden, de verhouding van 0 en 1 in de output beïnvloedt de spanningswaarde; hoe meer 0- en 1-signalen per tijdseenheid worden uitgegeven, hoe nauwkeuriger de regeling zal zijn.
 
 ![](media/A21.png)
 
-**3. 配線図**
+**3. Aansluitschema**
 
 ![](media/A22.png)
 
-**4. テストコード**
+**4. Testcode**
 
-「for」文を使って変数を0から255まで増加させ、その変数をPWM出力（analogWrite(pin, value)）として定義します。なお、遅延時間を設けることでLEDの点灯時間の制御を強化できます。次に、別の「for」文で255から0まで減少させ、遅延時間を設けてLEDの減光プロセスを制御します。
+We gebruiken een "for"-lus om een variabele te verhogen van 0 tot 255, en definiëren deze variabele als PWM-uitgang (analogWrite(pin, value)). Tussen haakjes kan een vertragingstijd de controle van de LED-verlichtingstijd versterken. Vervolgens gebruiken we een andere "for"-lus om de variabele te verlagen van 255 tot 0 met een vertragingstijd om het dimproces van de LED te regelen.
 
-1. 2つのコードブロックをドラッグします。
+1. Sleep de twee codeblokken.
 
 ![](media/A23.png)
 
-2. 「変数」パートから以下のブロックをドラッグし、名前を「item」、初期値を「0」に設定します。このブロックを「ずっと」ブロック内に入れます。
+2. Sleep het volgende blok uit het onderdeel "Variabelen" en definieer de naam als "item" met een initiële waarde "0". Plaats dit blok in het "voor altijd" blok.
 
 ![](media/A24.png)
 
-3. 「制御」パートから以下のブロックをドラッグし、繰り返し回数をPWMの最大値である255に設定します。
+3. Sleep het volgende blok uit het onderdeel "Besturing" en stel het in op 255 keer, wat de maximale waarde van PWM is.
 
 ![](media/A25.png)
 
-4. 「変数」パートから以下のブロックをドラッグし、変更対象を「item」、モードを「++」に設定します。
+4. Sleep het volgende blok uit het onderdeel "Variabelen", zet "item" als het te wijzigen object en stel de modus in op "++".
 
 ![](media/A26.png)
 
-5. 「LED」パートから以下のブロックをドラッグし、LEDピンをIO5に設定します。さらに「変数」ブロックを追加し、空欄に「item」を入力します。
+5. Sleep het volgende blok uit het onderdeel “LED” en stel de LED-pin in op IO5. Voeg vervolgens een "variabele" blok toe en vul deze met "item".
 
 ![](media/A27.png)
 
-6. 「制御」パートから以下のブロックをドラッグし、時間を0.01秒（10ms）に設定します。
+6. Sleep het volgende blok uit het onderdeel "Besturing" en stel de tijd in op 0,01s, dat is 10ms.
 
 ![](media/A28.png)
 
-7. これまでの手順に従い、変数モードが「– –」だけ異なるもう一つのコードブロックを作成します。
+7. Bouw volgens de vorige stappen een ander codeblok met als enige verschil de variabele modus "– –".
 
 ![](media/A29.png)
 
-**完成コード：**
+**Volledige code:**
 
 ![](media/A30.png)
 
-**5. テスト結果**
+**5. Testresultaat**
 
-コードをアップロードすると、LEDが徐々に暗くなり、均等に「呼吸」しているように見えます。
+Na het uploaden van de code zien we dat de LED geleidelijk dimt. Hij "ademt" gelijkmatig.
 
-**6. コード説明**
+**6. Code-uitleg**
 
-1. このブロックは変数の使用範囲、変数の種類、名前、初期値を設定するためのものです。
+1. Dit blok wordt gebruikt om het bruikbare bereik van de variabele, het variabeltype, de naam en de initiële waarde in te stellen.
 
 ![](media/A31.png)
 
-2. この繰り返しブロックの空欄に繰り返し回数を指定できます。
+2. Het aantal herhalingen kan worden ingevuld in het lege veld van dit herhaalblok.
 
 ![](media/A32.png)
 
-3. 空欄に変数名を入力すると、コード実行ごとにその値が1ずつ増加します。「++」は「– –」に変更可能です。
+3. Voer een variabelenaam in het lege veld in en de waarde wordt bij elke uitvoering met 1 verhoogd. "++" kan worden gewijzigd in "– –".
 
 ![](media/A33.png)
 
-4. 空欄に変数名を入力すると、コード実行ごとにその値が1ずつ減少します。「– –」は「++」に変更可能です。
+4. Voer een variabelenaam in het lege veld in en de waarde wordt bij elke uitvoering met 1 verlaagd. "– –" kan worden gewijzigd in "++".
 
 ![](media/A34.png)
 
-5. これはPWM出力モジュールで、白いボックスが出力PWMの値を示します。
+5. Dit is een PWM-uitgangsmoduul, en het witte vak is de waarde van de uitgevoerde PWM.
 
 ![](media/A35.png)

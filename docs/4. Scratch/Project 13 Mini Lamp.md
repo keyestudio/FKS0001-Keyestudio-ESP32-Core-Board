@@ -1,102 +1,102 @@
-### プロジェクト13 ミニランプ
+### Project 13 Mini Lamp
 
-**1. 説明**
+**1. Beschrijving**
 
-このプロジェクトでは、Arduino UNOとボタンを使ってランプを制御します。ボタンを押すと、ランプの状態が切り替わります（ONまたはOFF）。
+In dit project gaan we een lamp bedienen via Arduino UNO en een knop. Wanneer we de knop indrukken, verandert de status van de lamp (AAN of UIT).
 
-**2. 動作原理**
+**2. Werkingsprincipe**
 
 ![](media/A152.png)
 
-ボタンが離されているとき、R29を通る電圧VCCがS端子にハイレベルを供給します。押されると、ピン1と3、ピン2と4が接続され、S1の電圧がGNDに到達してロー レベルになります。この時、R29はVCCとGND間のショートを防ぎます。
+Wanneer de knop losgelaten wordt, zorgt een spanning VCC die door R29 loopt voor een hoog niveau op de S-terminal. Wanneer ingedrukt, worden pin 1 en 3, pin 2 en 4 verbonden en komt de spanning op S1 op GND als een laag niveau. Op dat moment voorkomt R29 een kortsluiting tussen VCC en GND.
 
-**3. 配線図**
+**3. Aansluitschema**
 
 ![](media/A153.png)
 
-**4. テストコード**
+**4. Testcode**
 
-1. 基本ブロックを2つ追加します。
+1. Voeg twee basisblokken toe.
 
 ![](media/A154.png)
 
-2. “Serial”から「baud rate」をドラッグし、9600に設定します。
+2. Sleep een "baud rate" uit “Serial” en stel deze in op 9600.
 
 ![](media/A155.png)
 
-3. 次に“Serial”から「print」ブロックをドラッグし、空欄に「Key status:」と入力し、「no-warp」に設定します。
+3. Sleep vervolgens een "print" blok uit “Serial”, typ “Key status:” in het lege veld en stel het in op "no-warp".
 
 ![](media/A156.png)
 
-4. IO15ピンを「input」に設定します。
+4. Stel de IO15 pin in op “input”.
 
 ![](media/A157.png)
 
-5. もう一つ“Serial print”ブロックを“Serial”からドラッグし、モードを「warp」に設定します。“Button”から「state value of button」を追加し、ピンをIO15に設定します。
+5. Sleep nog een “Serial print” blok uit “Serial” en stel de modus in op "warp". Voeg een "state value of button" toe uit “Button” en stel de pin in op IO15.
 
 ![](media/A158.png)
 
-**完成コード：**
+**Volledige code:**
 
 ![](media/A159.png)
 
-**5. テスト結果**
+**5. Testresultaat**
 
-配線を接続しコードをアップロードした後、シリアルモニターを開き、ボーレートを9600に設定します。  
-ボタンを押すとシリアルポートに「Key status: 0」と表示され、ボタンを離すと「Key status: 1」と表示されます。
+Na het aansluiten van de bedrading en het uploaden van de code, open je de seriële monitor en stel je de baudrate in op 9600.  
+Wanneer we de knop indrukken, print de seriële poort "Key status: 0"; wanneer we de knop loslaten, print de seriële poort "Key status: 1".
 
 ![](media/A160.png)
 
-**6. 知識拡張**
+**6. Kennisuitbreiding**
 
-次に、ボタンの状態を通じてLEDを制御します。
+Vervolgens gaan we de LED aansturen via de status van de knoppen.
 
-**フローチャート：**
+**Stroomschema:**
 
 ![](media/A161.png)
 
-**配線図：**
+**Aansluitschema:**
 
 ![](media/A162.png)
 
-**コード：**
+**Code:**
 
-1. 基本ブロックを2つドラッグします。
+1. Sleep twee basisblokken.
 
 ![](media/A163.png)
 
-2. LEDピンを「output」、ボタンピンを「input」に設定します。
+2. Stel de LED-pin in op “output” en de knop-pin op “input”.
 
 ![](media/A164.png)
 
-3. “Control”から「if else」ブロックをドラッグします。“Button”から「button pin」ブロックを「if」の後に追加し、ピンをIO15に設定します。「if」の下に「LED output」ブロックを置き、出力をHIGHに設定し、「else」の下にもう一つ置いてLOWに設定します。LEDピンは両方ともIO4です。
+3. Sleep een "if else" blok uit “Control”. Voeg een "button pin" blok toe uit “Button” na "if" en stel de pin in op IO15. Plaats een "LED output" blok onder "if" en stel de output in op HIGH, en plaats een ander onder "else" en stel deze in op LOW. Beide LED-pinnen zijn IO4.
 
 ![](media/A165.png)
 
-**完成コード：**
+**Volledige code:**
 
 ![](media/A166.png)
 
-**8. コード説明**
+**8. Code-uitleg**
 
-**注意：ボタンモジュールを使用する際はピンモードを必ず「input」に設定してください。**
+**Opmerking: Pin-modus moet op "input" worden gezet bij gebruik van de knopmodule.**
 
-1. ボタンが押されているかどうかを判定します。押されていればこのブロックはtrueを表します。
+1. Controleer of de knop is ingedrukt. Zo ja, dan geeft dit blok true terug.
 
 ![](media/A167.png)
 
-2. ボタンの値を読み取ります。ボタンが押されていないときは値が1、押されているときは0です。
+2. Lees de knopwaarde uit. Wanneer de knop niet is ingedrukt, is de waarde 1. Anders is deze 0.
 
 ![](media/A168.png)
 
-3. 六角形内の条件がtrueの場合、「if」ブロックが実行されます。そうでなければ「else」ブロックが実行されます。
+3. Als de voorwaarde in het zeshoekige blok waar is, wordt het "if" blok uitgevoerd. Anders draait het programma het "else" blok.
 
 ![](media/A169.png)
 
-4. ボーレートを設定します。シリアルモニターの相手側とボーレートが一致していることを確認してください。そうでないと何も表示されません。一般的なボーレートは9600と115200で、ここでは9600に設定しています。
+4. Stel de baudrate in. Zorg ervoor dat de seriële baudrate overeenkomt met die van de seriële monitor, anders wordt er niets geprint. De meest gebruikte baudrates zijn 9600 en 115200, hier stellen we 9600 in.
 
 ![](media/A170.png)
 
-5. シリアルモニターに文字を表示します。表示される文字は空欄に入力したものです。また、表示モードはwarp、no-warp、HEX（16進数）の3種類があります。
+5. Print tekens op de seriële monitor. De geprinte tekst is wat je in het lege veld typt. Daarnaast zijn er drie printmodi: warp, no-warp en HEX (hexadecimaal).
 
 ![](media/A171.png)

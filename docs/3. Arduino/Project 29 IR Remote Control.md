@@ -1,42 +1,42 @@
-### プロジェクト29 IRリモコン制御
+### Project 29 IR Afstandsbediening
 
-**1. 説明**
+**1. Beschrijving**
 
-IRリモコンはIR信号を使ってLEDを制御します。これにより、LEDの制御が大幅に簡素化されます。
+De IR afstandsbediening gebruikt een IR-signaal om een LED te bedienen, wat het proces van het aansturen van de LED aanzienlijk vereenvoudigt.
 
-**2. 動作原理**
+**2. Werking**
 
 ![](media/B41.png)
 
-本プロジェクトでは、約38Kのキャリア周波数を変調に使用することが多いです。
+In dit project gebruiken we vaak een draaggolf van ongeveer 38K voor modulatie.
 
-IRリモコンシステムは変調、送信、受信を含みます。変調を通じてデータを送信することで、伝送効率が向上し、消費電力が削減されます。
+Het IR-afstandsbedieningssysteem omvat modulatie, uitzenden en ontvangen. Het verzendt data door modulatie, wat de transmissie-efficiëntie verbetert en het energieverbruik vermindert.
 
-一般的に、キャリア変調の周波数は30kHz～60kHzの範囲内（通常は38kHz）です。矩形波のデューティ比は1/3で、下図のように送信側の455kHz水晶発振器によって決定されます。
+Over het algemeen ligt de frequentie van de draaggolfmodulatie tussen 30kHz en 60kHz (meestal 38kHz). De duty cycle van de vierkante golf is 1/3, zoals hieronder weergegeven, wat wordt bepaald door de 455kHz kristaloscillator aan de zendzijde.
 
-この端の水晶発振器には整数分周が必須で、周波数係数は通常12と評価されます。したがって、455kHz÷12 ≈ 37.9kHz ≈ 38kHzとなります。
+Een gehele frequentiedeling is essentieel voor de kristaloscillator aan deze kant, en de frequentiefactor is meestal 12. Daarom is 455kHz ÷ 12 ≈ 37,9kHz ≈ 38kHz.
 
-**38kHzキャリア（完全）送信図：**
+**38KH draaggolf (volledig) zenddiagram:**
 
 ![](media/B42.jpg)
 
-**キャリア周波数:** 38kHz
+**Draaggolffrequentie:** 38KHz
 
-**波長:** 940nm
+**Golflengte:** 940nm
 
-**受信角度:** 90°
+**Ontvangshoek:** 90°
 
-**制御距離:** 6m
+**Bedieningsafstand:** 6M
 
-**リモコンボタンの回路図：**
+**Schema van afstandsbedieningsknoppen:**
 
 ![](media/B43.png)
 
-**3. 配線図**
+**3. Aansluitschema**
 
 ![](media/B44.png)
 
-**4. テストコード**
+**4. Testcode**
 
 ```
 /*
@@ -49,49 +49,49 @@ IRリモコンシステムは変調、送信、受信を含みます。変調を
 #include <IRrecv.h>
 #include <IRutils.h>
 
-const uint16_t recvPin = 19;  // 赤外線受信ピン
-IRrecv irrecv(recvPin);  // 受信クラスのオブジェクトを作成
-decode_results results;   // デコード結果クラスのオブジェクトを作成
+const uint16_t recvPin = 19;  // Infrared receiving pin
+IRrecv irrecv(recvPin);  // Create a class object used to receive class
+decode_results results;   // Create a decoding results class object
 long ir_rec;
 
 void setup()
 {
-  Serial.begin(9600); // シリアルポートを初期化し、ボーレートを9600に設定
-  irrecv.enableIRIn(); // 受信開始
+  Serial.begin(9600); // Initialize the serial port and set the baud rate to 9600
+  irrecv.enableIRIn(); // start receiving signals
 }
 
 void loop() 
 {
   if (irrecv.decode(&results)) 
   {
-    ir_rec = results.value; // 信号を変数ir_recに代入
+    ir_rec = results.value; //assign the signal to the variable ir_rec
     if(ir_rec != 0)
-    {		// ボタンが押された時にコードの繰り返し実行を防止
-        Serial.print(ir_rec, HEX); // 変数ir_recを16進数で表示
-        Serial.println();// 改行
+    {		//Prevente the code from repeating execute when the button is pressed 
+        Serial.print(ir_rec, HEX); //Print the variable ir_rec in hexadecimal
+        Serial.println();//Wrapping lines
     }
-    irrecv.resume(); // IRリモコンの受信を再開し、次の値を受信
+    irrecv.resume(); //Release the IR remote and receive the next value.
   }
 } 
 ```
 
-**5. テスト結果**
+**5. Testresultaat**
 
-配線を接続しコードをアップロードした後、シリアルモニターを開きボーレートを9600に設定します。
+Na het aansluiten van de bedrading en het uploaden van de code, open je de seriële monitor en stel je de baudrate in op 9600.
 
-リモコンのボタンを押すと、16進数の値が表示されます。
+Druk op een knop van de afstandsbediening en je ziet de waarde in hexadecimale notatie.
 
 ![](media/B45.png)
 
-**6. 知識の拡張**
+**6. Kennisuitbreiding**
 
-次に、IRリモコンを使ってLEDを制御します。OKボタンを押すとLEDが点灯し、再度押すと消灯します。
+Vervolgens gebruiken we een IR-afstandsbediening om de LED te bedienen. Druk op OK om de LED aan te zetten en druk nogmaals om deze uit te schakelen.
 
-**配線図：**
+**Aansluitschema：**
 
 ![](media/B46.png)
 
-**コード：**
+**Code：**
 
 ```
 /*
@@ -106,15 +106,15 @@ void loop()
 
 int led = 25;
 int led_val = 0;
-const uint16_t recvPin = 19;  // 赤外線受信ピン
-IRrecv irrecv(recvPin);       // 受信クラスのオブジェクトを作成
-decode_results results;       // デコード結果クラスのオブジェクトを作成
+const uint16_t recvPin = 19;  // Infrared receiving pin
+IRrecv irrecv(recvPin);       // Create a class object used to receive class
+decode_results results;       // Create a decoding results class object
 long ir_rec;
 
 void setup() 
 {
-  Serial.begin(9600);   // シリアルポートを初期化し、ボーレートを9600に設定
-  irrecv.enableIRIn();  // 受信開始
+  Serial.begin(9600);   // Initialize the serial port and set the baud rate to 9600
+  irrecv.enableIRIn();  // start receiving signals
   pinMode(led, OUTPUT);
 }
 
@@ -122,20 +122,20 @@ void loop()
 {
   if (irrecv.decode(&results)) 
   {
-    ir_rec = results.value;      // 信号を変数ir_recに代入
+    ir_rec = results.value;      //assign the signal to the variable ir_rec
     if (ir_rec != 0) 
-    {           // ボタンが押された時にコードの繰り返し実行を防止
-      if (ir_rec == 0xFF02FD) // 受信したIR信号がOKボタンのものか判定
+    {           //Prevente the code from repeating execute when the button is pressed
+      if (ir_rec == 0xFF02FD) //Determine whether the received IR signal is from button OK
       {  
-        led_val = !led_val;      // 変数を反転。初期値が0なら反転後は1になる
+        led_val = !led_val;      //Reverse a variable. If the initial value is 0, it turns to 1 after reversing  
         digitalWrite(led, led_val);
       }
     }
-    irrecv.resume();  // IRリモコンの受信を再開し、次の値を受信
+    irrecv.resume();  //Release the IR remote and receive the next value.
   }
 }
 ```
 
-**テスト結果：**
+**Testresultaat:** 
 
-OKボタンを押すとLEDが点灯し、再度押すと消灯します。
+Druk op OK om de LED aan te zetten en druk nogmaals om deze uit te schakelen.

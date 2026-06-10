@@ -1,69 +1,69 @@
-### プロジェクト16 タイムボム
+### Project 16 Timebomb
 
-**1. 説明**
+**1. Beschrijving**
 
-このプロジェクトでは、面白いタイムボムゲームを体験することができます。  
+Dit project geeft je de mogelijkheid om een interessant timebomb-spel te ervaren.
 
-このプロジェクトでは、ドットマトリクスがタイムボムを表し、デジタルチューブが残り時間を表示します。ボタンは爆弾の操作だけでなく、時間設定も可能です。カウントダウンを設定して爆弾を制御し、カウントダウン終了時に爆発します。それに加えて、ブザーが警報として採用されています。 
+In dit project stelt de dot matrix je timebomb voor, terwijl de digitale buis de resterende tijd weergeeft. Knoppen kunnen niet alleen de bom bedienen, maar ook de tijd instellen. Je kunt een aftelling instellen om deze bom te regelen, en hij ontploft wanneer de aftelling voorbij is. Daarnaast wordt een buzzer gebruikt als alarm.
 
-いずれにせよ、複数のセンサーを使ったプログラミングにより、論理的思考の総合力を高めることができます。 
+Hoe dan ook, door te programmeren met meerdere sensoren kan je algehele vermogen tot logisch denken worden verbeterd.
 
-**2. フローチャート**
+**2. Stroomschema**
 
 ![](media/B1.png)
 
-**3. 配線図**
+**3. Aansluitschema**
 
 ![](media/B2.png)
 
-**4. テストコード**
+**4. Testcode**
 
-1. 2つの基本ブロックをドラッグします。
+1. Sleep de twee basisblokken.
 
 ![](media/B3.png)
 
-2. ボタンのピンを「入力(input)」に設定します。
+2. Stel de knop-pin in op “input”.
 
 ![](media/B4.png)
 
-3. 「Matrix」から「init matrix display」ブロックを追加し、ピンCSをIO15に設定します。続いて、「brightness」ブロックを値3で追加し、「variable」ブロック（変数タイプをint、名前をitem、初期値を0に設定）を追加します。
+3. Voeg een "init matrix display" blok toe uit "Matrix" en stel de pin CS in op IO15. Daarna volgt een "brightness" blok met de waarde 3 en een "variable" blok (stel het variabeltype in op int en de naam op item, wijs 0 toe als beginwaarde).
 
 ![](media/B5.png)
 
-4. 「Matrix」から「fill color」ブロックをドラッグし、「black」（すべてのLEDを消灯して前の表示をクリア）を選択します。次に、「display image」ブロックを追加してスマイルフェイスを定義します。最後に、表示を更新するためのリフレッシュブロックを置きます。
+4. Sleep in "Matrix" een "fill color" blok en selecteer "black" (d.w.z. alle LED’s uit om de vorige weergave te wissen). Voeg een "display image" toe om een glimlachend gezicht te definiëren. Plaats vervolgens een refresh-blok om het display te vernieuwen.
 
 ![](media/B6.png)
 
-5. 「if」ブロックをドラッグし、条件欄に「interface IO33 button was be pushed?」を入力します。「then」の後に「variable mode」ブロックを追加し、名前をitem、モードを「++」に設定します。
+5. Sleep een "if" blok en vul het conditievak met "interface IO33 button was be pushed?". Voeg na "then" een "variable mode" blok toe en stel de naam in op item en de modus op "++".
 
 ![](media/B7.png)
 
-6. ステップ5の操作を繰り返しますが、インターフェースをIO32に、モードを「--」に設定します。
+6. Herhaal de handeling van stap 5, maar stel de interface in op IO32 en de modus op "--".
 
 ![](media/B8.png)
 
-7. 「if」ブロックをドラッグし、ピンIO26が押されたかを判定します。この「if」内に「repeat」ブロックを追加し、条件を「item = 0」に設定します。 
+7. Sleep een "if" blok om te controleren of pin IO26 is ingedrukt. In deze "if" voegen we een repeat-blok toe en stellen de voorwaarde in op "item" = 0.
 
-「repeat until」ループ内に「variable mode」ブロックを置き、「item」を「--」に設定します。次に、「Digital tube」から「TM1650 display」ブロックをドラッグし、表示文字列を「variable item」ブロックに設定します。続けて、「buzzer output」ブロックを追加し、ピンIO27の出力をHIGHに設定し、0.5秒の遅延を入れます。最後に同じ操作を繰り返しますが、出力をLOWに設定します。
+In de "repeat until" lus plaats je een "variable mode" en stel je "item" in op "--", zoals hieronder weergegeven. Sleep een "TM1650 display" blok uit "Digital tube" en definieer de weergegeven string als "variable item" blok. Voeg daarna een "buzzer output" blok toe en stel de output in op HIGH op pin IO27 gevolgd door een vertraging van 0,5s. Herhaal de laatste procedure maar stel de output in op LOW.
 
 ![](media/B9.png)
 
-8. もう一つループコードをプログラムし、条件を「interface IO25 button was be pushed?」に設定します。このループ内で実行される処理は以下の通りです。「TM1650 display」ブロックを置き、表示文字列を「variable item」ブロックに設定します。次にステップ4を繰り返しますが、ここでは画像を泣いている顔に設定します。
+8. Programmeer een andere lus en definieer de voorwaarde als "interface IO25 button was be pushed?". De volgende uitvoeringen vinden in deze lus plaats. Plaats een "TM1650 display" blok en definieer de weergegeven string als "variable item" blok. Herhaal vervolgens stap 4, maar stel hier het beeld in op een huilend gezicht.
 
 ![](media/B10.png)
 
-9. 「if then」ブロックをドラッグし、空欄に条件「item ＞ 9999」を入力します。この条件ブロック内に「set item variable by 0」という文を追加します。
+9. Sleep een "if then" blok en vul het lege veld met de voorwaarde: item ＞ 9999. Voeg in dit conditieblok de instructie toe "set item variable by 0".
 
 ![](media/B11.png)
 
-10. 「Digital tube」から「TM1650 display」ブロックをドラッグし、表示文字列を「variable item」に設定します。同様に、0.2秒の遅延を忘れずに入れます。
+10. Sleep een "TM1650 display" uit "Digital tube" en definieer de weergegeven string als "variable item". Vergeet ook niet een vertraging van 0,2s toe te voegen.
 
 ![](media/B12.png)
 
-**完成コード:**
+**Volledige code:**
 
 ![](media/B13.png)
 
-**5. テスト結果**
+**5. Testresultaat**
 
-配線を接続しコードをアップロードした後、青ボタンで時間を増やし、緑ボタンで減らし、赤ボタンでリセットします。黄色ボタンを押すとカウントダウンが始まります。カウントダウン終了時に爆弾が爆発します。
+Na het aansluiten van de bedrading en het uploaden van de code, druk je op de blauwe knop om tijd toe te voegen, groen om te verminderen en rood om te resetten. Druk op de gele knop om af te tellen. Wanneer de tijd om is, ontploft de bom.

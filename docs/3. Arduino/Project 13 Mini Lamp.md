@@ -1,20 +1,20 @@
-### **プロジェクト13 ミニランプ**
+### **Project 13 Mini Lamp**
 
-**1. 説明**
+**1. Beschrijving**
 
-このプロジェクトでは、Arduino UNOとボタンを使ってランプを制御します。ボタンを押すと、ランプの状態が切り替わります（ONまたはOFF）。
+In dit project gaan we een lamp bedienen via Arduino UNO en een knop. Wanneer we de knop indrukken, verandert de status van de lamp (AAN of UIT).
 
-**2. 動作原理**
+**2. Werkingsprincipe**
 
 ![](media/A53.png)
 
-ボタンが離されているとき、R29を通った電圧VCCがS端子に高レベルを供給します。押されると、ピン1と3、ピン2と4が接続され、S1の電圧がGNDに接続されて低レベルになります。このとき、R29はVCCとGND間の短絡を防ぎます。
+Wanneer de knop wordt losgelaten, zorgt een spanning VCC die door R29 loopt voor een hoog niveau op de S-terminal. Wanneer de knop wordt ingedrukt, zijn pin 1 en 3, pin 2 en 4 verbonden en komt de spanning op S1 op GND als een laag niveau. Op dat moment voorkomt R29 een kortsluiting tussen VCC en GND.
 
-**3. 配線図**
+**3. Aansluitschema**
 
 ![](media/A54.png)
 
-**4. テストコード**
+**4. Testcode**
 
 ```
 /*
@@ -27,38 +27,38 @@ int value = 0;
 
 void setup() 
 {
-  Serial.begin(9600); //シリアル通信のボーレートを9600に設定
-  pinMode(button, INPUT);  //ボタンピンをデジタルポート8に接続し、入力モードに設定
+  Serial.begin(9600); //Stel de seriële baudrate in op 9600 
+  pinMode(button, INPUT);  //Verbind de knop met digitale poort 8 en stel deze in als input.
 }
 
 void loop() 
 {
-  value = digitalRead(button);//ボタンの値を読み取る
-  Serial.print("Key status:"); //シリアルポートに「Key status:」を表示
-  Serial.println(value); //ボタンの値をシリアルポートに表示し改行
+  value = digitalRead(button);//Lees de waarde van de knop 
+  Serial.print("Key status:"); //Print "Key status:" op de seriële poort 
+  Serial.println(value); //Print de knopvariabele op de seriële poort en ga naar de volgende regel
 }
 ```
 
-**5. テスト結果**
+**5. Testresultaat**
 
-配線を接続しコードをアップロードした後、シリアルモニターを開きボーレートを9600に設定します。  
-ボタンを押すとシリアルポートに「Key status: 0」と表示され、離すと「Key status: 1」と表示されます。
+Na het aansluiten van de bedrading en het uploaden van de code, open je de seriële monitor en stel je de baudrate in op 9600.  
+Wanneer we de knop indrukken, print de seriële poort "Key status: 0"; wanneer we loslaten, print de seriële poort "Key status: 1".
 
 ![](media/A55.png)
 
-**6. 知識の拡張**
+**6. Kennisuitbreiding**
 
-次に、ボタンの状態を使ってLEDを制御します。
+Vervolgens gaan we de LED bedienen via de status van de knoppen.
 
-- **フローチャート：**
+- **Stroomschema:**
 
 ![](media/A56.png)
 
-- **配線図：**
+- **Aansluitschema:**
 
 ![](media/A57.png)
 
-- **コード**
+- **Code**
 
 ```
 /*
@@ -72,25 +72,25 @@ bool ledState = false;
 
 void setup() 
 {
-  // デジタルピンPIN_LEDを出力として初期化
+  // initialiseer digitale pin PIN_LED als uitgang.
   pinMode(led, OUTPUT);
   pinMode(button, INPUT);
 }
 
-// loop関数は永遠に繰り返し実行される
+// de loop-functie draait continu oneindig door
 void loop() 
 {
-  if (digitalRead(button) == LOW) {    //ボタンの値が初めて0になったとき、チャタリングが発生するため20ms遅延して再度判定
-    delay(20);                              //20ms遅延
-    if (digitalRead(button) == LOW) {   //ボタンの値が0か判定
-      ledState = !ledState;                 //ledStateを反転させ、LEDのON/OFFを切り替える
+  if (digitalRead(button) == LOW) {    //Wanneer de knopwaarde voor het eerst 0 is, wordt knopdebouncing geactiveerd, dus wordt 20ms gewacht om te controleren of de knop nog steeds 0 is. 
+    delay(20);                              //Wacht 20ms
+    if (digitalRead(button) == LOW) {   //controleer of de knopwaarde 0 is
+      ledState = !ledState;                 //ledState wordt het tegenovergestelde van de oorspronkelijke waarde, wat gebruikt kan worden om de LED aan en uit te zetten 
       digitalWrite(led, ledState);
     }
-    while (digitalRead(button) == LOW);     //ボタンが押されている間はループを保持し、離すと抜ける
+    while (digitalRead(button) == LOW);     //houd de knop ingedrukt in de while-lus, verlaat deze wanneer de knop wordt losgelaten
   }
 }
 ```
 
-- **テスト結果**
+- **Testresultaat**
 
-赤いボタンで赤色LEDの点灯・消灯を制御できます。
+Je kunt de rode LED aan- en uitzetten met de rode knop.

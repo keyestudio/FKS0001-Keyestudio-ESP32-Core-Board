@@ -1,24 +1,24 @@
-### プロジェクト19 調光ランプ
+### Project 19 Dimmen van Lamp
 
-**1. 説明**
+**1. Beschrijving**
 
-調光ランプは、ポテンショメーターとArduinoコントローラーを使ってLEDの明るさを調整します。明るさは抵抗値に依存し、ポテンショメーターの端をボードのデジタルまたはアナログピンに接続することで読み取り・調整が可能です。さらに、このシステムはファン、電球、ヒーターなど他のデバイスの電圧や電流の制御にも応用できます。
+De dimlamp past de helderheid van een LED aan via een potentiometer en een Arduino-controller. De helderheid is afhankelijk van de weerstandwaarde, die kan worden uitgelezen en aangepast door de uiteinden van de potentiometer te verbinden met digitale of analoge pinnen op het bord. Bovendien wordt dit systeem toegepast om de spanning of stroom van andere apparaten zoals ventilatoren, lampen en verwarmingselementen te regelen.
 
-**2. 動作原理**
+**2. Werking**
 
 ![](media/B3.png)
 
 ![](media/B4.png)
 
-本質的に、ポテンショメーターは抵抗値を変化させることができる素子です。オームの法則(U=I*R)によれば、抵抗は電圧に影響を与えます。今回のポテンショメーターは10Kです。
+In wezen is een potentiometer een element dat de waarde van de weerstand kan veranderen. Volgens de wet van Ohm (U=I*R) beïnvloedt de weerstand de spanning. Onze potentiometer is 10K.
 
-このプロジェクトでは、最大抵抗値は10Kです。ESP32ボードは3Vの電圧を4095分割（3/4095=0.0007326007326）します。アナログ電圧は読み取った値に0.0007326007326を掛けることで得られます。
+In dit project is de maximale weerstand 10K. Het ESP32-bord verdeelt de spanning van 3V gelijkmatig in 4095 delen (3/4095=0.0007326007326). De analoge spanning wordt verkregen door de uitgelezen waarde te vermenigvuldigen met 0.0007326007326.
 
-**3. 配線図**
+**3. Aansluitschema**
 
 ![](media/B5.png)
 
-**4. テストコード**
+**4. Testcode**
 
 ```
 /*
@@ -43,21 +43,21 @@ void loop()
 }
 ```
 
-**5. テスト結果**
+**5. Testresultaat**
 
-配線を接続しコードをアップロードした後、シリアルモニターを開きボーレートを9600に設定すると、0～4095の範囲でアナログ値が表示されます。ポテンショメーターを回すことでアナログ値の大きさが変化します。
+Na het aansluiten van de bedrading en het uploaden van de code, open je de seriële monitor en stel je de baudrate in op 9600. De analoge waarde wordt weergegeven binnen het bereik van 0-4095. Door aan de potentiometer te draaien, verandert de grootte van de analoge waarde.
 
 ![](media/B6.png)
 
-**6. 知識の拡張**
+**6. Kennisuitbreiding**
 
-ポテンショメーターを使ってLEDの明るさを制御します。ご存知のように、これはPWMに影響されます。しかし、アナログ値の範囲は0～4095であるのに対し、PWMの範囲は0～255です。したがって、"map(value, fromLow, fromHigh, toLow, toHigh)"関数が必要になります。
+We zullen de helderheid van de LED regelen via een potentiometer. Zoals we weten, wordt dit beïnvloed door PWM. Echter, het bereik van de analoge waarde is 0-4095 terwijl dat van PWM 0-255 is. Daarom is een functie "map(value, fromLow, fromHigh, toLow, toHigh)" nodig.
 
-**配線図：**
+**Aansluitschema：**
 
 ![](media/B7.png)
 
-**コード：**
+**Code：**
 
 ```
 /*
@@ -83,6 +83,6 @@ void loop()
 }
 ```
 
-**7. テスト結果**
+**7. Testresultaat**
 
-コードのアップロードが成功した後、ポテンショメーターを回すと赤色LEDの明るさが変化します。
+Na het succesvol uploaden van de code zal het draaien aan de potentiometer de helderheid van de rode LED veranderen.

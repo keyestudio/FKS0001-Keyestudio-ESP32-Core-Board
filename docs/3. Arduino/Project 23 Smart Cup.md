@@ -1,20 +1,20 @@
-### プロジェクト23 スマートカップ
+### Project 23 Slimme Beker
 
-**1. 説明**
+**1. Beschrijving**
 
-本プロジェクトでは、主にArduino開発ボードを採用し、RGBインジケーターで内部液体の温度を表示するプログラム可能なスマートカップを作成します。温度の閾値を設定することで、光の明るさを制御できます。閾値を超えると明るくなり、それ以外は暗くなります。
+In dit project gebruiken we voornamelijk het Arduino ontwikkelbord om een programmeerbare slimme beker te maken, die de temperatuur van de binnenste vloeistof weergeeft via een RGB-indicator. De helderheid van het licht kan worden geregeld door een temperatuurgrens in te stellen. Als de drempel wordt overschreden, wordt het licht helderder. Anders wordt het donkerder.
 
-スマートカップは、ユーザーが飲料水の温度をより適切に管理し、過熱や凍結を効果的に防止するのに役立ちます。
+De slimme beker helpt gebruikers beter de temperatuur van hun drinkwater te beheersen en effectief oververhitting of bevriezing te voorkomen.
 
-**2. 動作原理**
+**2. Werking**
 
 ![](media/B23.png)
 
-**3. 配線図**
+**3. Aansluitschema**
 
 ![](media/B24.png)
 
-**4. テストコード**
+**4. Testcode**
 
 ```
 /*
@@ -51,26 +51,26 @@ void loop()
 }
 ```
 
-**5. テスト結果**
+**5. Testresultaat**
 
-配線を接続しコードをアップロードした後、シリアルモニターを開きボーレートを9600に設定すると、温度と湿度の値が表示されます。
+Na het aansluiten van de bedrading en het uploaden van de code, open je de seriële monitor en stel je de baudrate in op 9600. De temperatuur- en vochtigheidswaarden worden dan weergegeven.
 
 ![](media/B25.png)
 
-**6. 知識の拡張**
+**6. Kennisuitbreiding**
 
-ここでは、液体の温度を表示できるスマートカップを作ります。100を4つの範囲に分けてLEDで示します。以下のように設定します：
+Nu maken we een slimme beker die de vloeistoftemperatuur kan weergeven. We verdelen 100 in vier delen met een LED, zoals hieronder weergegeven:
 
-- **赤色LED:** 100-75°C
-- **黄色LED:** 75-50°C
-- **緑色LED:** 50-25°C
-- **青色LED:** 25-0°C
+- **Rode LED:** 100-75°C
+- **Gele LED:** 75-50°C
+- **Groene LED:** 50-25°C
+- **Blauwe LED:** 25-0°C
 
-**配線図：**
+**Aansluitschema：**
 
 ![](media/B26.png)
 
-**コード：**
+**Code：**
 
 ```
 /*
@@ -137,11 +137,11 @@ void loop()
 }
 ```
 
-**テスト結果**
+**Testresultaat**
 
-- **赤色LED:** 100-75°C
-- **黄色LED:** 75-50°C
-- **緑色LED:** 50-25°C
-- **青色LED:** 25-0°C
+- **Rode LED:** 100-75°C
+- **Gele LED:** 75-50°C
+- **Groene LED:** 50-25°C
+- **Blauwe LED:** 25-0°C
 
-青色LEDが点灯している場合、DHT11センサーが検出した温度は0〜25°の範囲内であることを意味します。
+Als de blauwe LED brandt, betekent dit dat de temperatuur die door de DHT11 sensor wordt gedetecteerd binnen het bereik van 0-25° ligt.

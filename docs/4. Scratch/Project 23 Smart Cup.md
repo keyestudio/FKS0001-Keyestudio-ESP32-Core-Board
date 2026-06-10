@@ -1,85 +1,85 @@
-### プロジェクト23 スマートカップ
+### Project 23 Slimme Beker
 
-**1. 説明**
+**1. Beschrijving**
 
-このプロジェクトでは、主にArduino開発ボードを採用して、プログラム可能なスマートカップを作成します。カップ内部の液体の温度をRGBインジケーターで表示します。温度の閾値を設定することで、光の明るさを制御できます。閾値を超えると明るくなり、それ以外は暗くなります。
+In dit project gebruiken we voornamelijk het Arduino-ontwikkelbord om een programmeerbare slimme beker te maken, die de temperatuur van de binnenste vloeistof weergeeft via een RGB-indicator. De helderheid van het licht kan worden geregeld door een temperatuurgrens in te stellen. Als de drempel wordt overschreden, wordt het licht helderder. Anders wordt het donkerder.
 
-スマートカップは、ユーザーが飲料水の温度をより良く管理し、過熱や凍結を効果的に防ぐのに役立ちます。
+De slimme beker helpt gebruikers beter de temperatuur van hun drinkwater te controleren en voorkomt effectief oververhitting of bevriezing.
 
-**2. 動作原理**
+**2. Werkingsprincipe**
 
 ![](media/B71.png)
 
-DHT11の関連設定はメーカーから提供されているため、そのシーケンスチャートに従って順番にデータを読み取り処理するだけで済みます。
+De relevante instellingen voor de DHT11 worden door de fabrikanten geleverd, dus je hoeft alleen de data volgens het volgordediagram netjes uit te lezen en te verwerken.
 
-さらに、関連コードは当社のライブラリにパッケージ化されており、ピン設定や値の読み取りが簡単に行えます。
+Daarnaast zijn de bijbehorende codes verpakt in onze bibliotheken, wat het gemakkelijk maakt om pinnen in te stellen en waarden uit te lezen.
 
-**3. 配線図**
+**3. Aansluitschema**
 
 ![](media/B72.png)
 
-**4. テストコード**
+**4. Testcode**
 
-1. 基本ブロックを2つドラッグします。シリアルのボーレートモジュールを追加し、ボーレートを9600に設定します。
+1. Sleep twee basisblokken. Voeg het seriële baudrate-module toe en stel de baudrate in op 9600.
 
-2. 「温度と湿度」からDHTモジュールをドラッグし、ピンをIO26、モードをdht11に設定します。
+2. Sleep het DHT-module uit “Temperatuur en vochtigheid” en stel de pin in op IO26, modus op dht11.
 
 ![](media/B73.png)
 
-3. ラップなしのシリアルプリントモジュールを追加し、プリント内容を「RH:」に設定します。次に以下の手順に従い、1秒の遅延を追加します。
+3. Voeg een seriële printmodule toe zonder regelafbreking, stel de print in op “RH:”, volg daarna de onderstaande stappen en voeg een vertraging van 1s toe.
 
-**完成コード：**
+**Volledige code:**
 
 ![](media/B74.png)
 
-**5. テスト結果**
+**5. Testresultaat**
 
-配線を接続しコードをアップロードした後、![](media/B75.png)をクリックしてシリアルモニターを開き、ボーレートを9600に設定すると、温度と湿度の値が表示されます。
+Na het aansluiten van de bedrading en uploaden van de code, klik![](media/B75.png)om de seriële monitor te openen, stel de baudrate in op 9600, en de temperatuur- en vochtigheidswaarden worden weergegeven.
 
 ![](media/B76.png)
 
-**6. 拡張コード**
+**6. Uitbreidingscode**
 
-この拡張実験では、液体の温度を表示できるスマートカップを作ります。100を4つに分割し、それぞれの範囲をLEDで表します：
+In dit uitbreidingsexperiment maken we een slimme beker die de vloeistoftemperatuur kan weergeven. We verdelen 100 in vier delen waarbij elke LED een deel vertegenwoordigt:
 
-- **赤色LED：** 100-75°C
+- **Rode LED:** 100-75°C
 
-- **黄色LED：** 75-50°C
+- **Gele LED:** 75-50°C
 
-- **緑色LED：** 50-25°C
+- **Groene LED:** 50-25°C
 
-- **青色LED：** 25-0°C
+- **Blauwe LED:** 25-0°C
 
-**フローチャート：**
+**Stroomschema:**
 
 ![](media/B77.png)
 
-**配線図：**
+**Aansluitschema:**
 
 ![](media/B78.png)
 
-**コード：**
+**Code:**
 
-1. 基本ブロックを2つドラッグします。次に4つのLEDピンを「出力」に設定し、DHT11のピンをIO26、モードをdht11、変数名をtempに設定します。
+1. Sleep twee basisblokken. Stel vervolgens de 4 LED-pinnen in op “output”, de DHT11-pin op IO26, modus op dht11 en de variabelenaam op temp.
 
 ![](media/B79.png)
 
-2. DHT11の温度値を変数tempに代入します。
+2. Ken de temperatuurwaarde van DHT11 toe aan de variabele temp.
 
 ![](media/B80.png)
 
-3. "if else"を使って変数tempを判定します。条件を満たせば対応するLEDが点灯し、そうでなければ消灯します。
+3. Gebruik "if else" om de variabele temp te beoordelen. Als aan de voorwaarden wordt voldaan, gaat de corresponderende LED aan, anders gaat deze uit.
 
-**完成コード：**
+**Volledige code:**
 
 ![](media/B81.png)
 
-**7. コード説明**
+**7. Code-uitleg**
 
-1. このコードブロックでは、空欄に番号を入れることで複数の温湿度センサーを接続できます。ピンとモードを設定した後、値を読み取れます。本プロジェクトではモードをDHT11に設定しています。
+1. In dit codeblok kan het gemarkeerde nummer in het lege veld worden ingevuld zodat meerdere temperatuur- en vochtigheidssensoren kunnen worden aangesloten. Na het instellen van de pin en modus kan de waarde worden uitgelezen. In dit project stellen we de modus in op DHT11.
 
 ![](media/B82.png)
 
-2. 温度と湿度を読み取るコードブロック。
+2. Codeblok voor het uitlezen van temperatuur en vochtigheid.
 
 ![](media/B83.png)

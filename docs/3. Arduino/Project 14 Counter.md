@@ -1,18 +1,18 @@
-### プロジェクト14 カウンター
+### Project 14 Teller
 
-**1. 説明**
+**1. Beschrijving**
 
-Arduino 4ビットデジタル管カウンターは、0～9999の範囲内の数字を記録できます。表示速度、カウントモードの調整、およびリセット機能を備えています。このモジュールは、リアルタイムカウンター（ボタン押下やDCモーターの回転数カウントなど）、ゲーム、実験機器に広く応用されています。
+Arduino 4-bit digitale buisteller kan getallen binnen 0~9999 registreren. Het beschikt over aanpasbare weergavesnelheid, telmodus en resetfunctie. Deze module wordt veel toegepast in realtime tellers (zoals knopdrukken en DC-motordraaitellingen), gaming en experimentele apparatuur.
 
-**2. フローチャート**
+**2. Stroomschema**
 
 ![](media/A58.png)
 
-**3. 配線図**
+**3. Aansluitschema**
 
 ![](media/A59.png)
 
-**4. テストコード**
+**4. Testcode**
 
 ```
 /*
@@ -68,6 +68,6 @@ void loop()
 }
 ```
 
-**4. テスト結果**
+**4. Testresultaat**
 
-配線を接続しコードをアップロードした後、緑ボタンを押すと1ずつ加算、黄ボタンで1ずつ減算、赤ボタンでリセットします。ボタンを押し続けると、表示値が連続して加算または減算されます。
+Na het aansluiten van de bedrading en uploaden van de code, druk op de groene knop om 1 op te tellen, geel om 1 af te trekken en rood om te resetten. Houd de knop ingedrukt en de weergegeven waarde zal blijven toenemen of afnemen.

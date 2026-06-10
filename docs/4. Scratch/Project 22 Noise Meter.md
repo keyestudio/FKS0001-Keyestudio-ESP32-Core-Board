@@ -1,43 +1,43 @@
-### プロジェクト22 ノイズメーター
+### Project 22 Geluidsmeter
 
-**1. 説明**
+**1. Beschrijving**
 
-Arduinoノイズメーターは音の信号を一連のドットに変換し、それをドットマトリクス上にパターンとして表示します。
+De Arduino geluidsmeter zet het geluidssignaal om in een reeks stippen, die worden omgezet in patronen weergegeven op een dotmatrix.
 
-**2. 配線図**
+**2. Aansluitschema**
 
 ![](media/B63.png)
 
-**3. テストコード**
+**3. Testcode**
 
-1. 基本ブロックをドラッグしてディスプレイを初期化します。ピンCSをIO15に設定し、明るさを3にします。次に変数ブロックを追加し、型をintにして名前を「item」とし、初期値を0に設定します。
+1. Sleep de basisblokken en initialiseer het display. Stel de pin CS in op IO15 en de helderheid op 3. Voeg vervolgens een variabeleblok toe, selecteer int en noem deze "item" met een initiële waarde van 0.
 
-2. 変数ブロックを追加し名前を「item」とします。map関数を使って読み取った音の値の範囲0-4095を0-7に変換します。ただし、音の最大値の仮定は800です。
+2. Voeg een variabeleblok toe en noem deze "item". Gebruik een map-functie om de gelezen geluidswaarde van het bereik 0-4095 om te zetten naar 0-7, waarbij de veronderstelde maximale geluidswaarde 800 is.
 
 ![](media/B64.png)
 
-3. ディスプレイをクリアします。
+3. Maak het display leeg.
 
-4. 条件をプログラムします。変数itemが-1より大きい場合、ドットマトリクスは（x0:0  y0:0 x1:1  y1:0）を赤色で表示します。
+4. Programmeer een voorwaarde. Als de variabele item groter is dan -1, toont de dotmatrix (x0:0  y0:0 x1:1  y1:0) in de kleur rood.
 
 ![](media/B65.png)
 
-5. ステップ4を繰り返しますが、判定はitemが0より大きいかどうかです。もしそうなら、（x0:1  y0:0  x1:1  y1:1）のドットが点灯します。同様に、以下の座標を参照してコードブロックを作成します。
+5. Herhaal stap 4, maar controleer of item groter is dan 0. Zo ja, dan lichten de stippen op (x0:1  y0:0  x1:1  y1:1). Op dezelfde manier bouw je codeblokken op met de volgende coördinaten als referentie.
 
-6. 最後にディスプレイを更新します。
+6. Vernieuw tenslotte het display.
 
-**参照座標：**
+**Referentiecoördinaten:**
 
 ![](media/B66.png)
 
 ![](media/B67.png)
 
-**完成コード：**
+**Volledige code:**
 
 ![](media/B68.png)
 
-**4. テスト結果**
+**4. Testresultaat**
 
-配線を接続しコードをアップロードすると、下図のようにノイズレベルがドットマトリクスに表示されます。
+Na het aansluiten van de bedrading en het uploaden van de code wordt het geluidsniveau weergegeven op de dotmatrix, zoals hieronder te zien is.
 
 ![](media/B69.png)![](media/B70.png)![](media/B69.png)![](media/B70.png)

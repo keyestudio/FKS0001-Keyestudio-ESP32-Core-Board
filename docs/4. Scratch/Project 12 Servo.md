@@ -1,63 +1,63 @@
-### プロジェクト12 サーボ
+### Project 12 Servo
 
-**1. 説明**
+**1. Beschrijving**
 
-このサーボは高性能かつ高精度で、最大回転角度は180°です。わずか9gの軽量設計で、さまざまなミニデバイスに最適です。さらに、起動時間が短く、低ノイズで安定性が高いのが特徴です。
+Deze servo heeft een hoge prestatie en hoge precisie met een maximale rotatiehoek van 180°. Met een gewicht van slechts 9g is hij perfect geschikt voor elk mini-apparaat in diverse toepassingen. Bovendien heeft hij een korte opstarttijd, weinig geluid en sterke stabiliteit.
 
-**2. 動作原理**
+**2. Werking**
 
-**角度範囲:** 180°（360°、180°、90°）
+**Hoekbereik:** 180° (360°, 180° en 90°)
 
-**駆動電圧:** 3.3Vまたは5V
+**Voedingsspanning:** 3.3V of 5V
 
-**ピン:** 3本線
+**Pin:** Drie draden
 
 ![](media/A143.png)
 
-**GND:** グラウンド（茶色）
+**GND:** Aarde (bruin)
 
-**VCC:** +5V（3.3V）電源に接続する赤いピン
+**VCC:** Een rode pin die verbonden wordt met +5V (3.3V) voeding
 
-**S:** PWM信号で制御されるオレンジ色の信号ピン
+**S:** Een oranje signaalpin die wordt aangestuurd via PWM-signaal
 
 ![](media/A144.png)
 
-**制御原理:** 回転角度はPWMのデューティサイクルで制御されます。理論上、標準PWM周期は20ms（50Hz）で、パルス幅は1ms～2msの範囲に分布します。しかし実際のパルス幅は0.5ms～2.5msで、これが0°～180°に対応します。同じ信号でも、サーボのブランドによって回転角度が異なる場合があるので注意してください。
+**Bedieningsprincipe:** De rotatiehoek wordt geregeld via de duty cycle van PWM. Theoretisch is de standaard PWM-cyclus 20ms (50Hz), dus de pulsbreedte moet liggen tussen 1ms en 2ms. In de praktijk varieert de pulsbreedte echter van 0.5ms tot 2.5ms, wat overeenkomt met 0° tot 180°. Let op dat bij hetzelfde signaal de rotatiehoek kan verschillen per servomerk.
 
-**3. 配線図**
+**3. Aansluitschema**
 
 ![](media/A145.png)
 
-**4. テストコード**
+**4. Testcode**
 
-1. 2つの基本ブロックをドラッグし、その間に「変数」ブロックを配置します。変数の型をint、名前をangle、初期値を0に設定します。
+1. Sleep de twee basisblokken en plaats een "variabele" blok ertussen. Stel het variabeltype in op int, de naam op angle, en wijs 0 toe als beginwaarde.
 
 ![](media/A146.png)
 
-2. **サーボが0°から180°まで徐々に回転する:** 
+2. **Servo draait geleidelijk van 0° naar 180°:** 
 
-繰り返しブロックを追加し、繰り返し回数を180（180角度）に設定します。「変数を変更」と「サーボ」ブロックを繰り返しブロック内に配置します。変数名をangleにし、モードを「++」に設定します。サーボのPINをIO4に、角度を変数angleに設定します。15msの遅延を忘れずに入れてください。
+Voeg een herhaalblok toe en stel het aantal herhalingen in op 180 (180 hoeken). Sleep een "verander variabele" en een "servo" blok en plaats ze in het herhaalblok. Noem de variabele "angle" en selecteer de modus "++". Stel Servo PIN in op IO4 en de graad op de genoemde variabele. Vergeet niet een vertraging van 15ms toe te voegen.
 
 ![](media/A147.png)
 
-3. **サーボが180°から0°まで徐々に回転する:** ステップ2を繰り返しますが、変数のモードを「--」に設定します。
+3. **Servo draait geleidelijk van 180° naar 0°:** Herhaal stap 2, maar stel de variabele modus in op "--".
 
 ![](media/A148.png)
 
-**完成コード：**
+**Volledige code:**
 
 ![](media/A149.png)
 
-**5. テスト結果**
+**5. Testresultaat**
 
-配線を接続しコードをアップロードすると、サーボは0°から180°へ、そして180°から0°へ回転を開始します。
+Na het aansluiten van de bedrading en het uploaden van de code begint de servo te draaien van 0° naar 180° en vervolgens van 180° naar 0°.
 
-**6. コード説明**
+**6. Code-uitleg**
 
-1. サーボの値を設定します。サーボのピンと回転角度はこのブロックのパラメータで制御可能です。
+1. Stel de waarden van de Servo in. Servo pin en rotatiehoek kunnen worden geregeld door parameters in dit blok aan te passen.
 
 ![](media/A150.png)
 
-2. サーボの現在の角度を読み取ります。
+2. Lees de huidige hoek van de Servo uit.
 
 ![](media/A151.png)

@@ -1,18 +1,18 @@
-### プロジェクト26 人体ピアノ
+### Project 26 Menselijk Lichaam Piano
 
-**1. 説明**
+**1. Beschrijving**
 
-アナログピアノは、開発ボードと超音波センサーを含みます。指の位置を検出することで異なる音色を演奏することができます。したがって、このモジュールはピアノを刺激して音楽や曲を演奏することが可能です。
+De analoge piano bestaat uit een ontwikkelbord en een ultrasone sensor. Hiermee kun je verschillende tonen spelen door de positie van je vingers te detecteren. Dit module kan dus een piano stimuleren om muziek en liedjes te spelen.
 
-**2. フローチャート**
+**2. Stroomschema**
 
 ![](media/B33.png)
 
-**3. 配線図**
+**3. Aansluitschema**
 
 ![](media/B34.png)
 
-**4. テストコード**
+**4. Testcode**
 
 ```
 /*
@@ -90,14 +90,14 @@ void loop()
 }
 ```
 
-**5. テスト結果**
+**5. Testresultaat**
 
-配線を接続し、コードをアップロードしてください。
+Sluit de bedrading aan en upload de code.
 
-- 距離が10未満のときにDoを演奏します。  
-- 距離が10〜20の範囲内のときにReを演奏します。  
-- 距離が20〜30の範囲内のときにMiを演奏します。  
-- 距離が30〜40の範囲内のときにFaを演奏します。  
-- 距離が40〜50の範囲内のときにSoを演奏します。  
-- 距離が50〜60の範囲内のときにLaを演奏します。  
-- 距離が60〜70の範囲内のときにSiを演奏します。
+- Speel Do wanneer de afstand minder is dan 10.
+- Speel Re wanneer de afstand tussen 10 en 20 ligt.
+- Speel Mi wanneer de afstand tussen 20 en 30 ligt.
+- Speel Fa wanneer de afstand tussen 30 en 40 ligt.
+- Speel So wanneer de afstand tussen 40 en 50 ligt.
+- Speel La wanneer de afstand tussen 50 en 60 ligt.
+- Speel Si wanneer de afstand tussen 60 en 70 ligt.

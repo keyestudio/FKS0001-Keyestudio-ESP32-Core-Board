@@ -1,45 +1,45 @@
-### プロジェクト6 水流ライト
+### Project 6 Waterstroom Licht
 
-**1. 説明**
+**1. Beschrijving**
 
-このシンプルな水流ライトプロジェクトは、電子パッケージングの学習に役立ちます。本プロジェクトでは、Arduinoボードを使ってLEDの色を指定した速度で変化させます。
+Dit eenvoudige waterstroom lichtproject helpt je bij het leren van elektronische verpakking. In dit project zullen we LEDs aansturen om de kleur te veranderen met een bepaalde snelheid via een Arduino board.
 
-**2. 配線図**
+**2. Bedradingsschema**
 
 ![](media/A74.png)
 
-**3. テストコード**
+**3. Testcode**
 
-水流ライトは、左から右へと流れるLEDの光の列で構成されています。
+Een waterstroom licht bestaat uit een stroom van LED-verlichting van links naar rechts.
 
-1. 基本のコードブロックを2つドラッグします。
+1. Sleep de twee basis codeblokken.
 
 ![](media/A75.png)
 
-2. ピンモードを「output」に設定します。
+2. Stel de pinmodus in op “output”.
 
 ![](media/A76.png)
 
-3. 「LED」パートから以下のブロックをドラッグし、IO15ピンをLOW、IO12ピンをHIGHに設定します。遅延時間を0.2秒に設定してください。
+3. Sleep de volgende blokken uit het "LED" gedeelte en zet de IO15 pin op LOW, de IO12 pin op HIGH. Stel vervolgens de vertragingstijd in op 0,2s.
 
 ![](media/A77.png)
 
-4. 「LED」パートから以下のブロックをドラッグし、IO12ピンをLOW、IO13ピンをHIGHに設定します。遅延時間を0.2秒に設定してください。
+4. Sleep de volgende blokken uit het "LED" gedeelte en zet de IO12 pin op LOW, de IO13 pin op HIGH. Stel vervolgens de vertragingstijd in op 0,2s.
 
 ![](media/A78.png)
 
-5. 「LED」パートから以下のブロックをドラッグし、IO13ピンをLOW、IO14ピンをHIGHに設定します。遅延時間を0.2秒に設定してください。
+5. Sleep de volgende blokken uit het "LED" gedeelte en zet de IO13 pin op LOW, de IO14 pin op HIGH. Stel vervolgens de vertragingstijd in op 0,2s.
 
 ![](media/A79.png)
 
-6. 「LED」パートから以下のブロックをドラッグし、IO14ピンをLOW、IO15ピンをHIGHに設定します。遅延時間を0.2秒に設定してください。
+6. Sleep de volgende blokken uit het "LED" gedeelte en zet de IO14 pin op LOW, de IO15 pin op HIGH. Stel vervolgens de vertragingstijd in op 0,2s.
 
    ![](media/A80.png)
 
-**完成コード：**
+**Volledige code：**
 
 ![](media/A81.png)
 
-**4. テスト結果**
+**4. Testresultaat**
 
-コードをアップロードして電源を入れると、LEDが左から右へ順に点灯します。
+Na het uploaden van de code en het inschakelen, lichten de LEDs op van links naar rechts.

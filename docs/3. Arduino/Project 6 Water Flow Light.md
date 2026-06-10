@@ -1,17 +1,17 @@
-### プロジェクト6 水流ライト
+### Project 6 Water Flow Light
 
-**1. 説明**
+**1. Beschrijving**
 
-このシンプルな水流ライトプロジェクトは、電子パッケージングの学習に役立ちます。本プロジェクトでは、Arduinoボードを使ってLEDの色を指定した速度で変化させます。
+Dit eenvoudige waterstroomlicht-project helpt je bij het leren van elektronische verpakking. In dit project zullen we LEDs aansturen om van kleur te veranderen met een bepaalde snelheid via een Arduino-board.
 
-**2. 配線図**
+**2. Bedradingsschema**
 
 ![](media/A25.png)
 
-**3. テストコード**
+**3. Testcode**
 
-水流ライトとは、LEDが左から右へ、そして右から左へと点灯することを意味します。  
-この実験では連続したピンを使用しているため、"for"文を使って出力モードの設定（コード内のピンを循環変数に置き換える）だけでなく、出力も行うことができます。
+Een waterstroomlicht betekent dat de LED-lampjes van links naar rechts gaan en daarna van rechts naar links.
+In dit experiment gebruiken we aaneengesloten pinnen, zodat de "for"-lus niet alleen kan worden gebruikt om de uitgangsmodus in te stellen (vervang pinnen door een circulaire variabele in de code), maar ook om uit te voeren.
 
 ```
 /*
@@ -44,6 +44,6 @@ void loop()
 }
 ```
 
-**4. テスト結果**
+**4. Testresultaat**
 
-コードをアップロードして電源を入れると、LEDが左から右へ、そして右から左へと点灯します。
+Na het uploaden van de code en het inschakelen, gaan de LEDs van links naar rechts en daarna van rechts naar links.

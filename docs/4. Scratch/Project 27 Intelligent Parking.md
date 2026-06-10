@@ -1,33 +1,33 @@
-### プロジェクト27 インテリジェントパーキング
+### Project 27 Intelligent Parkeren
 
-**1. 説明**
+**1. Beschrijving**
 
-このインテリジェントパーキングシステムは超音波センサーを使って駐車位置を検出し、最適化します。このシステムにより、誤った駐車を大幅に防止できます。
+Dit intelligente parkeersysteem detecteert en optimaliseert de parkeerpositie via een ultrasone sensor. Met dit systeem wordt verkeerd parkeren in grote mate voorkomen.
 
-まず、駐車場の周囲にセンサーを設置します。次に、車とその周囲の距離を検出し、その情報を開発ボードに送信して、車を自動的に最適な駐車位置に調整します。
+Allereerst moet je de sensor rondom de parkeerplaats installeren. Vervolgens detecteert deze de afstand tussen de auto en de randen en stuurt de informatie naar de ontwikkelkaart om de auto automatisch naar de optimale parkeerpositie te laten aanpassen.
 
-**2. フローチャート**
+**2. Stroomschema**
 
 ![](media/B104.png)
 
-**3. 配線図**
+**3. Aansluitschema**
 
 ![](media/B105.png)
 
-**4. テストコード**
+**4. Testcode**
 
-検出した距離の値を変数に代入し、その値が設定した閾値より大きいかどうかを判定します。もし大きければ、ドットマトリクス上の対応するラインが点灯します。このようにして、距離をラインの点灯で示すことができます。
+Ken de gedetecteerde afstandswaarde toe aan een variabele en bepaal of deze groter is dan de ingestelde drempelwaarde. Zo ja, lichten de corresponderende lijnen op de dotmatrix op. Op deze manier kan een afstand worden weergegeven door lijnen te verlichten.
 
-**参照座標：**
+**Referentiecoördinaten:**
 
 ![](media/B106.png)
 
-**完成コード：**
+**Volledige code:**
 
 ![](media/B107.png)
 
-**5. テスト結果**
+**5. Testresultaat**
 
-配線を接続しコードをアップロードすると、ドットマトリクスにラインが表示されます。検出距離が50cm未満の場合は、点灯するラインが少なくなります。
+Na het aansluiten van de bedrading en het uploaden van de code, worden lijnen weergegeven op de dotmatrix. Als de gedetecteerde afstand minder is dan 50 cm, zijn er minder lijnen zichtbaar.
 
 ![](media/B108.png)![](media/B109.png)

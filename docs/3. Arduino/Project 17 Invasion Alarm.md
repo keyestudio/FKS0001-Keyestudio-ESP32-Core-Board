@@ -1,26 +1,26 @@
-### プロジェクト17 侵入警報
+### Project 17 Inbraakalarm
 
-**1. 説明**
+**1. Beschrijving**
 
-この侵入警報システムは、住宅や小規模オフィス内の侵入者を検知し、ホストに対して適時に対策を促すことができます。
+Dit inbraakalarmsysteem kan indringers in huizen of kleine kantoren detecteren en de bewoner waarschuwen om tijdig maatregelen te nemen.
 
-本プロジェクトでは、センサーが特定のエリアを監視します。Arduinoボード上のデバイスが、そのゾーンで動きを検知するとLEDを点灯させ、ブザーを鳴らして注意を促します。
+In dit project bewaakt de sensor een bepaald gebied. Een apparaat op de Arduino-board zal een LED laten oplichten en een buzzer laten piepen als er beweging wordt gedetecteerd in die zone.
 
-実際、このモジュールは実用性が高く、設置が簡単でコストも低いです。家庭やオフィスだけでなく、工場、倉庫、市場などにも適用でき、財産の安全を大いに守ります。
+In feite kenmerkt deze module zich door praktische bruikbaarheid, eenvoudige installatie en lage kosten. Naast thuis en kantoor is het ook toepasbaar in fabrieken, magazijnen en markten, wat in grote mate de eigendomsveiligheid beschermt.
 
-**2. 動作原理**
+**2. Werking**
 
 ![](media/A64.png)
 
-人体（37°C）は常に波長約10μmの赤外線を放射しており、これはセンサーが検知する波長に近いです。
+Het menselijk lichaam (37°C) zendt altijd infraroodstraling uit met een golflengte van 10μm, wat ongeveer overeenkomt met die van de sensor.
 
-このため、このモジュールは人体の動きを検知できます。動きがある場合、PIRセンサーは約3秒間ハイレベルを出力し、動きがなければローを出力します。
+Hierdoor kan deze module menselijke beweging detecteren. Als die er is, geeft de PIR-sensor ongeveer 3 seconden een hoog signaal. Zo niet, dan geeft hij een laag signaal.
 
-**3. 配線図**
+**3. Aansluitschema**
 
 ![](media/A65.png)
 
-**4. テストコード**
+**4. Testcode**
 
 ```
 /*
@@ -45,25 +45,25 @@ void loop()
 }
 ```
 
-**5. テスト結果**
+**5. Testresultaat**
 
-配線を接続しコードをアップロードした後、シリアルモニターを開きボーレートを9600に設定すると、シリアルポートにPIRの値が表示されます。PIRセンサーが人を検知すると、1が表示されます。
+Na het aansluiten van de bedrading en het uploaden van de code, open je de seriële monitor en stel je de baudrate in op 9600. De seriële poort toont de PIR-waarde. Als de PIR-sensor een persoon detecteert, wordt 1 weergegeven.
 
 ![](media/A66.png)
 
-**6. 知識拡張**
+**6. Kennisuitbreiding**
 
-侵入警報を作りましょう。PIRセンサーが人を検知すると、LEDが点灯しブザーが鳴ります。検知しない場合は、LEDは消灯しブザーは鳴りません。
+Laten we een inbraakalarm maken. Wanneer de PIR-sensor een mens detecteert, gaat de LED branden en geeft de buzzer geluid. Anders gaat de LED uit en blijft de buzzer stil.
 
-- **フローチャート：**
+- **Stroomschema：**
 
 ![](media/A67.png)
 
-- **配線図：**
+- **Aansluitschema：**
 
 ![](media/A68.png)
 
-- **コード：**
+- **Code：**
 
 ```
 /*
@@ -100,6 +100,6 @@ void loop()
 }
 ```
 
-**テスト結果**
+**Testresultaat**
 
-PIRセンサーが近くの人を検知すると、赤色LEDが点灯しブザーが鳴ります。
+Als de PIR-sensor een persoon in de buurt detecteert, gaat de rode LED branden en klinkt de buzzer.

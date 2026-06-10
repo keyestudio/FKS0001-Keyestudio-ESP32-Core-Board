@@ -1,24 +1,24 @@
-### プロジェクト20 ライトピラー
+### Project 20 Lichtzuil
 
-**1. 説明**
+**1. Beschrijving**
 
-フォトレジスタの抵抗値（1KΩ未満）は光の強さによって変化し、それによりドットマトリクスの明るさを制御できます。制御時には、この抵抗をボードのアナログピンに接続して抵抗の変化を監視します。こうすることで、光がディスプレイの明るさを自動的に制御します。
+De weerstand (minder dan 1KΩ) van de fotoweerstand varieert met het licht, waardoor het de helderheid van de dotmatrix kan regelen. Bij het aansturen verbinden we deze weerstand met een analoge pin op de board om de verandering in weerstand te monitoren. Op deze manier regelt het licht automatisch de helderheid van het display.
 
-また、フォトレジスタは日常生活でも広く応用されています。例えば、カーテンが外の光の強さに応じて自動的に開閉するなどです。
+Daarnaast wordt de fotoweerstand veel toegepast in ons dagelijks leven. Bijvoorbeeld, een gordijn dat automatisch opent of sluit afhankelijk van de lichtintensiteit buiten.
 
-**2. 動作原理**
+**2. Werking**
 
 ![](media/B8.png)
 
 ![](media/B9.png)
 
-完全に暗い状態では、抵抗は0.2MΩとなり、信号端子（ポイント2）の電圧は0Vに近づきます。光が強くなるほど、抵抗と電圧は小さくなります。
+Wanneer het volledig donker is, is de weerstand gelijk aan 0,2MΩ en nadert de spanning op het signaalknooppunt (punt 2) 0V. Hoe sterker het licht is, hoe kleiner de weerstand en spanning zullen zijn.
 
-**3. 配線図**
+**3. Aansluitschema**
 
 ![](media/B10.png)
 
-**4. テストコード**
+**4. Testcode**
 
 ```
 /*
@@ -43,21 +43,21 @@ void loop()
 }
 ```
 
-**5. テスト結果**
+**5. Testresultaat**
 
-配線を接続しコードをアップロードした後、シリアルモニターを開きボーレートを9600に設定すると、アナログ値が0～4095の範囲で表示されます。周囲の光の強さを変えることで値も変化します。
+Na het aansluiten van de bedrading en uploaden van de code, open je de seriële monitor en stel je de baudrate in op 9600. De analoge waarde wordt weergegeven binnen het bereik van 0-4095. Door de lichtintensiteit rondom te veranderen, verandert ook de waarde.
 
 ![](media/B11.png)
 
-**6. 知識の拡張**
+**6. Kennisuitbreiding**
 
-このフォトレジスタを使って周囲の光の強さを感知します。中央の2列はこの実験に含まれており、光の強さを表しています。光が強いほど点灯するLEDの数が増え、「ライトピラー（光の柱）」を形成します。
+We gebruiken deze fotoweerstand om de omgevingslichtintensiteit te meten. De twee middelste kolommen zijn opgenomen in dit experiment om de lichtintensiteit weer te geven. Hoe sterker het licht, hoe meer LEDs oplichten. Dit vormt een "lichtzuil".
 
-- **配線図：**
+- **Aansluitschema：**
 
 ![](media/B12.png)
 
-- **コード：**
+- **Code：**
 
 ```
 /*
@@ -94,8 +94,8 @@ void loop()
 }
 ```
 
-- **テスト結果**
+- **Testresultaat**
 
-フォトレジスタの近くの光が強いほど、LEDマトリクスの光の柱が高くなります。
+Hoe sterker het licht nabij de fotoweerstand, hoe hoger de lichtzuil van de LED-matrix.
 
 ![](media/B13.png)

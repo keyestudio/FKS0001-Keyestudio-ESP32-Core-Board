@@ -1,22 +1,22 @@
-### プロジェクト16 タイムボム
+### Project 16 Timebomb
 
-**1. 説明**
+**1. Beschrijving**
 
-このプロジェクトでは、面白いタイムボムゲームを体験することができます。  
+Dit project geeft je de mogelijkheid om een interessant timebomb-spel te ervaren.
 
-このプロジェクトでは、ドットマトリクスがタイムボムを表し、デジタルチューブが残り時間を表示します。ボタンは爆弾の操作だけでなく、時間の設定も可能です。カウントダウンを設定して爆弾を制御し、カウントダウンが終了すると爆発します。それに加えて、ブザーが警報として採用されています。 
+In dit project stelt de dot matrix je timebomb voor, terwijl de digitale buis de resterende tijd weergeeft. Knoppen kunnen niet alleen de bom bedienen, maar ook de tijd instellen. Je kunt een aftelling instellen om deze bom te regelen, en hij ontploft wanneer de aftelling voorbij is. Daarnaast wordt een buzzer gebruikt als alarm.
 
-いずれにせよ、複数のセンサーをプログラミングすることで、論理的思考の総合的な能力を高めることができます。 
+Hoe dan ook, door te programmeren met meerdere sensoren kan je algehele vermogen tot logisch denken worden verbeterd.
 
-**2. フローチャート**
+**2. Stroomschema**
 
 ![](media/A62.png)
 
-**3. 配線図**
+**3. Aansluitschema**
 
 ![](media/A63.png)
 
-**4. テストコード**
+**4. Testcode**
 
 ```
 /*
@@ -124,6 +124,6 @@ void loop()
 }
 ```
 
-**5. テスト結果**
+**5. Testresultaat**
 
-配線を接続しコードをアップロードした後、青ボタン（増加）と緑ボタン（減少）で時間を設定でき、黄色ボタンでカウントダウンを開始できます。カウントダウンが終了すると、ドットマトリクスディスプレイのスマイリーフェイスが泣き顔に変わり、爆弾の爆発をシミュレートします。赤ボタンを押すとプログラムをリセットできます。
+Na het aansluiten van de draden en het uploaden van de code, kunnen de blauwe knop (verhogen) en de groene knop (verlagen) worden gebruikt om de tijd in te stellen, en de gele knop kan worden gebruikt om af te tellen. Wanneer de aftelling eindigt, verandert het smiley-gezicht op de Dot Matrix Display in een huilend gezicht, wat de explosie van de bom simuleert. Door op de rode knop te drukken kan het programma worden gereset.

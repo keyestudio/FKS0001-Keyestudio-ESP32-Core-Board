@@ -1,14 +1,14 @@
-### プロジェクト24 天気観測ステーション
+### Project 24 Weerstation
 
-**1. 説明**
+**1. Beschrijving**
 
-この天気観測ステーションは、Arduinoボードと温湿度センサーを使って周囲の温度と湿度の値を記録します。
+Dit weerstation registreert de omgevings-temperatuur en vochtigheidswaarde via een Arduino board en een temperatuur- en vochtigheidssensor.
 
-**2. 配線図**
+**2. Aansluitschema**
 
 ![](media/B27.png)
 
-**3. テストコード**
+**3. Testcode**
 
 ```
 /*
@@ -46,8 +46,8 @@ void loop()
 }
 ```
 
-**4. テスト結果**
+**4. Testresultaat**
 
-配線を接続しコードをアップロードすると、LCDディスプレイに周囲の湿度と温度の値が直接表示されます。
+Na het aansluiten van de bedrading en het uploaden van de code, zal het LCD-scherm direct de omgevingsvochtigheid en temperatuurwaarde weergeven.
 
 ![](media/B28.png)

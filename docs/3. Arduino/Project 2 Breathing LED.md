@@ -1,28 +1,28 @@
-### プロジェクト2 ブリージングLED
+### Project 2 Ademend LED
 
-**1. 説明**
+**1. Beschrijving**
 
-ArduinoのブリージングLEDは、オンボードのプログラム可能なPWMを利用してアナログ波形を出力します。電源を入れると、波形のデューティサイクルを調整することでLEDの明るさを変化させ、最終的にブリージングLEDの効果を実現します。
+Arduino ademend LED maakt gebruik van on-board programmeerbare PWM om een analoge golfvorm uit te voeren. Na het inschakelen kan de helderheid van de LED worden aangepast via de duty cycle van de golfvorm om uiteindelijk het effect van een ademend LED te realiseren.
 
-この方法により、時間経過に伴ってLEDの明るさを変化させることで環境光をシミュレートできます。また、ブリージングLEDはカラフルなミニライトとして、落ち着いた暖かい雰囲気を作り出すことができます。
+Op deze manier kan omgevingslicht worden gesimuleerd door de helderheid van de LED in de loop van de tijd te veranderen. Bovendien kan een ademend LED een kleurrijk mini-licht vormen om een rustige en warme sfeer te creëren.
 
-**2. PWMとは？**
+**2. Wat is PWM?**
 
-PWMはデジタル手段でアナログ出力を制御するもので、波形のデューティサイクル（高レベルと低レベルを周期的に切り替える信号）を調整できます。
+PWM bestuurt analoge uitgang via digitale middelen, waarmee de duty cycle van de golf (een signaal dat cyclisch wisselt tussen hoog niveau en laag niveau) kan worden aangepast.
 
-Arduinoの場合、電圧出力のデジタルポートはLOWとHIGHで、それぞれ0Vと5Vに対応します。一般的にLOWを0、HIGHを1と定義します。Arduinoは1秒間に500回の0または1の信号を出力します。信号が「1」の場合は5Vが出力されます。逆にすべて0の場合は0Vが出力されます。あるいは0101010101...のように交互に出力されると、平均出力は2.5Vになります。
+Voor Arduino zijn digitale poorten met spanningsuitgang LOW en HIGH, die respectievelijk overeenkomen met 0V en 5V. Over het algemeen definiëren we LOW als 0 en HIGH als 1. Arduino zal binnen 1 seconde 500 signalen van 0 of 1 uitgeven. Als ze "1" zijn, wordt 5V uitgegeven. Omgekeerd, als ze allemaal 0 zijn, is de uitgang 0V. Of als ze 010101010101... zijn, is de gemiddelde uitgang 2,5V.
 
-つまり、0と1の出力比率が電圧値に影響し、単位時間あたりに出力される0と1の信号が多いほど制御はより正確になります。
+Met andere woorden, de verhouding van 0 en 1 in de output beïnvloedt de spanningswaarde; hoe meer 0- en 1-signalen per tijdseenheid worden uitgegeven, hoe nauwkeuriger de regeling zal zijn.
 
-ESP32のGPIO34、35、36、39はPWMを使用できません。
+De GPIO34, 35, 36 en 39 van ESP32 kunnen geen PWM gebruiken.
 
 ![](media/A18.png)
 
-**3. 配線図**
+**3. Aansluitschema**
 
 ![](media/A19.png)
 
-**4. テストコード**
+**4. Testcode**
 
 ```
 /*
@@ -56,6 +56,6 @@ void loop()
 }
 ```
 
-**5. テスト結果**
+**5. Testresultaat**
 
-コードをアップロードすると、LEDがゆっくりと明るくなり、暗くなる様子が見られ、まるで呼吸のリズムのようです。
+Na het uploaden van de code zal de LED langzaam helderder en donkerder worden, net als het ritme van ademhaling.

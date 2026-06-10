@@ -1,22 +1,22 @@
-### プロジェクト1 LED点滅
+### Project 1 LED Knipperen
 
-**1. 説明**
+**1. Beschrijving**
 
-LED点滅は初心者向けのシンプルなプロジェクトです。ArduinoボードにLEDを取り付け、Arduino IDEでコードをアップロードするだけで完了します。このプロジェクトはArduinoの概念的な枠組みと使用方法の学習を強化します。
+LED knipperen is een eenvoudig project ontworpen voor beginners. Je hoeft alleen een LED op de Arduino board te installeren en de code te uploaden via de Arduino IDE. Dit project versterkt het begrip van het Arduino conceptuele kader en het gebruik van methoden voor beginners.
 
-**2. 動作原理**
+**2. Werking**
 
 ![](media/A16.png)
 
-- **LED:** 上図はLEDの回路図です。一般的に、出力電流が制限されたIOポートではLEDの明るさが低くなることがあるため、回路にはスイッチとしてNPNトランジスタ(Q2)が使用されています。この場合、トランジスタのベース（ピン1）が高レベルのときにLEDが点灯します。逆に、ベースが低レベルのときはLEDが消灯します。
+- **LED:** Bovenstaand is het schakelschema van de LED. Over het algemeen kan een beperkte uitgangsstroom van IO-poorten zorgen voor een lage helderheid van de LED, daarom wordt een NPN-transistor (Q2) in het circuit toegepast als schakelaar. In dit geval zal de LED oplichten als de basis(pin 1) van de transistor op een hoog niveau staat. Omgekeerd gaat de LED uit wanneer de basis laag is.
 
-- **トランジスタスイッチ:** その原理を理解するには電子回路の基礎知識が必要です。詳細はご自身で資料を参照してください。簡単に言うと、LEDの点灯・消灯はトランジスタのベースの高低レベルに依存し、それは開発ボードのピンによって決まります。ベース（ピン1）が高レベルのときLEDが点灯し、低レベルのとき消灯します。
+- **Transistor schakelaar:** Om het principe duidelijk te krijgen is enige kennis van elektronische schakelingen vereist. Raadpleeg hiervoor zelf aanvullende materialen. Kort gezegd, het aan- en uitgaan van de LED hangt af van de hoge en lage niveaus van de transistorbasis, die worden bepaald door de pin op de ontwikkelboard. De LED gaat aan wanneer de basis(pin 1) op een hoog niveau staat, en gaat uit wanneer de basis laag is.
 
-**3. 配線図：**
+**3. Aansluitschema：**
 
 ![](media/A17.png)
 
-**4. コードのアップロード**
+**4. Code Uploaden**
 
 ```
 /*
@@ -39,6 +39,6 @@ void loop()
 }
 ```
 
-**5. テスト結果**
+**5. Testresultaat**
 
-コードをアップロードして電源を入れると、LEDが1秒間点灯し、1秒間消灯します。
+Na het uploaden van de code en het inschakelen zal de LED 1 seconde branden en 1 seconde uitgaan.

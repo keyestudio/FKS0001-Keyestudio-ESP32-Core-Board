@@ -1,22 +1,22 @@
-### プロジェクト11 LCD
+### Project 11 LCD
 
-**1. 説明**
+**1. Beschrijving**
 
-Arduino I2C 1602 LCDは、MCU開発ボードが外部センサーやモジュールと接続するための一般的な補助デバイスです。16文字×2行のLCD画面と調整可能な輝度を備えています。このプログラム可能なモジュールは、データの編集、表示、管理に便利です。さらに、文字や数字だけでなく、温度、湿度、圧力などのセンサー値も表示できます。
+Arduino I2C 1602 LCD is een veelgebruikt hulpprogramma voor MCU-ontwikkelborden om verbinding te maken met externe sensoren en modules. Het beschikt over een 16-bits brede tekenset, een 2-regelig LCD-scherm en instelbare helderheid. Deze programmeerbare module is handig voor het bewerken, weergeven en beheren van gegevens. Daarnaast kan het niet alleen tekens en cijfers weergeven, maar ook sensorwaarden, zoals temperatuur, vochtigheid of drukwaarden.
 
-その使いやすさから、このディスプレイはスマートホーム製品、産業用監視システム、ロボット制御システム、自動車電子システムなど多くの分野で広く応用されています。
+Vanwege de bruikbaarheid wordt het display veel toegepast in verschillende gebieden, waaronder slimme thuisproducten, industriële monitorsystemen, robotbesturingssystemen en automotive elektronicasystemen.
 
-**2. 動作原理**
+**2. Werking**
 
 ![](media/A44.png)
 
-IIC通信の原理と同じです。基盤となる機能はライブラリにパッケージ化されているため、直接呼び出して使用できます。興味があれば、基盤となる駆動原理をさらに詳しく調べてみてください。
+Het werkt volgens hetzelfde principe als IIC-communicatie. Onderliggende functies zijn verpakt in bibliotheken zodat je ze direct kunt aanroepen. Als je hierin geïnteresseerd bent, kun je de onderliggende stuurprincipes verder bestuderen.
 
-**3. 配線図**
+**3. Aansluitschema**
 
 ![](media/A45.png)
 
-**4. テストコード**
+**4. Testcode**
 
 ```
 /*
@@ -44,13 +44,13 @@ void loop()
 }
 ```
 
-**5. テスト結果**
+**5. Testresultaat**
 
-配線を接続しコードをアップロードした後、LCDの電源を入れると、「Hello, world!」と「keyestudio!」がLCDに表示されます。
+Na het aansluiten van de bedrading en het uploaden van de code, zet je het LCD aan. "Hello, world!" en "keyestudio!" worden op het LCD weergegeven.
 
 ![](media/A46.png)
 
-文字が不鮮明な場合は、小さなマイナスドライバーでバックライトのポテンショメーターを調整してください（適切な力で調整してください）。必要に応じて外部電源を接続してください。
+Als de tekens onduidelijk zijn, stel dan de backlight-potentiometer af met een kleine schroevendraaier met sleuf (gebruik gepaste kracht bij het afstellen). Sluit indien nodig een externe voeding aan.
 
 ![](media/A47.png)
 

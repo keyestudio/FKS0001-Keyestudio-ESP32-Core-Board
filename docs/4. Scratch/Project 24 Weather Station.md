@@ -1,39 +1,39 @@
-### プロジェクト24 天気観測ステーション
+### Project 24 Weerstation
 
-**1. 説明**
+**1. Beschrijving**
 
-この天気観測ステーションは、Arduinoボードと温湿度センサーを使って周囲の温度と湿度の値を記録します。
+Dit weerstation registreert de omgevings-temperatuur en vochtigheidswaarde via een Arduino board en een temperatuur- en vochtigheidssensor.
 
-さらに、環境パラメータに応じて温度と湿度の値を調整することで、快適な環境条件を実現します。
+Bovendien maakt het mogelijk om temperatuur- en vochtigheidswaarden aan te passen op basis van omgevingsparameters om zo comfortabele omgevingscondities te bereiken.
 
-**2. 配線図**
+**2. Aansluitschema**
 
 ![](media/B84.png)
 
-**3. テストコード**
+**3. Testcode**
 
-1. 2つの基本モジュールを追加します。LCD 1602を初期化し、LCD 1602のバックライトをONにします（LCDをONに切り替えることを忘れないでください）。dhtのピンをIO26に設定し、モードをdht11に設定します。2つのint変数「RH」と「temp」を0に設定します。
+1. Voeg twee basismodules toe. Initialiseer de LCD 1602 en zet de achtergrondverlichting van de LCD 1602 AAN (vergeet niet de LCD aan te zetten). Stel de pin van dht in op IO26 en de modus op dht11. Stel twee int-variabelen in, “RH“ en “temp“, op 0.
 
 ![](media/B85.png)
 
-2. 湿度の値を変数RHに、温度の値を変数tempに割り当てます。
+2. Wijs de vochtigheidswaarde toe aan de variabele RH, en de temperatuurwaarde aan de variabele temp.
 
 ![](media/B86.png)
 
-3. LCDの表示位置をx: 0、y: 0に設定します。lcd表示モジュールを追加し、表示文字を「humidity:」に設定します。もう一度lcd表示モジュールを追加し、変数RHを白いボックスに追加します。
+3. Stel de LCD-weergavepositie in op x: 0 en y: 0. Voeg de lcd-weergavemodule toe en stel het weergegeven teken in op "humidity:". Voeg de lcd-weergavemodule opnieuw toe en voeg de variabele RH toe aan het witte vak.
 
 ![](media/B87.png)
 
-4. ステップ3を繰り返しますが、yを1に設定し、表示文字を「temperature:」にして、変数tempを白いボックスに追加します。
+4. Herhaal stap 3, maar stel y in op 1 en het weergegeven teken op “temperature:”, en voeg de variabele temp toe aan het witte vak.
 
 ![](media/B88.png)
 
-**完成コード:**
+**Volledige code:**
 
 ![](media/B89.png)
 
-**4. テスト結果**
+**4. Testresultaat**
 
-配線を接続しコードをアップロードすると、LCD表示に周囲の湿度と温度の値が直接表示されます。
+Na het aansluiten van de bedrading en het uploaden van de code, zal het LCD-scherm direct de omgevingsvochtigheid en temperatuurwaarde weergeven.
 
 ![](media/B90.png)

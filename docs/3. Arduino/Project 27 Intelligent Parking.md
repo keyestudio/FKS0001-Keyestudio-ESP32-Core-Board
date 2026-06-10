@@ -1,20 +1,20 @@
-### プロジェクト27 インテリジェントパーキング
+### Project 27 Intelligent Parking
 
-**1. 説明**
+**1. Beschrijving**
 
-このインテリジェントパーキングシステムは超音波センサーを使って駐車位置を検出し、最適化します。このシステムにより、誤った駐車を大幅に防止できます。
+Dit intelligente parkeersysteem detecteert en optimaliseert de parkeerpositie via een ultrasone sensor. Met dit systeem wordt foutparkeren in grote mate voorkomen.
 
-まず、駐車場の周囲にセンサーを設置します。次に、車とその周囲の距離を検出し、その情報を開発ボードに送信して、車が自動的に最適な駐車位置に調整されるように制御します。
+Allereerst moet je de sensor rondom de parkeerplaats installeren. Vervolgens detecteert het de afstand tussen de auto en de randen en stuurt deze informatie naar de ontwikkelkaart om de auto automatisch naar de optimale parkeerpositie te laten aanpassen.
 
-**2. フローチャート**
+**2. Stroomschema**
 
 ![](media/B35.png)
 
-**3. 配線図**
+**3. Aansluitschema**
 
 ![](media/B36.png)
 
-**4. テストコード**
+**4. Testcode**
 
 ```
 /*
@@ -97,8 +97,8 @@ void loop()
 }
 ```
 
-**5. テスト結果**
+**5. Testresultaat**
 
-配線を接続しコードをアップロードすると、ドットマトリクスに線が表示されます。検出された距離が50cm未満の場合、表示される線の数が少なくなります。
+Na het aansluiten van de bedrading en het uploaden van de code, worden lijnen weergegeven op de dotmatrix. Als de gedetecteerde afstand minder is dan 50 cm, zijn er minder lijnen zichtbaar.
 
 ![](media/B37.png)![](media/B38.png)

@@ -1,39 +1,39 @@
-### プロジェクト18 ビートするハート
+### Project 18 Kloppend Hart
 
-**1. 説明**
+**1. Beschrijving**
 
-このプロジェクトでは、Arduinoボード、8X8ドットマトリックスディスプレイ、回路基板、およびいくつかの電子部品を使ってビートするハートを表現します。プログラミングにより、ビートの周波数、ハートの大きさ、明るさを制御できます。
+In dit project wordt een kloppend hart weergegeven via een Arduino board, een 8X8 dot matrix display, een printplaat en enkele elektronische componenten. Door te programmeren kun je de klopsnelheid, de afmeting van het hart en de helderheid ervan regelen.
 
-**2. 配線図**
+**2. Aansluitschema**
 
 ![](media/B24.png)
 
-**3. テストコード**
+**3. Testcode**
 
-1. 2つの基本ブロックをドラッグします。
+1. Sleep de twee basisblokken.
 
-2. ドットマトリックスディスプレイを初期化します。CSピンをIO15に設定し、明るさを3にします。これらの2つの実行を基本ブロックの間に配置します。
+2. Initialiseer het dot matrix display. Stel de CS-pin in op IO15 en de helderheid op 3. Plaats deze twee uitvoeringen tussen de basisblokken.
 
-以下の実行はすべて「ずっと」ブロック内にあります。
+De volgende uitvoeringen bevinden zich allemaal in het "forever" blok.
 
-3. ディスプレイをクリアします。表示に線を描き、座標系とその原点を以下のように設定します。その後、ディスプレイを更新して小さいハートを表示し、1秒の遅延を入れます。
+3. Maak het display leeg. Laat het display lijnen tekenen en stel het coördinatensysteem en de oorsprong in zoals hieronder. Vernieuw daarna het display om het kleinere hart te tonen met een vertraging van 1s.
 
 ![](media/B25.png)
 
 ![](media/B26.png)
 
-4. ステップ3を繰り返しますが、以下の画像のように線を描いて大きいハートを表示します。
+4. Herhaal stap 3 maar teken lijnen zoals op de onderstaande afbeelding om een groter hart te tonen.
 
 ![](media/B27.png)
 
 ![](media/B28.png)
 
-**完成コード:**
+**Volledige code:**
 
 ![](media/B29.png)
 
-**4. テスト結果**
+**4. Testresultaat**
 
-配線を接続しコードをアップロードすると、2つのサイズのハートが交互に表示されます。
+Na het aansluiten van de bedrading en het uploaden van de code worden de twee hartgroottes afwisselend weergegeven.
 
 ![](media/B30.png)![](media/B31.png)

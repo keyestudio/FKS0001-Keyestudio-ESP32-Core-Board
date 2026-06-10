@@ -1,22 +1,22 @@
-### プロジェクト21 音声制御LED
+### Project 21 Geluidsgestuurde LED
 
-**1. 説明**
+**1. Beschrijving**
 
-音声制御LEDは、音を検出してLEDの明るさを制御するための装置で、Arduinoボードといくつかの部品で構成されています。マイクロフォンなど複数のセンサーに接続可能です。音を電圧信号の変化に変換し、Arduinoが受信してLEDの点灯・消灯を制御します。
+De geluidsgestuurde LED is een apparaat dat geluid detecteert om daarmee de helderheid van een LED te regelen. Het bestaat uit een Arduino-board en enkele componenten. Het kan worden aangesloten op meerdere sensoren zoals microfoons. Het zet geluid om in een veranderend spanningssignaal dat door de Arduino wordt ontvangen om de LED aan en uit te schakelen.
 
-**2. 動作原理**
+**2. Werking**
 
 ![](media/B14.png)
 
-音を検出すると、マイクロフォン内のエレクトレットフィルムが振動し、静電容量が変化して微小な電圧変化が発生します。
+Bij het detecteren van geluid trilt de elektretfilm in de microfoon, wat de capaciteit verandert en een subtiele spanningsverandering genereert.
 
-次に、LM3チップを使って検出した音を増幅する適切な回路を構築します。増幅度は可変抵抗で調整可能で、時計回りに回すと増幅率が大きくなります。
+Vervolgens gebruiken we de LM3-chip om een geschikte schakeling te bouwen die het gedetecteerde geluid versterkt, wat kan worden aangepast met een potentiometer. Draai deze met de klok mee om de versterking te vergroten.
 
-**3. 配線図**
+**3. Aansluitschema**
 
 ![](media/B15.png)
 
-**4. テストコード**
+**4. Testcode**
 
 ```
 /*
@@ -39,31 +39,31 @@ void loop()
 }
 ```
 
-**5. テスト結果**
+**5. Testresultaat**
 
-配線を接続しコードをアップロードした後、シリアルモニターを開きボーレートを9600に設定すると、アナログ値が表示されます。
+Na het aansluiten van de bedrading en het uploaden van de code, open je de seriële monitor en stel je de baudrate in op 9600. De analoge waarde wordt dan weergegeven.
 
 ![](media/B16.png)
 
-**感度調整：**
+**Gevoeligheidsinstelling:**
 
-音声センサーの感度が適切だと感じたら、センサーの可変抵抗を調整します（右回しで最高感度、左回しで最低感度）。
+Als je vindt dat de gevoeligheid van de geluidsensor geschikt is, kun je de potentiometer van de geluidsensor aanpassen (rechts voor de hoogste gevoeligheid, links voor de laagste gevoeligheid).
 
 ![](media/B17.png)
 
-**6. 知識の拡張**
+**6. Kennisuitbreiding**
 
-よく見かける廊下のライトは音声制御ライトの一種で、同時にフォトレジスターも含まれています。これとは異なり、ここではLEDが音声のみに影響されるモデルを構築します。アナログ音量が100を超えると、LEDが2秒間点灯し、その後消灯します。
+De vaak voorkomende gangverlichting is een soort geluidsgestuurde verlichting. Tegelijkertijd bevat deze ook een fotoweerstand. Anders dan dat, bouwen we hier een model waarbij een LED alleen door geluid wordt beïnvloed. Wanneer het analoge volume boven de 100 komt, gaat de LED 2 seconden aan en daarna weer uit.
 
-- **フローチャート：**
+- **Stroomschema:**
 
 ![](media/B18.png)
 
-- **配線図：**
+- **Aansluitschema:**
 
 ![](media/B19.png)
 
-- **コード：**
+- **Code:**
 
 ```
 /*
@@ -94,6 +94,6 @@ void loop()
 }
 ```
 
-- **テスト結果**
+- **Testresultaat**
 
-音声センサーが検出した値が100を超えると、赤色LEDが点灯します。
+Wanneer de waarde die door de geluidsensor wordt gedetecteerd groter is dan 100, gaat de rode LED branden.

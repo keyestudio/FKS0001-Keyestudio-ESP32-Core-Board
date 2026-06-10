@@ -1,32 +1,32 @@
-### プロジェクト25 超音波距離計
+### Project 25 Ultrasone Afstandsmeter
 
-**1. 説明**
+**1. Beschrijving**
 
-この超音波距離計は、音波を発信し、そのエコーを受信することで障害物までの距離を測定します。つまり、距離は即時の値ではなく、発信と受信の時間差を理論的に計算して得られる観測値です。
+Deze ultrasone afstandsmeter meet de afstand van obstakels door geluidsgolven uit te zenden en vervolgens de echo te ontvangen. Met andere woorden, de afstand is geen directe waarde, maar een waargenomen waarde door een theoretische berekening van het tijdsverschil tussen zender en ontvanger.
 
-超音波は物体の形状検出、自動ドアの設置、流速や圧力の推定に利用できます。
+Ultrasoon kan de vorm van objecten detecteren, automatische deuren aansturen en de stroomsnelheid en druk inschatten.
 
-さらに、コンピュータとの連携も可能です。そのため、測定値はArduinoボードを介してコンピュータに送信できます。
+Bovendien ondersteunt het samenwerking met computers. Hierdoor kan de gemeten waarde via een Arduino-board naar computers worden verzonden.
 
-日常生活では、モーター、サーボ、LEDだけでなく、自動ナビゲーション、制御、セキュリティ監視システムなどにも広く使われています。
+In het dagelijks leven wordt het veel gebruikt voor motoren, servo’s en LEDs, evenals systemen (automatische navigatie-, controle- en beveiligingsmonitoringsystemen).
 
-**2. 動作原理**
+**2. Werkingsprincipe**
 
 ![](media/B29.png)
 
-ご存知の通り、超音波は高周波の人間には聞こえない音波信号の一種です。コウモリのように、このモジュールは波の発信とエコー受信の時間差を計算して障害物までの距離を測定します。
+Zoals we allemaal weten, is ultrasoon een soort onhoorbare geluidsgolf met een hoge frequentie. Net als een vleermuis meet deze module de afstand van obstakels door het tijdsverschil te berekenen tussen het uitzenden van de golf en het ontvangen van de echo.
 
-**最大距離:** 3M
+**Maximale afstand:** 3M
 
-**最小距離:** 5cm
+**Minimale afstand:** 5cm
 
-**検出角度:** ≤15°
+**Detectiehoek:** ≤15°
 
-**3. 配線図**
+**3. Aansluitschema**
 
 ![](media/B30.png)
 
-**4. テストコード**
+**4. Testcode**
 
 ```
 /*
@@ -74,25 +74,25 @@ void loop()
 }
 ```
 
-**5. テスト結果**
+**5. Testresultaat**
 
-配線を接続しコードをアップロードした後、シリアルモニターを開きボーレートを9600に設定すると、シリアルポートに距離の値が表示されます。
+Na het aansluiten van de bedrading en het uploaden van de code, open je de seriële monitor en stel je de baudrate in op 9600. De seriële poort toont de afstandswaarde.
 
 ![](media/B31.png)
 
-**6. 知識の拡張**
+**6. Kennisuitbreiding**
 
-距離計を作ってみましょう。
+Laten we een afstandsmeter maken.
 
-LCD 1602に文字を表示します。プログラムでは(3,0)に「Keyestudio」、(0,1)に「distance:」を表示し、(9,1)に距離の値を表示します。
+We tonen tekens op een LCD 1602. Het programma toont "Keyestudio" op (3,0) en “distance:” op (0,1), gevolgd door de afstandswaarde op (9,1).
 
-値が100（または10）未満の場合、3桁目（または2桁目）の残像が残るため、特定の条件を判定するために「if」文が必要です。
+Wanneer de waarde kleiner is dan 100 (of 10), blijft er een rest van het derde (of het tweede) cijfer zichtbaar. Daarom is een "if"-controle nodig om een bepaalde conditie te bepalen.
 
-**配線図：**
+**Aansluitschema:**
 
 ![](media/B32.png)
 
-**コード：**
+**Code:**
 
 ```
 /*

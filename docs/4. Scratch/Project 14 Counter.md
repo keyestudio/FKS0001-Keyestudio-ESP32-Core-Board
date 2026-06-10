@@ -1,61 +1,61 @@
-### プロジェクト14 カウンター
+### Project 14 Teller
 
-**1. 説明**
+**1. Beschrijving**
 
-Arduino 4ビットデジタル管カウンターは、0～9999の範囲内の数字を記録できます。表示速度、カウントモードの調整、およびリセット機能を備えています。このモジュールは、リアルタイムカウンター（ボタン押下やDCモーターの回転数カウントなど）、ゲーム、実験機器に広く応用されています。
+De Arduino 4-bit digitale buisteller kan getallen binnen 0~9999 registreren. Het beschikt over aanpasbare weergavesnelheid, telmodus en resetfunctie. Deze module wordt veel toegepast in realtime tellers (zoals het tellen van knopdrukken en DC-motorrotaties), gaming en experimentele apparatuur.
 
-**2. フローチャート**
+**2. Stroomschema**
 
 ![](media/A172.png)
 
-**3. 配線図**
+**3. Aansluitschema**
 
 ![](media/A173.png)
 
-**4. テストコード**
+**4. Testcode**
 
-1. 2つの基本ブロックをドラッグします。
+1. Sleep de twee basisblokken.
 
 ![](media/A174.png)
 
-2. ボタンピンを「入力」に設定します。
+2. Stel de knop-pin in op “input”.
 
 ![](media/A175.png)
 
-3. 「変数」ブロックを置きます。変数の型をint、名前をitemに設定し、初期値を0にします。
+3. Voeg een "variabele" blok toe. Stel het variabeltype in op int en noem het item. Wijs 0 toe als beginwaarde.
 
 ![](media/A176.png)
 
-4. 「制御」から「if」ブロックをドラッグします（条件が満たされたときのみ実行されます）。「ボタン」から「ボタンが押された」ブロックを条件ボックス（六角形）に入れ、ピンをIO19に設定します。「変数操作」ブロックを「then」の後に置き、変数をitem、操作モードを「++」に設定します。
+4. Sleep een "if" blok uit “Control” (dit wordt alleen uitgevoerd als de voorwaarde waar is). Plaats een “Button pressed” blok uit “Button” in het voorwaardenvakje (de zeshoek) en stel de pin in op IO19. Sleep een "variable mode" blok en plaats dit na "then", definieer het als "item" en zet de modus op "++".
 
 ![](media/A177.png)
 
-5. ステップ4を繰り返しますが、ピンをIO18、モードを「--」に設定します。
+5. Herhaal stap 4, maar stel de interface in op IO18 en de modus op "– –".
 
 ![](media/A178.png)
 
-6. 「制御」から別の「if」ブロックをドラッグし、条件を「IO17のボタンが押されたか？」に設定します。「then」の後に変数設定ブロックを置き、変数を0に設定します。
+6. Sleep nog een "if" blok uit “Control” en definieer de voorwaarde als "interface IO17 button was be pushed?". Plaats een variabele-instelblok na "then" en zet de "variabele op 0".
 
 ![](media/A179.png)
 
-7. 「制御」から「if」ブロックをドラッグします。「演算」から「＞」ブロックを見つけ、左側に変数item、右側に9999を入れます。「then」の後に変数設定ブロックを置き、変数を0に設定します。
+7. Sleep een "if" blok uit “Control”. Zoek het "＞" blok in “Operators” en vul het linker vak met "variable item" en het rechter met "9999". Plaats ook een variabele-instelblok na "then" en zet de "variabele op 0".
 
 ![](media/A180.png)
 
-8. 「デジタル管」から「TM1650表示」ブロックをドラッグし、表示文字列を変数itemブロックに設定します。最後に、0.2秒の遅延を忘れずに追加します。
+8. Sleep een "TM1650 display" blok uit "Digital tube" en stel de weergegeven string in op het "variable item" blok. Vergeet tot slot niet een vertraging van 0,2s toe te voegen.
 
 ![](media/A181.png)
 
-**完成コード：**
+**Volledige code:**
 
 ![](media/A182.png)
 
-**5. テスト結果**
+**5. Testresultaat**
 
-配線を接続しコードをアップロードした後、緑のボタンを押すと1加算、黄色のボタンで1減算、赤のボタンでリセットができます。
+Na het aansluiten van de bedrading en uploaden van de code, druk op de groene knop om met 1 te verhogen, geel om met 1 te verlagen en rood om te resetten.
 
-**6. コード説明**
+**6. Code-uitleg**
 
-**「＞」** ブロックは2つの値の比較に使います。この2つの空欄には数字または変数を入れることができます。
+Het **">"** blok wordt gebruikt om een vergelijking tussen twee waarden te maken. Deze twee velden kunnen worden ingevuld met getallen of variabelen.
 
 ![](media/A183.png)

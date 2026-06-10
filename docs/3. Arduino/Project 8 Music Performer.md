@@ -1,34 +1,34 @@
-### プロジェクト8 音楽演奏者
+### Project 8 Muziekuitvoerder
 
-**1. 説明**
+**1. Beschrijving**
 
-このプロジェクトでは、パワーアンプスピーカーを使って音楽を再生します。このスピーカーは単純な曲を演奏するだけでなく、あなたの望む演奏も可能です。したがって、プロジェクト内で他の面白いコードをプログラムして、素晴らしい学習成果を達成できます。
+In dit project gebruiken we een versterkerluidspreker om muziek af te spelen. Deze luidspreker kan niet alleen eenvoudige liedjes afspelen, maar ook uitvoeren wat je wenst. Zo kun je andere interessante codes in het project programmeren om schitterende leerresultaten te bereiken.
 
-**2. 動作原理**
+**2. Werking**
 
 ![](media/A28.png)
 
-電気信号はRP1のピン1から入力されます（信号の強度を調整し、音量にもなります）。
+Het elektrische signaal wordt ingevoerd vanaf pin 1 van RP1 (regelt de signaalsterkte, wat ook het geluidsvolume is).
 
-C4でカップリングされ、R5を通過した後、信号は8002BのIN-ピンに到達し、そこで演算増幅されてBEE1スピーカーに出力されます。
+Na koppeling in C4 en het passeren van R5 bereikt het signaal de IN- pin van 8002B, waar het operationeel wordt versterkt en naar de BEE1 luidspreker wordt uitgegeven.
 
-**Cにおける周波数比較表**
+**Frequentietabel in C**
 
-|    音符     | 周波数(Hz) |      音符      | 周波数(Hz) |     音符     | 周波数(Hz) |
-| :---------: | :--------: | :------------: | :--------: | :----------: | :--------: |
-| フラット 1 ド |    262     | ナチュラル 1 ド |    523     | シャープ 1 ド |   1047     |
-| フラット 2 レ |    294     | ナチュラル 2 レ |    587     | シャープ 2 レ |   1175     |
-| フラット 3 ミ |    330     | ナチュラル 3 ミ |    659     | シャープ 3 ミ |   1319     |
-| フラット 4 ファ |    349     | ナチュラル 4 ファ |    698     | シャープ 4 ファ |   1397     |
-| フラット 5 ソ |    392     | ナチュラル 5 ソ |    784     | シャープ 5 ソ |   1568     |
-| フラット 6 ラ |    440     | ナチュラル 6 ラ |    880     | シャープ 6 ラ |   1760     |
-| フラット 7 シ |    494     | ナチュラル 7 シ |    988     | シャープ 7 シ |   1967     |
+|    Toon     | Frequentie(Hz) |      Toon      | Frequentie(Hz) |     Toon     | Frequentie(Hz) |
+| :---------: | :------------: | :------------: | :------------: | :----------: | :------------: |
+| Vlak  1  Do |      262       | Natuurlijk  1  Do |      523       | Kruidig  1  Do |     1047       |
+| Vlak  2  Re |      294       | Natuurlijk  2  Re |      587       | Kruidig  2  Re |     1175       |
+| Vlak  3  Mi |      330       | Natuurlijk  3  Mi |      659       | Kruidig  3  Mi |     1319       |
+| Vlak  4  Fa |      349       | Natuurlijk  4  Fa |      698       | Kruidig  4  Fa |     1397       |
+| Vlak  5  So |      392       | Natuurlijk  5  So |      784       | Kruidig  5  So |     1568       |
+| Vlak  6  La |      440       | Natuurlijk  6  La |      880       | Kruidig  6  La |     1760       |
+| Vlak  7  Si |      494       | Natuurlijk  7  Si |      988       | Kruidig  7  Si |     1967       |
 
-**3. 配線図**
+**3. Aansluitschema**
 
 ![](media/A29.png)
 
-**4. テストコード**
+**4. Testcode**
 
 ```
 /*
@@ -64,25 +64,25 @@ void loop()
 }
 ```
 
-**5. テスト結果**
+**5. Testresultaat**
 
-コードをアップロードして電源を入れると、アンプは対応する周波数の音階：ド、レ、ミ、ファ、ソ、ラ、シを繰り返し演奏します。
+Na het uploaden van de code en het inschakelen speelt de versterker cirkelvormig muziektonen met de bijbehorende frequenties: DO, Re, Mi, Fa, So, La, Si.
 
-**パワーアンプの音量調整：**
+**Geluidregeling van de versterker:**
 
-**スピーカーの隣にポテンショメーターがあります。これを回すことでスピーカーの音量を調整できます。**（注意：ポテンショメーターを壊さないように適切な力で調整してください）
+ **Er zit een potentiometer naast de luidspreker. We kunnen het geluid van de luidspreker regelen door eraan te draaien.** (Opmerking: Gebruik gepaste kracht om te voorkomen dat de potentiometer beschadigd raakt) 
 
 ![](media/A30.png)
 
-**6. 知識拡張**
+**6. Kennisuitbreiding**
 
-誕生日の歌を演奏してみましょう。配線は変更しません。
+Laten we een verjaardagsliedje spelen. De bedrading blijft ongewijzigd.
 
-**数字譜：**
+**Genummerde muzieknotatie:**
 
 ![](media/A31.png)
 
-**フラット、ナチュラル、シャープの比較図**
+**Vergelijkingsdiagram van Vlak, Natuurlijk en Kruidig**
 
 ![](media/A32.png)
 

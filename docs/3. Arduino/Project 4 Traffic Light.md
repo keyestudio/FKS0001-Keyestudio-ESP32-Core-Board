@@ -1,22 +1,22 @@
-### プロジェクト4 交通信号機
+### Project 4 Verkeerslicht
 
-**1. 説明**
+**1. Beschrijving**
 
-交通信号機モジュールは、歩行者や車両の通行を制御するための装置です。赤、黄、緑の3つのライトがあり、それぞれ異なる指示を示します。
+De verkeerslichtmodule is een apparaat dat wordt gebruikt om de route van voetgangers en voertuigen te regelen. Het bevat een rood, een geel en een groen licht, die verschillende instructies impliceren.
 
-**赤は停止:** 歩行者と車両は進行を停止します。
+**Rood voor Stop:** Voetgangers en voertuigen stoppen met doorgaan.
 
-**黄は注意:** 歩行者と車両は停止の準備をします。すでに走行中の場合は速度を落とすべきです。
+**Geel voor Voorzichtigheid:** Voetgangers en voertuigen maken zich klaar om te stoppen. Als het rijden al bezig is, moet de snelheid laag zijn.
 
-**緑は進行:** 歩行者と車両は交通規則を守りながら進み続けます。
+**Groen voor Doorgaan:** Voetgangers en voertuigen gaan door met inachtneming van de verkeersregels.
 
-このプロジェクトでは、Arduinoを使って交通信号機を制御するコードを書くことができます。例えば、各ライトの点灯時間やそれらの間隔を設定できます。さらに、タイマーを追加してライトの色をスケジュール通りに切り替えることも可能です。
+In dit project kun je Arduino gebruiken om code te schrijven om verkeerslichten te bedienen. Bijvoorbeeld, stel de duur van elk licht en de intervaltijd ertussen in. Daarnaast kun je ook een timer toevoegen om de lichtkleuren volgens een schema te wijzigen.
 
-**2. 配線図**
+**2. Aansluitschema**
 
 ![](media/A21.png)
 
-**3. テストコード**
+**3. Testcode**
 
 ```
 /*
@@ -55,6 +55,6 @@ void loop()
 }
 ```
 
-**4. テスト結果**
+**4. Testresultaat**
 
-コードをアップロードすると、緑のLEDが5秒間点灯し、黄のLEDが3回点滅し、赤のLEDが5秒間点灯する動作が繰り返されます。
+Na het uploaden van de code zal de groene LED 5 seconden branden, de gele LED 3 keer knipperen, en de rode LED 5 seconden branden, in een cyclus.

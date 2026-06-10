@@ -1,14 +1,14 @@
-### プロジェクト3 SOS 救難信号装置
+### Project 3 SOS Noodapparaat
 
-**1. 説明**
+**1. Beschrijving**
 
-Arduino SOS装置は、モールス信号の原理に基づいた救難信号を発信することができます。緊急時に便利です。
+Het Arduino SOS-apparaat kan noodsignalen uitzenden, wat overeenkomt met het principe van de Morse-code. Het is handig voor noodgevallen.
 
-**2. 配線図**
+**2. Aansluitschema**
 
 ![](media/A20.png)
 
-**3. テストコード**
+**3. Testcode**
 
 ```
 /*
@@ -57,6 +57,6 @@ void loop()
 }
 ```
 
-**4. テスト結果**
+**4. Testresultaat**
 
-コードが正常にアップロードされると、LEDが3回素早く点滅し、その後3回ゆっくり点滅し、再び3回素早く点滅するのが確認できます。速い点滅と遅い点滅が交互に繰り返されます。
+Nadat de code succesvol is geüpload, zien we dat de LED 3 keer snel knippert, daarna 3 keer langzaam knippert en vervolgens weer 3 keer snel knippert, afwisselend tussen snel en langzaam.

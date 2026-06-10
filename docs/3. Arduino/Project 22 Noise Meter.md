@@ -1,14 +1,14 @@
-### プロジェクト22 ノイズメーター
+### Project 22 Geluidsmeter
 
-**1. 説明**
+**1. Beschrijving**
 
-ノイズメーターは、LEDマトリクス上の点の数を使ってノイズの大きさを反映します。
+De geluidsmeter kan het aantal stippen op de LED-matrix gebruiken om de grootte van het geluid weer te geven.
 
-**2. 配線図**
+**2. Aansluitschema**
 
 ![](media/B20.png)
 
-**3. テストコード**
+**3. Testcode**
 
 ```
 /*
@@ -55,8 +55,8 @@ void loop()
 }  
 ```
 
-**4. テストコードの説明**
+**4. Testcode**
 
-音センサーが検出する音の値が大きいほど、LEDマトリクス上の点が多く点灯します。
+Hoe groter de geluidswaarde die door de geluidsensor wordt gedetecteerd, hoe meer stippen er op de LED-matrix oplichten.
 
 ![](media/B21.png)![](media/B22.png)

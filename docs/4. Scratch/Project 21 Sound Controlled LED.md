@@ -1,102 +1,102 @@
-### プロジェクト21 音声制御LED
+### Project 21 Geluidsgestuurde LED
 
-**1. 説明**
+**1. Beschrijving**
 
-音声制御LEDは、音を検出してLEDの明るさを制御する装置で、Arduinoボードといくつかの部品で構成されています。マイクロフォンなど複数のセンサーに接続可能です。音を電圧信号に変換し、その信号をArduinoが受け取ってLEDの点灯・消灯を制御します。
+Een geluidsgestuurde LED is een apparaat dat geluid detecteert om daarmee de helderheid van een LED te regelen. Het bestaat uit een Arduino-board en enkele componenten. Het kan worden aangesloten op meerdere sensoren zoals microfoons. Het zet geluid om in een veranderend spanningssignaal dat door de Arduino wordt ontvangen om de LED aan en uit te schakelen.
 
-**2. 動作原理**
+**2. Werkingsprincipe**
 
 ![](media/B54.png)
 
-音を検出すると、マイクロフォン内のエレクトレットフィルムが振動し、静電容量が変化して微小な電圧変化が発生します。
+Bij het detecteren van geluid trilt de elektretfilm in de microfoon, wat de capaciteit verandert en een subtiele spanningsverandering genereert.
 
-次に、LM386チップを使って検出した音を最大200倍まで増幅する適切な回路を構築します。増幅率は可変抵抗で調整可能で、時計回りに回すと増幅率が大きくなります。
+Vervolgens gebruiken we de LM386-chip om een geschikte schakeling te bouwen die het gedetecteerde geluid tot 200 keer versterkt, wat kan worden aangepast met een potentiometer. Draai deze met de klok mee om de versterking te vergroten.
 
-**3. 配線図**
+**3. Aansluitschema**
 
 ![](media/B55.png)
 
-**4. テストコード**
+**4. Testcode**
 
-「Sound」カテゴリの「値を読む」ブロックを見つけ、読み取った音の値をシリアルポートに表示します。ブロックは以下のように組み立ててください。音センサー使用時はdelayを入れないよう注意してください。
+Zoek het blok "lees de waarde" in “Sound” en print de gelezen geluidssignalen op de seriële poort. Stel de blokken als volgt samen. Let erop dat je geen vertraging toevoegt bij het gebruik van de geluidsensor.
 
 ![](media/B56.png)
 
-**5. テスト結果**
+**5. Testresultaat**
 
-配線を接続しコードをアップロードした後、シリアルモニターを開きボーレートを9600に設定すると、アナログ値が表示されます。
+Na het aansluiten van de bedrading en uploaden van de code, open je de seriële monitor en stel je de baudrate in op 9600. De analoge waarde wordt weergegeven.
 
 ![](media/B57.png)
 
-**6. 拡張コード**
+**6. Uitbreidingscode**
 
-よく見かける廊下のライトは音声制御ライトの一種で、同時にフォトレジスターも含まれています。
+De veelvoorkomende gangverlichting is een soort geluidsgestuurde verlichting. Tegelijkertijd bevat deze ook een fotoweerstand.
 
-これとは異なり、ここではLEDが音だけに影響されるモデルを作成します。アナログ音量が100を超えると、LEDが2秒間点灯し、その後消灯します。
+Hier bouwen we een model waarbij een LED alleen door geluid wordt beïnvloed. Wanneer het analoge volume boven 100 komt, gaat de LED 2 seconden aan en daarna weer uit.
 
-**フローチャート：**
+**Stroomschema:**
 
 ![](media/B58.png)
 
-**配線図：**
+**Aansluitschema:**
 
 ![](media/B59.png)
 
-**コード：**
+**Code:**
 
-1. 基本ブロックを2つドラッグします。
+1. Sleep twee basisblokken.
 
-2. 「if else」ブロックをドラッグし、六角形には「item＞100」ブロックを入れます。値は「sound IO33の値を読む」に設定します。条件が満たされた場合、IO25ピンでLEDをHIGHレベルにし2秒遅延させます。そうでなければ、同じピンでLOWレベルを出力し遅延はありません。
+2. Sleep een "if else" blok en vul het zeshoekige veld met een item＞100 blok. Stel de waarde in op "lees de waarde van geluid IO33". Als de voorwaarde waar is, geeft de LED een HIGH-signaal op pin IO25 met een vertraging van 2 seconden; anders geeft hij een LOW-signaal op dezelfde pin zonder vertraging.
 
 ![](media/B60.png)
 
-**完成コード：**
+**Volledige code:**
 
 ![](media/B61.png)
 
-**7. コード説明**
+**7. Code-uitleg**
 
-関連ピンを設定して音の値を読み取ります。
+Lees de waarde van geluid door de bijbehorende pin in te stellen.
 
 ![](media/B62.png)  
-### プロジェクト22 ノイズメーター
+### Project 22 Geluidsmeter
 
-**1. 説明**
+**1. Beschrijving**
 
-Arduinoノイズメーターは音の信号を一連のドットに変換し、それをドットマトリックスにパターン表示します。
+De Arduino geluidsmeter zet het geluidssignaal om in een reeks stippen, die worden weergegeven als patronen op een dotmatrix.
 
-**2. 配線図**
+**2. Aansluitschema**
 
 ![](media/B63.png)
 
-**3. テストコード**
+**3. Testcode**
 
-1. 基本ブロックをドラッグしディスプレイを初期化します。CSピンをIO15に、明るさを3に設定します。次に変数ブロックを追加し、型をint、名前を「item」、初期値を0に設定します。
+1. Sleep de basisblokken en initialiseer het display. Stel de pin CS in op IO15 en de helderheid op 3. Voeg vervolgens een variabeleblok toe, selecteer int en noem deze "item" met een initiële waarde van 0.
 
-2. 変数ブロックを追加し名前を「item」にします。map関数を使い、読み取った音の値の範囲0-4095を0-7に変換します。ただし音の最大値は800と仮定します。
+2. Voeg een variabeleblok toe en noem deze "item". Gebruik een map-functie om de gelezen geluidswaarde van het bereik 0-4095 om te zetten naar 0-7, waarbij de veronderstelde maximale geluidswaarde 800 is.
 
 ![](media/B64.png)
 
-3. ディスプレイをクリアします。
+3. Maak het display leeg.
 
-4. 条件をプログラムします。変数itemが-1より大きければ、ドットマトリックスは(x0:0  y0:0 x1:1  y1:0)を赤色で表示します。
+4. Programmeer een voorwaarde. Als de variabele item groter is dan -1, toont de dotmatrix (x0:0  y0:0 x1:1  y1:0) in de kleur rood.
 
 ![](media/B65.png)
 
-5. ステップ4を繰り返しますが、判定はitemが0より大きいかどうかです。条件を満たせば(x0:1  y0:0  x1:1  y1:1)のドットが点灯します。同様に以下の座標を参照してコードブロックを構築します。
+5. Herhaal stap 4, maar controleer of item groter is dan 0. Als dat zo is, lichten de stippen op (x0:1  y0:0  x1:1  y1:1). Bouw op dezelfde manier codeblokken op volgens de volgende coördinaten.
 
-6. 最後にディスプレイを更新します。
+6. Vernieuw tenslotte het display.
 
-**参照座標：**
+**Referentiecoördinaten:**
 
 ![](media/B66.png)
 
 ![](media/B67.png)
 
-**完成コード：**
+**Volledige code:**
 
 ![](media/B68.png)
 
-**4. テスト結果**
+**4. Testresultaat**
 
-配線を接続しコードをアップロードすると、ノイズレベルがドットマトリックスに表示されます。以下のように表示されます。
+Na het aansluiten van de bedrading en uploaden van de code wordt het geluidsniveau weergegeven op de dotmatrix, zoals hieronder te zien is.

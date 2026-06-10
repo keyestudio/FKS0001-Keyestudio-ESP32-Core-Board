@@ -1,30 +1,30 @@
-### プロジェクト34 スマートホーム
+### Project 34 Slimme Huis
 
-**1. 説明**
+**1. Beschrijving**
 
-このプロジェクトでは、インベンターキットを使ってスマートホームをシミュレートします。
+In dit project simuleren we het slimme huis met de inventor kit.
 
-**注意事項**
+**Opmerkingen**
 
-1. 2.4GHz帯のWIFIを用意してください。5GHz帯は使用できません。モバイルホットスポットやルーターでも構いません。
-2. ESP32ボードはネットワーク接続時に消費電力が増えるため、外部電源を接続する必要があります。6本の単三電池用バッテリーホルダー（電池は含まれていません）を用意しており、ESP32統合ボードのDCポートに接続できます。
+1. Je moet een 2.4GHz frequentie WIFI voorbereiden, geen 5GHz frequentie. Dit kan een mobiele hotspot of een router zijn.  
+2. De ESP32 board verbruikt meer stroom wanneer verbonden met het netwerk, dus je moet een externe voeding aansluiten op deze kit. We leveren een 6XAA Batterijhouder (batterijen niet inbegrepen), die je kunt aansluiten op de DC-poort van de ESP32 geïntegreerde board.
 
 ![](media/B62.png)![](media/B63.png)
 
-3. 他のデバイスでこのキットを制御する場合、ESP32ボードは制御デバイスと同じネットワークに接続されている必要があります。
+3. Wanneer je andere apparaten gebruikt om deze kit te bedienen, moet de ESP32 board verbonden zijn met hetzelfde netwerk als je bedieningsapparaat.
 
-4. WiFiのネットワーク名とパスワードを覚えておき、コードにアップロード前に入力してください。
+4. Onthoud je wifi-netwerknaam en wachtwoord en vul deze in de code in voordat je deze uploadt.
 
 ```
-const char* ssid = "your_SSID"; // WiFi名を入力、例: "KEYES"
-const char* password = "your_password"; // WiFiパスワードを入力、例: "123456"
+const char* ssid = "your_SSID"; // Vul WiFi naam in, bijvoorbeeld,= "KEYES"
+const char* password = "your_password"; // Vul WiFi wachtwoord in, bijvoorbeeld,= "123456"
 ```
 
-**2. 配線図**
+**2. Aansluitschema**
 
 ![](media/B64.png)
 
-**3. コードのアップロード**
+**3. Code Uploaden**
 
 ```
 #include <WiFi.h>
@@ -34,79 +34,79 @@ const char* password = "your_password"; // WiFiパスワードを入力、例: "
 
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
-// WiFi設定
-const char* ssid = "your-SSID";     // WiFi名
-const char* password = "your-PASSWORD";  // WiFiパスワード
+// WiFi configuratie
+const char* ssid = "your-SSID";     // jouw WiFi naam
+const char* password = "your-PASSWORD";  // jouw WiFi wachtwoord
 
-// DHT11設定
-xht11 xht(26);                         // DHT11センサーのピンをIO26に設定
-unsigned char dat[] = { 0, 0, 0, 0 };  // 温度と湿度の値を格納する配列を定義
+// DHT11 configuratie
+xht11 xht(26);                         // stel DHT11 sensor pin in op IO26
+unsigned char dat[] = { 0, 0, 0, 0 };  // Definieer een array om temperatuur- en vochtigheidswaarden op te slaan
 int i = 0;
 
-// フォトレジスタのアナログピン
-#define LDR_PIN 34  // フォトレジスタをGPIO 34に接続
+// fotoresistor analoge pin
+#define LDR_PIN 34  // sluit de fotoresistor aan op GPIO 34
 
-// LEDピン
+// LED pinnen
 #define redLED_PIN 12
 #define yellowLED_PIN 13
 #define greenLED_PIN 14
 #define blueLED_PIN 15
-// LED状態
+// LED status
 bool redLEDState = false;
 bool yellowLEDState = false;
 bool greenLEDState = false;
 bool blueLEDState = false;
 
-// Webサーバー
+// Webserver
 AsyncWebServer server(80);
 
 String generateHTML() {
   String html = "<html><head><style>";
 
-  // 基本フォーマット
+  // basisopmaak
   html += "body { font-family: Arial, sans-serif; background-color: #f4f4f4; }";
   html += "h2 { color: #333; }";
   html += "div.sensor { background-color: #fff; padding: 20px; margin: 15px; border-radius: 10px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); }";
   html += "div.sensor h3 { margin: 0; }";
   html += "div.sensor p { font-size: 20px; color: #555; }";
 
-  // ボタンフォーマット
+  // knopopmaak
   html += "button { font-size: 30px; padding: 15px; margin: 10px; border: none; cursor: pointer; width: 200px; height: 100px; }";
-  html += "button.on { background-color: #4CAF50; color: white; }";   // LEDオンの色
-  html += "button.off { background-color: #f44336; color: white; }";  // LEDオフの色
+  html += "button.on { background-color: #4CAF50; color: white; }";   // kleur van LED aan
+  html += "button.off { background-color: #f44336; color: white; }";  // kleur van LED uit
 
   html += "</style>";
-  html += "<meta http-equiv='refresh' content='5'>";  // 5秒ごとに自動更新
+  html += "<meta http-equiv='refresh' content='5'>";  // Automatisch verversen elke 5 seconden
   html += "</head><body>";
 
-  // 温度
-  html += "<h2>センサーデータ</h2>";
+  // temperatuur
+  html += "<h2>Sensor Data</h2>";
 
   html += "<div class='sensor'>";
-  html += "<h3>温度</h3>";
+  html += "<h3>Temperatuur</h3>";
   html += "<p>" + String(dat[2]) + " &deg;C</p>";
   html += "</div>";
-  // 湿度
+  // vochtigheid
   html += "<div class='sensor'>";
-  html += "<h3>湿度</h3>";
+  html += "<h3>Vochtigheid</h3>";
   html += "<p>" + String(dat[0]) + " %</p>";
   html += "</div>";
 
-  // フォトレジスタの抵抗値表示
-  int lightValue = analogRead(LDR_PIN);  // フォトレジスタの値
+  // toon fotoresistor weerstandwaarde
+  int lightValue = analogRead(LDR_PIN);  // fotoresistor waarde
   html += "<div class='sensor'>";
-  html += "<h3>照度</h3>";
+  html += "<h3>Lichtsterkte</h3>";
   html += "<p>" + String(lightValue) + "</p>";
   html += "</div>";
 
-  // LED制御ボタン
-  html += "<h2>LED制御</h2>";
-  html += "<button id='btn0' class='" + String(redLEDState ? "on" : "off") + "' onclick='toggleLed(0)'>赤LED</button>";
-  html += "<button id='btn1' class='" + String(yellowLEDState ? "on" : "off") + "' onclick='toggleLed(1)'>黄LED</button>";
-  html += "<button id='btn2' class='" + String(greenLEDState ? "on" : "off") + "' onclick='toggleLed(2)'>緑LED</button>";
-  html += "<button id='btn3' class='" + String(blueLEDState ? "on" : "off") + "' onclick='toggleLed(3)'>青LED</button>";
+  // LED bedieningsknoppen
+  html += "<h2>LED's bedienen</h2>";
+  html += "<button id='btn0' class='" + String(redLEDState ? "on" : "off") + "' onclick='toggleLed(0)'>Rode LED</button>";
+  html += "<button id='btn1' class='" + String(yellowLEDState ? "on" : "off") + "' onclick='toggleLed(1)'>Gele LED</button>";
+  html += "<button id='btn2' class='" + String(greenLEDState ? "on" : "off") + "' onclick='toggleLed(2)'>Groene LED</button>";
+  html += "<button id='btn3' class='" + String(blueLEDState ? "on" : "off") + "' onclick='toggleLed(3)'>Blauwe LED</button>";
 
-  // JavaScriptでLEDのオン/オフ制御
+  // JavaScript voor LED aan/uit schakelen
   html += "<script>";
   html += "function toggleLed(led) {";
   html += "  var xhr = new XMLHttpRequest();";
@@ -131,15 +131,15 @@ String generateHTML() {
 
 void setup() 
 {
-  // シリアルポート初期化
+  // Initialiseer seriële poort
   Serial.begin(115200);
 
-  lcd.init();  // LCD初期化
+  lcd.init();  // initialiseer de lcd
   lcd.backlight();
   lcd.setCursor(0, 0);
   lcd.print("IP:");
 
-  // WiFi接続
+  // WiFi verbinding
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
     lcd.setCursor(i, 1);
@@ -157,60 +157,60 @@ void setup()
   lcd.setCursor(0, 1);
   lcd.print(WiFi.localIP());
 
-  // LEDピンを出力に設定
+  // Stel LED pinnen in als output
   pinMode(redLED_PIN, OUTPUT);
   pinMode(yellowLED_PIN, OUTPUT);
   pinMode(greenLED_PIN, OUTPUT);
   pinMode(blueLED_PIN, OUTPUT);
 
-  // Webリクエスト処理
+  // Verwerk webverzoeken
   server.on("/", HTTP_GET, [](AsyncWebServerRequest* request) {
     if (!xht.receive(dat)) {
-      Serial.println("sensor error");
+      Serial.println("sensor fout");
     }
     String html = generateHTML();
     request->send(200, "text/html", html);
   });
 
-  // LED制御
+  // Bedien de LED's
   server.on("/toggle", HTTP_GET, [](AsyncWebServerRequest* request) {
     String led = request->getParam("led")->value();
     int ledNum = led.toInt();
     if (ledNum == 0) {
       redLEDState = !redLEDState;
-      digitalWrite(redLED_PIN, redLEDState ? HIGH : LOW);  // LED 1
+      digitalWrite(redLED_PIN, redLEDState ? HIGH : LOW);  //  LED 1
     } else if (ledNum == 1) {
       yellowLEDState = !yellowLEDState;
-      digitalWrite(yellowLED_PIN, yellowLEDState ? HIGH : LOW);  // LED 2
+      digitalWrite(yellowLED_PIN, yellowLEDState ? HIGH : LOW);  //  LED 2
     } else if (ledNum == 2) {
       greenLEDState = !greenLEDState;
-      digitalWrite(greenLED_PIN, greenLEDState ? HIGH : LOW);  // LED 3
+      digitalWrite(greenLED_PIN, greenLEDState ? HIGH : LOW);  //  LED 3
     } else if (ledNum == 3) {
       blueLEDState = !blueLEDState;
-      digitalWrite(blueLED_PIN, blueLEDState ? HIGH : LOW);  // LED 4
+      digitalWrite(blueLED_PIN, blueLEDState ? HIGH : LOW);  //  LED 4
     }
-    request->redirect("/");  // ホームページに戻る
+    request->redirect("/");  // Ga terug naar de startpagina
   });
 
-  // Webサーバー開始
+  // Start de webserver
   server.begin();
 }
 
 void loop() 
 {
-  // 温度と湿度の値を読み取り、Webページを更新
+  // Lees de temperatuur- en vochtigheidswaarden en werk de webpagina bij
   if (!xht.receive(dat)) 
   {
-    Serial.println("sensor error");
+    Serial.println("sensor fout");
   }
-    delay(2000);  // 2秒ごとにページを更新
+    delay(2000);  // Vernieuw de pagina elke 2 seconden
 }
 ```
 
-**4. テスト結果**
+**4. Testresultaat**
 
-コードをアップロードすると、LCD1602にIPアドレスが表示されます。ブラウザを開き、IPアドレスを入力すると制御ページが表示されます。
+Na het uploaden van de code toont de LCD1602 het IP-adres. Open de browser, voer het IP-adres in en je ziet de bedieningspagina.
 
-この時点で、制御デバイスを使ってセンサーの値を読み取ることができ、LEDのオン・オフも制御できます。
+Op dit moment kun je met het bedieningsapparaat de door de sensor uitgelezen waarde lezen en ook de LED aan- en uitzetten.
 
 ![](media/B65.jpg)

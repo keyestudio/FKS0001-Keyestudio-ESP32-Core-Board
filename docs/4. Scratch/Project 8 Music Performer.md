@@ -1,46 +1,46 @@
-### プロジェクト8 音楽演奏者
+### Project 8 Muziekuitvoerder
 
-**1. 説明**
+**1. Beschrijving**
 
-このプロジェクトでは、パワーアンプスピーカーを使って音楽を再生します。このスピーカーは単純な曲を再生するだけでなく、あなたの望む演奏も可能です。したがって、プロジェクト内で他の面白いコードをプログラムして、素晴らしい学習成果を達成できます。
+In dit project gebruiken we een versterkerluidspreker om muziek af te spelen. Deze luidspreker kan niet alleen eenvoudige liedjes afspelen, maar ook uitvoeren wat jij wilt. Zo kun je andere interessante codes in het project programmeren om schitterende leerresultaten te bereiken.
 
-**2. 動作原理**
+**2. Werking**
 
 ![](media/A89.png)
 
-電気信号はRP1のピン1から入力されます（信号の強度を調整し、音量にもなります）。
-C4でカップリングした後、R5を通過し、信号は8002BのIN-ピンに到達します。ここで信号は演算増幅され、BEE1スピーカーに出力されます。
+Het elektrische signaal wordt ingevoerd vanaf pin 1 van RP1 (regelt de signaalsterkte, wat ook het geluidsvolume is).  
+Na koppeling in C4 en het passeren van R5 bereikt het signaal de IN- pin van 8002B, waar het operationeel wordt versterkt en naar de BEE1 luidspreker wordt uitgegeven.
 
-**3. 配線図**
+**3. Aansluitschema**
 
 ![](media/A90.png)
 
-**4. テストコード**
+**4. Testcode**
 
 ![](media/A91.png)
 
-**5. テスト結果**
+**5. Testresultaat**
 
-コードをアップロードして電源を入れると、アンプは対応する周波数の音階（ド、レ、ミ、ファ、ソ、ラ、シ）を順番に再生します。
+Na het uploaden van de code en het inschakelen speelt de versterker cirkelvormig muziektonen af met de bijbehorende frequenties: DO, Re, Mi, Fa, So, La, Si.
 
-**6. 知識の拡張**
+**6. Kennisuitbreiding**
 
-誕生日の歌を演奏させてみましょう。ライブラリにはすでにいくつかの曲が追加されているので、「Music」からこれらの曲ブロックを直接ドラッグできます。
+Laten we het een verjaardagsliedje laten spelen. We hebben al enkele liedjes toegevoegd in de bibliotheek, zodat je deze muziekblokken direct uit "Music" kunt slepen.
 
-**コード:**
+**Code:**
 
 ![](media/A92.png)
 
-**7. コードの説明**
+**7. Code-uitleg**
 
-1. 音階の周波数を設定します。ピンを設定した後、周波数を選択して音楽を作曲できます。
+1. Stel de toonfrequentie in. Na het instellen van de pin kunnen we de frequentie selecteren om muziek te componeren.
 
 ![](media/A93.png)
 
-2. 音楽モジュールは使いやすさのために6曲をコード内に統合しています。したがって、ピンを設定し、音楽を選択するだけで済みます。
+2. Muziekmodule, voor gebruiksgemak hebben we 6 muziekstukken geïntegreerd in de code, dus hoeven we alleen de pin in te stellen en de muziek te selecteren.
 
 ![](media/A94.png)
 
-3. 再生停止モジュールは、対応するピンを設定するだけで音楽を停止できます。
+3. Stop-module, we hoeven alleen de corresponderende pin in te stellen om de muziek te stoppen.
 
 ![](media/A95.png)

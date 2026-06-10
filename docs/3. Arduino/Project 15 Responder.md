@@ -1,20 +1,20 @@
-### Progetto 15 Risponditore
+### Project 15 Responder
 
-**1. Descrizione**
+**1. Beschrijving**
 
-Questo risponditore programmabile riceve e invia segnali tramite la scheda di sviluppo Arduino e un gruppo di pulsanti, e valuta la correttezza delle risposte tramite un LED. È un ottimo strumento per esercitare la capacità di reazione degli studenti e catturare la loro attenzione sulle domande. Se la risposta è corretta, il partecipante ottiene molti punti.
+Deze programmeerbare responder ontvangt en verzendt signalen via een Arduino-ontwikkelbord en een groep knoppen, en beoordeelt de juistheid van antwoorden via een LED. Het is een goed hulpmiddel om de reactievermogen van studenten te oefenen en hun aandacht op vragen te richten. Als het antwoord correct is, krijgt de deelnemer veel punten.
 
-Inoltre, semplifica la gestione da parte degli insegnanti dei "grabber" delle domande e riduce il disordine delle risposte. Può persino stimolare l’interesse degli studenti nell’apprendimento.
+Bovendien vereenvoudigt het de bediening van vraaggrijpers door docenten en vermindert het rommelige antwoorden. Het kan zelfs de interesse van studenten in leren stimuleren.
 
-**2. Diagramma di flusso**
+**2. Stroomschema**
 
 ![image-20251013104115790](media/A60.png)
 
-**3. Schema di collegamento**
+**3. Aansluitschema**
 
 ![](media/A61.png)
 
-**4. Codice di test**
+**4. Testcode**
 
 ```
 /*
@@ -83,8 +83,8 @@ void loop()
 }
 ```
 
-**5. Risultato del test**
+**5. Testresultaat**
 
-Simuliamo un gioco di risposta rapida.
+Laten we een snel-antwoordspel simuleren.
 
-Premere il pulsante rosso per spegnere tutte le luci LED. Poi possiamo selezionare i pulsanti giallo, verde e blu per accendere i LED corrispondenti. La persona il cui LED si accende per prima può rispondere per prima.
+Druk op de rode knop om alle LED-lampjes uit te schakelen. Daarna kunnen we de gele, groene en blauwe knoppen gebruiken om de bijbehorende LED-lampjes aan te zetten. Degene wiens LED-lampje als eerste aangaat, mag als eerste antwoorden.

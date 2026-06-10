@@ -1,77 +1,77 @@
-### プロジェクト9 デジタルチューブディスプレイ
+### Project 9 Digitale Buizen Display
 
-**1. 説明**
+**1. Beschrijving**
 
-この4桁のデジタルチューブディスプレイは、カウントや時間を表示するためのデバイスで、0～9の数字および簡単な文字を表示できます。4つのデジタルチューブで構成されており、それぞれに7つの発光ダイオード（LED）が搭載されています。
+Deze 4-cijferige buisdisplay is een apparaat dat wordt gebruikt om tellingen of tijd weer te geven, en kan cijfers van 0 ~ 9 en eenvoudige letters tonen. Het bestaat uit vier digitale buizen, elk met zeven lichtgevende diodes (LED).
 
-さらに、ピンをArduino開発ボードに接続することで、時計機能や簡単なゲームの保存など、複数の機能を実現できます。
+Bovendien kunnen meerdere functies worden gerealiseerd door hun pinnen aan te sluiten op de Arduino ontwikkelbord, zoals tijdregistratie en sommige spelopslag.
 
-**2. 動作原理**
+**2. Werkingsprincipe**
 
 ![](media/A96.png)
 
-TM1650はIICプロトコルを利用し、2本のバスライン（SDAとSCL）を採用しています。
+TM1650 maakt gebruik van het IIC-protocol en gebruikt twee buslijnen (SDA en SCL).
 
-コードは当社のブロックで提供されており、このコードを通じてデジタルチューブに数字が表示されます。
+De code wordt geleverd in onze blokken, en de digitale buis zal nummers weergeven via deze code.
 
-**3. 配線図**
+**3. Aansluitschema**
 
 ![](media/A97.png)
 
-**4. テストコード**
+**4. Testcode**
 
-ディスプレイに数字を表示するには、「Digital tube」から「TM 1650 display」ブロックをドラッグし、数字の文字列を9999に設定するだけです。
+Om nummers op het display te tonen, hoef je alleen maar een "TM 1650 display" blok uit "Digitale buis" te slepen en de nummerreeks in te stellen op 9999.
 
 ![](media/A98.png)
 
-**5. テスト結果**
+**5. Testresultaat**
 
-配線を接続しコードをアップロードすると、デジタルチューブディスプレイに「9999」が表示されます。以下のように表示されます。
+Na het aansluiten van de bedrading en het uploaden van de code, toont het digitale buisdisplay "9999", zoals hieronder weergegeven.
 
 ![](media/A99.png)
 
-**6. 拡張コード**
+**6. Uitgebreide Code**
 
-少し難しい操作をしてみましょう。静的な数字ではなく、動的な数字を表示させます。
+Laten we wat moeilijkere bewerkingen doen. In plaats van statische nummers, laten we het dynamische nummers tonen.
 
-以下のコードは、1～9999までの数字をデジタルチューブに表示します。
+De volgende code bestuurt de buizen om 1~9999 weer te geven.
 
-1. 基本のコードブロックを2つドラッグします。
+1. Sleep de twee basiscodeblokken.
 
 ![](media/A100.png)
 
-2. 「Variables」から以下のブロックをドラッグし、型をint、名前をitemに設定し、初期値を0に割り当てます。
+2. Sleep het volgende blok uit "Variabelen". Stel het type in op int en de naam op item, en wijs 0 toe als beginwaarde.
 
 ![](media/A101.png)
 
-3. 「Control」から以下のブロックをドラッグし、9999回に設定します。
+3. Sleep het volgende blok uit "Besturing" en stel het in op 9999 keer.
 
 ![](media/A102.png)
 
-4. 「Variables」から「variable mode」をドラッグし、名前をitemに設定、モードを「++」にします。
+4. Sleep een "variabele modus" uit "Variabelen", definieer de naam als item en stel de modus in op "++".
 
-5. 「Digital tube」から「TM 1650 display」ブロックをドラッグし、文字列の値を変数itemに置き換えます。その後、0.5秒の遅延時間を追加します。
+5. Sleep een "TM 1650 display" blok uit "Digitale buis" en vervang de stringwaarde door variabele item. Voeg er een vertraging van 0,5s aan toe.
 
 ![](media/A103.png)
 
-6. 「repeat」ブロックの後に「set variable」ブロックを追加し、item変数を0に設定します。そうしないと、9999回ループ後にitemの値が表示範囲外になります。
+6. Voeg een "stel variabele in" blok toe na het "herhaal" blok. Stel de item variabele in op 0. Anders zal de item waarde buiten het displaybereik vallen na 9999 herhalingen.
 
 ![](media/A104.png)
 
-**完成コード：**
+**Volledige Code：**
 
 ![](media/A105.png)
 
-**7. コード説明**
+**7. Code Uitleg**
 
-1. 表示する文字列を設定します。空欄に表示したい数字や文字を直接入力します。
+1. Stel de displaystring in. Typ direct de nummers of letters die je wilt weergeven in het lege veld.
 
 ![](media/A106.png)
 
-2. このTM 1650デジタルチューブのON/OFFを設定します。各チューブは個別に制御可能です。
+2. Stel de AAN of UIT status van deze TM 1650 digitale buis in. Elke buis kan afzonderlijk worden bestuurd.
 
 ![](media/A107.png)
 
-3. 表示をクリアしたり、デジタルチューブのマスタースイッチとしてON/OFFを切り替えたりできます。
+3. Het is mogelijk om het display te wissen of te gebruiken als een hoofdschakelaar om de digitale buis aan of uit te zetten.
 
 ![](media/A108.png)
