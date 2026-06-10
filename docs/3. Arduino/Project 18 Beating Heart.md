@@ -1,14 +1,14 @@
-### Project 18 Beating Heart
+### Projekt 18 Schlagendes Herz
 
-**1. Description**
+**1. Beschreibung**
 
-In this project, a beating heart will be presented via an Arduino board, a 8X8 dot matrix display, a circuit board and some electronic components. By programming, you can control the beating frequency, heart dimension and its brightness. 
+In diesem Projekt wird ein schlagendes Herz über ein Arduino-Board, ein 8x8 Punktmatrix-Display, eine Leiterplatte und einige elektronische Bauteile dargestellt. Durch Programmierung können Sie die Schlagfrequenz, die Herzgröße und die Helligkeit steuern.
 
-**2. Wiring Diagram**
+**2. Schaltplan**
 
 ![](media/B1.png)
 
-**3. Test Code**
+**3. Testcode**
 
 ```
 /*
@@ -49,9 +49,8 @@ void loop()
 }
 ```
 
-**4.  Test Result**
+**4. Testergebnis**
 
-After connecting the wiring and uploading code, the two sizes of hearts are displayed alternately. 
+Nach dem Verbinden der Verkabelung und Hochladen des Codes werden die beiden Herzgrößen abwechselnd angezeigt.
 
 ![image-20251013113903734](media/B2.png)
-

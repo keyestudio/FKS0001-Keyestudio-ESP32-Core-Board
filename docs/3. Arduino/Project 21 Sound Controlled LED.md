@@ -1,22 +1,22 @@
-### Project 21 Sound Controlled LED
+### Projekt 21 Soundgesteuerte LED
 
-**1. Description**
+**1. Beschreibung**
 
-Sound controlled LED is a device used to detect sound in a way that controls the brightness of LED, which is composed of a Arduino board and some components. It can connect to multiple sensors such as microphones. It converts sound to changing voltage signal to be received by Arduino to control the LED on and off.
+Die soundgesteuerte LED ist ein Gerät, das Schall erkennt und die Helligkeit der LED steuert. Es besteht aus einem Arduino-Board und einigen Komponenten. Es kann mit mehreren Sensoren wie Mikrofonen verbunden werden. Es wandelt Schall in ein sich änderndes Spannungssignal um, das vom Arduino empfangen wird, um die LED ein- und auszuschalten.
 
-**2. Working Principle**
+**2. Funktionsprinzip**
 
 ![](media/B14.png)
 
-When detecting a sound, the electret film in microphone vibrates, which changes the capacitance and generates a subtle change of voltage. 
+Beim Erkennen eines Tons vibriert die Elektretfolie im Mikrofon, was die Kapazität ändert und eine subtile Spannungsänderung erzeugt.
 
-Next, we make use of LM3 chip to build a proper circuit to amplify the detected sound up, which can be adjusted by a potentiometer. Rotate it clockwise to enlarge the times.
+Anschließend verwenden wir den LM3-Chip, um eine geeignete Schaltung zum Verstärken des erfassten Tons aufzubauen, die mit einem Potentiometer eingestellt werden kann. Drehen Sie es im Uhrzeigersinn, um die Verstärkung zu erhöhen.
 
-**3. Wiring Diagram**
+**3. Schaltplan**
 
 ![](media/B15.png)
 
-**4. Test Code**
+**4. Testcode**
 
 ```
 /*
@@ -39,31 +39,31 @@ void loop()
 }
 ```
 
-**5.  Test Result**
+**5. Testergebnis**
 
-After connecting the wiring and uploading code, open serial monitor to set baud rate to 9600, the analog value will be displayed.
+Nach dem Verbinden der Verkabelung und Hochladen des Codes öffnen Sie den seriellen Monitor und stellen die Baudrate auf 9600 ein, der analoge Wert wird angezeigt.
 
 ![](media/B16.png)
 
-**Sensitivity adjustment：**
+**Empfindlichkeitseinstellung:**
 
-If you feel that the sensitivity of the sound sensor is suitable, we can adjust the potentiometer of the sound sensor(right for the highest sensitivity, left for the lowest sensitivity).
+Wenn Sie das Gefühl haben, dass die Empfindlichkeit des Schallsensors passend ist, können wir das Potentiometer des Schallsensors einstellen (rechts für höchste Empfindlichkeit, links für niedrigste Empfindlichkeit).
 
 ![](media/B17.png)
 
-**6. Knowledge Expansion**
+**6. Wissensvertiefung**
 
-The commonly seen corridor light is a kind of sound controlled light. Meanwhile, it also includes a photoresistor. Differed from that, here we establish a model that an LED only is affected by sound. When the analog volume exceeds 100, LED lights up for 2S and then goes off. 
+Das häufig zu sehende Flurlicht ist eine Art soundgesteuertes Licht. Gleichzeitig enthält es auch einen Fotowiderstand. Anders als dort bauen wir hier ein Modell auf, bei dem eine LED nur vom Schall beeinflusst wird. Wenn die analoge Lautstärke 100 überschreitet, leuchtet die LED für 2 Sekunden und geht dann aus.
 
-- **Flow Chart：**
+- **Flussdiagramm:**
 
 ![](media/B18.png)
 
-- **Wiring Diagram：**
+- **Schaltplan:**
 
 ![](media/B19.png)
 
-- **Code：**
+- **Code:**
 
 ```
 /*
@@ -94,7 +94,6 @@ void loop()
 }
 ```
 
-- **Test Result**
+- **Testergebnis**
 
-When the value detected by the sound sensor is greater than 100, the red LED will light up.
-
+Wenn der vom Schallsensor erkannte Wert größer als 100 ist, leuchtet die rote LED.

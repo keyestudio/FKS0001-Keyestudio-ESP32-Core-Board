@@ -1,83 +1,83 @@
-### Project 29 IR Remote Control
+### Projekt 29 IR-Fernbedienung
 
-**1. Description**
+**1. Beschreibung**
 
-The IR remote control uses IR signal to control LED, which greatly simplifies the process of controlling LED. 
+Die IR-Fernbedienung verwendet IR-Signale zur Steuerung von LEDs, was den Prozess der LED-Steuerung erheblich vereinfacht.
 
-**2. Working Principle**
+**2. Funktionsprinzip**
 
 ![](media/B113.png)
 
-In this project, we often use a carrier of about 38K for modulation. 
+In diesem Projekt verwenden wir häufig einen Träger von etwa 38K zur Modulation.
 
-IR remote control system includes modulation, emitting and receiving. It sends data through modulating, which improves the transmission efficiency and reduces the power consumption.
+Das IR-Fernbediensystem umfasst Modulation, Aussendung und Empfang. Es sendet Daten durch Modulation, was die Übertragungseffizienz verbessert und den Stromverbrauch reduziert.
 
-Generally, the frequency of carrier modulation is within 30khz~60khz(usually 38kHz). The duty cycle of the square wave is 1/3, as shown below, which is decided by the 455kHz crystal oscillator on the emitting end. 
-An Integer frequency division is essential for crystal oscillator at this end, and the frequency coefficient usually evaluates 12. Therefore, 455kHz÷12≈37.9kHz≈38kHz. 
+Im Allgemeinen liegt die Frequenz der Trägermodulation im Bereich von 30kHz bis 60kHz (meist 38kHz). Die Tastverhältnis der Rechteckwelle beträgt 1/3, wie unten gezeigt, und wird durch den 455kHz Quarzoszillator auf der Senderseite bestimmt.  
+Eine ganzzahlige Frequenzteilung ist für den Quarzoszillator an dieser Stelle erforderlich, und der Frequenzfaktor beträgt üblicherweise 12. Daher gilt: 455kHz ÷ 12 ≈ 37,9kHz ≈ 38kHz.
 
-38KH carrier (complete) emitting diagram:
+38kHz Träger (vollständiges) Aussendediagramm:
 
 ![](media/B114.jpg)
 
-- **Carrier frequency:** 38KHz
+- **Trägerfrequenz:** 38kHz
 
-- **Wave length:** 940nm
+- **Wellenlänge:** 940nm
 
-- **Receiving angle:** 90°
+- **Empfangswinkel:** 90°
 
-- **Control distance:** 6M
+- **Steuerabstand:** 6M
 
-**Schematic diagram of remote control buttons:**
+**Schaltplan der Fernbedienungstasten:**
 
 ![](media/B115.png)
 
-**3. Wiring Diagram**
+**3. Anschlussdiagramm**
 
 ![](media/B116.png)
 
-**4. Test Code**
+**4. Testcode**
 
-1. Drag the two basic blocks.
+1. Ziehen Sie die zwei Basisblöcke.
 
-2. Find and drag the "IR remote init" block from “IR Remote” and set its pin to IO19. Add a "baud rate" block from "serial" and set to 9600.
+2. Finden und ziehen Sie den Block „IR remote init“ aus „IR Remote“ und setzen Sie den Pin auf IO19. Fügen Sie einen „baud rate“-Block aus „serial“ hinzu und stellen Sie ihn auf 9600 ein.
 
 ![](media/B117.png)、
 
-3. Drag an "if" block and fill its condition with "Received data". Only when the IR module receives data, code blocks in "if" will execute.
+3. Ziehen Sie einen „if“-Block und füllen Sie die Bedingung mit „Received data“. Nur wenn das IR-Modul Daten empfängt, werden die Codeblöcke im „if“ ausgeführt.
 
 ![](media/B118.png)
 
-4. Drag another "if" block and set its condition to "Read the data ＞ 0". Only when this condition is satisfied, serial port starts to print data. 
+4. Ziehen Sie einen weiteren „if“-Block und setzen Sie die Bedingung auf „Read the data ＞ 0“. Nur wenn diese Bedingung erfüllt ist, beginnt der serielle Port mit der Ausgabe der Daten.
 
-   This sensor works so fast that the code may run twice or more when you are pressing control buttons. However, the second time of a same command will send out a value of 0, so a ">" block is necessary for the avoidance of duplication. 
+   Dieser Sensor arbeitet so schnell, dass der Code beim Drücken der Steuertasten zweimal oder öfter ausgeführt werden kann. Beim zweiten Mal eines gleichen Befehls wird jedoch der Wert 0 gesendet, daher ist ein „>“-Block notwendig, um Duplikate zu vermeiden.
 
 ![](media/B119.png)
 
-5. Add a "serial print" block after "then". Set to print the read data from "IR remote" module in the mode of "warp".
+5. Fügen Sie nach „then“ einen „serial print“-Block hinzu. Stellen Sie ihn so ein, dass die gelesenen Daten vom „IR remote“-Modul im Modus „warp“ ausgegeben werden.
 
 ![](media/B120.png)
 
-6. In the end, do not forget to refresh data after execution. 
+6. Vergessen Sie am Ende nicht, die Daten nach der Ausführung zu aktualisieren.
 
 ![](media/B121.png)
 
-**Complete Code:**
+**Vollständiger Code:**
 
 ![](media/B122.png)
 
-**5. Test Result**
+**5. Testergebnis**
 
-After connecting the wiring and uploading code, open the serial monitor and set the baud rate to 9600. Press the button on the remote control unit, and you will see the value in hexadecimal.
+Nach dem Anschluss der Verkabelung und dem Hochladen des Codes öffnen Sie den seriellen Monitor und stellen die Baudrate auf 9600 ein. Drücken Sie die Taste auf der Fernbedieneinheit, und Sie sehen den Wert in Hexadezimalform.
 
 ![](media/B123.png)
 
-**6. Expansion Code**
+**6. Erweiterungscode**
 
-In this expansion code, we will make a light controlled by an IR remote switch. Press OK to light up the LED and press it again to turn it off. 
+In diesem Erweiterungscode steuern wir eine Lampe mit einem IR-Fernbedienungsschalter. Drücken Sie OK, um die LED einzuschalten, und drücken Sie erneut, um sie auszuschalten.
 
-To realize this repeatable operation, the variable "item" is essential in the whole code. For the first time, item = 0 so codes in "else" run to assign 1 as its new value. For the second time when item = 1, however, "if" block executes to reassign to 0, alternatively.
+Um diese wiederholbare Funktion zu realisieren, ist die Variable „item“ im gesamten Code unerlässlich. Beim ersten Mal ist item = 0, sodass die Codes im „else“-Block ausgeführt werden, um 1 als neuen Wert zuzuweisen. Beim zweiten Mal, wenn item = 1 ist, wird hingegen der „if“-Block ausgeführt, um den Wert abwechselnd wieder auf 0 zu setzen.
 
-**Wiring Diagram:**
+**Anschlussdiagramm:**
 
 ![](media/B124.png)
 
@@ -85,21 +85,20 @@ To realize this repeatable operation, the variable "item" is essential in the wh
 
 ![](media/B125.png)
 
-**7. Code Explanation**
+**7. Codeerklärung**
 
-1. Initialize the IR remote module after setting its receiving pin.
+1. Initialisieren Sie das IR-Fernbedienungsmodul nach der Einstellung seines Empfangspins.
 
 ![](media/B126.png)
 
-2. Judge whether the sensor has received data. If so, related code blocks will run.
+2. Prüfen Sie, ob der Sensor Daten empfangen hat. Falls ja, werden die zugehörigen Codeblöcke ausgeführt.
 
 ![](media/B127.png)
 
-3. Read the received data from IR remote control.
+3. Lesen Sie die empfangenen Daten von der IR-Fernbedienung aus.
 
 ![](media/B128.png)
 
-4. Refresh the received data after each complete receiving execution. 
+4. Aktualisieren Sie die empfangenen Daten nach jedem vollständigen Empfangsvorgang.
 
 ![](media/B129.png)
-

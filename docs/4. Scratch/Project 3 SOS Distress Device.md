@@ -1,62 +1,61 @@
-### Project 3 SOS Distress Device
+### Projekt 3 SOS Notsignalgerät
 
-**1. Description**
+**1. Beschreibung**
 
-SOS device is able to emit distress signals, which coincides with the principle of Morse code. It is convenient for emergencies.
+Das SOS-Gerät kann Notsignale aussenden, die dem Prinzip des Morse-Codes entsprechen. Es ist praktisch für Notfälle.
 
-**2. Wiring Diagram**
+**2. Schaltplan**
 
 ![](media/A36.png)
 
-**3. Test Code**
+**3. Testcode**
 
-What we should clear firstly is how SOS distress light blinks: LED quickly blinks 3 times for “S” and slowly blinks 3times for “O”. 
+Zuerst sollten wir klären, wie das SOS-Notsignal blinkt: Die LED blinkt schnell 3-mal für „S“ und langsam 3-mal für „O“.
 
-And then, we control the blinking times and duration via "for" statement and set interval time among letters. 
+Anschließend steuern wir die Blinkanzahl und -dauer über eine "for"-Schleife und legen die Pausenzeit zwischen den Buchstaben fest.
 
-1. Drag the two code blocks.
+1. Ziehen Sie die beiden Codeblöcke.
 
 ![](media/A37.png)
 
-2. Drag the following block  in "Pins" part and set the IO5 pin to output.
+2. Ziehen Sie den folgenden Block aus dem Bereich "Pins" und setzen Sie den IO5-Pin auf Ausgang.
 
 ![](media/A38.png)
 
-**Letter "S"**
+**Buchstabe „S“**
 
-3. Drag the following block from "Control" part and set to 3 times, as "S" means blink for 3 times. 
+3. Ziehen Sie den folgenden Block aus dem Bereich "Control" und setzen Sie ihn auf 3-mal, da „S“ für 3-maliges Blinken steht.
 
 ![](media/A39.png)
 
-4. Drag the following blocks from "LED" part and set the IO5 pin to HIGH. Then set the delay time to 0.15s. 
+4. Ziehen Sie die folgenden Blöcke aus dem Bereich "LED" und setzen Sie den IO5-Pin auf HIGH. Stellen Sie dann die Verzögerungszeit auf 0,15 s ein.
 
 ![](media/A40.png)
 
-5. Drag the following blocks from "LED" part and set the IO5 pin to LOW. Then set the delay time to 0.1s.  
+5. Ziehen Sie die folgenden Blöcke aus dem Bereich "LED" und setzen Sie den IO5-Pin auf LOW. Stellen Sie dann die Verzögerungszeit auf 0,1 s ein.
 
 ![](media/A41.png)
 
-**Letter O**
+**Buchstabe O**
 
-6. Refer to previous steps to build the following code blocks. Modify the HIGH ouput to delay 0.4s and LOW to 0.2s.   
+6. Orientieren Sie sich an den vorherigen Schritten, um die folgenden Codeblöcke zu erstellen. Ändern Sie die HIGH-Ausgabe auf eine Verzögerung von 0,4 s und LOW auf 0,2 s.
 
 ![](media/A42.png)
 
-**Letter S**
+**Buchstabe S**
 
-7. Operate step 3 ,4 and 5 again. 
+7. Führen Sie die Schritte 3, 4 und 5 erneut aus.
 
 ![](media/A43.png)
 
-8. Add a delay time of 5s to the end, and "SOS" will repeat every 5s.   
+8. Fügen Sie am Ende eine Verzögerung von 5 s hinzu, damit sich „SOS“ alle 5 s wiederholt.
 
    ![](media/A44.png)
 
-**Complete Code：**
+**Vollständiger Code:**
 
 ![](media/A45.png)
 
-**4.Test Result**
+**4. Testergebnis**
 
-After uploading the code, LED respectively blinks for 3 times quickly and slowly.
-
+Nach dem Hochladen des Codes blinkt die LED jeweils 3-mal schnell und langsam.

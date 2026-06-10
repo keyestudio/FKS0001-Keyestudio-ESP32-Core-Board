@@ -1,14 +1,14 @@
-### Project 22 Noise Meter
+### Projekt 22 Geräuschmesser
 
-**1. Description**
+**1. Beschreibung**
 
-The noise meter will be able to use the number of dots on the LED matrix to reflect the size of the noise.
+Der Geräuschmesser verwendet die Anzahl der Punkte auf der LED-Matrix, um die Lautstärke des Geräuschs darzustellen.
 
-**2. Wiring Diagram**
+**2. Schaltplan**
 
 ![](media/B20.png)
 
-**3. Test Code**
+**3. Testcode**
 
 ```
 /*
@@ -55,9 +55,8 @@ void loop()
 }  
 ```
 
-**4. Test Code**
+**4. Testcode**
 
-The greater the sound value detected by the sound sensor, the more dots light up on the LED matrix.
+Je höher der vom Schallsensor erkannte Wert, desto mehr Punkte leuchten auf der LED-Matrix auf.
 
 ![](media/B21.png)![](media/B22.png)
-

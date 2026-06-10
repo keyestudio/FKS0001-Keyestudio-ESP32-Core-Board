@@ -1,72 +1,71 @@
-### Project 20 Light Pillar
+### Projekt 20 Lichtsäule
 
-**1.  Description**
+**1. Beschreibung**
 
-The resistance(less than 1KΩ) of the photoresistor varies from the light, thus it can control the brightness of the dot matrix. When controlling, we connect this resistor to an analog pin on the board to monitor the change of resistance. In this way, the light automatically controls the brightness of the display. 
+Der Widerstand (weniger als 1KΩ) des Fotowiderstands variiert mit dem Licht, wodurch die Helligkeit der Punktmatrix gesteuert werden kann. Beim Steuern verbinden wir diesen Widerstand mit einem analogen Pin auf dem Board, um die Widerstandsänderung zu überwachen. Auf diese Weise steuert das Licht automatisch die Helligkeit der Anzeige.
 
-Besides,  the photoresistor is widely applied to our daily life. For instance, a curtain automatically opens or closes according to the outer light intensity. 
+Außerdem wird der Fotowiderstand in unserem täglichen Leben häufig angewendet. Zum Beispiel öffnet oder schließt sich ein Vorhang automatisch entsprechend der äußeren Lichtintensität.
 
-**2. Working Principle**
+**2. Funktionsprinzip**
 
 ![](media/B43.png)
 
-When it is totally in dark, the resistance equals 0.2MΩ, and the voltage at signal terminal (point 2) approaches to 0V. The stronger the light is , the smaller the resistance and voltage will be.
+Wenn es völlig dunkel ist, beträgt der Widerstand 0,2MΩ, und die Spannung am Signalausgang (Punkt 2) nähert sich 0V an. Je stärker das Licht ist, desto kleiner werden Widerstand und Spannung.
 
-**3. Wiring Diagram**
+**3. Schaltplan**
 
 ![](media/B44.png)
 
-**4. Test Code**
+**4. Testcode**
 
-The analog value of the photoresistor can be read:
+Der analoge Wert des Fotowiderstands kann ausgelesen werden:
 
-1. Drag the two basic blocks. Put the baud rate setting block between them and set to 9600.
+1. Ziehen Sie die beiden Basisblöcke. Setzen Sie den Baudraten-Block dazwischen und stellen Sie ihn auf 9600 ein.
 
-2. Add a "serial print" block in "forever" loop with the mode "warp".
+2. Fügen Sie im „forever“-Loop einen „serial print“-Block mit dem Modus „warp“ hinzu.
 
-3. Drag a "read the value" block from “Light” to the "serial print" block, and set the pin to IO33.
+3. Ziehen Sie einen „read the value“-Block aus „Light“ in den „serial print“-Block und setzen Sie den Pin auf IO33.
 
 ![](media/B45.png)
 
-**5. Test Result**
+**5. Testergebnis**
 
-After connecting the wiring and uploading code, open serial monitor to set baud rate to 9600, the analog value will be displayed, within the range of 0-4095.
+Nach dem Anschließen der Verkabelung und Hochladen des Codes öffnen Sie den seriellen Monitor und stellen die Baudrate auf 9600 ein. Der analoge Wert wird im Bereich von 0-4095 angezeigt.
 
 ![](media/B46.png)
 
-**6. Expansion Code**
+**6. Erweiterungscode**
 
-In this expansion project, we use this photoresistor to sensing the ambient light intensity. The middle two columns are included in this experiment to represent light intensity. The lighter it is, the more the lighting LED will be. This forms a "light pillar".
+In diesem Erweiterungsprojekt verwenden wir den Fotowiderstand, um die Umgebungslichtintensität zu erfassen. Die mittleren zwei Spalten sind in diesem Experiment enthalten, um die Lichtintensität darzustellen. Je heller es ist, desto mehr LEDs leuchten. So entsteht eine „Lichtsäule“.
 
-**Wiring Diagram：**
+**Schaltplan:**
 
 ![](media/B47.png)
 
-1. Drag the two basic blocks. 
+1. Ziehen Sie die beiden Basisblöcke.
 
-2. In "Matrix", initialize the dot matrix display and set pin CS to IO15. Add a "brightness setting" block and assign to 3.
+2. Initialisieren Sie im Bereich „Matrix“ die Punktmatrix-Anzeige und setzen Sie den Pin CS auf IO15. Fügen Sie einen „brightness setting“-Block hinzu und weisen Sie den Wert 3 zu.
 
 ![](media/B48.png)
 
-3. Drag a "variable" block. Set its range to Local, type to int and name to light.
+3. Ziehen Sie einen „variable“-Block. Stellen Sie den Bereich auf Lokal, den Typ auf int und den Namen auf light ein.
 
 ![](media/B49.png)
 
-4. Assign a map function to the variable. Add "read the value of light IO33" from "Light" to the value of map function, whose range is from (0,4095) to (0,7).
+4. Weisen Sie der Variablen eine map-Funktion zu. Fügen Sie „read the value of light IO33“ aus „Light“ als Wert der map-Funktion hinzu, deren Bereich von (0,4095) auf (0,7) abgebildet wird.
 
 ![](media/B50.png)
 
-5. Find the following blocks in "Matrix". Clear the display first, and then draw lines on the display at dots (x0:3  y0:0, x1:3  y1: variable light) and (x0:4  y0:0, x1:4  y1: variable light). Finally refresh the display of matrix.
+5. Finden Sie die folgenden Blöcke in „Matrix“. Löschen Sie zuerst die Anzeige, und zeichnen Sie dann Linien auf der Anzeige an den Punkten (x0:3  y0:0, x1:3  y1: Variable light) und (x0:4  y0:0, x1:4  y1: Variable light). Aktualisieren Sie abschließend die Matrix-Anzeige.
 
 ![](media/B51.png)
 
-**Complete Code:**
+**Vollständiger Code:**
 
 ![](media/B52.png)
 
-**7.Code Explanation**
+**7. Code-Erklärung**
 
-Read the analog value of photoresistor by setting the pin. 
+Liest den analogen Wert des Fotowiderstands durch Setzen des Pins aus.
 
 ![](media/B53.png)
-

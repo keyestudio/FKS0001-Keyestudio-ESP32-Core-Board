@@ -1,22 +1,22 @@
-### Project 11 LCD
+### Projekt 11 LCD
 
-**1. Description**
+**1. Beschreibung**
 
-Arduino I2C 1602 LCD is a commonly-used auxiliary device for MCU development board to connect with external sensors and modules. It features a 16-bit wide character, 2-line LCD screen and adjustable brightness. This programable module is convenient for data editing, display and management . Besides, it can display not only characters and figures but sensors value, like temperature, humidity or pressure value. 
+Das Arduino I2C 1602 LCD ist ein häufig verwendetes Zusatzgerät für MCU-Entwicklungsboards, um externe Sensoren und Module anzuschließen. Es verfügt über ein 16 Zeichen breites, 2-zeiliges LCD-Display und eine einstellbare Helligkeit. Dieses programmierbare Modul ist praktisch für die Datenbearbeitung, Anzeige und Verwaltung. Darüber hinaus kann es nicht nur Zeichen und Zahlen, sondern auch Sensordaten wie Temperatur-, Feuchtigkeits- oder Druckwerte anzeigen.
 
-As a result of its usability, the display is wildly applied in many fields, including smart home products, industrial monitoring systems, robot control systems and automotive electronics systems.
+Aufgrund seiner Vielseitigkeit wird das Display in vielen Bereichen eingesetzt, darunter Smart-Home-Produkte, industrielle Überwachungssysteme, Robotersteuerungssysteme und Automobilelektroniksysteme.
 
-**2.  Working Principle**
+**2. Funktionsprinzip**
 
-![](./media/A44.png)
+![](media/A44.png)
 
-It is the same as IIC communication principle. Underlying functions have been packaged in libraries so that you can recall them directly. If you are interested in these, you may have a further look of underlying driving principles. 
+Es basiert auf dem gleichen Prinzip wie die IIC-Kommunikation. Die zugrundeliegenden Funktionen sind in Bibliotheken verpackt, sodass Sie diese direkt aufrufen können. Wenn Sie daran interessiert sind, können Sie sich die zugrundeliegenden Treiberprinzipien näher ansehen.
 
-**3. Wiring Diagram**
+**3. Schaltplan**
 
-![](./media/A45.png)
+![](media/A45.png)
 
-**4.Test Code**
+**4. Testcode**
 
 ```
 /*
@@ -44,15 +44,14 @@ void loop()
 }
 ```
 
-**5. Test Result**
+**5. Testergebnis**
 
-After connecting the wiring and uploading code, turn on the LCD,  "Hello, world!" and "keyestudio!" will be displayed on the LCD. 
+Nach dem Anschließen der Verkabelung und Hochladen des Codes schalten Sie das LCD ein. „Hello, world!“ und „keyestudio!“ werden auf dem LCD angezeigt.
 
-![](./media/A46.png)
+![](media/A46.png)
 
-If the characters are unclear, please fix the backlight potentiometer by the small slotted screwdriver(Please use appropriate force to adjust. Connect an external power supply if necessary.
+Wenn die Zeichen unscharf sind, justieren Sie bitte das Hintergrundbeleuchtungspotentiometer mit einem kleinen Schlitzschraubendreher (Bitte verwenden Sie angemessene Kraft zum Einstellen). Schließen Sie bei Bedarf eine externe Stromversorgung an.
 
-![](./media/A47.png)
+![](media/A47.png)
 
-![](./media/A48.png)
-
+![](media/A48.png)

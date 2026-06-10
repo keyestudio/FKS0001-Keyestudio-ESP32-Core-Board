@@ -1,20 +1,20 @@
-### Project 15 Responder
+### Projekt 15 Responder
 
-**1. Description**
+**1. Beschreibung**
 
-This programmable responder inputs and receives signals through Arduino development board and a group of buttons, and it judges the correctness of answers via a LED. It is a good object to exercise students' reaction ability and draw their attention to questions. If the answer is correct, the respondent obtains a lot scores. 
+Dieser programmierbare Responder empfängt und sendet Signale über ein Arduino-Entwicklungsboard und eine Gruppe von Tasten und bewertet die Richtigkeit der Antworten über eine LED. Er ist ein gutes Objekt, um die Reaktionsfähigkeit der Schüler zu trainieren und ihre Aufmerksamkeit auf Fragen zu lenken. Wenn die Antwort korrekt ist, erhält der Teilnehmer viele Punkte.
 
-Moreover, it simplifies teachers' manipulation of question-grabbers and cuts answer clutters. It may even stimulate students' interests in learning. 
+Darüber hinaus vereinfacht er die Handhabung von Fragegreifern durch Lehrer und reduziert Antwortchaos. Er kann sogar das Interesse der Schüler am Lernen fördern.
 
-**2. Flow Chart**
+**2. Flussdiagramm**
 
-![image-20251013104115790](./media/A60.png)
+![image-20251013104115790](media/A60.png)
 
-**3. Wiring Diagram**
+**3. Schaltplan**
 
-![](./media/A61.png)
+![](media/A61.png)
 
-**4. Test Code**
+**4. Testcode**
 
 ```
 /*
@@ -83,9 +83,8 @@ void loop()
 }
 ```
 
-**5. Test Result**
+**5. Testergebnis**
 
-Let's simulate a quick-answer game.
+Simulieren wir ein Schnellantwortspiel.
 
-Press the red button to turn off all LED lights. Then we can select the yellow, green and blue buttons to turn on the corresponding LED lights. The person whose LED light turns on first can answer first.
-
+Drücken Sie die rote Taste, um alle LEDs auszuschalten. Dann können wir die gelbe, grüne und blaue Taste drücken, um die entsprechende LED einzuschalten. Die Person, deren LED zuerst leuchtet, darf als Erste antworten.

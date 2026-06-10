@@ -1,78 +1,77 @@
-### Project 25 Ultrasonic Rangefinder
+### Projekt 25 Ultraschall-Entfernungsmesser
 
-**1. Description**
+**1. Beschreibung**
 
-This ultrasonic rangefinder measures distance of obstacles by emitting sound waves and then receiving the echo. That is to say, the distance is not an immediate value, but an observed one by a theoretical calculation of time difference between emitter and receiver. 
+Dieser Ultraschall-Entfernungsmesser misst die Entfernung von Hindernissen, indem er Schallwellen aussendet und dann das Echo empfängt. Das heißt, die Entfernung ist kein unmittelbarer Wert, sondern ein beobachteter Wert, der durch eine theoretische Berechnung der Zeitdifferenz zwischen Sender und Empfänger ermittelt wird.
 
-Ultrasonic is able to detect the shape of objects, set up automatic doors and estimate flow velocity and pressure. 
+Ultraschall kann die Form von Objekten erkennen, automatische Türen steuern sowie Fließgeschwindigkeit und Druck schätzen.
 
-What's more, it supports cooperative works with computers. As a result, the measured value can be transmitted to computers via Arduino board. 
+Außerdem unterstützt er die Zusammenarbeit mit Computern. Dadurch kann der gemessene Wert über ein Arduino-Board an Computer übertragen werden.
 
-In daily life, it is widely used for motors, servos and LEDs as well as systems(automatic navigation, control and security monitoring systems).
+Im Alltag wird er häufig für Motoren, Servos und LEDs sowie Systeme (automatische Navigation, Steuerungs- und Sicherheitsüberwachungssysteme) eingesetzt.
 
-**2. Working Principle**
+**2. Funktionsprinzip**
 
 ![](media/B91.png)
 
-As we all know, ultrasonic is a kind of inaudible sound wave signal with high frequency. Similar to a bat, this module measures distance of obstacles by calculating the time difference between wave-emitting and echo-receiving.
+Wie allgemein bekannt ist, handelt es sich bei Ultraschall um eine Art unhörbares Schallwellensignal mit hoher Frequenz. Ähnlich wie eine Fledermaus misst dieses Modul die Entfernung von Hindernissen, indem es die Zeitdifferenz zwischen Wellenemission und Echoempfang berechnet.
 
-- **Maximum distance:** 3M
+- **Maximale Entfernung:** 3M
 
-- **Minimum distance:** 5cm
+- **Minimale Entfernung:** 5cm
 
-- **Detection angle:** ≤15°
+- **Erfassungswinkel:** ≤15°
 
-**3. Wiring Diagram**
+**3. Schaltplan**
 
 ![](media/B92.png)
 
-**4. Test Code**
+**4. Testcode**
 
-In "forever" block, construct two "serial print" blocks and drag a "read distance" block from “Ultrasonic”. Set trig pin to IO13 and echo pin to IO14 both in cm. Do not forget a delay of 0.5s. 
+Im „forever“-Block zwei „serial print“-Blöcke anlegen und einen „read distance“-Block aus „Ultrasonic“ ziehen. Den trig-Pin auf IO13 und den echo-Pin auf IO14 setzen, beide in cm. Eine Verzögerung von 0,5s nicht vergessen.
 
 ![](media/B93.png)
 
-**5. Test Result**
+**5. Testergebnis**
 
-After connecting the wiring and uploading code, open serial monitor to set baud rate to 9600, and the serial port starts to print the distance value. 
+Nach Anschluss der Verkabelung und Hochladen des Codes den seriellen Monitor öffnen, Baudrate auf 9600 einstellen, und der serielle Port beginnt, die Distanzwerte auszugeben.
 
 ![](media/B94.png)
 
-**6. Knowledge Expansion**
+**6. Wissensvertiefung**
 
-Let's make a rangefinder. 
+Lassen Sie uns einen Entfernungsmesser bauen.
 
-We display characters on LCD 1602. Program to show "Keyestudio" at (3,0) and “distance:” at (0,1) followed by the distance value at (9,1). 
+Wir zeigen Zeichen auf dem LCD 1602 an. Programmieren Sie, dass „Keyestudio“ bei (3,0) und „distance:“ bei (0,1) angezeigt wird, gefolgt vom Distanzwert bei (9,1).
 
-When the value is smaller than 100(or 10), a residue of the third(or the second) bit still exists. Therefore, an "if" judgement is necessary to determine a certain condition.
+Wenn der Wert kleiner als 100 (oder 10) ist, bleibt ein Rest der dritten (bzw. zweiten) Stelle erhalten. Daher ist eine „if“-Abfrage notwendig, um eine bestimmte Bedingung zu prüfen.
 
-**Wiring Diagram：**
+**Schaltplan：**
 
 ![](media/B95.png)
 
 **Code：**
 
-1. Drag the two basic blocks.
+1. Ziehen Sie die zwei Basisblöcke.
 
-2. In "LCD", initialize the LCD. Drag an “LCD print” block and add character string “Keyestudio” (It also can be put out of "forever" block as this display is fixed). Add a "variable" block and set type to int and name to "distance" with an initial assignment of 0.
+2. Initialisieren Sie im „LCD“ das LCD. Ziehen Sie einen „LCD print“-Block und fügen Sie den Zeichenstring „Keyestudio“ hinzu (dies kann auch außerhalb des „forever“-Blocks erfolgen, da diese Anzeige fest ist). Fügen Sie einen „variable“-Block hinzu, setzen Sie den Typ auf int und benennen Sie ihn „distance“ mit einer Anfangszuweisung von 0.
 
 ![](media/B96.png)
 
-3. Assign the read distance value to the variable "distance". Set the LCD to print “Distance：” and followed by the distance value (and we need calculate the front displayed characters in advance to set a cursor followed them).
+3. Weisen Sie der Variablen „distance“ den Wert von „read distance“ zu. Stellen Sie das LCD so ein, dass „Distance：“ ausgegeben wird, gefolgt vom Distanzwert (und wir müssen die vorangehenden Zeichen im Voraus berechnen, um den Cursor entsprechend zu setzen).
 
 ![](media/B97.png)
 
-4. Build a "clear display residue" block when the number of displayed bits decrease. We firstly adopts a condition to judge whether the distance is smaller than 100(or 10). If so, a space will be printed at the residue of the third (or the second) bit to clear previous display. Lastly, don't forget to add a delay of 0.5s. 
+4. Erstellen Sie einen Block zum „Löschen von Anzeige-Resten“, wenn die Anzahl der angezeigten Stellen abnimmt. Zuerst wird eine Bedingung verwendet, um zu prüfen, ob die Distanz kleiner als 100 (oder 10) ist. Falls ja, wird an der Stelle der dritten (bzw. zweiten) Stelle ein Leerzeichen ausgegeben, um die vorherige Anzeige zu löschen. Zum Schluss nicht vergessen, eine Verzögerung von 0,5s hinzuzufügen.
 
 ![](media/B98.png)
 
-**Complete Code:**
+**Vollständiger Code:**
 
 ![](media/B99.png)
 
-**7. Code Explanation**
+**7. Code-Erklärung**
 
-Read the distance after setting the trig pin and echo pin. The unit of displayed value is optional (cm or inch).
+Liest die Entfernung aus, nachdem trig-Pin und echo-Pin gesetzt wurden. Die Einheit des angezeigten Werts ist optional (cm oder inch).
 
 ![](media/B100.png)
-

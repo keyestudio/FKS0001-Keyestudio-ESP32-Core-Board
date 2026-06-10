@@ -1,24 +1,24 @@
-### Project 20 Light Pillar
+### Projekt 20 Lichtsäule
 
-**1. Description**
+**1. Beschreibung**
 
-The resistance(less than 1KΩ) of the photoresistor varies from the light, thus it can control the brightness of the dot matrix. When controlling, we connect this resistor to an analog pin on the board to monitor the change of resistance. In this way, the light automatically controls the brightness of the display. 
+Der Widerstand (weniger als 1KΩ) des Fotowiderstands variiert mit dem Licht, wodurch die Helligkeit der Punktmatrix gesteuert werden kann. Beim Steuern verbinden wir diesen Widerstand mit einem analogen Pin auf dem Board, um die Widerstandsänderung zu überwachen. Auf diese Weise steuert das Licht automatisch die Helligkeit der Anzeige.
 
-Besides,  the photoresistor is widely applied to our daily life. For instance, a curtain automatically opens or closes according to the outer light intensity. 
+Außerdem wird der Fotowiderstand in unserem täglichen Leben häufig eingesetzt. Zum Beispiel öffnet oder schließt sich ein Vorhang automatisch entsprechend der äußeren Lichtintensität.
 
-**2. Working Principle**
+**2. Funktionsprinzip**
 
 ![](media/B8.png)
 
 ![](media/B9.png)
 
-When it is totally in dark, the resistance equals 0.2MΩ, and the voltage at signal terminal (point 2) approaches to 0V. The stronger the light is , the smaller the resistance and voltage will be.
+Wenn es völlig dunkel ist, beträgt der Widerstand 0,2MΩ, und die Spannung am Signalausgang (Punkt 2) nähert sich 0V an. Je stärker das Licht ist, desto kleiner werden Widerstand und Spannung.
 
-**3. Wiring Diagram**
+**3. Schaltplan**
 
 ![](media/B10.png)
 
-**4. Test Code**
+**4. Testcode**
 
 ```
 /*
@@ -43,17 +43,17 @@ void loop()
 }
 ```
 
-**5. Test Result**
+**5. Testergebnis**
 
-After connecting the wiring and uploading code, open serial monitor to set baud rate to 9600, the analog value will be displayed, withing the range of 0-4095. Changing the light intensity around it can change its value.
+Nach dem Verbinden der Schaltung und Hochladen des Codes öffnen Sie den seriellen Monitor und stellen die Baudrate auf 9600 ein. Der analoge Wert wird im Bereich von 0-4095 angezeigt. Durch Ändern der Lichtintensität in der Umgebung ändert sich der Wert.
 
 ![](media/B11.png)
 
-**6. Knowledge Expansion**
+**6. Wissensvertiefung**
 
-We will use this photoresistor to sense the ambient light intensity. The two columns of middle are included in this experiment to represent light intensity. The stronger it is, the more lighted LEDs will be. This forms a "light pillar".
+Wir verwenden diesen Fotowiderstand, um die Umgebungslichtintensität zu erfassen. Die beiden mittleren Spalten sind in diesem Experiment enthalten, um die Lichtintensität darzustellen. Je stärker sie ist, desto mehr LEDs leuchten. So entsteht eine „Lichtsäule“.
 
-- **Wiring Diagram：**
+- **Schaltplan：**
 
 ![](media/B12.png)
 
@@ -94,9 +94,8 @@ void loop()
 }
 ```
 
-- **Test Result**
+- **Testergebnis**
 
-The stronger the light near the photoresistor, the higher the light column of the LED matrix.
+Je stärker das Licht in der Nähe des Fotowiderstands ist, desto höher ist die Lichtsäule der LED-Matrix.
 
 ![](media/B13.png)
-

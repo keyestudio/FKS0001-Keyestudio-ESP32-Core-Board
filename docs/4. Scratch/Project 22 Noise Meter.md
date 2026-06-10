@@ -1,44 +1,43 @@
-### Project 22 Noise Meter
+### Projekt 22 Geräuschmesser
 
-**1.  Description**
+**1. Beschreibung**
 
-Arduino noise meter embodies the sound signal to a series of dots, which are converted into patterns displayed on dot matrix. 
+Der Arduino-Geräuschmesser stellt das Tonsignal als eine Reihe von Punkten dar, die in Muster umgewandelt und auf einer Punktmatrix angezeigt werden.
 
-**2. Wiring Diagram**
+**2. Schaltplan**
 
 ![](media/B63.png)
 
-**3. Test Code**
+**3. Testcode**
 
-1. Drag the basic blocks and initialize the display. Set the pin CS to IO15 and brightness to 3. Then add a variable block and select int and name it as "item" with an initial assignment of 0.
+1. Ziehen Sie die Basisblöcke und initialisieren Sie das Display. Setzen Sie den Pin CS auf IO15 und die Helligkeit auf 3. Fügen Sie dann einen Variablenblock hinzu, wählen Sie int und benennen Sie ihn als „item“ mit einer Anfangszuweisung von 0.
 
-2. Add a variable block and name it as "item". Adopt a map function to convert the read sound value range from 0-4095 to 0-7, yet the hypothesis maximum value of sound is 800.
+2. Fügen Sie einen Variablenblock hinzu und benennen Sie ihn als „item“. Verwenden Sie eine Map-Funktion, um den gelesenen Schallwertbereich von 0-4095 auf 0-7 zu konvertieren, wobei der angenommene Maximalwert des Schalls 800 beträgt.
 
 ![](media/B64.png)
 
-3. Clear the display. 
+3. Löschen Sie das Display.
 
-4. Program a condition. If the variable item is greater than -1, the dot matrix displays (x0:0  y0:0 x1:1  y1:0) in color of red.
+4. Programmieren Sie eine Bedingung. Wenn die Variable item größer als -1 ist, zeigt die Punktmatrix (x0:0  y0:0 x1:1  y1:0) in roter Farbe an.
 
 ![](media/B65.png)
 
-5. Repeat step 4, but the judgment is whether item is greater than 0. If so, dots at (x0:1  y0:0  x1:1  y1:1) will light up. By that analogy, build code blocks referring to the following coordinates. 
+5. Wiederholen Sie Schritt 4, aber die Bedingung lautet, ob item größer als 0 ist. Wenn ja, leuchten die Punkte bei (x0:1  y0:0  x1:1  y1:1) auf. Bauen Sie analog dazu Codeblöcke mit Bezug auf die folgenden Koordinaten.
 
-6. Finally, refresh the display. 
+6. Aktualisieren Sie abschließend das Display.
 
-**Reference Coordinates:**
+**Referenzkoordinaten:**
 
 ![](media/B66.png)
 
 ![](media/B67.png)
 
-**Complete Code:**
+**Vollständiger Code:**
 
 ![](media/B68.png)
 
-**4. Test Result**
+**4. Testergebnis**
 
-After connecting the wiring and uploading code, the noise level view is displayed on dot matrix, as shown below.
+Nach dem Anschluss der Verkabelung und dem Hochladen des Codes wird die Geräuschpegelanzeige auf der Punktmatrix wie unten gezeigt dargestellt.
 
 ![](media/B69.png)![](media/B70.png)![](media/B69.png)![](media/B70.png)
-

@@ -1,46 +1,45 @@
-### Project 6 Water Flow Light
+### Projekt 6 Wasserflusslicht
 
-**1. Description**
+**1. Beschreibung**
 
-This simple water flow light project enables to help you learn electronic packaging. In this project, we will control LEDs to change the color in a specified speed via a Arduino board.
+Dieses einfache Wasserflusslicht-Projekt hilft Ihnen, die elektronische Verpackung zu erlernen. In diesem Projekt steuern wir LEDs, um die Farbe mit einer bestimmten Geschwindigkeit über ein Arduino-Board zu ändern.
 
-**2. Wiring Diagram**
+**2. Schaltplan**
 
 ![](media/A74.png)
 
-**3. Test Code**
+**3. Testcode**
 
-A water flow light consists of a stream of LED lighting from left to right.
+Ein Wasserflusslicht besteht aus einem LED-Lichtstrom von links nach rechts.
 
-1. Drag the two basic code blocks.
+1. Ziehen Sie die beiden grundlegenden Codeblöcke.
 
 ![](media/A75.png)
 
-2. Set the pin mode to “output”.
+2. Stellen Sie den Pin-Modus auf „output“ ein.
 
 ![](media/A76.png)
 
-3. Drag the following blocks from "LED" part and set the IO15 pin to LOW, the IO12 pin to HIGH. Then set the delay time to 0.2s.  
+3. Ziehen Sie die folgenden Blöcke aus dem Bereich „LED“ und setzen Sie den IO15-Pin auf LOW, den IO12-Pin auf HIGH. Stellen Sie dann die Verzögerungszeit auf 0,2 s ein.
 
 ![](media/A77.png)
 
-4. Drag the following blocks from "LED" part and set the IO12 pin to LOW, the IO13 pin to HIGH. Then set the delay time to 0.2s.  
+4. Ziehen Sie die folgenden Blöcke aus dem Bereich „LED“ und setzen Sie den IO12-Pin auf LOW, den IO13-Pin auf HIGH. Stellen Sie dann die Verzögerungszeit auf 0,2 s ein.
 
 ![](media/A78.png)
 
-5. Drag the following blocks from "LED" part and set the IO13 pin to LOW, the IO14 pin to HIGH. Then set the delay time to 0.2s. 
+5. Ziehen Sie die folgenden Blöcke aus dem Bereich „LED“ und setzen Sie den IO13-Pin auf LOW, den IO14-Pin auf HIGH. Stellen Sie dann die Verzögerungszeit auf 0,2 s ein.
 
 ![](media/A79.png)
 
-6. Drag the following blocks from "LED" part and set the IO14 pin to LOW, the IO15 pin to HIGH. Then set the delay time to 0.2s.  
+6. Ziehen Sie die folgenden Blöcke aus dem Bereich „LED“ und setzen Sie den IO14-Pin auf LOW, den IO15-Pin auf HIGH. Stellen Sie dann die Verzögerungszeit auf 0,2 s ein.
 
    ![](media/A80.png)
 
-**Complete Code：**
+**Vollständiger Code：**
 
 ![](media/A81.png)
 
-**4. Test Result**  
+**4. Testergebnis**
 
-After uploading code and powering on, the LEDs light up from left to right.
-
+Nach dem Hochladen des Codes und dem Einschalten leuchten die LEDs von links nach rechts auf.

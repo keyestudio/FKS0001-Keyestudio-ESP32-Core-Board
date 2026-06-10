@@ -1,20 +1,20 @@
-### Project 27 Intelligent Parking
+### Projekt 27 Intelligentes Parken
 
-**1. Description**
+**1. Beschreibung**
 
-This intelligent parking system detects and optimizes parking position via an ultrasonic sensor. With this system, wrong parking is avoided to a large extent. 
+Dieses intelligente Parksystem erkennt und optimiert die Parkposition mittels eines Ultraschallsensors. Mit diesem System wird falsches Parken weitgehend vermieden.
 
-Firstly, you need to install the sensor around the carpark. And then it will detect the distance between the car and its edges and send the information to the development board so as to control the car to automatically adjust to the optimal parking position.
+Zuerst müssen Sie den Sensor rund um den Parkplatz installieren. Anschließend erkennt er den Abstand zwischen dem Auto und seinen Begrenzungen und sendet die Informationen an das Entwicklungsboard, um das Auto automatisch auf die optimale Parkposition einzustellen.
 
-**2. Flow Chart**
+**2. Flussdiagramm**
 
 ![](media/B35.png)
 
-**3. Wiring Diagram**
+**3. Schaltplan**
 
 ![](media/B36.png)
 
-**4. Test Code**
+**4. Testcode**
 
 ```
 /*
@@ -97,9 +97,8 @@ void loop()
 }
 ```
 
-**5. Test Result**
+**5. Testergebnis**
 
-After connecting the wiring and uploading code, lines will be displayed on the dot matrix. If the detected distance is less than 50cm, there will be fewer lines.
+Nach dem Anschließen der Verkabelung und Hochladen des Codes werden Linien auf der Punktmatrix angezeigt. Wenn der erkannte Abstand weniger als 50 cm beträgt, werden weniger Linien angezeigt.
 
 ![](media/B37.png)![](media/B38.png)
-

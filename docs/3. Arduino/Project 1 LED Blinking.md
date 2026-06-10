@@ -1,22 +1,22 @@
-### Project 1 LED Blinking
+### Projekt 1 LED Blinken
 
-**1.Description**
+**1. Beschreibung**
 
-LED blinking is a simple project designed for starters. You only need to install an LED on Arduino board and upload the code on Arduino IDE. This project reinforces the lear ning of Arduino conceptual framework and using methods for starters. 
+LED Blinken ist ein einfaches Projekt, das für Einsteiger konzipiert wurde. Sie müssen nur eine LED auf dem Arduino-Board installieren und den Code in der Arduino IDE hochladen. Dieses Projekt festigt das Verständnis des Arduino-Konzeptframeworks und die Anwendungsmethoden für Anfänger.
 
-**2. Working Principle**
+**2. Funktionsprinzip**
 
-![](./media/A16.png)
+![](media/A16.png)
 
-- **LED:** The above is the circuit diagram of LED. Generally speaking, limited IO ports of output current may cause low brightness of LED, so a NPN triode (Q2) is applied in circuit as a switch. In this case, the LED will light up if the base(pin 1) of triode is at a high level. On the contrary, LED goes off when the base is at low. 
+- **LED:** Oben ist das Schaltbild der LED dargestellt. Allgemein gesprochen kann die begrenzte Ausgangsstromstärke der IO-Ports zu einer niedrigen Helligkeit der LED führen, daher wird im Schaltkreis ein NPN-Transistor (Q2) als Schalter verwendet. In diesem Fall leuchtet die LED, wenn die Basis (Pin 1) des Transistors auf hohem Pegel ist. Im Gegensatz dazu geht die LED aus, wenn die Basis auf niedrigem Pegel ist.
 
-- **Triode switch:** To have a clear idea of its principle, certain knowledge of electronic circuit is required. For details, please consult materials by yourself. Briefly, LED on and off rely on the high and low levels of triode base, which are decided by the pin on the development board. LED lights up when the base(pin 1) is at a high level, and it goes off when the base is at low.
+- **Transistorschalter:** Um das Prinzip klar zu verstehen, sind gewisse Kenntnisse der Elektronik erforderlich. Für Details konsultieren Sie bitte entsprechende Materialien. Kurz gesagt, das Ein- und Ausschalten der LED hängt von den hohen und niedrigen Pegeln der Transistorbasis ab, die durch den Pin auf dem Entwicklungsboard bestimmt werden. Die LED leuchtet, wenn die Basis (Pin 1) auf hohem Pegel ist, und geht aus, wenn die Basis auf niedrigem Pegel ist.
 
-**3.Wiring Diagram：**
+**3. Schaltplan：**
 
-![](./media/A17.png)
+![](media/A17.png)
 
-**4.Upload Code**
+**4. Code hochladen**
 
 ```
 /*
@@ -39,7 +39,6 @@ void loop()
 }
 ```
 
-**5.Test Result**
+**5. Testergebnis**
 
-After uploading the code and powering on, LED will light up for 1s and off for 1 s.
-
+Nach dem Hochladen des Codes und Einschalten der Stromversorgung leuchtet die LED für 1 Sekunde und ist dann für 1 Sekunde aus.

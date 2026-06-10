@@ -1,47 +1,46 @@
-### Project 8 Music Performer
+### Projekt 8 Musikspieler
 
-**1. Description**
+**1. Beschreibung**
 
-In this project, we will use a power amplifier speaker to play music. This speaker can not only play simple songs, but also perform what you desire. Thus, you can program other interesting codes in the project to accomplish splendid learning outcomes.
+In diesem Projekt verwenden wir einen Leistungsverstärker-Lautsprecher, um Musik abzuspielen. Dieser Lautsprecher kann nicht nur einfache Lieder wiedergeben, sondern auch das ausführen, was Sie wünschen. Somit können Sie im Projekt weitere interessante Codes programmieren, um hervorragende Lernergebnisse zu erzielen.
 
-**2. Working Principle**
+**2. Funktionsprinzip**
 
 ![](media/A89.png)
 
-The electrical signal is input from pin 1 of RP1 (adjusts signal intensity, which is also the sound volume).
-After coupling in C4 and passing R5, the signal reaches IN- pin of 8002B, in which it is operationally amplified and output to BEE1 speaker. 
+Das elektrische Signal wird an Pin 1 von RP1 eingespeist (regelt die Signalstärke, was auch die Lautstärke des Tons ist).  
+Nach der Kopplung in C4 und dem Durchlaufen von R5 erreicht das Signal den IN- Pin des 8002B, wo es operativ verstärkt und an den BEE1 Lautsprecher ausgegeben wird.
 
-**3. Wiring Diagram**
+**3. Schaltplan**
 
 ![](media/A90.png)
 
-**4. Test Code**
+**4. Testcode**
 
 ![](media/A91.png)
 
-**5. Test Result**
+**5. Testergebnis**
 
-After uploading code and powering on, the amplifier circularly plays music tones with corresponding frequency: DO, Re, Mi, Fa, So, La, Si.
+Nach dem Hochladen des Codes und dem Einschalten spielt der Verstärker zyklisch Musiknoten mit den entsprechenden Frequenzen: DO, Re, Mi, Fa, So, La, Si.
 
-**6. Knowledge Expansion**
+**6. Wissensvertiefung**
 
-Let's make it play a birthday song. We have already added some songs in library so you can directly drag these song blocks from "Music". 
+Lassen Sie uns ein Geburtstagslied abspielen. Wir haben bereits einige Lieder in der Bibliothek hinzugefügt, sodass Sie diese Musikblöcke direkt aus „Music“ ziehen können.
 
 **Code:**
 
 ![](media/A92.png)
 
-**7. Code Explanation**
+**7. Codeerklärung**
 
-1. Set the tone frequency. After setting the pin, we can select the frequency to compose music.  
+1. Stellen Sie die Tonfrequenz ein. Nach der Einstellung des Pins können wir die Frequenz auswählen, um Musik zu komponieren.
 
 ![](media/A93.png)
 
-2. Music module, for the convenience of use, we have integrated 6 pieces of music in the code, thus, we just need to set the pin and select the music.
+2. Musikmodul: Zur Vereinfachung haben wir 6 Musikstücke im Code integriert, somit müssen wir nur den Pin einstellen und die Musik auswählen.
 
 ![](media/A94.png)
 
-3. Stop playing module, we only need to set the corresponding pin to stop the music.
+3. Stop-Modul: Wir müssen nur den entsprechenden Pin einstellen, um die Musik zu stoppen.
 
 ![](media/A95.png)
-

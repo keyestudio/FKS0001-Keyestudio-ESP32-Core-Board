@@ -1,24 +1,24 @@
-### Project 19 Dimming Lamp
+### Projekt 19 Dimmbares Licht
 
-**1. Description**
+**1. Beschreibung**
 
-The dimming lamp adjusts the brightness of LED via a potentiometer and an Arduino controller. The brightness is subject to resistance value, which can be read and adjusted by connecting the ends of the potentiometer to digital or analog pins on board. What's more, this system is applied to control voltage or current of other devices such as fans, bulbs and heaters. 
+Die dimmbare Lampe passt die Helligkeit der LED über ein Potentiometer und einen Arduino-Controller an. Die Helligkeit hängt vom Widerstandswert ab, der durch Anschluss der Enden des Potentiometers an digitale oder analoge Pins auf dem Board ausgelesen und eingestellt werden kann. Darüber hinaus wird dieses System zur Steuerung der Spannung oder des Stroms anderer Geräte wie Lüfter, Glühbirnen und Heizungen verwendet.
 
-**2. Working Principle**
+**2. Funktionsprinzip**
 
 ![](media/B3.png)
 
 ![](media/B4.png)
 
-Essentially, potentiometer is an element that can change the value of resistance. According to Ohm's law(U=I*R), the resistance affects the voltage. Our potentiometer is 10K.
+Im Wesentlichen ist ein Potentiometer ein Bauelement, das den Widerstandswert verändern kann. Nach dem Ohmschen Gesetz (U=I*R) beeinflusst der Widerstand die Spannung. Unser Potentiometer hat 10K.
 
-In this project, the maximum resistance is 10K. The ESP32 board will equally divide the voltage of 3V into 4095 parts (3/4095=0.0007326007326). The analog voltage is obtained by multiplying the read value and 0.0007326007326. 
+In diesem Projekt beträgt der maximale Widerstand 10K. Das ESP32-Board teilt die Spannung von 3V gleichmäßig in 4095 Teile (3/4095=0.0007326007326). Die analoge Spannung wird durch Multiplikation des ausgelesenen Werts mit 0.0007326007326 erhalten.
 
-**3. Wiring Diagram**
+**3. Schaltplan**
 
 ![](media/B5.png)
 
-**4. Test Code**
+**4. Testcode**
 
 ```
 /*
@@ -43,17 +43,17 @@ void loop()
 }
 ```
 
-**5. Test Result**
+**5. Testergebnis**
 
-After connecting the wiring and uploading code, open serial monitor to set baud rate to 9600, and the analog value will be displayed, within the range of 0-4095.Rotating the potentiometer can change the size of the analog value.
+Nach dem Anschließen der Verkabelung und Hochladen des Codes öffnen Sie den seriellen Monitor, stellen die Baudrate auf 9600 ein, und der analoge Wert wird im Bereich von 0-4095 angezeigt. Das Drehen des Potentiometers ändert die Größe des analogen Werts.
 
 ![](media/B6.png)
 
-**6. Knowledge Expansion**
+**6. Wissensvertiefung**
 
-We will control the brightness of LED via a potentiometer. As we know, it is influenced by PWM. However, the range of analog value is 0-4095 while that of PWM is 0-255. Thus, a "map(value, fromLow, fromHigh, toLow, toHigh)" function is needed.
+Wir steuern die Helligkeit der LED über ein Potentiometer. Wie bekannt, wird dies durch PWM beeinflusst. Der Bereich des analogen Werts liegt jedoch bei 0-4095, während der von PWM bei 0-255 liegt. Daher wird eine Funktion „map(value, fromLow, fromHigh, toLow, toHigh)“ benötigt.
 
-**Wiring Diagram：**
+**Schaltplan：**
 
 ![](media/B7.png)
 
@@ -83,7 +83,6 @@ void loop()
 }
 ```
 
-**7. Test Result**
+**7. Testergebnis**
 
-After the code is uploaded successfully, rotating the potentiometer will change the brightness of the red LED.
-
+Nach erfolgreichem Hochladen des Codes ändert das Drehen des Potentiometers die Helligkeit der roten LED.

@@ -1,32 +1,32 @@
-### Project 25 Ultrasonic Rangefinder
+### Projekt 25 Ultraschall-Entfernungsmesser
 
-**1. Description**
+**1. Beschreibung**
 
-This ultrasonic rangefinder measures distance of obstacles by emitting sound waves and then receiving the echo. That is to say, the distance is not an immediate value, but an observed one by a theoretical calculation of time difference between emitter and receiver. 
+Dieser Ultraschall-Entfernungsmesser misst die Entfernung von Hindernissen, indem er Schallwellen aussendet und dann das Echo empfängt. Das heißt, die Entfernung ist kein unmittelbarer Wert, sondern ein beobachteter, der durch eine theoretische Berechnung der Zeitdifferenz zwischen Sender und Empfänger ermittelt wird.
 
-Ultrasonic is able to detect the shape of objects, set up automatic doors and estimate flow velocity and pressure. 
+Ultraschall kann die Form von Objekten erkennen, automatische Türen steuern sowie Fließgeschwindigkeit und Druck schätzen.
 
-What's more, it supports cooperative works with computers. As a result, the measured value can be transmitted to computers via Arduino board. 
+Außerdem unterstützt er die Zusammenarbeit mit Computern. Dadurch kann der gemessene Wert über ein Arduino-Board an Computer übertragen werden.
 
-In daily life, it is widely used for motors, servos and LEDs as well as systems(automatic navigation, control and security monitoring systems).
+Im Alltag wird er häufig für Motoren, Servos und LEDs sowie für Systeme (automatische Navigation, Steuerung und Sicherheitsüberwachungssysteme) eingesetzt.
 
-**2. Working Principle**
+**2. Funktionsprinzip**
 
 ![](media/B29.png)
 
-As we all know, ultrasonic is a kind of inaudible sound wave signal with high frequency. Similar to a bat, this module measures distance of obstacles by calculating the time difference between wave-emitting and echo-receiving.
+Wie allgemein bekannt ist, handelt es sich bei Ultraschall um eine Art unhörbares Schallwellensignal mit hoher Frequenz. Ähnlich wie eine Fledermaus misst dieses Modul die Entfernung von Hindernissen, indem es die Zeitdifferenz zwischen der Aussendung der Welle und dem Empfang des Echos berechnet.
 
-**Maximum distance:** 3M
+**Maximale Entfernung:** 3M
 
-**Minimum distance:** 5cm
+**Minimale Entfernung:** 5cm
 
-**Detection angle:** ≤15°
+**Erfassungswinkel:** ≤15°
 
-**3. Wiring Diagram**
+**3. Schaltplan**
 
 ![](media/B30.png)
 
-**4. Test Code**
+**4. Testcode**
 
 ```
 /*
@@ -74,21 +74,21 @@ void loop()
 }
 ```
 
-**5. Test Result**
+**5. Testergebnis**
 
-After connecting the wiring and uploading code, open serial monitor to set baud rate to 9600, the serial port prints the distance value. 
+Nach dem Anschluss der Verkabelung und dem Hochladen des Codes öffnen Sie den seriellen Monitor und stellen die Baudrate auf 9600 ein. Der serielle Port gibt dann den Entfernungswert aus.
 
 ![](media/B31.png)
 
-**6. Knowledge Expansion**
+**6. Wissensvertiefung**
 
-Let's make a rangefinder. 
+Lassen Sie uns einen Entfernungsmesser bauen.
 
-We display characters on LCD 1602. Program to show "Keyestudio" at (3,0) and “distance:” at (0,1) followed by the distance value at (9,1). 
+Wir zeigen Zeichen auf dem LCD 1602 an. Das Programm zeigt „Keyestudio“ bei (3,0) und „distance:“ bei (0,1) gefolgt vom Entfernungswert bei (9,1).
 
-When the value is smaller than 100(or 10), a residue of the third(or the second) bit still exists. Therefore, an "if" judgement is necessary to determine a certain condition.
+Wenn der Wert kleiner als 100 (oder 10) ist, bleibt ein Rest der dritten (bzw. zweiten) Stelle sichtbar. Daher ist eine „if“-Abfrage notwendig, um eine bestimmte Bedingung zu prüfen.
 
-**Wiring Diagram：**
+**Schaltplan：**
 
 ![](media/B32.png)
 
@@ -157,5 +157,3 @@ void loop()
   lcd.print(distance);
   delay(200);
 }
-```
-

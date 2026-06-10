@@ -1,28 +1,27 @@
-### Project 28 Intelligent Gate
+### Projekt 28 Intelligentes Tor
 
-**1. Description**
+**1. Beschreibung**
 
-The intelligent gate is an intelligent parking lot system that  integrates MCU and ultrasonic sensor, which automatically controls the gate according to the distance of cars, so as to better control the car access. 
+Das intelligente Tor ist ein intelligentes Parksystem, das MCU und Ultraschallsensor integriert und das Tor automatisch entsprechend der Entfernung der Fahrzeuge steuert, um die Fahrzeugzufahrt besser zu kontrollieren.
 
-When a certain distance is reached, MCU receives the signal from the sensor and estimates the distance via the signal intensity. If the car is approaching or leaving, MCU will open or close the gate via a servo. 
+Wenn eine bestimmte Entfernung erreicht wird, empfängt die MCU das Signal vom Sensor und schätzt die Entfernung anhand der Signalstärke. Wenn sich ein Fahrzeug nähert oder entfernt, öffnet oder schließt die MCU das Tor über einen Servo.
 
-**2. Flow Chart**
+**2. Flussdiagramm**
 
 ![](media/B110.png)
 
-**3. Wiring Diagram**
+**3. Schaltplan**
 
 ![](media/B111.png)
 
-**4. Test Code**
+**4. Testcode**
 
-Define a variable "distance" with the assignment of detected distance value by the ultrasonic module. 
+Definieren Sie eine Variable „distance“ mit der Zuweisung des vom Ultraschallmodul erfassten Entfernungswerts.
 
-Next, Compare the distance value with 30cm. If it is smaller than 30cm, the servo will rotate to 180° for 5s. Otherwise, the servo returns to 0°.
+Vergleichen Sie anschließend den Entfernungswert mit 30 cm. Wenn er kleiner als 30 cm ist, dreht sich der Servo für 5 s auf 180°. Andernfalls kehrt der Servo auf 0° zurück.
 
 ![](media/B112.png)
 
-**5. Test Result**
+**5. Testergebnis**
 
-After connecting the wiring and uploading code, the servo will rotate to 180° for 5s if the detected distance is less than 30cm. On the contrary, the servo will rotate to 0°.
-
+Nach dem Anschließen der Verkabelung und Hochladen des Codes dreht sich der Servo für 5 s auf 180°, wenn die erkannte Entfernung weniger als 30 cm beträgt. Andernfalls dreht sich der Servo auf 0°.

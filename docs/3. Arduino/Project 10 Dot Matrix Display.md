@@ -1,42 +1,42 @@
-### Project 10 Dot Matrix Display
+### Projekt 10 Punktmatrix-Display
 
-**1. Description**
+**1. Beschreibung**
 
-This module consists of a 8x8 LED dot matrix with one control pin for each row as well as each column to adjust the brightness of LED. Connecting with Arduino board, the brightness of LED is controlled to display characters and figures via Arduino programming. In this way, simple characters, numbers and figures are able to be displayed. It also can be applied in game machines or screens.
+Dieses Modul besteht aus einer 8x8 LED-Punktmatrix mit jeweils einem Steuerpin für jede Reihe sowie jede Spalte, um die Helligkeit der LEDs anzupassen. In Verbindung mit einem Arduino-Board wird die Helligkeit der LEDs über Arduino-Programmierung gesteuert, um Zeichen und Figuren anzuzeigen. Auf diese Weise können einfache Zeichen, Zahlen und Figuren dargestellt werden. Es kann auch in Spielgeräten oder Bildschirmen eingesetzt werden.
 
-**2. Working Principle**
+**2. Funktionsprinzip**
 
-![](./media/A37.png)
+![](media/A37.png)
 
-MAX7219 is an IC with SPI communication and can be used to control the 8x8 dot matrix. The MAX7219 SPI communication has integrated in our libraries and you can recall directly.
+Der MAX7219 ist ein IC mit SPI-Kommunikation und kann zur Steuerung der 8x8 Punktmatrix verwendet werden. Die MAX7219 SPI-Kommunikation ist in unseren Bibliotheken integriert und kann direkt aufgerufen werden.
 
-**Dot Matrix Modulo Operation**
+**Punktmatrix-Moduloperation**
 
-Click the link for Modulo ：[http://dotmatrixtool.com/#](http://dotmatrixtool.com/#)
+Klicken Sie auf den Link für das Modul ：[http://dotmatrixtool.com/#](http://dotmatrixtool.com/#)
 
-**Steps:**
+**Schritte:**
 
-1.Click the link and set the height and width of the dot matrix. Here we set both to 8. 
+1. Klicken Sie auf den Link und stellen Sie die Höhe und Breite der Punktmatrix ein. Hier setzen wir beide auf 8.
 
-![](./media/A38.png)
+![](media/A38.png)
 
-2.Set "Byte Order" to "Column Major".
+2. Stellen Sie "Byte Order" auf "Column Major".
 
-![](./media/A39.png)
+![](media/A39.png)
 
-3.Set "Endian" to "Big Endian".
+3. Stellen Sie "Endian" auf "Big Endian".
 
-![](./media/A40.png)
+![](media/A40.png)
 
-4.Click the white tiles to form a pattern you want(click again for deselecting), and then click "Generate" to generate an array for this icon. Copy this array and paste it in code, and then the pattern will be displayed on the dot matrix.
+4. Klicken Sie auf die weißen Kacheln, um ein Muster zu erstellen (erneut klicken zum Abwählen), und klicken Sie dann auf "Generate", um ein Array für dieses Symbol zu erzeugen. Kopieren Sie dieses Array und fügen Sie es in den Code ein, dann wird das Muster auf der Punktmatrix angezeigt.
 
-![](./media/A41.png)
+![](media/A41.png)
 
-**3. Wiring Diagram**
+**3. Schaltplan**
 
-![](./media/A42.png)
+![](media/A42.png)
 
-**4. Test Code**
+**4. Testcode**
 
 ```
 /*
@@ -70,9 +70,8 @@ void loop()
 }
 ```
 
-**5. Test Result**
+**5. Testergebnis**
 
-After connecting the wiring and uploading code, a heart will be displayed on the dot matrix, as shown below.
+Nach dem Anschließen der Verkabelung und Hochladen des Codes wird ein Herz auf der Punktmatrix angezeigt, wie unten dargestellt.
 
-![](./media/A43.png)
-
+![](media/A43.png)

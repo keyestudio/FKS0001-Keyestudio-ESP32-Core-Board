@@ -1,103 +1,102 @@
-### Project 13 Mini Lamp
+### Projekt 13 Mini Lampe
 
-**1. Description**
+**1. Beschreibung**
 
-In this project, we are going to control a lamp via Arduino UNO and a button. When we press the button, the state of the lamp will shift(ON or OFF).
+In diesem Projekt steuern wir eine Lampe über Arduino UNO und einen Taster. Wenn wir den Taster drücken, ändert sich der Zustand der Lampe (AN oder AUS).
 
-**2. Working Principle**
+**2. Funktionsprinzip**
 
 ![](media/A152.png)
 
-When the button is released, a voltage VCC passing through R29 provides a high level for S terminal. When pressed, pin 1 and 3, pin 2 and 4 are connected and voltage on S1 arrives GND as a low level. At this moment, R29 avoids a short circuit between VCC and GND.
+Wenn der Taster losgelassen wird, liefert eine Spannung VCC, die durch R29 fließt, ein hohes Signal am S-Anschluss. Beim Drücken werden Pin 1 und 3 sowie Pin 2 und 4 verbunden, und die Spannung an S1 geht auf GND als niedriges Signal. In diesem Moment verhindert R29 einen Kurzschluss zwischen VCC und GND.
 
-**3. Wiring Diagram**
+**3. Schaltplan**
 
 ![](media/A153.png)
 
-**4.  Test Code**
+**4. Testcode**
 
-1. Add two basic blocks.
+1. Fügen Sie zwei Grundblöcke hinzu.
 
 ![](media/A154.png)
 
-2. Drag a "baud rate" from “Serial” and set it to 9600. 
+2. Ziehen Sie einen „baud rate“-Block aus „Serial“ und stellen Sie ihn auf 9600 ein.
 
 ![](media/A155.png)
 
-3. Then drag a "print" block from “Serial”, type “Key status:” in the blank and set it to "no-warp".
+3. Ziehen Sie dann einen „print“-Block aus „Serial“, geben Sie „Key status:“ in das Feld ein und stellen Sie ihn auf „no-warp“.
 
 ![](media/A156.png)
 
-4. Set the IO15 pim to “input”.
+4. Stellen Sie den IO15-Pin auf „input“.
 
 ![](media/A157.png)
 
-5. Drag another “Serial print” block  from “Serial” and set the mode to "warp". Add a "state value of button" from “Button” and set the pin to IO15.
+5. Ziehen Sie einen weiteren „Serial print“-Block aus „Serial“ und stellen Sie den Modus auf „warp“. Fügen Sie einen „state value of button“-Block aus „Button“ hinzu und setzen Sie den Pin auf IO15.
 
 ![](media/A158.png)
 
-**Complete Code:**
+**Vollständiger Code:**
 
 ![](media/A159.png)
 
-**5. Test Result**
+**5. Testergebnis**
 
-After connecting the wiring and uploading code, open the serial monitor and set the baud rate to 9600. 
-When we press the button, serial port prints "Key status: 0"; When we release the button, serial port prints "Key status: 1".
+Nach dem Verbinden der Schaltung und Hochladen des Codes öffnen Sie den seriellen Monitor und stellen die Baudrate auf 9600 ein.  
+Wenn wir den Taster drücken, zeigt der serielle Port „Key status: 0“ an; wenn wir den Taster loslassen, zeigt der serielle Port „Key status: 1“ an.
 
 ![](media/A160.png)
 
-**6. Knowledge Expansion**
+**6. Wissensvertiefung**
 
-Next, we will control the LED through the state of buttons. 
+Als nächstes steuern wir die LED über den Zustand des Tasters.
 
-**Flow Chart：**
+**Flussdiagramm：**
 
 ![](media/A161.png)
 
-**Wiring Diagram：**
+**Schaltplan：**
 
 ![](media/A162.png)
 
 **Code:**
 
-1. Drag two basic blocks. 
+1. Ziehen Sie zwei Grundblöcke.
 
 ![](media/A163.png)
 
-2. Set the LED pin to “output”，and the button pin to “input”.
+2. Stellen Sie den LED-Pin auf „output“ und den Taster-Pin auf „input“.
 
 ![](media/A164.png)
 
-3. Drag a "if else" block from “Control”. Add a "button pin" block from “Button” after "if" and set its pin to IO15. Put an "LED output" block under "if" and set the output to HIGH, and put another under "else" and set to LOW. LED pins are both at IO4.
+3. Ziehen Sie einen „if else“-Block aus „Control“. Fügen Sie nach „if“ einen „button pin“-Block aus „Button“ hinzu und setzen Sie den Pin auf IO15. Legen Sie unter „if“ einen „LED output“-Block mit HIGH und unter „else“ einen weiteren mit LOW. Beide LED-Pins sind IO4.
 
 ![](media/A165.png)
 
-**Complete Code:**
+**Vollständiger Code:**
 
 ![](media/A166.png)
 
-**8. Code Explanation**
+**8. Code-Erklärung**
 
-**Note: Pin mode must be set to "input" when using the button module.**
+**Hinweis: Der Pin-Modus muss auf „input“ gesetzt werden, wenn das Taster-Modul verwendet wird.**
 
-1. Judge whether the button is pressed. If so, this block expresses true.
+1. Prüft, ob der Taster gedrückt ist. Wenn ja, ergibt dieser Block true.
 
 ![](media/A167.png)
 
-2. Read the button value. When the button is not pressed, the value is 1. Or else, it is 0.
+2. Liest den Wert des Tasters aus. Wenn der Taster nicht gedrückt ist, ist der Wert 1, sonst 0.
 
 ![](media/A168.png)
 
-3. If the condition in the hexagon is true, "if" block will be executed. Otherwise, the program runs "else" according to block.
+3. Wenn die Bedingung im Hexagon wahr ist, wird der „if“-Block ausgeführt. Andernfalls läuft das Programm gemäß dem „else“-Block.
 
 ![](media/A169.png)
 
-4. Set the baud rate. Please guarantee the serial baud rate fit the counterpart of serial monitor, or it won't print anything. The commonly used baud rate are 9600 and 115200, and here we set to 9600.
+4. Setzt die Baudrate. Bitte stellen Sie sicher, dass die serielle Baudrate mit der des seriellen Monitors übereinstimmt, sonst wird nichts ausgegeben. Übliche Baudraten sind 9600 und 115200, hier verwenden wir 9600.
 
 ![](media/A170.png)
 
-5. Print characters on serial monitor. The printed words are what you type in the blank. Besides, three print modes are included: warp, no-warp and HEX (hexadecimal). 
+5. Gibt Zeichen im seriellen Monitor aus. Die ausgegebenen Wörter sind die, die Sie im Feld eingeben. Außerdem gibt es drei Druckmodi: warp, no-warp und HEX (hexadezimal).
 
 ![](media/A171.png)
-

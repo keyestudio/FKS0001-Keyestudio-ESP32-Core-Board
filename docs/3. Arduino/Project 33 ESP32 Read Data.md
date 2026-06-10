@@ -1,30 +1,30 @@
-### Project 33 ESP32 Read Data
+### Projekt 33 ESP32 Daten auslesen
 
-**1. Description**
+**1. Beschreibung**
 
-We learned how to control the led light throught ESP32 wifi and display the IP address on the LCD1602. Next, we will use the esp32 board read the sensor data and transmit it to the web page.
+Wir haben gelernt, wie man die LED über ESP32 WiFi steuert und die IP-Adresse auf dem LCD1602 anzeigt. Als Nächstes werden wir das ESP32-Board verwenden, um Sensordaten auszulesen und diese an eine Webseite zu übertragen.
 
-**Notes**
+**Hinweise**
 
-1. You need to prepare your a 2.4GHz frequency WIFI, not 5GHz frequency. It can be a mobile hotspot or a router.
-2. The ESP32 board consumes more power when connected to the network, so you need to connect an external power supply to this kit. We provide you with a 6XAA Battery Holder (battery not included), which you can connect to the DC port of the ESP32 integrated board.
+1. Sie müssen ein 2,4-GHz-WLAN vorbereiten, kein 5-GHz-Netzwerk. Es kann ein mobiler Hotspot oder ein Router sein.  
+2. Das ESP32-Board verbraucht mehr Strom, wenn es mit dem Netzwerk verbunden ist, daher müssen Sie eine externe Stromversorgung an dieses Kit anschließen. Wir stellen Ihnen einen 6XAA Batteriehalter (Batterien nicht enthalten) zur Verfügung, den Sie an den DC-Anschluss des integrierten ESP32-Boards anschließen können.
 
 ![](media/B58.png)![](media/B59.png)
 
-3. When using other devices to control this kit, the ESP32 board needs to be connected to the same network as your control device.
+3. Wenn Sie andere Geräte zur Steuerung dieses Kits verwenden, muss das ESP32-Board mit demselben Netzwerk verbunden sein wie Ihr Steuergerät.
 
-4. Remember your wifi network name and password and fill it into the code before uploading it.
+4. Merken Sie sich Ihren WLAN-Netzwerknamen und das Passwort und tragen Sie diese vor dem Hochladen in den Code ein.
 
 ```
-const char* ssid = "your_SSID"; // Fill in WiFi name, for example,= "KEYES"
-const char* password = "your_password"; // Fill in WiFi password, for example,= "123456"
+const char* ssid = "your_SSID"; // WLAN-Name eintragen, z.B. "KEYES"
+const char* password = "your_password"; // WLAN-Passwort eintragen, z.B. "123456"
 ```
 
-**2. Wiring Diagram**
+**2. Schaltplan**
 
 ![](media/B60.png)
 
-**3. Upload Code**
+**3. Code hochladen**
 
 ```
 #include <WiFi.h>
@@ -33,29 +33,29 @@ const char* password = "your_password"; // Fill in WiFi password, for example,= 
 #include <LiquidCrystal_I2C.h>
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
-// WiFi configuration
-const char* ssid = "your-SSID";    // your WiFi name
-const char* password = "your-PASSWORD";  // your WiFi password
+// WiFi-Konfiguration
+const char* ssid = "your-SSID";    // Ihr WLAN-Name
+const char* password = "your-PASSWORD";  // Ihr WLAN-Passwort
 
-// Create a Web Server
+// Webserver erstellen
 AsyncWebServer server(80);
 
-// DHT11 configuration
-xht11 xht(26);                         //set DHT11 sensor pin to IO26
-unsigned char dat[] = { 0, 0, 0, 0 };  //Define an array to store temperature and humidity values
+// DHT11-Konfiguration
+xht11 xht(26);                         // DHT11 Sensor an IO26
+unsigned char dat[] = { 0, 0, 0, 0 };  // Array zur Speicherung von Temperatur- und Feuchtigkeitswerten
 int i = 0;
 
-// photoresistor configuration
-#define LDRPIN 34  // connect photoresistor to GPIO34(analog input)
+// Fotowiderstand-Konfiguration
+#define LDRPIN 34  // Fotowiderstand an GPIO34 (analog Eingang) anschließen
 
 void setup() 
 {
-  lcd.init();  // initialize the lcd
+  lcd.init();  // LCD initialisieren
   lcd.backlight();
   lcd.setCursor(0, 0);
   lcd.print("IP:");
 
-  // WiFi connection
+  // WLAN-Verbindung
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
     lcd.setCursor(i, 1);
@@ -73,22 +73,22 @@ void setup()
   lcd.setCursor(0, 1);
   lcd.print(WiFi.localIP());
 
-  // Process the client request and return to the page
+  // Client-Anfrage verarbeiten und Seite zurückgeben
   server.on("/", HTTP_GET, [](AsyncWebServerRequest* request) {
     String html = generateHTML();
     request->send(200, "text/html", html);
   });
 
-  // Start the Web server
+  // Webserver starten
   server.begin();
 }
 
 String generateHTML() 
 {
-  // acquire photoresistor value
-  int lightValue = analogRead(LDRPIN);  // read photoresistor analog value
+  // Fotowiderstandswert auslesen
+  int lightValue = analogRead(LDRPIN);  // Fotowiderstand analog auslesen
 
-  // Generate HTML page
+  // HTML-Seite generieren
   String html = "<html><head><style>";
   html += "body { font-family: Arial, sans-serif; background-color: #f4f4f4; }";
   html += "h2 { color: #333; }";
@@ -96,24 +96,24 @@ String generateHTML()
   html += "div.sensor h3 { margin: 0; }";
   html += "div.sensor p { font-size: 20px; color: #555; }";
   html += "</style>";
-  // add automatic refresh, refresh the page every 5 seconds
+  // automatische Aktualisierung, Seite alle 5 Sekunden neu laden
   html += "<meta http-equiv='refresh' content='5'>";
   html += "</head><body>";
 
-  // diaplay temperature and humidity
+  // Temperatur und Luftfeuchtigkeit anzeigen
   html += "<div class='sensor'>";
-  html += "<h3>Temperature</h3>";
+  html += "<h3>Temperatur</h3>";
   html += "<p>" + String(dat[2]) + " &deg;C</p>";
   html += "</div>";
 
   html += "<div class='sensor'>";
-  html += "<h3>Humidity</h3>";
+  html += "<h3>Luftfeuchtigkeit</h3>";
   html += "<p>" + String(dat[0]) + " %</p>";
   html += "</div>";
 
-  // diaplay photoresistor resistance value
+  // Fotowiderstandswert anzeigen
   html += "<div class='sensor'>";
-  html += "<h3>Luminance</h3>";
+  html += "<h3>Beleuchtungsstärke</h3>";
   html += "<p>" + String(lightValue) + "</p>";
   html += "</div>";
   html += "</body></html>";
@@ -123,7 +123,7 @@ String generateHTML()
 
 void loop() 
 {
-  // Update temperature, humidity and light intensity every 2 seconds
+  // Temperatur, Luftfeuchtigkeit und Lichtintensität alle 2 Sekunden aktualisieren
   if (!xht.receive(dat)) {
     Serial.println("sensor error");
   }
@@ -131,9 +131,8 @@ void loop()
 }
 ```
 
-**4. Test Result**
+**4. Testergebnis**
 
-After uploading the code, LCD1602 shows the IP address. Use a computer or mobile phone that is connected to the same network as the ESP32 board, open the browser and enter the IP address, you can see the sensor values on the control page which refresh every 5 seconds.
+Nach dem Hochladen des Codes zeigt das LCD1602 die IP-Adresse an. Verwenden Sie einen Computer oder ein Mobiltelefon, das mit demselben Netzwerk wie das ESP32-Board verbunden ist, öffnen Sie den Browser und geben Sie die IP-Adresse ein. Sie sehen die Sensorwerte auf der Steuerungsseite, die alle 5 Sekunden aktualisiert wird.
 
 ![](media/B61.png)
-

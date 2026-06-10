@@ -1,62 +1,61 @@
-### Project 14 Counter
+### Projekt 14 Zähler
 
-**1. Description**
+**1. Beschreibung**
 
-Arduino 4-bit digital tube counter can record numbers within 0~9999. It features display speed, count mode adjustment as well as reset function. This module is wildly applied in real-time counter (such as button-press and DC motor rotation count), gaming and experiment equipment.
+Der Arduino 4-Bit Digitalrohrzähler kann Zahlen im Bereich von 0~9999 erfassen. Er verfügt über eine Anzeige-Geschwindigkeit, Zählmodus-Anpassung sowie eine Rücksetzfunktion. Dieses Modul wird häufig in Echtzeit-Zählern (wie Tastenbetätigung und DC-Motor-Drehzahlzählung), Spiel- und Versuchsausrüstung eingesetzt.
 
-**2. Flow Chart**
+**2. Flussdiagramm**
 
 ![](media/A172.png)
 
-**3. Wiring Diagram**
+**3. Schaltplan**
 
 ![](media/A173.png)
 
-**4. Test Code**
+**4. Testcode**
 
-1. Drag the two basic blocks.
+1. Ziehen Sie die beiden Grundblöcke.
 
 ![](media/A174.png)
 
-2. Set the button pin to “input”.
+2. Stellen Sie den Tasten-Pin auf „input“.
 
 ![](media/A175.png)
 
-3. put a "variable" block. Set the variable type to int and name to item. Assign 0 as its initial value. 
+3. Fügen Sie einen „Variable“-Block hinzu. Setzen Sie den Variablentyp auf int und den Namen auf item. Weisen Sie 0 als Anfangswert zu.
 
 ![](media/A176.png)
 
-4. Drag an "if" block from “Control” (it executes only when its condition is satisfied). Put a “Button pressed” block from “Button” to the condition box(the hexagon one) and set the pin to IO19. Drag a "variable mode" block and put it after "then", and define it as "item" and set the mode to "++".
+4. Ziehen Sie einen „if“-Block aus „Control“ (er wird nur ausgeführt, wenn die Bedingung erfüllt ist). Legen Sie einen „Button pressed“-Block aus „Button“ in das Bedingungsfeld (das sechseckige) und setzen Sie den Pin auf IO19. Ziehen Sie einen „variable mode“-Block und setzen Sie ihn nach „then“, definieren Sie ihn als „item“ und stellen Sie den Modus auf „++“.
 
 ![](media/A177.png)
 
-5. Repeat step 4, but set the interface to IO18 and mode to "– –".
+5. Wiederholen Sie Schritt 4, setzen Sie jedoch die Schnittstelle auf IO18 und den Modus auf „– –“.
 
 ![](media/A178.png)
 
-6. Drag another "if" block from “Control” and define its condition that "interface IO17 button was be pushed?". Put a variable setting block after "then" and set the "variable by 0".
+6. Ziehen Sie einen weiteren „if“-Block aus „Control“ und definieren Sie die Bedingung „wurde die Taste an Schnittstelle IO17 gedrückt?“. Legen Sie nach „then“ einen Variablen-Setzblock und setzen Sie die Variable auf 0.
 
 ![](media/A179.png)
 
-7. Drag a "if" block from “Control”. Find the "＞" block in “Operators” and fill the left blank with "variable item" and the right with "9999". Also, put a variable setting block after "then" and set the "variable by 0".
+7. Ziehen Sie einen „if“-Block aus „Control“. Finden Sie den „＞“-Block in „Operators“ und füllen Sie das linke Feld mit „variable item“ und das rechte mit „9999“. Legen Sie ebenfalls nach „then“ einen Variablen-Setzblock und setzen Sie die Variable auf 0.
 
 ![](media/A180.png)
 
-8. Drag a "TM1650 display" block from "Digital tube" and set the displayed string to "variable item" block. Finally, don't forget to add a 0.2s delay. 
+8. Ziehen Sie einen „TM1650 display“-Block aus „Digital tube“ und setzen Sie die angezeigte Zeichenfolge auf den „variable item“-Block. Vergessen Sie abschließend nicht, eine Verzögerung von 0,2 s hinzuzufügen.
 
 ![](media/A181.png)
 
-**Complete Code:**
+**Vollständiger Code:**
 
 ![](media/A182.png)
 
-**5. Test Result**
+**5. Testergebnis**
 
-After connecting the wiring and uploading code, press green button to add 1, yellow to minus 1, and red to reset. 
+Nach dem Anschließen der Verkabelung und Hochladen des Codes drücken Sie die grüne Taste, um 1 zu addieren, die gelbe, um 1 zu subtrahieren, und die rote, um zurückzusetzen.
 
-**6. Code Explanation**
+**6. Code-Erklärung**
 
-**">"** block is used for judgment between two values. These two blanks can be replaced with either numbers or variables. 
+Der **">"**-Block wird verwendet, um zwischen zwei Werten zu vergleichen. Diese beiden Felder können entweder mit Zahlen oder Variablen belegt werden.
 
 ![](media/A183.png)
-

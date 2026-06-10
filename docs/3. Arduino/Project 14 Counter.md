@@ -1,18 +1,18 @@
-### Project 14 Counter
+### Projekt 14 Zähler
 
-**1. Description**
+**1. Beschreibung**
 
-Arduino 4-bit digital tube counter can record numbers within 0~9999. It features display speed, count mode adjustment as well as reset function. This module is wildly applied in real-time counter (such as button-press and DC motor rotation count), gaming and experiment equipment.
+Der Arduino 4-Bit Digitalröhrenzähler kann Zahlen im Bereich von 0 bis 9999 erfassen. Er verfügt über eine Anzeige-Geschwindigkeit, Zählmodus-Anpassung sowie eine Rücksetzfunktion. Dieses Modul wird häufig in Echtzeit-Zählern (wie Tasterbetätigung und DC-Motor-Drehzahlerfassung), Spiel- und Versuchsausrüstung eingesetzt.
 
-**2.  Flow Chart**
+**2. Flussdiagramm**
 
-![](./media/A58.png)
+![](media/A58.png)
 
-**3. Wiring Diagram**
+**3. Schaltplan**
 
-![](./media/A59.png)
+![](media/A59.png)
 
-**4.Test Code**
+**4. Testcode**
 
 ```
 /*
@@ -68,7 +68,6 @@ void loop()
 }
 ```
 
-**4. Test Result**
+**4. Testergebnis**
 
-After connecting the wiring and uploading code, press green button to add 1, yellow to minus 1, and red to reset. Press the button and hold it, and the displayed value will keep adding or reducing.
-
+Nach dem Anschließen der Verkabelung und Hochladen des Codes drücken Sie die grüne Taste, um 1 zu addieren, die gelbe Taste, um 1 zu subtrahieren, und die rote Taste, um zurückzusetzen. Halten Sie die Taste gedrückt, wird der angezeigte Wert kontinuierlich erhöht oder verringert.

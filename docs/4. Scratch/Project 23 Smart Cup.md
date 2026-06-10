@@ -1,86 +1,85 @@
-### Project 23 Smart Cup
+### Projekt 23 Smart Cup
 
-**1. Description**
+**1. Beschreibung**
 
-In this project, we mainly adopt the Arduino development board to create a programmable smart cup, which reveals the temperature of inner liquid through a RGB indicator. It can control the brightness of the light by setting a temperature threshold. If the threshold is exceeded, it will get brighter. Otherwise, it gets darker. 
+In diesem Projekt verwenden wir hauptsächlich das Arduino-Entwicklungsboard, um einen programmierbaren Smart Cup zu erstellen, der die Temperatur der inneren Flüssigkeit über eine RGB-Anzeige anzeigt. Die Helligkeit des Lichts kann durch das Einstellen eines Temperaturschwellenwerts gesteuert werden. Wird der Schwellenwert überschritten, wird das Licht heller. Andernfalls wird es dunkler.
 
-The smart cup enables to help users better control the temperature of their drinking water and effectively prevent overheating or freezing.
+Der Smart Cup hilft den Benutzern, die Temperatur ihres Trinkwassers besser zu kontrollieren und effektiv Überhitzung oder Einfrieren zu verhindern.
 
-**2. Working Principle**
+**2. Funktionsprinzip**
 
 ![](media/B71.png)
 
-Related settings in DHT11 is provided by manufacturers, so you only need to orderly read and process data according to its sequence chart. 
+Die zugehörigen Einstellungen im DHT11 werden vom Hersteller bereitgestellt, sodass Sie nur die Daten gemäß dem Sequenzdiagramm nacheinander lesen und verarbeiten müssen.
 
-Besides, the relevant codes are packaged in our libraries, which is convenient for you to set pins and read values. 
+Außerdem sind die relevanten Codes in unseren Bibliotheken verpackt, was es Ihnen erleichtert, Pins einzustellen und Werte auszulesen.
 
-**3. Wiring Diagram**
+**3. Schaltplan**
 
 ![](media/B72.png)
 
-**4. Test Code**
+**4. Testcode**
 
-1. Drag two basic blocks. Add the serial baud rate module and set the baud rate to 9600.
+1. Ziehen Sie zwei Basisblöcke. Fügen Sie das Modul für die serielle Baudrate hinzu und setzen Sie die Baudrate auf 9600.
 
-2. Drag the DHT module from “Temperature and humidity” and set the pin to IO26, mode to dht11.
+2. Ziehen Sie das DHT-Modul aus „Temperatur und Luftfeuchtigkeit“ und setzen Sie den Pin auf IO26, den Modus auf dht11.
 
 ![](media/B73.png)
 
-3. Add serial print module with no-wrap, and set the print to “RH:”, then follow the steps below, and add a delay of 1s.
+3. Fügen Sie das Modul für serielle Ausgabe ohne Zeilenumbruch hinzu und setzen Sie die Ausgabe auf „RH:“, dann folgen Sie den untenstehenden Schritten und fügen eine Verzögerung von 1s hinzu.
 
-**Complete Code:**
+**Vollständiger Code:**
 
 ![](media/B74.png)
 
-**5. Test Result**
+**5. Testergebnis**
 
-After connecting the wiring and uploading code, click![](media/B75.png)to open serial monitor to set baud rate to 9600, and the temperature and humidity value will be displayed.
+Nach dem Anschließen der Verkabelung und Hochladen des Codes klicken Sie auf ![](media/B75.png), um den seriellen Monitor zu öffnen, stellen die Baudrate auf 9600 ein, und die Temperatur- und Luftfeuchtigkeitswerte werden angezeigt.
 
 ![](media/B76.png)
 
-**6. Expansion Code**
+**6. Erweiterungscode**
 
-In this expansion experiment, we will make a smart cup which can show liquid temperature. We divide 100 into four parts with an LED representing for each: 
+In diesem Erweiterungsexperiment erstellen wir einen Smart Cup, der die Flüssigkeitstemperatur anzeigen kann. Wir teilen 100 in vier Bereiche auf, wobei jede LED einen Bereich repräsentiert:
 
-- **Red LED: ** 100-75°C
+- **Rote LED:** 100-75°C
 
-- **Yellow LED: ** 75-50°C
+- **Gelbe LED:** 75-50°C
 
-- **Green LED: ** 50-25°C
+- **Grüne LED:** 50-25°C
 
-- **Blue LED:**  25-0°C
+- **Blaue LED:** 25-0°C
 
-- **Flow Chart：**
+- **Flussdiagramm：**
 
 ![](media/B77.png)
 
-**Wiring Diagram：**
+**Schaltplan：**
 
 ![](media/B78.png)
 
 **Code：**
 
-1. Drag two basic blocks. Then set the 4 LED pins to “output” , the DHT11 pin to IO26, mode to dht11 and the variable name to temp.
+1. Ziehen Sie zwei Basisblöcke. Stellen Sie dann die 4 LED-Pins auf „output“, den DHT11-Pin auf IO26, den Modus auf dht11 und den Variablennamen auf temp ein.
 
 ![](media/B79.png)
 
-2. Assign the temperature value of DHT11 to the variable temp
+2. Weisen Sie den Temperaturwert des DHT11 der Variablen temp zu.
 
 ![](media/B80.png)
 
-3. Use the "if else" to judge the variable temp. If the conditions are met, the corresponding LED will be on, otherwise it will be off. 
+3. Verwenden Sie „if else“, um die Variable temp zu prüfen. Wenn die Bedingungen erfüllt sind, wird die entsprechende LED eingeschaltet, andernfalls ausgeschaltet.
 
-**Complete Code:**
+**Vollständiger Code:**
 
 ![](media/B81.png)
 
-**7. Code Explanation**
+**7. Codeerklärung**
 
-1. In this code block, the marked number can be filled in the blank so that multiple temperature and humidity sensors can be connected. After setting the pin and mode, the value can be read. In this project, we set the mode to DHT11.
+1. In diesem Codeblock kann die markierte Zahl in das Feld eingetragen werden, sodass mehrere Temperatur- und Luftfeuchtigkeitssensoren angeschlossen werden können. Nach dem Einstellen von Pin und Modus kann der Wert ausgelesen werden. In diesem Projekt setzen wir den Modus auf DHT11.
 
 ![](media/B82.png)
 
-2. Read the temperature and humidity code block.
+2. Codeblock zum Auslesen von Temperatur und Luftfeuchtigkeit.
 
 ![](media/B83.png)
-

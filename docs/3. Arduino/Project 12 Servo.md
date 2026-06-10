@@ -1,38 +1,38 @@
-### Project 12 Servo
+### Projekt 12 Servo
 
-**1. Description**
+**1. Beschreibung**
 
-This servo features high performance and high precision with a maximum rotation angle of 180°. Weighting only 9g, it is perfectly suitable for any mini device in multiple occasions. What's more, it enjoys short startup time, low noise and strong stability.
+Dieser Servo zeichnet sich durch hohe Leistung und hohe Präzision mit einem maximalen Drehwinkel von 180° aus. Mit einem Gewicht von nur 9g ist er perfekt geeignet für jede Mini-Anwendung in verschiedenen Einsatzbereichen. Darüber hinaus verfügt er über eine kurze Anlaufzeit, geringe Geräuschentwicklung und hohe Stabilität.
 
-**2. Working Principle**
+**2. Funktionsprinzip**
 
-**Angle range:** 180° (360°, 180° and 90°)
+**Winkelbereich:** 180° (360°, 180° und 90°)
 
-**Drive voltage:** 3.3V or 5V
+**Betriebsspannung:** 3,3V oder 5V
 
-**Pin:** Three wires
+**Pin:** Drei Drähte
 
-![](./media/A49.png)
+![](media/A49.png)
 
-**GND:** Grounded(brown)
+**GND:** Masse (braun)
 
-**VCC:** A red pin that connects to a +5v (3.3V) power
+**VCC:** Ein roter Pin, der mit +5V (3,3V) verbunden wird
 
-**S:** A orange signal pin that controlled via PWM signal
+**S:** Ein oranger Signalleiter, der über PWM-Signal gesteuert wird
 
-![](./media/A50.png)
+![](media/A50.png)
 
-**Control Principle**: The rotation angle is controlled via duty cycle of PWM. Theoretically, standard PWM cycle is 20ms(50Hz), so pulse width should distribute within 1ms~2ms. However, the actual pulse width reaches 0.5ms~2.5ms, which corresponds to 0°～180°. Pay attention that, for the same signal, the rotation angle may vary from servo brands. 
+**Steuerprinzip:** Der Drehwinkel wird über das Tastverhältnis des PWM-Signals gesteuert. Theoretisch beträgt der Standard-PWM-Zyklus 20ms (50Hz), daher sollte die Pulsbreite im Bereich von 1ms bis 2ms liegen. Tatsächlich reicht die Pulsbreite jedoch von 0,5ms bis 2,5ms, was einem Winkel von 0° bis 180° entspricht. Beachten Sie, dass bei gleichem Signal der Drehwinkel je nach Servo-Hersteller variieren kann.
 
-**3. Wiring Diagram**
+**3. Schaltplan**
 
-![](./media/A51.png)
+![](media/A51.png)
 
-Add an external power source instead of just using USB for power.
+Verwenden Sie eine externe Stromquelle anstelle der reinen USB-Stromversorgung.
 
-![](./media/A52.png)
+![](media/A52.png)
 
-**4. Test Code**
+**4. Testcode**
 
 ```
 int servoPin = 4;//servo PIN
@@ -68,7 +68,6 @@ void servopulse(int pin, int myangle)
 }
 ```
 
-**5. Test Result**
+**5. Testergebnis**
 
-After connecting the wiring and uploading code, the servo starts to rotate from 0° to 180° and then reverse. 
-
+Nach dem Anschließen der Verkabelung und Hochladen des Codes beginnt der Servo, sich von 0° bis 180° zu drehen und anschließend in die entgegengesetzte Richtung.

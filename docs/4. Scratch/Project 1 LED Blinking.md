@@ -1,78 +1,77 @@
-### Project 1 LED Blinking
+### Projekt 1 LED Blinken
 
-**1. Description**
+**1. Beschreibung**
 
-LED blinking is a simple project designed for starters. You only need to install an LED on Arduino board and upload the code on Arduino IDE. This project reinforces the learning of Arduino conceptual framework and using methods for starters. 
+LED-Blinken ist ein einfaches Projekt, das für Einsteiger konzipiert ist. Sie müssen nur eine LED auf dem Arduino-Board installieren und den Code in der Arduino IDE hochladen. Dieses Projekt festigt das Verständnis des Arduino-Konzeptes und die Anwendung von Methoden für Einsteiger.
 
-**2. Working Principle**
+**2. Funktionsprinzip**
 
 ![](media/A7.png)
 
-**LED:** Generally speaking, limited IO ports of output current may cause low brightness of LED, so a NPN triode (Q2) is applied in circuit as a switch. In this case, the LED will light up if the base(pin 1) of triode is at a high level. On the contrary, LED goes off when the base is at low. 
+**LED:** Allgemein gesprochen kann die begrenzte Ausgangsstromstärke der IO-Ports eine geringe Helligkeit der LED verursachen, daher wird im Schaltkreis ein NPN-Transistor (Q2) als Schalter eingesetzt. In diesem Fall leuchtet die LED, wenn die Basis (Pin 1) des Transistors auf hohem Pegel ist. Im Gegensatz dazu geht die LED aus, wenn die Basis auf niedrigem Pegel ist.
 
-**Triode switch:** Briefly, LED lights up when the base(pin 1) is at a high level. In the same breath, the collector(pin 3) and emitter(pin 2) are connected, and then VCC passes through a current-limiting resistor to LED and finally to GND, which forms a circuit. On the contrary, LED goes off when the base is at low. In this circumstance, the collector and emitter are disconnected  and the LED lights off.
+**Transistorschalter:** Kurz gesagt, die LED leuchtet, wenn die Basis (Pin 1) auf hohem Pegel ist. Gleichzeitig sind Kollektor (Pin 3) und Emitter (Pin 2) verbunden, und VCC fließt über einen strombegrenzenden Widerstand zur LED und schließlich zu GND, wodurch ein Stromkreis entsteht. Im Gegensatz dazu geht die LED aus, wenn die Basis auf niedrigem Pegel ist. In diesem Fall sind Kollektor und Emitter getrennt und die LED ist aus.
 
-**3. Wiring Diagram**
+**3. Schaltplan**
 
 ![](media/A8.png)
 
-**4. Test Code**
+**4. Testcode**
 
-According to previous principles, we can control LED via levels of pins on the development board.
+Nach den vorherigen Prinzipien können wir die LED über die Pegel der Pins auf dem Entwicklungsboard steuern.
 
-1. Drag  the following block in "Events" part. 
+1. Ziehen Sie den folgenden Block im Bereich „Events“ hinein.
 
 ![](media/A9.png)
 
-2. Drag the following block  in "Control" part . 
+2. Ziehen Sie den folgenden Block im Bereich „Control“ hinein.
 
 ![](media/A10.png)
 
-3. Drag the following block  in "Pins" part and set the IO5 pin to output.
+3. Ziehen Sie den folgenden Block im Bereich „Pins“ hinein und setzen Sie den IO5-Pin auf output.
 
    ![](media/A11.png)
 
-4. Drag the following block  in "LED" part and set the IO5 pin to HIGH.
+4. Ziehen Sie den folgenden Block im Bereich „LED“ hinein und setzen Sie den IO5-Pin auf HIGH.
 
 ![](media/A12.png)
 
-5. Drag the following block  in "Control" part . 
+5. Ziehen Sie den folgenden Block im Bereich „Control“ hinein.
 
 ![](media/A13.png)
 
-6. Drag the following blocks and set the IO5 pin to LOW. 
+6. Ziehen Sie die folgenden Blöcke hinein und setzen Sie den IO5-Pin auf LOW.
 
 ![](media/A14.png)
 
-**Complete Code：**
+**Vollständiger Code：**
 
 ![](media/A15.png)
 
-**5. Test Result**
+**5. Testergebnis**
 
-After uploading the code and powering on, LED will be on for 1s and off for 1s.
+Nach dem Hochladen des Codes und dem Einschalten wird die LED 1 Sekunde lang leuchten und 1 Sekunde lang aus sein.
 
-**6. Code Explanation**
+**6. Code-Erklärung**
 
-<p style="color:red;">Note: Pin mode must be set to "output"  when using LED module.<p>
+<p style="color:red;">Hinweis: Der Pin-Modus muss auf „output“ gesetzt werden, wenn das LED-Modul verwendet wird.<p>
 
-1. Code blocks will not execute if the following block is not exist.
+1. Codeblöcke werden nicht ausgeführt, wenn der folgende Block nicht vorhanden ist.
 
 ![](media/A16.png)
 
-2. Code blocks in  the following block will execute in a loop.
+2. Codeblöcke im folgenden Block werden in einer Schleife ausgeführt.
 
 ![](media/A17.png)
 
-3. It is a module used to set the pin mode(control LED and buzzer for “output” mode, and read sensor module for “input” ).
+3. Dies ist ein Modul, das den Pin-Modus einstellt (LED und Summer für „output“-Modus steuern, und Sensor-Modul lesen für „input“).
 
 ![](media/A18.png)
 
-4. It is a module used to set the pin and the levels("HIGH" and "LOW").
+4. Dies ist ein Modul, das den Pin und die Pegel („HIGH“ und „LOW“) einstellt.
 
 ![](media/A19.png)
 
-5. It is a module used to set the delay time.
+5. Dies ist ein Modul, das die Verzögerungszeit einstellt.
 
 ![](media/A20.png)
-

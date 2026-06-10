@@ -1,36 +1,35 @@
-### Project 30 Smart Home
+### Projekt 30 Smart Home
 
-**1. Description**
+**1. Beschreibung**
 
-In this technology era, we are all familiar with smart home. It is a system that can control electric appliance via buttons. 
+In diesem Technologiezeitalter sind wir alle mit Smart Home vertraut. Es ist ein System, das elektrische Geräte über Tasten steuern kann.
 
-In this project, we seek to stimulate a smart home via an IR remote control. With Arduino MCU as its core, it can be used to  control light, air conditioners, TV and security monitors. 
+In diesem Projekt wollen wir ein Smart Home mittels einer IR-Fernbedienung simulieren. Mit dem Arduino MCU als Kern kann es verwendet werden, um Licht, Klimaanlagen, Fernseher und Sicherheitsmonitore zu steuern.
 
-**2. Flow Chart**
+**2. Flussdiagramm**
 
 ![](media/B130.png)
 
-**3. Wiring Diagram**
+**3. Schaltplan**
 
 ![](media/B131.png)
 
-**4. Test Code**
+**4. Testcode**
 
-With the IR remote control, this smart home reveals various sensor values on LCD, including a temperature and humidity sensor, a sound sensor, a photoresistor, a potentiometer and an ultrasonic sensor. 
+Mit der IR-Fernbedienung zeigt dieses Smart Home verschiedene Sensorwerte auf dem LCD an, darunter einen Temperatur- und Feuchtigkeitssensor, einen Tonsensor, einen Fotowiderstand, ein Potentiometer und einen Ultraschallsensor.
 
 ![](media/B132.png)
 
-**5. Test Result**
+**5. Testergebnis**
 
-After connecting the wiring and uploading code, we can see the corresponding contents on LCD by pressing buttons. OK button clears the sensor display.
+Nach dem Anschluss der Verkabelung und dem Hochladen des Codes können wir durch Drücken der Tasten die entsprechenden Inhalte auf dem LCD sehen. Die OK-Taste löscht die Sensordarstellung.
 
 ![](media/B133.png)
 
-**6. Code Explanation**
+**6. Code-Erklärung**
 
-The blocks are so many that we adopt "Make a Block" function. By doing this, numerous blocks are packaged and can be directly recalled, which vastly simplify the whole program. 
+Die Blöcke sind so zahlreich, dass wir die Funktion „Make a Block“ verwenden. Dadurch werden zahlreiche Blöcke zusammengefasst und können direkt aufgerufen werden, was das gesamte Programm erheblich vereinfacht.
 
-Click “My Block” to make a self-defined block, and you may build your own code blocks. 
+Klicken Sie auf „My Block“, um einen selbstdefinierten Block zu erstellen, und Sie können Ihre eigenen Codeblöcke bauen.
 
 ![](media/B134.png)
-

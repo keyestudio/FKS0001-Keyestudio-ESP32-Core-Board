@@ -1,78 +1,77 @@
-### Project 9 Digital Tube Display
+### Projekt 9 Digitalrohr-Anzeige
 
-**1.  Description**
+**1. Beschreibung**
 
-This 4-Digit tube display is a device used to display counting or time, which is able to  display numbers from 0 ~ 9 and simple letters. It consists of four digital tubes, each of which has seven light-emitting diodes (LED). 
+Dieses 4-stellige Rohr-Display ist ein Gerät zur Anzeige von Zählwerten oder Zeit, das Zahlen von 0 bis 9 sowie einfache Buchstaben darstellen kann. Es besteht aus vier Digitalrohren, von denen jedes sieben Leuchtdioden (LED) enthält.
 
-Moreover, multiple functions can be realized by connecting their pins to the Arduino development board, such as timekeeping and some game storing. 
+Darüber hinaus können durch Anschluss der Pins an das Arduino-Entwicklungsboard mehrere Funktionen realisiert werden, wie z.B. Zeitmessung und einige Spielespeicherungen.
 
-**2. Working Principle**
+**2. Funktionsprinzip**
 
 ![](media/A96.png)
 
-TM1650 utilizes IIC protocol and adopts two bus lines (SDA and SCL).
+Der TM1650 verwendet das IIC-Protokoll und nutzt zwei Busleitungen (SDA und SCL).
 
-The code is provided in our blocks, and the digital tube will display numbers via this code. 
+Der Code wird in unseren Blöcken bereitgestellt, und das Digitalrohr zeigt die Zahlen über diesen Code an.
 
-**3. Wiring Diagram**
+**3. Schaltplan**
 
 ![](media/A97.png)
 
-**4. Test Code**
+**4. Testcode**
 
-To show numbers on the display, you only need to drag a "TM 1650 display" block from "Digital tube" and set the number string to 9999.
+Um Zahlen auf dem Display anzuzeigen, müssen Sie nur einen "TM 1650 display"-Block aus "Digital tube" ziehen und die Zahlenfolge auf 9999 setzen.
 
 ![](media/A98.png)
 
-**5. Test Result**
+**5. Testergebnis**
 
-After connecting the wiring and uploading code, the digital tube display shows "9999", as shown below.
+Nach Anschluss der Verkabelung und Hochladen des Codes zeigt das Digitalrohr-Display "9999" an, wie unten dargestellt.
 
 ![](media/A99.png)
 
-**6. Extended Code**
+**6. Erweiterter Code**
 
-Let's have some difficult operations. Rather than static numbers, we handle it to show some dynamic ones. 
+Lassen Sie uns einige schwierigere Operationen durchführen. Anstatt statischer Zahlen zeigen wir einige dynamische Werte an.
 
-The following code manipulates the tubes to display 1~9999.
+Der folgende Code steuert die Rohre, um Zahlen von 1 bis 9999 anzuzeigen.
 
-1. Drag the two basic code blocks.
+1. Ziehen Sie die zwei grundlegenden Codeblöcke.
 
 ![](media/A100.png)
 
-2. Drag the following block from "Variables". Set the type to int and name to item, and assign 0 as its initial value.
+2. Ziehen Sie den folgenden Block aus "Variables". Setzen Sie den Typ auf int und den Namen auf item, und weisen Sie 0 als Anfangswert zu.
 
 ![](media/A101.png)
 
-3. Drag the following block from "Control" and set to 9999 times.  
+3. Ziehen Sie den folgenden Block aus "Control" und setzen Sie ihn auf 9999 Wiederholungen.
 
 ![](media/A102.png)
 
-4. Drag a "variable mode" from "Variables", define its name to item and set the mode to "++".
+4. Ziehen Sie einen "variable mode" aus "Variables", definieren Sie den Namen als item und setzen Sie den Modus auf "++".
 
-5. Drag a "TM 1650 display" block from "Digital tube" and replace the string value with variable item. Add a delay time of 0.5s after it. 
+5. Ziehen Sie einen "TM 1650 display"-Block aus "Digital tube" und ersetzen Sie den Zeichenkettenwert durch die Variable item. Fügen Sie danach eine Verzögerung von 0,5 s hinzu.
 
 ![](media/A103.png)
 
-6. Add a "set variable" block after the "repeat" block. Set item variable by 0. Otherwise, the item value will be out of display range after 9999 loops.
+6. Fügen Sie nach dem "repeat"-Block einen "set variable"-Block hinzu. Setzen Sie die Variable item auf 0. Andernfalls würde der Wert von item nach 9999 Schleifen außerhalb des Anzeigebereichs liegen.
 
 ![](media/A104.png)
 
-**Complete Code：** 
+**Vollständiger Code：**
 
 ![](media/A105.png)
 
-**7. Code Explanation**
+**7. Code-Erklärung**
 
-1. Set the display string. Directly type numbers or letters you want to display in the blank.
+1. Setzen Sie die Anzeigekette. Geben Sie direkt die Zahlen oder Buchstaben ein, die Sie anzeigen möchten.
 
 ![](media/A106.png)
 
-2. Set the ON or OFF of this TM 1650 digital tube. Each tube can be controlled separately. 
+2. Stellen Sie das EIN oder AUS dieses TM 1650 Digitalrohrs ein. Jedes Rohr kann separat gesteuert werden.
 
 ![](media/A107.png)
 
-3. It is able to clear the display or used as a master switch to turn on or turn off the digital tube. 
+3. Es ist möglich, die Anzeige zu löschen oder als Hauptschalter zum Ein- oder Ausschalten des Digitalrohrs zu verwenden.
 
 ![](media/A108.png)
-

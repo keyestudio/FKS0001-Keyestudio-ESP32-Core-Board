@@ -1,28 +1,28 @@
-### Project 2 Breathing LED
+### Projekt 2 Atmende LED
 
-**1.Description**
+**1. Beschreibung**
 
-Arduino breathing led utilizes on-board programmable PWM to output analog waveform. After powering on, LED brightness can be adjusted through duty cycle of the waveform to eventually realize the effect of breathing led. 
+Die Arduino atmende LED nutzt den programmierbaren PWM an Bord, um eine analoge Wellenform auszugeben. Nach dem Einschalten kann die Helligkeit der LED über den Tastgrad der Wellenform angepasst werden, um schließlich den Effekt einer atmenden LED zu realisieren.
 
-In this way, ambient light can be simulated by changing LED brightness over time. Also, breathing led can form a colorful mini light to construct a tranquil and warm environment.
+Auf diese Weise kann Umgebungslicht simuliert werden, indem die LED-Helligkeit über die Zeit verändert wird. Außerdem kann die atmende LED ein farbenfrohes Mini-Licht bilden, um eine ruhige und warme Atmosphäre zu schaffen.
 
-**2. What is PWM?**
+**2. Was ist PWM?**
 
-PWM controls analog output via digital means, which is able to adjust duty cycle of the wave (a signal circularly shifting between high level and low level).
+PWM steuert analoge Ausgaben auf digitale Weise, indem der Tastgrad der Welle (ein Signal, das zyklisch zwischen hohem und niedrigem Pegel wechselt) angepasst wird.
 
-For Arduino, digital ports of voltage output are LOW and HIGH, which respectively correspond to 0V and 5V. Generally, we define LOW as 0 and HIGH as 1. Arduino will output 500 signals of 0 or 1 within 1s. If they are "1", 5V will be output. Oppositely, if they are all 0, the output will be 0V. Or if they are 010101010101..., the average output will be 2.5V. 
+Für Arduino sind die digitalen Ausgangsports LOW und HIGH, die jeweils 0V und 5V entsprechen. Allgemein definieren wir LOW als 0 und HIGH als 1. Arduino gibt innerhalb von 1 Sekunde 500 Signale mit 0 oder 1 aus. Wenn sie „1“ sind, wird 5V ausgegeben. Umgekehrt, wenn sie alle 0 sind, beträgt die Ausgabe 0V. Oder wenn sie 010101010101... sind, beträgt der durchschnittliche Ausgang 2,5V.
 
-In other words, output ratio of 0 and 1 affects the voltage value, the more 0 and 1 signals are output per unit time, the more accurate the control will be. 
+Mit anderen Worten beeinflusst das Verhältnis von 0 und 1 die Spannung, je mehr 0- und 1-Signale pro Zeiteinheit ausgegeben werden, desto genauer ist die Steuerung.
 
-The GPIO34, 35, 36, and 39 of ESP32 cannot use PWM.
+Die GPIO34, 35, 36 und 39 des ESP32 können kein PWM verwenden.
 
-![](./media/A18.png)
+![](media/A18.png)
 
-**3. Wiring Diagram**
+**3. Schaltplan**
 
-![](./media/A19.png)
+![](media/A19.png)
 
-**4.Test Code**
+**4. Testcode**
 
 ```
 /*
@@ -56,7 +56,6 @@ void loop()
 }
 ```
 
-**5.Test Result**
+**5. Testergebnis**
 
-After uploading the code, we will see the LED slowly brighten and dim, just like the rhythm of breathing.
-
+Nach dem Hochladen des Codes sehen wir, wie die LED langsam heller und dunkler wird, genau wie der Rhythmus des Atmens.

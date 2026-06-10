@@ -1,22 +1,22 @@
-### Project 16 Timebomb
+### Projekt 16 Zeitbombe
 
-**1. Description**
+**1. Beschreibung**
 
-This project will give you an opportunity experience an interesting timebomb game.  
+Dieses Projekt bietet Ihnen die Möglichkeit, ein interessantes Zeitbomben-Spiel zu erleben.
 
-In this project, the dot matrix represents your timebomb, while the digital tube displays remaining time. Buttons can not only control the bomb but also set its time. You may set a countdown to control this bomb, and it explodes when the countdown is over. Beyond that, a buzzer is adopted to alarm. 
+In diesem Projekt stellt die Punktmatrix Ihre Zeitbombe dar, während die digitale Röhre die verbleibende Zeit anzeigt. Die Tasten können nicht nur die Bombe steuern, sondern auch ihre Zeit einstellen. Sie können einen Countdown festlegen, um die Bombe zu kontrollieren, und sie explodiert, wenn der Countdown abgelaufen ist. Darüber hinaus wird ein Summer zur Alarmierung verwendet.
 
-Anyhow, by programming on multiple sensors, your comprehensive capability of logic thinking can be enhanced. 
+Durch die Programmierung mehrerer Sensoren kann Ihre umfassende Fähigkeit zum logischen Denken verbessert werden.
 
-**2. Flow Chart**
+**2. Flussdiagramm**
 
-![](./media/A62.png)
+![](media/A62.png)
 
-**3. Wiring Diagram**
+**3. Schaltplan**
 
-![](./media/A63.png)
+![](media/A63.png)
 
-**4. Test Code**
+**4. Testcode**
 
 ```
 /*
@@ -124,7 +124,6 @@ void loop()
 }
 ```
 
-**5. Test Result**
+**5. Testergebnis**
 
-After connecting the wires and uploading the code, the blue button (increase) and green button (decrease) can be used to set the time, and the yellow button can be used to count down. When the countdown ends, the smiley face on the Dot Matrix Display turns into a crying face, simulating the explosion of the bomb. Pressing the red button can reset the program.
-
+Nach dem Verbinden der Kabel und Hochladen des Codes können Sie mit der blauen Taste (Erhöhen) und der grünen Taste (Verringern) die Zeit einstellen, und mit der gelben Taste den Countdown starten. Wenn der Countdown endet, verwandelt sich das Smiley-Gesicht auf der Punktmatrixanzeige in ein weinendes Gesicht, das die Explosion der Bombe simuliert. Durch Drücken der roten Taste kann das Programm zurückgesetzt werden.

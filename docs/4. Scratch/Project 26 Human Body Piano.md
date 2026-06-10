@@ -1,32 +1,31 @@
-### Project 26 Human Body Piano
+### Projekt 26 Human Body Piano
 
-**1. Description**
+**1. Beschreibung**
 
-The analog piano includes a development board and an ultrasonic sensor. It enables to play different tones by detecting the position of your fingers. Thus, this module is able to stimulate a piano to perform music and songs. 
+Das analoge Klavier besteht aus einem Entwicklungsboard und einem Ultraschallsensor. Es ermöglicht das Spielen verschiedener Töne durch Erkennung der Position Ihrer Finger. Somit kann dieses Modul ein Klavier stimulieren, um Musik und Lieder zu spielen.
 
-**2. Flow Chart**
+**2. Flussdiagramm**
 
 ![](media/B101.png)
 
-**3. Wiring Diagram**
+**3. Schaltplan**
 
 ![](media/B102.png)
 
-**4. Test Code**
+**4. Testcode**
 
-Assign the distance value to item, and the played tones vary from distance. Seven tones are included: Do，Re，Mi，Fa，So，La，Si.
+Weist den Distanzwert dem Element zu, und die gespielten Töne variieren je nach Entfernung. Sieben Töne sind enthalten: Do, Re, Mi, Fa, So, La, Si.
 
 ![](media/B103.png)
 
-**5. Test Result**
+**5. Testergebnis**
 
-Connect the wirings and upload the code. 
+Verbinden Sie die Verkabelung und laden Sie den Code hoch.
 
-- Play Do when the distance is less than 10. 
-- Play Re when the distance is within 10~20. 
-- Play Mi when the distance is within 20~30. 
-- Play Fa when the distance is within 30~40. 
-- Play So when the distance is within 40~50. 
-- Play La when the distance is within 50~60. 
-- Play Si when the distance is within 60~70. 
-
+- Spiele Do, wenn die Entfernung weniger als 10 beträgt.
+- Spiele Re, wenn die Entfernung zwischen 10 und 20 liegt.
+- Spiele Mi, wenn die Entfernung zwischen 20 und 30 liegt.
+- Spiele Fa, wenn die Entfernung zwischen 30 und 40 liegt.
+- Spiele So, wenn die Entfernung zwischen 40 und 50 liegt.
+- Spiele La, wenn die Entfernung zwischen 50 und 60 liegt.
+- Spiele Si, wenn die Entfernung zwischen 60 und 70 liegt.

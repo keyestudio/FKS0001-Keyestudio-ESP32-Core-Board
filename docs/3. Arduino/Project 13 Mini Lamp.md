@@ -1,20 +1,20 @@
-### **Project 13 Mini Lamp**
+### **Projekt 13 Mini Lampe**
 
-**1. Description**
+**1. Beschreibung**
 
-In this project, we are going to control a lamp via Arduino UNO and a button. When we press the button, the state of the lamp will shift(ON or OFF).
+In diesem Projekt steuern wir eine Lampe über Arduino UNO und einen Taster. Wenn wir den Taster drücken, ändert sich der Zustand der Lampe (AN oder AUS).
 
-**2. Working Principle**
+**2. Funktionsprinzip**
 
-![](./media/A53.png)
+![](media/A53.png)
 
-When the button is released, a voltage VCC passing through R29 provides a high level for S terminal. When pressed, pin 1 and 3, pin 2 and 4 are connected and voltage on S1 arrives GND as a low level. At this moment, R29 avoids a short circuit between VCC and GND.
+Wenn der Taster losgelassen wird, liefert eine Spannung VCC, die durch R29 fließt, ein High-Signal für den S-Anschluss. Beim Drücken werden Pin 1 und 3 sowie Pin 2 und 4 verbunden, und die Spannung an S1 wird auf GND gezogen, was ein Low-Signal darstellt. In diesem Moment verhindert R29 einen Kurzschluss zwischen VCC und GND.
 
-**3. Wiring Diagram**
+**3. Schaltplan**
 
-![](./media/A54.png)
+![](media/A54.png)
 
-**4.  Test Code**
+**4. Testcode**
 
 ```
 /*
@@ -27,36 +27,36 @@ int value = 0;
 
 void setup() 
 {
-  Serial.begin(9600); //Set the serial baud rate to 9600 
-  pinMode(button, INPUT);  //Connect the button pin to digital port 8 and set it to input mode.
+  Serial.begin(9600); //Setze die serielle Baudrate auf 9600 
+  pinMode(button, INPUT);  //Verbinde den Taster-Pin mit dem digitalen Port 8 und setze ihn auf Eingabemodus.
 }
 
 void loop() 
 {
-  value = digitalRead(button);//Read the button value 
-  Serial.print("Key status:"); //Print "Key status:" on serial port 
-  Serial.println(value); //Print the button variable on the serial port and wrapping lines
+  value = digitalRead(button);//Lese den Wert des Tasters aus 
+  Serial.print("Key status:"); //Gibt "Key status:" auf dem seriellen Port aus 
+  Serial.println(value); //Gibt die Taster-Variable auf dem seriellen Port aus und fügt einen Zeilenumbruch hinzu
 }
 ```
 
-**5. Test Result**
+**5. Testergebnis**
 
-After connecting the wiring and uploading code, open the serial monitor and set the baud rate to 9600. 
-When we press the button, serial port prints "Key status: 0"; When we release it, serial port prints "Key status: 1".
+Nach dem Verbinden der Schaltung und Hochladen des Codes öffne den seriellen Monitor und stelle die Baudrate auf 9600 ein.  
+Wenn wir den Taster drücken, zeigt der serielle Port "Key status: 0" an; wenn wir ihn loslassen, zeigt der serielle Port "Key status: 1".
 
-![](./media/A55.png)
+![](media/A55.png)
 
-**6. Knowledge Expansion**
+**6. Wissensvertiefung**
 
-Next, we will control the LED through the state of buttons. 
+Als Nächstes steuern wir die LED über den Zustand des Tasters.
 
-- **Flow Chart：**
+- **Flussdiagramm：**
 
-![](./media/A56.png)
+![](media/A56.png)
 
-- **Wiring Diagram:**
+- **Schaltplan:**
 
-![](./media/A57.png)
+![](media/A57.png)
 
 - **Code**
 
@@ -72,26 +72,25 @@ bool ledState = false;
 
 void setup() 
 {
-  // initialize digital pin PIN_LED as an output.
+  // initialisiere digitalen Pin PIN_LED als Ausgang.
   pinMode(led, OUTPUT);
   pinMode(button, INPUT);
 }
 
-// the loop function runs over and over again forever
+// die loop-Funktion läuft unendlich oft
 void loop() 
 {
-  if (digitalRead(button) == LOW) {    //When the button value is 0 for the first time, button jitter is triggered, so 20ms is delayed to judge whether the button is equal to 0. 
-    delay(20);                              //Delay 20ms
-    if (digitalRead(button) == LOW) {   //judge whether the button value is 0
-      ledState = !ledState;                 //ledStart is equal to the inverse of its original value, which can be used to light the LED on and off 
+  if (digitalRead(button) == LOW) {    //Wenn der Tasterwert zum ersten Mal 0 ist, wird Tasterprellen ausgelöst, daher wird 20 ms gewartet, um zu prüfen, ob der Taster weiterhin 0 ist. 
+    delay(20);                              //20 ms Verzögerung
+    if (digitalRead(button) == LOW) {   //prüfe, ob der Tasterwert 0 ist
+      ledState = !ledState;                 //ledState wird auf den invertierten Wert gesetzt, um die LED ein- und auszuschalten 
       digitalWrite(led, ledState);
     }
-    while (digitalRead(button) == LOW);     //hold the button for the while loop, exit it when release it
+    while (digitalRead(button) == LOW);     //halte die Schleife, solange der Taster gedrückt ist, verlasse sie beim Loslassen
   }
 }
 ```
 
-- **Test Result**
+- **Testergebnis**
 
-You can control the red LED light on and off by the red button.
-
+Du kannst die rote LED über den roten Taster ein- und ausschalten.

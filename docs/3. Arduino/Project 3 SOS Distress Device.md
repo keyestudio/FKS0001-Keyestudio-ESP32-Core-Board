@@ -1,14 +1,14 @@
-### Project 3 SOS Distress Device
+### Projekt 3 SOS-Notrufgerät
 
-**1. Description**
+**1. Beschreibung**
 
-Arduino SOS device is able to emit distress signals, which coincides with the principle of Morse code. It is convenient for emergencies.
+Das Arduino SOS-Gerät kann Notsignale aussenden, die dem Prinzip des Morse-Codes entsprechen. Es ist praktisch für Notfälle.
 
-**2. Wiring Diagram**
+**2. Schaltplan**
 
-![](./media/A20.png)
+![](media/A20.png)
 
-**3. Test Code**
+**3. Testcode**
 
 ```
 /*
@@ -57,7 +57,6 @@ void loop()
 }
 ```
 
-**4. Test Result**
+**4. Testergebnis**
 
-After the code is successfully uploaded, we can see that the LED flashes 3 times quickly, then flashes 3 times slowly and then flashes 3 times quickly, alternating between fast and slow.
-
+Nachdem der Code erfolgreich hochgeladen wurde, sieht man, dass die LED 3-mal schnell blinkt, dann 3-mal langsam blinkt und anschließend wieder 3-mal schnell blinkt, wobei sich schnelle und langsame Blinks abwechseln.

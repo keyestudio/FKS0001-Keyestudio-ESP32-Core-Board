@@ -1,26 +1,26 @@
-### Project 17 Invasion Alarm
+### Projekt 17 Einbruchalarm
 
-**1. Description**
+**1. Beschreibung**
 
-This invasion alarm system is able to detect invaders in houses or small offices and warn the host to take measures in time. 
+Dieses Einbruchalarmsystem kann Eindringlinge in Häusern oder kleinen Büros erkennen und den Besitzer rechtzeitig warnen, Maßnahmen zu ergreifen.
 
-In this project, the sensor monitors a certain area. Some device on Arduino board will trigger LED to light up and buzzer to beep for caution if a movement is detected in that zone. 
+In diesem Projekt überwacht der Sensor einen bestimmten Bereich. Ein Gerät auf dem Arduino-Board löst aus, dass eine LED aufleuchtet und ein Summer ertönt, wenn in dieser Zone eine Bewegung erkannt wird.
 
-Virtually, this module features practicability, easy installation and low costs. With the exception of home and office, it also applies to factories, warehouses and markets, which, to a large extent, protects property security.
+Praktisch zeichnet sich dieses Modul durch einfache Installation und geringe Kosten aus. Neben dem Einsatz in Wohn- und Büroräumen eignet es sich auch für Fabriken, Lagerhäuser und Märkte, was in großem Maße den Schutz von Eigentum gewährleistet.
 
-**2. Working Principle**
+**2. Funktionsprinzip**
 
-![](./media/A64.png)
+![](media/A64.png)
 
-Human body(37°C) always emits infrared ray with a wavelength of 10μm, which approximates to that of the sensor detected. 
+Der menschliche Körper (37°C) strahlt stets Infrarotstrahlung mit einer Wellenlänge von 10μm aus, die der vom Sensor erfassten Wellenlänge entspricht.
 
-On this account, this module is able to detects human beings movement. If there is, PIR sensor outputs a high level about 3s. If not, it outputs a low level . 
+Daher ist dieses Modul in der Lage, Bewegungen von Menschen zu erkennen. Wenn eine Bewegung erkannt wird, gibt der PIR-Sensor für etwa 3 Sekunden ein High-Signal aus. Andernfalls gibt er ein Low-Signal aus.
 
-**3. Wiring Diagram**
+**3. Schaltplan**
 
-![](./media/A65.png)
+![](media/A65.png)
 
-**4. Test Code**
+**4. Testcode**
 
 ```
 /*
@@ -45,23 +45,23 @@ void loop()
 }
 ```
 
-**5. Test Result**
+**5. Testergebnis**
 
-After connecting the wiring and uploading the code, open serial monitor to set baud rate to 9600, and the serial port prints the PIR value. If the PIR sensor detects a person, it will display 1.
+Nach dem Verbinden der Schaltung und Hochladen des Codes öffnen Sie den seriellen Monitor, stellen die Baudrate auf 9600 ein, und der serielle Port gibt den PIR-Wert aus. Wenn der PIR-Sensor eine Person erkennt, wird eine 1 angezeigt.
 
-![](./media/A66.png)
+![](media/A66.png)
 
-**6. Knowledge** Expansion
+**6. Wissens** Erweiterung
 
-Let's make an invasion alarm. When the PIR sensor detects human, LED lights up and the buzzer emits sound. In contrast, LED goes off and the buzzer stays quiet. 
+Lassen Sie uns einen Einbruchalarm bauen. Wenn der PIR-Sensor einen Menschen erkennt, leuchtet die LED auf und der Summer gibt einen Ton von sich. Andernfalls erlischt die LED und der Summer bleibt stumm.
 
-- **Flow Chart：**
+- **Flussdiagramm：**
 
-![](./media/A67.png)
+![](media/A67.png)
 
-- **Wiring Diagram：**
+- **Schaltplan：**
 
-![](./media/A68.png)
+![](media/A68.png)
 
 - **Code：**
 
@@ -100,7 +100,6 @@ void loop()
 }
 ```
 
-**Test Result**
+**Testergebnis**
 
-If the PIR sensor detects a person nearby, the red LED will light up and the buzzer will sound.
-
+Wenn der PIR-Sensor eine Person in der Nähe erkennt, leuchtet die rote LED auf und der Summer ertönt.

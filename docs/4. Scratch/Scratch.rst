@@ -11,7 +11,7 @@
     4.2 Install software
 
 
-4.3 Projects
+4.3 Projekte
 -----------------------------
 
 

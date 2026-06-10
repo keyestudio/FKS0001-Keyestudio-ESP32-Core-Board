@@ -1,14 +1,14 @@
-### Project 24 Weather Station
+### Projekt 24 Wetterstation
 
-**1. Description**
+**1. Beschreibung**
 
-This weather station records the ambient temperature and humidity value via Arduino board and a temperature and humidity sensor. 
+Diese Wetterstation erfasst die Umgebungstemperatur und den Feuchtigkeitswert über ein Arduino-Board und einen Temperatur- und Feuchtigkeitssensor.
 
-**2. Wiring Diagram**
+**2. Schaltplan**
 
 ![](media/B27.png)
 
-**3. Test Code**
+**3. Testcode**
 
 ```
 /*
@@ -46,9 +46,8 @@ void loop()
 }
 ```
 
-**4. Test Result**
+**4. Testergebnis**
 
-After connecting the wiring and uploading code, the LCD display will directly discover the ambient humidity and temperature value. 
+Nach dem Verbinden der Verkabelung und Hochladen des Codes zeigt das LCD-Display direkt den Umgebungsfeuchtigkeits- und Temperaturwert an.
 
 ![](media/B28.png)
-

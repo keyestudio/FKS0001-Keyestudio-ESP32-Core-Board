@@ -1,84 +1,83 @@
-### Project 2 Breathing LED
+### Projekt 2 Atmende LED
 
-**1. Description**
+**1. Beschreibung**
 
-Arduino breathing led utilizes on-board programmable PWM to output analog waveform. After powering on, LED brightness can be adjusted through duty cycle of the waveform to eventually realize the effect of breathing led. 
+Die Arduino atmende LED nutzt den programmierbaren PWM an Bord, um eine analoge Wellenform auszugeben. Nach dem Einschalten kann die Helligkeit der LED durch den Tastgrad der Wellenform angepasst werden, um schließlich den Effekt einer atmenden LED zu realisieren.
 
-In this way, ambient light can be simulated by changing LED brightness over time. Also, breathing led can form a colorful mini light to construct a tranquil and warm environment.
+Auf diese Weise kann Umgebungslicht simuliert werden, indem die LED-Helligkeit über die Zeit verändert wird. Außerdem kann die atmende LED eine farbenfrohe Mini-Leuchte bilden, die eine ruhige und warme Atmosphäre schafft.
 
-**2. What is PWM?**
+**2. Was ist PWM?**
 
-PWM controls analog output via digital means, which is able to adjust duty cycle of the wave (a signal circularly shifting between high level and low level).
+PWM steuert analoge Ausgänge auf digitale Weise, indem der Tastgrad der Welle (ein Signal, das zyklisch zwischen hohem und niedrigem Pegel wechselt) angepasst wird.
 
-For Arduino, digital ports of voltage output are LOW and HIGH, which respectively correspond to 0V and 5V. Generally, we define LOW as 0 and HIGH as 1. Arduino will output 500 signals of 0 or 1 within 1s. If they are "1", 5V will be output. Oppositely, if they are all 0, the output will be 0V. Or if they are 010101010101..., the average output will be 2.5V. 
+Für Arduino sind digitale Ausgangsports LOW und HIGH, die jeweils 0V und 5V entsprechen. Allgemein definieren wir LOW als 0 und HIGH als 1. Arduino gibt innerhalb von 1 Sekunde 500 Signale mit 0 oder 1 aus. Wenn sie „1“ sind, wird 5V ausgegeben. Umgekehrt, wenn sie alle 0 sind, beträgt die Ausgabe 0V. Oder wenn sie 010101010101... sind, beträgt der durchschnittliche Ausgang 2,5V.
 
-In other words, output ratio of 0 and 1 affects the voltage value, the more 0 and 1 signals are output per unit time, the more accurate the control will be. 
+Mit anderen Worten beeinflusst das Verhältnis von 0 und 1 die Spannung, je mehr 0- und 1-Signale pro Zeiteinheit ausgegeben werden, desto genauer ist die Steuerung.
 
 ![](media/A21.png)
 
-**3. Wiring Diagram**
+**3. Schaltplan**
 
 ![](media/A22.png)
 
-**4. Test Code**
+**4. Testcode**
 
-We adopt "for" statement to increase a variable from 0 to 255, and define the variable as PWM output (analogWrite(pin, value)). By the way, a delay time may reinforce the control of LED shining time. Next, we use another "for" statement to decrease it from 255 to 0 with a delay time to control LED dimming process. 
+Wir verwenden eine „for“-Schleife, um eine Variable von 0 bis 255 zu erhöhen, und definieren diese Variable als PWM-Ausgang (analogWrite(pin, value)). Übrigens kann eine Verzögerungszeit die Steuerung der Leuchtdauer der LED verstärken. Anschließend verwenden wir eine weitere „for“-Schleife, um sie von 255 auf 0 mit einer Verzögerung zu verringern, um den Dimmvorgang der LED zu steuern.
 
-1. Drag the two code blocks.
+1. Ziehen Sie die beiden Codeblöcke.
 
 ![](media/A23.png)
 
-2. Drag the following block from "Variables" part, and define the name to "item" with an initial assignment "0". Put this block in "forever" block. 
+2. Ziehen Sie den folgenden Block aus dem Bereich „Variablen“ und definieren Sie den Namen als „item“ mit einer Anfangszuweisung von „0“. Setzen Sie diesen Block in den „forever“-Block.
 
 ![](media/A24.png)
 
-3. Drag  the following block from "Control" part and set it to 255 times, which is the maximum value of PWM.
+3. Ziehen Sie den folgenden Block aus dem Bereich „Steuerung“ und setzen Sie ihn auf 255 Wiederholungen, was dem Maximalwert von PWM entspricht.
 
 ![](media/A25.png)
 
-4. Drag the following block from "Variables" part, put "item" as its changed object and set the mode to "++".
+4. Ziehen Sie den folgenden Block aus dem Bereich „Variablen“, setzen Sie „item“ als zu änderndes Objekt und stellen Sie den Modus auf „++“.
 
 ![](media/A26.png)
 
-5. Drag the following block from “LED” part and set the LED pin to IO5. Then add an "variable" block in it and fill in the blank with "item". 
+5. Ziehen Sie den folgenden Block aus dem Bereich „LED“ und setzen Sie den LED-Pin auf IO5. Fügen Sie dann einen „Variable“-Block hinzu und füllen Sie das Feld mit „item“.
 
 ![](media/A27.png)
 
-6. Drag the following block from "Control" part and set the time to 0.01s , that is 10ms. 
+6. Ziehen Sie den folgenden Block aus dem Bereich „Steuerung“ und setzen Sie die Zeit auf 0,01s, also 10ms.
 
 ![](media/A28.png)
 
-7. According to previous steps, build another code block with the only difference of variable mode "– –".
+7. Erstellen Sie gemäß den vorherigen Schritten einen weiteren Codeblock mit dem einzigen Unterschied, dass der Variablenmodus „– –“ ist.
 
 ![](media/A29.png)
 
-**Complete Code：**
+**Vollständiger Code:**
 
 ![](media/A30.png)
 
-**5. Test Result**
+**5. Testergebnis**
 
-After uploading the code, we can see the LED dims gradually. It "breathes" evenly.
+Nach dem Hochladen des Codes können wir sehen, dass die LED allmählich dunkler wird. Sie „atmet“ gleichmäßig.
 
-**6. Code Explanation**
+**6. Code-Erklärung**
 
-1. This block is used to set variable usable range, variable type , name and its initial value.
+1. Dieser Block wird verwendet, um den nutzbaren Bereich der Variable, den Variablentyp, den Namen und den Anfangswert festzulegen.
 
 ![](media/A31.png)
 
-2. Repeating times can be assigned in the blank of this repeat block. 
+2. Die Wiederholungsanzahl kann im Feld dieses Wiederholungsblocks zugewiesen werden.
 
 ![](media/A32.png)
 
-3. Input a variable name in the blank and its value will add 1 each time the code executes. "++" can be altered to "– –".
+3. Geben Sie einen Variablennamen in das Feld ein, und sein Wert wird bei jeder Ausführung des Codes um 1 erhöht. „++“ kann zu „– –“ geändert werden.
 
 ![](media/A33.png)
 
-4. Input a variable name in the blank and its value will reduce 1 each time the code executes.  "– –" can be altered to "++" . 
+4. Geben Sie einen Variablennamen in das Feld ein, und sein Wert wird bei jeder Ausführung des Codes um 1 verringert. „– –“ kann zu „++“ geändert werden.
 
 ![](media/A34.png)
 
-5. This is a PWM output module, and the white box is the value of the output PWM.
+5. Dies ist ein PWM-Ausgabemodul, und das weiße Feld zeigt den Wert des ausgegebenen PWM an.
 
 ![](media/A35.png)
-

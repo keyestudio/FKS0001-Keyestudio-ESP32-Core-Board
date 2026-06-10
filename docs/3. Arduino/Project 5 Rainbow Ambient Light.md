@@ -1,24 +1,24 @@
-### Project 5 Rainbow Ambient Light
+### Projekt 5 Regenbogen-Ambientebeleuchtung
 
-**1. Description**
+**1. Beschreibung**
 
-Arduino 2812RGB LED is a programable colorful dreamy light, whose color, brightness and rhythm are adjustable. This rainbow ambient light can be used as a dynamic decoration at will. Or you may control it to "dance with music". Importantly, it can be improved as an alarm. Its built-in sensor detects the ambient surroundings to warn users by changing its color, brightness and rhythm.
+Arduino 2812RGB LED ist ein programmierbares, farbenfrohes, traumhaftes Licht, dessen Farbe, Helligkeit und Rhythmus einstellbar sind. Diese Regenbogen-Ambientebeleuchtung kann nach Belieben als dynamische Dekoration verwendet werden. Oder Sie können sie steuern, um „mit der Musik zu tanzen“. Wichtig ist, dass sie als Alarm verbessert werden kann. Ihr eingebauter Sensor erkennt die Umgebung und warnt die Benutzer durch Änderung von Farbe, Helligkeit und Rhythmus.
 
-**2. Working Principle**
+**2. Funktionsprinzip**
 
-![](./media/A22.png)
+![](media/A22.png)
 
-The data protocol adopts communication mode of single-line return-to-zero code. After the pixel is reset on power, DIN terminal receives data from the controller. The firstly arriving 24bit data will be extracted by the first pixel and be sent to the inner data register. 
+Das Datenprotokoll verwendet einen Kommunikationsmodus mit einadrigem Return-to-Zero-Code. Nach dem Zurücksetzen des Pixels beim Einschalten empfängt der DIN-Anschluss Daten vom Controller. Die zuerst ankommenden 24-Bit-Daten werden vom ersten Pixel extrahiert und in das interne Datenregister gesendet.
 
-Remaining data will be amplified by an amplification circuit and be transmitted through DOUT port to the next cascaded pixel. Being transmitted through pixels, the signal decreases 24bit each time. 
+Die verbleibenden Daten werden von einer Verstärkerschaltung verstärkt und über den DOUT-Anschluss an das nächste kaskadierte Pixel weitergeleitet. Beim Durchlaufen der Pixel verringert sich das Signal jeweils um 24 Bit.
 
-Besides, The pixel adopts automatic shaping and forwarding technology, insomuch that the cascade number of the pixel is only limited by the signal transmission speed.
+Außerdem verwendet das Pixel eine automatische Formungs- und Weiterleitungstechnologie, sodass die Anzahl der kaskadierten Pixel nur durch die Signalübertragungsgeschwindigkeit begrenzt ist.
 
-**3. Wiring Diagram**
+**3. Schaltplan**
 
-![](./media/A23.png)
+![](media/A23.png)
 
-**4. Test Code**
+**4. Testcode**
 
 ```
 /*
@@ -51,22 +51,22 @@ void loop()
 }
 ```
 
-**5. Test Result**
+**5. Testergebnis**
 
-After uploading the code and powering on, the LED will light up in different colors.
+Nach dem Hochladen des Codes und Einschalten leuchten die LEDs in verschiedenen Farben.
 
-From left to right：
+Von links nach rechts:
 
-- The first RGB LED is red 
-- The second RGB LED is green  
-- The third RGB LED is blue 
-- The fourth RGB LED is yellow 
-- The fifth RGB LED is purple 
-- The sixth RGB LED is white 
+- Die erste RGB-LED ist rot  
+- Die zweite RGB-LED ist grün  
+- Die dritte RGB-LED ist blau  
+- Die vierte RGB-LED ist gelb  
+- Die fünfte RGB-LED ist lila  
+- Die sechste RGB-LED ist weiß  
 
-![](./media/A24.png)
+![](media/A24.png)
 
-**6. Extended Code**
+**6. Erweiterter Code**
 
 ```
 /*
@@ -205,7 +205,6 @@ uint32_t Wheel(byte WheelPos)
 }
 ```
 
-**7. Test Result**
+**7. Testergebnis**
 
-After uploading the code and powering on, the LED will light up in different colors and make a light show.
-
+Nach dem Hochladen des Codes und Einschalten leuchten die LEDs in verschiedenen Farben und erzeugen eine Lichtshow.

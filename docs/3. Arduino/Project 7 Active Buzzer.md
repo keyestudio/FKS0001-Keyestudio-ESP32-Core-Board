@@ -1,22 +1,22 @@
-### Project 7 Active Buzzer
+### Projekt 7 Aktiver Summer
 
-**1.Description**
+**1. Beschreibung**
 
-An active buzzer is a component used as an alarm, a reminder or an entertaining device, which boasts a reliable sound.What's more, it empowers to stimulate highly controllable sounds, making our projects more interesting.
+Ein aktiver Summer ist eine Komponente, die als Alarm, Erinnerung oder Unterhaltungsgerät verwendet wird und einen zuverlässigen Klang bietet. Darüber hinaus ermöglicht er die Erzeugung hochgradig kontrollierbarer Töne, wodurch unsere Projekte interessanter werden.
 
-**2. Working Principle**
+**2. Funktionsprinzip**
 
-![](./media/A26.png)
+![](media/A26.png)
 
-An active buzzer integrates a multi-vibrator, so it makes sound only via DC voltage. Pin 1 of the buzzer connects to VCC and pin 2 is controlled by a triode. When a high level is provided for the base (pin 1) of the triode, its collector (pin 3) and emitter (pin 2) link to GND, and then the buzzer emits sound. 
+Ein aktiver Summer integriert einen Multivibrator, daher erzeugt er nur durch Gleichspannung Ton. Pin 1 des Summers wird mit VCC verbunden und Pin 2 wird durch einen Transistor gesteuert. Wenn für die Basis (Pin 1) des Transistors ein hoher Pegel anliegt, verbinden sich dessen Kollektor (Pin 3) und Emitter (Pin 2) mit GND, und der Summer gibt einen Ton von sich.
 
-Oppositely, if we offer a low level to the base, the rest of pins will be disconnected, so the buzzer will remain quiet.
+Umgekehrt, wenn wir der Basis einen niedrigen Pegel geben, werden die übrigen Pins getrennt, sodass der Summer still bleibt.
 
-**3. Wiring Diagram**
+**3. Schaltplan**
 
-![](./media/A27.png)
+![](media/A27.png)
 
-**4. Test Code**
+**4. Testcode**
 
 ```
  /*
@@ -40,7 +40,6 @@ void loop()
 }
 ```
 
-**5. Test Result**
+**5. Testergebnis**
 
-After uploading code and powering on, the buzzer emits sound for 1s and stays quiet for 1s. 
-
+Nach dem Hochladen des Codes und Einschalten gibt der Summer 1 Sekunde lang einen Ton von sich und bleibt anschließend 1 Sekunde still.

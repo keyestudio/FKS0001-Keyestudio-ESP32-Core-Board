@@ -1,67 +1,66 @@
-### Project 15 Responder
+### Projekt 15 Responder
 
-**1. Description**
+**1. Beschreibung**
 
-This programmable responder inputs and receives signals through Arduino development board and a group of buttons, and it judges the correctness of answers via a LED. It is a good object to exercise students' reaction ability and draw their attention to questions. If the answer is correct, the respondent obtains a lot scores. 
+Dieser programmierbare Responder empfängt Signale über ein Arduino-Entwicklungsboard und eine Gruppe von Tasten und bewertet die Richtigkeit der Antworten über eine LED. Er ist ein gutes Objekt, um die Reaktionsfähigkeit der Schüler zu trainieren und ihre Aufmerksamkeit auf Fragen zu lenken. Wenn die Antwort richtig ist, erhält der Teilnehmer viele Punkte.
 
-Moreover, it simplifies teachers' manipulation of question-grabbers and cuts answer clutters. It may even stimulate students' interests in learning. 
+Außerdem vereinfacht er die Handhabung von Antwortgebern für Lehrer und reduziert Antwortchaos. Er kann sogar das Interesse der Schüler am Lernen fördern.
 
-**2. Flow Chart**
+**2. Flussdiagramm**
 
 ![](media/A184.png)
 
-**3. Wiring Diagram**
+**3. Schaltplan**
 
 ![](media/A185.png)
 
-**4. Test Code**
+**4. Testcode**
 
-1. Drag the two basic blocks and put a "variable" block between them. Set the variable type to int and name to item with an initial assignment of 0. Set the LED pin to “output”, and the button pin to “input”.
+1. Ziehen Sie die zwei Basisblöcke und setzen Sie einen „Variable“-Block dazwischen. Stellen Sie den Variablentyp auf int und den Namen auf item mit einer Anfangszuweisung von 0 ein. Setzen Sie den LED-Pin auf „output“ und den Tasten-Pin auf „input“.
 
 ![](media/A186.png)
 
-2. Add an "LED output" block, define its pin to IO27 and set the output to HIGH. 
-3. Drag an "if" block and add the condition "interface IO19  button was be pushed?".
+2. Fügen Sie einen „LED output“-Block hinzu, definieren Sie den Pin als IO27 und setzen Sie die Ausgabe auf HIGH.  
+3. Ziehen Sie einen „if“-Block und fügen Sie die Bedingung „interface IO19 button was be pushed?“ hinzu.
 
 ![](media/A187.png)
 
-4. Add a variable setting and four LED output blocks under "then". Among them, we name the variable "item" with an assignment of "0", and set all outputs to LOW respectively at pin 12,13,14 and 27 (The responder works only when all LED light off). Likewise, don't forget a 0.2s delay. 
+4. Fügen Sie eine Variablenzuweisung und vier LED-Ausgabeblöcke unter „then“ hinzu. Dabei benennen wir die Variable „item“ mit der Zuweisung „0“ und setzen alle Ausgänge an den Pins 12, 13, 14 und 27 jeweils auf LOW (Der Responder funktioniert nur, wenn alle LEDs aus sind). Vergessen Sie auch nicht eine Verzögerung von 0,2 s.
 
 ![](media/A188.png)
 
-5. Add a "repeat until" block and set the "until" to "item = 1", as shown below. When item = 1, exit the loop. 
+5. Fügen Sie einen „repeat until“-Block hinzu und setzen Sie „until“ auf „item = 1“, wie unten gezeigt. Wenn item = 1 ist, wird die Schleife verlassen.
 
 ![](media/A189.png)
 
-6. Drag another "if" block and set the condition "Interface IO16 button was be pushed?". Add an "LED output" block under "then" and set the output to HIGH at pin IO12. And add a "set item variable by 1" to exit this condition block. 
+6. Ziehen Sie einen weiteren „if“-Block und setzen Sie die Bedingung „Interface IO16 button was be pushed?“. Fügen Sie unter „then“ einen „LED output“-Block hinzu und setzen Sie die Ausgabe auf HIGH am Pin IO12. Fügen Sie außerdem eine „set item variable by 1“-Anweisung hinzu, um diesen Bedingungsblock zu verlassen.
 
 ![](media/A190.png)
 
-7. Repeat step 6, but set interface to IO17 and LED pin to IO13. 
+7. Wiederholen Sie Schritt 6, setzen Sie jedoch das Interface auf IO17 und den LED-Pin auf IO13.
 
 ![](media/A191.png)
 
-8. Operate step 6 again, but set interface to IO18 and LED pin to IO14.
+8. Führen Sie Schritt 6 erneut aus, setzen Sie das Interface auf IO18 und den LED-Pin auf IO14.
 
 ![](media/A192.png)
 
-**Complete Code:**
+**Vollständiger Code:**
 
 ![](media/A193.png)
 
-**5. Test Result**
+**5. Testergebnis**
 
-Connect the wiring and upload the code. The answers of respondents are only valid when the red LED is off(red button is pressed). 
+Verbinden Sie die Verkabelung und laden Sie den Code hoch. Die Antworten der Teilnehmer sind nur gültig, wenn die rote LED aus ist (rote Taste gedrückt).
 
-When someone presses his/her button(yellow, green or blue), the appropriate LED as well as the red counterpart light up. By now, rest of LED cannot turn on when pressing buttons. The responding action can be performed only when the red button is pressed again. 
+Wenn jemand seine Taste (gelb, grün oder blau) drückt, leuchtet die entsprechende LED sowie die rote Gegen-LED auf. Bis dahin können die übrigen LEDs beim Drücken der Tasten nicht eingeschaltet werden. Die Antwortaktion kann nur ausgeführt werden, wenn die rote Taste erneut gedrückt wird.
 
-**6. Code Explanation**
+**6. Code-Erklärung**
 
-1. Condition loop module. When the conditions in the diamond box of the module are met, the loop will exit .
+1. Bedingungsschleifenmodul. Wenn die Bedingungen im Rautenfeld des Moduls erfüllt sind, wird die Schleife verlassen.
 
 ![](media/A194.png)
 
-2. "=" block is used to judge whether the two values are equal.
+2. Der „=“-Block wird verwendet, um zu prüfen, ob zwei Werte gleich sind.
 
 ![](media/A195.png)
-

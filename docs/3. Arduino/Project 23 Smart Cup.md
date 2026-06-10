@@ -1,20 +1,20 @@
-### Project 23 Smart Cup
+### Projekt 23 Smart Cup
 
-**1. Description**
+**1. Beschreibung**
 
-In this project, we mainly adopt the Arduino development board to create a programmable smart cup, which reveals the temperature of inner liquid through a RGB indicator. It can control the brightness of the light by setting a temperature threshold. If the threshold is exceeded, it will get brighter. Otherwise, it gets darker. 
+In diesem Projekt verwenden wir hauptsächlich das Arduino-Entwicklungsboard, um einen programmierbaren Smart Cup zu erstellen, der die Temperatur der inneren Flüssigkeit über eine RGB-Anzeige anzeigt. Die Helligkeit des Lichts kann durch das Einstellen eines Temperaturschwellenwerts gesteuert werden. Wird der Schwellenwert überschritten, wird das Licht heller. Andernfalls wird es dunkler.
 
-The smart cup enables to help users better control the temperature of their drinking water and effectively prevent overheating or freezing.
+Der Smart Cup hilft den Benutzern, die Temperatur ihres Trinkwassers besser zu kontrollieren und effektiv Überhitzung oder Einfrieren zu verhindern.
 
-**2. Working Principle**
+**2. Funktionsprinzip**
 
 ![](media/B23.png)
 
-**3. Wiring Diagram**
+**3. Schaltplan**
 
 ![](media/B24.png)
 
-**4. Test Code**
+**4. Testcode**
 
 ```
 /*
@@ -51,22 +51,22 @@ void loop()
 }
 ```
 
-**5. Test Result**
+**5. Testergebnis**
 
-After connecting the wiring and uploading code, open serial monitor to set baud rate to 9600, and the temperature and humidity value will be displayed. 
+Nach dem Verbinden der Schaltung und Hochladen des Codes öffnen Sie den seriellen Monitor, stellen die Baudrate auf 9600 ein, und die Temperatur- sowie Feuchtigkeitswerte werden angezeigt.
 
 ![](media/B25.png)
 
-**6. Knowledge Expansion**
+**6. Wissensvertiefung**
 
-Now, we will make a smart cup which can show liquid temperature. We divide 100 into four parts with an LED, as shown below: 
+Nun bauen wir einen Smart Cup, der die Flüssigkeitstemperatur anzeigen kann. Wir teilen 100 in vier Bereiche mit einer LED auf, wie unten gezeigt:
 
-- **Red LED: ** 100-75°C
-- **Yellow LED: ** 75-50°C
-- **Green LED: ** 50-25°C
-- **Blue LED:**  25-0°C
+- **Rote LED:** 100-75°C
+- **Gelbe LED:** 75-50°C
+- **Grüne LED:** 50-25°C
+- **Blaue LED:** 25-0°C
 
-**Wiring Diagram：**
+**Schaltplan：**
 
 ![](media/B26.png)
 
@@ -137,12 +137,11 @@ void loop()
 }
 ```
 
-**Test Result**
+**Testergebnis**
 
-- **Red LED:**  100-75°C
-- **Yellow LED:**  75-50°C
-- **Green LED:**  50-25°C
-- **Blue LED:** 25-0°C
+- **Rote LED:** 100-75°C
+- **Gelbe LED:** 75-50°C
+- **Grüne LED:** 50-25°C
+- **Blaue LED:** 25-0°C
 
-If the blue LED is on, it means the temperature detected by the DHT11 sensor is in the range of 0-25°.
-
+Wenn die blaue LED leuchtet, bedeutet dies, dass die vom DHT11-Sensor gemessene Temperatur im Bereich von 0-25° liegt.

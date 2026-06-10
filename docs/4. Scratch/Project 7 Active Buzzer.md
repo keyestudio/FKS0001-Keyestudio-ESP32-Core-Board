@@ -1,50 +1,49 @@
-### Project 7 Active Buzzer
+### Projekt 7 Aktiver Summer
 
-**1. Description**
+**1. Beschreibung**
 
-An active buzzer is a component used as an alarm, a reminder or an entertaining device, which boasts a reliable sound. 
+Ein aktiver Summer ist eine Komponente, die als Alarm, Erinnerung oder Unterhaltungsgerät verwendet wird und einen zuverlässigen Ton erzeugt.
 
-What's more, it empowers to stimulate highly controllable sounds, making our projects more interesting.
+Darüber hinaus ermöglicht er die Erzeugung hochgradig kontrollierbarer Töne, wodurch unsere Projekte interessanter werden.
 
-**2. Working Principle**
+**2. Funktionsprinzip**
 
 ![](media/A82.png)
 
-An active buzzer integrates a multi-vibrator, so it makes sound only via DC voltage. Pin 1 of the buzzer connects to VCC and pin 2 is controlled by a triode. When a high level is provided for the base (pin 1) of the triode, its collector (pin 3) and emitter (pin 2) link to GND, and then the buzzer emits sound. 
+Ein aktiver Summer integriert einen Multivibrator, daher erzeugt er nur bei Gleichspannung Ton. Pin 1 des Summers ist mit VCC verbunden und Pin 2 wird von einem Triod gesteuert. Wenn für die Basis (Pin 1) des Triods ein hoher Pegel anliegt, verbinden sich Kollektor (Pin 3) und Emitter (Pin 2) mit GND, und der Summer gibt einen Ton von sich.
 
-Oppositely, if we offer a low level to the base, the rest of pins will be disconnected, so the buzzer will remain quiet.
+Umgekehrt, wenn wir der Basis einen niedrigen Pegel geben, werden die übrigen Pins getrennt, sodass der Summer still bleibt.
 
-**3. Wiring diagram**
+**3. Schaltplan**
 
 ![](media/A83.png)
 
-**4. Test Code**
+**4. Testcode**
 
-If the development board outputs a high level, the buzzer will emit sound. If it outputs a low level, the buzzer will stop ringing.
+Wenn das Entwicklungsboard einen hohen Pegel ausgibt, gibt der Summer einen Ton von sich. Wenn es einen niedrigen Pegel ausgibt, hört der Summer auf zu klingeln.
 
-1. Drag the two basic code blocks.
+1. Ziehen Sie die beiden grundlegenden Codeblöcke.
 
 ![](media/A84.png)
 
-2. Drag the following blocks from "Buzzer" part and set the IO5 pin to HIGH. Then set the delay time to 1s. 
+2. Ziehen Sie die folgenden Blöcke aus dem Bereich „Buzzer“ und setzen Sie den IO5-Pin auf HIGH. Stellen Sie dann die Verzögerungszeit auf 1s ein.
 
 ![](media/A85.png)
 
-3. Drag the following blocks from "Buzzer" part and set the IO5 pin to LOW. Then set the delay time to 1s. 
+3. Ziehen Sie die folgenden Blöcke aus dem Bereich „Buzzer“ und setzen Sie den IO5-Pin auf LOW. Stellen Sie dann die Verzögerungszeit auf 1s ein.
 
 ![](media/A86.png)
 
-**Complete Code：**
+**Vollständiger Code：**
 
 ![](media/A87.png)
 
-**5. Test Result**
+**5. Testergebnis**
 
-After uploading code and powering on, the buzzer emits sound for 1s and stays quiet for 1s.
+Nach dem Hochladen des Codes und dem Einschalten gibt der Summer 1s lang einen Ton von sich und bleibt 1s still.
 
-**6. Code Explanation**
+**6. Codeerklärung**
 
-Buzzer output block. We firstly define the pin to IO5 and then set the output to "HIGH" or "LOW". The buzzer will beep when at HIGH, while it will be quiet at LOW.
+Buzzer-Ausgabeblock. Zuerst definieren wir den Pin als IO5 und setzen dann die Ausgabe auf „HIGH“ oder „LOW“. Der Summer piept bei HIGH, während er bei LOW still bleibt.
 
 ![](media/A88.png)
-

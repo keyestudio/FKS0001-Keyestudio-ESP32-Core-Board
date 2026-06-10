@@ -1,34 +1,34 @@
-### Project 8 Music Performer
+### Projekt 8 Musikspieler
 
-**1. Description**
+**1. Beschreibung**
 
-In this project, we will use a power amplifier speaker to play music. This speaker can not only play simple songs, but also perform what you desire. Thus, you can program other interesting codes in the project to accomplish splendid learning outcomes.
+In diesem Projekt verwenden wir einen Leistungsverstärker-Lautsprecher, um Musik abzuspielen. Dieser Lautsprecher kann nicht nur einfache Lieder wiedergeben, sondern auch das performen, was Sie wünschen. So können Sie im Projekt weitere interessante Codes programmieren, um großartige Lernergebnisse zu erzielen.
 
-**2.  Working Principle**
+**2. Funktionsprinzip**
 
-![](./media/A28.png)
+![](media/A28.png)
 
-The electrical signal is input from pin 1 of RP1 (adjusts signal intensity, which is also the sound volume).
+Das elektrische Signal wird an Pin 1 von RP1 eingespeist (regelt die Signalstärke, was auch die Lautstärke des Tons ist).
 
-After coupling in C4 and passing R5, the signal reaches IN- pin of 8002B, in which it is operationally amplified and output to BEE1 speaker. 
+Nach der Kopplung in C4 und dem Durchlaufen von R5 erreicht das Signal den IN- Pin des 8002B, wo es operativ verstärkt und an den BEE1 Lautsprecher ausgegeben wird.
 
-**Frequency Comparison Table in C**
+**Frequenzvergleichstabelle in C**
 
-|    Note     | Frequency(Hz) |      Note      | Frequency(Hz) |     Note     | Frequency(Hz) |
-| :---------: | :-----------: | :------------: | :-----------: | :----------: | :-----------: |
-| Flat  1  Do |      262      | Natural  1  Do |      523      | Sharp  1  Do |     1047      |
-| Flat  2  Re |      294      | Natural  2  Re |      587      | Sharp  2  Re |     1175      |
-| Flat  3  Mi |      330      | Natural  3  Mi |      659      | Sharp  3  Mi |     1319      |
-| Flat  4  Fa |      349      | Natural  4  Fa |      698      | Sharp  4  Fa |     1397      |
-| Flat  5  So |      392      | Natural  5  So |      784      | Sharp  5  So |     1568      |
-| Flat  6  La |      440      | Natural  6  La |      880      | Sharp  6  La |     1760      |
-| Flat  7  Si |      494      | Natural  7  Si |      988      | Sharp  7  Si |     1967      |
+|    Note     | Frequenz(Hz) |      Note      | Frequenz(Hz) |     Note     | Frequenz(Hz) |
+| :---------: | :----------: | :------------: | :----------: | :----------: | :----------: |
+| B  1  Do    |      262     | Natürlich  1  Do |      523     | Kreuz  1  Do |     1047     |
+| B  2  Re    |      294     | Natürlich  2  Re |      587     | Kreuz  2  Re |     1175     |
+| B  3  Mi    |      330     | Natürlich  3  Mi |      659     | Kreuz  3  Mi |     1319     |
+| B  4  Fa    |      349     | Natürlich  4  Fa |      698     | Kreuz  4  Fa |     1397     |
+| B  5  So    |      392     | Natürlich  5  So |      784     | Kreuz  5  So |     1568     |
+| B  6  La    |      440     | Natürlich  6  La |      880     | Kreuz  6  La |     1760     |
+| B  7  Si    |      494     | Natürlich  7  Si |      988     | Kreuz  7  Si |     1967     |
 
-**3.  Wiring Diagram**
+**3. Schaltplan**
 
-![](./media/A29.png)
+![](media/A29.png)
 
-**4. Test Code**
+**4. Testcode**
 
 ```
 /*
@@ -64,27 +64,27 @@ void loop()
 }
 ```
 
-**5. Test Result**
+**5. Testergebnis**
 
-After uploading code and powering on, the amplifier circularly plays music tones with corresponding frequency: DO, Re, Mi, Fa, So, La, Si.
+Nach dem Hochladen des Codes und Einschalten spielt der Verstärker zyklisch Musiknoten mit den entsprechenden Frequenzen: DO, Re, Mi, Fa, So, La, Si.
 
-**Power amplifier sound adjustment：**
+**Lautstärkeanpassung des Leistungsverstärkers:**
 
- **There is a potentiometer next to the speaker. We can adjust the sound of the speaker by twisting it. ** (Note: Please use appropriate strength to adjust it, so as not to break the potentiometer) 
+**Neben dem Lautsprecher befindet sich ein Potentiometer. Wir können die Lautstärke des Lautsprechers durch Drehen einstellen.** (Hinweis: Bitte verwenden Sie angemessene Kraft, um das Potentiometer nicht zu beschädigen)
 
-![](./media/A30.png)
+![](media/A30.png)
 
-**6. Knowledge Expansion**
+**6. Wissensvertiefung**
 
- Let's play a birthday song. The wirings remain unchanged.
+Lassen Sie uns ein Geburtstagslied spielen. Die Verkabelung bleibt unverändert.
 
-**Numbered musical notation:**
+**Nummerierte Notenschrift:**
 
-![](./media/A31.png)
+![](media/A31.png)
 
-**Comparison Diagram of Flat, Natural and Sharp**
+**Vergleichsdiagramm von B, natürlich und Kreuz**
 
-![](./media/A32.png)
+![](media/A32.png)
 
 ```
 /*
@@ -116,5 +116,3 @@ void loop()
    noTone(beeppin);//Stop singing
   }
 }
-```
-

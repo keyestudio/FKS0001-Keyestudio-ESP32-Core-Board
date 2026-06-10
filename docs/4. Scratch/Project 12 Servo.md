@@ -1,64 +1,63 @@
-### Project 12 Servo
+### Projekt 12 Servo
 
-**1. Description**
+**1. Beschreibung**
 
-This servo features high performance and high precision with a maximum rotation angle of 180°. Weighting only 9g, it is perfectly suitable for any mini device in multiple occasions. What's more, it enjoys short startup time, low noise and strong stability.
+Dieser Servo zeichnet sich durch hohe Leistung und hohe Präzision mit einem maximalen Drehwinkel von 180° aus. Mit nur 9g Gewicht ist er perfekt geeignet für jede Miniatur-Anwendung in verschiedenen Einsatzbereichen. Darüber hinaus verfügt er über eine kurze Anlaufzeit, geringe Geräuschentwicklung und hohe Stabilität.
 
-**2.  Working Principle**
+**2. Funktionsprinzip**
 
-**Angle range:** 180° (360°, 180° and 90°)
+**Winkelbereich:** 180° (360°, 180° und 90°)
 
-**Drive voltage:** 3.3V or 5V
+**Betriebsspannung:** 3,3V oder 5V
 
-**Pin:** Three wires
+**Pin:** Drei Drähte
 
 ![](media/A143.png)
 
-**GND:** Grounded(brown)
+**GND:** Masse (braun)
 
-**VCC:** A red pin that connects to a +5v (3.3V) power
+**VCC:** Ein roter Pin, der mit +5V (3,3V) verbunden wird
 
-**S:** A orange signal pin that controlled via PWM signal
+**S:** Ein oranger Signalleitungs-Pin, der über PWM-Signal gesteuert wird
 
 ![](media/A144.png)
 
-**Control Principle**: The rotation angle is controlled via duty cycle of PWM. Theoretically, standard PWM cycle is 20ms(50Hz), so pulse width should distribute within 1ms~2ms. However, the actual pulse width reaches 0.5ms~2.5ms, which corresponds to 0°～180°. Pay attention that, for the same signal, the rotation angle may vary from servo brands.
+**Steuerprinzip:** Der Drehwinkel wird über das Tastverhältnis des PWM-Signals gesteuert. Theoretisch beträgt der Standard-PWM-Zyklus 20ms (50Hz), daher sollte die Pulsbreite im Bereich von 1ms bis 2ms liegen. Tatsächlich liegt die Pulsbreite jedoch zwischen 0,5ms und 2,5ms, was einem Winkel von 0° bis 180° entspricht. Beachten Sie, dass bei gleichem Signal der Drehwinkel je nach Servo-Hersteller variieren kann.
 
-**3. Wiring Diagram**
+**3. Schaltplan**
 
 ![](media/A145.png)
 
-**4. Test Code**
+**4. Testcode**
 
-1. Drag the two basic blocks and put a "variable" block between them. Set the variable type to int, name to angle, and assign 0 as its initial value. 
+1. Ziehen Sie die beiden Basisblöcke und setzen Sie einen „Variable“-Block dazwischen. Stellen Sie den Variablentyp auf int, den Namen auf angle und weisen Sie den Anfangswert 0 zu.
 
 ![](media/A146.png)
 
-2. **Servo gradually rotates from 0° to 180°:** 
+2. **Servo dreht sich allmählich von 0° bis 180°:** 
 
-Add a repeat block and set the repeat times to 180(180 angles). Drag a "change variable" and a "servo" block and put them in the repeat one. Name the variable "angle" and select the mode "++". Set Servo PIN to IO4 and degree to the named variable. Don't forget to delay 15s.
+Fügen Sie einen Wiederholungsblock hinzu und setzen Sie die Wiederholungsanzahl auf 180 (180 Winkel). Ziehen Sie einen „Variable ändern“-Block und einen „Servo“-Block hinein. Benennen Sie die Variable „angle“ und wählen Sie den Modus „++“. Stellen Sie den Servo-PIN auf IO4 und den Winkel auf die benannte Variable ein. Vergessen Sie nicht, eine Verzögerung von 15ms einzufügen.
 
 ![](media/A147.png)
 
-3. **Servo gradually rotates from 180° to 0°:** Repeat step 2, but set the variable mode to "- -".
+3. **Servo dreht sich allmählich von 180° bis 0°:** Wiederholen Sie Schritt 2, setzen Sie jedoch den Variablenmodus auf „--“.
 
 ![](media/A148.png)
 
-**Complete Code：**
+**Vollständiger Code:**
 
 ![](media/A149.png)
 
-**5.  Test Result**
+**5. Testergebnis**
 
-After connecting the wiring and uploading code, the servo starts to rotate from 0° to 180° and then from 180° to 0°.
+Nach Anschluss der Verkabelung und Hochladen des Codes beginnt der Servo, sich von 0° bis 180° und anschließend von 180° bis 0° zu drehen.
 
-**6. Code Explanation**
+**6. Code-Erklärung**
 
-1. Set the values of Servo. Servo pin and rotation angle can be controlled by setting parameters on this block.
+1. Setzt die Werte des Servos. Servo-Pin und Drehwinkel können durch Parameter in diesem Block gesteuert werden.
 
 ![](media/A150.png)
 
-2. Read the current degree of the Servo. 
+2. Liest den aktuellen Winkel des Servos aus.
 
 ![](media/A151.png)
-

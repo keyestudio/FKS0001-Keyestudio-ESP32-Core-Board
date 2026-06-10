@@ -1,74 +1,73 @@
-### Project 11 LCD
+### Projekt 11 LCD
 
-**1. Description**
+**1. Beschreibung**
 
-Arduino I2C 1602 LCD is a commonly-used auxiliary device for MCU development board to connect with external sensors and modules. It features a 16-bit wide character, 2-line LCD screen and adjustable brightness. This programable module is convenient for data editing, display and management . Besides, it can display not only characters and figures but sensors value, like temperature, humidity or pressure value. 
+Arduino I2C 1602 LCD ist ein häufig verwendetes Hilfsgerät für MCU-Entwicklungsboards zur Verbindung mit externen Sensoren und Modulen. Es verfügt über ein 16 Zeichen breites, 2-zeiliges LCD-Display und eine einstellbare Helligkeit. Dieses programmierbare Modul ist praktisch für die Datenbearbeitung, Anzeige und Verwaltung. Außerdem kann es nicht nur Zeichen und Zahlen, sondern auch Sensorwerte wie Temperatur, Luftfeuchtigkeit oder Druck anzeigen.
 
-As a result of its usability, the display is wildly applied in many fields, including smart home products, industrial monitoring systems, robot control systems and automotive electronics systems.
+Aufgrund seiner Vielseitigkeit wird das Display in vielen Bereichen eingesetzt, darunter Smart-Home-Produkte, industrielle Überwachungssysteme, Robotersteuerungssysteme und Automobilelektroniksysteme.
 
-**2. Working Principle**
+**2. Funktionsprinzip**
 
 ![](media/A129.png)
 
-It is the same as IIC communication principle. Underlying functions have been packaged in libraries so that you can recall them directly. If you are interested in these, you may have a further look of underlying driving principles. 
+Es basiert auf dem gleichen Prinzip wie die IIC-Kommunikation. Die zugrundeliegenden Funktionen sind in Bibliotheken verpackt, sodass Sie sie direkt aufrufen können. Wenn Sie daran interessiert sind, können Sie sich die zugrundeliegenden Treiberprinzipien näher ansehen.
 
-**3.  Wiring Diagram**
+**3. Schaltplan**
 
 ![](media/A130.png)
 
-**4. Test Code**
+**4. Testcode**
 
-1. Drag the two basic code blocks.
+1. Ziehen Sie die beiden grundlegenden Codeblöcke.
 
 ![](media/A131.png)
 
-2. Drag “init LCD” block from “LCD” and set the I2C address to 0x27.
+2. Ziehen Sie den Block „init LCD“ aus „LCD“ und setzen Sie die I2C-Adresse auf 0x27.
 
 ![](media/A132.png)
 
-3. Drag the "LCD back light" block and set it to ON. Characters are not easy to read if there is no back light.
+3. Ziehen Sie den Block „LCD back light“ und stellen Sie ihn auf ON. Ohne Hintergrundbeleuchtung sind die Zeichen schwer lesbar.
 
 ![](media/A133.png)
 
-4. Drag a "LCD cursor position" block and set x to 3 and y to 0. Add an "LCD print" block and type “keyestudio” in the blank. 
+4. Ziehen Sie einen Block „LCD cursor position“ und setzen Sie x auf 3 und y auf 0. Fügen Sie einen „LCD print“-Block hinzu und geben Sie „keyestudio“ in das Feld ein.
 
 ![](media/A134.png)
 
-5. Drag a "LCD cursor position" and set x to 2 and y to 1. Add an "LCD print" and type “Hello,world!” in the blank.
+5. Ziehen Sie einen weiteren „LCD cursor position“-Block und setzen Sie x auf 2 und y auf 1. Fügen Sie einen „LCD print“-Block hinzu und geben Sie „Hello,world!“ in das Feld ein.
 
 ![](media/A135.png)
 
-**Complete Code：**
+**Vollständiger Code:**
 
 ![](media/A136.png)
 
-**5.  Test Result**
+**5. Testergebnis**
 
-After connecting the wiring and uploading code, turn on the LCD, and "Hello, world!" and "keyestudio!" will be displayed on the LCD.
+Nach dem Anschluss der Verkabelung und dem Hochladen des Codes schalten Sie das LCD ein, und „Hello, world!“ sowie „keyestudio!“ werden auf dem LCD angezeigt.
 
-If the characters are unclear, please fix the backlight potentiometer by the small slotted screwdriver.
+Wenn die Zeichen unscharf sind, justieren Sie bitte das Hintergrundbeleuchtungspotentiometer mit einem kleinen Schlitzschraubendreher.
 
 ![](media/A137.png)
 
-**6. Code Explanation**
+**6. Codeerklärung**
 
-1.  Set the IIC communication address. In this project, the address of LCD 1602 is 0x27.
+1. Setzen Sie die IIC-Kommunikationsadresse. In diesem Projekt ist die Adresse des LCD 1602 0x27.
 
 ![](media/A138.png)
 
-2. Control the LCD backlight. The displayed characters will be seen much clearly if the back light is on. 
+2. Steuern Sie die LCD-Hintergrundbeleuchtung. Die angezeigten Zeichen sind viel klarer sichtbar, wenn die Hintergrundbeleuchtung eingeschaltet ist.
 
 ![](media/A139.png)
 
-3. Set the cursor position. It will provide an accurate position through axis x and y. Possible values are X: 0-15 and Y: 0-1.
+3. Setzen Sie die Cursorposition. Diese wird genau über die Achsen x und y angegeben. Mögliche Werte sind X: 0-15 und Y: 0-1.
 
 ![](media/A140.png)
 
-4. Print characters on LCD. The blank can be filled with characters or variables, which is convenient for displaying the values from sensors and modules. 
+4. Drucken Sie Zeichen auf dem LCD. Das Feld kann mit Zeichen oder Variablen gefüllt werden, was praktisch ist, um Werte von Sensoren und Modulen anzuzeigen.
 
 ![](media/A141.png)
 
-5. Blink the cursor at the display position. By default, the cursor is in inactive. 
+5. Lassen Sie den Cursor an der Anzeigeposition blinken. Standardmäßig ist der Cursor inaktiv.
 
 ![](media/A142.png)
-

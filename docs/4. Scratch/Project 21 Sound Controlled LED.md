@@ -1,102 +1,102 @@
-### Project 21 Sound Controlled LED
+### Projekt 21 Soundgesteuerte LED
 
-**1. Description**
+**1. Beschreibung**
 
-Sound controlled LED is a device used to detect sound in a way that controls the brightness of LED, which is composed of a Arduino board and some components. It can connect to multiple sensors such as microphones. It converts sound to changing voltage signal to be received by Arduino to control the LED on and off.
+Die soundgesteuerte LED ist ein Gerät, das Schall erkennt und die Helligkeit der LED steuert. Es besteht aus einem Arduino-Board und einigen Komponenten. Es kann mit mehreren Sensoren wie Mikrofonen verbunden werden. Der Schall wird in ein sich änderndes Spannungssignal umgewandelt, das vom Arduino empfangen wird, um die LED ein- und auszuschalten.
 
-**2. Working Principle**
+**2. Funktionsprinzip**
 
 ![](media/B54.png)
 
-When detecting a sound, the electret film in microphone vibrates, which changes the capacitance and generates a subtle change of voltage. 
+Beim Erkennen eines Schalls vibriert die Elektretfolie im Mikrofon, was die Kapazität ändert und eine subtile Spannungsänderung erzeugt.
 
-Next, we make use of LM386 chip to build a proper circuit to amplify the detected sound up to 200 times, which can be adjusted by a potentiometer. Rotate it clockwise to enlarge the times. 
+Anschließend verwenden wir den LM386-Chip, um eine geeignete Schaltung zu bauen, die den erfassten Schall bis zu 200-fach verstärkt, was über ein Potentiometer eingestellt werden kann. Drehen Sie es im Uhrzeigersinn, um die Verstärkung zu erhöhen.
 
-**3. Wiring Diagram**
+**3. Schaltplan**
 
 ![](media/B55.png)
 
-**4. Test Code**
+**4. Testcode**
 
-Find the "read the value" block in “Sound”, and print the read sound in the serial port. Construct blocks as follows. Pay attention that do not add a delay when using the sound sensor.
+Finden Sie den Block „read the value“ im Bereich „Sound“ und geben Sie den gelesenen Schallwert über die serielle Schnittstelle aus. Konstruieren Sie die Blöcke wie folgt. Achten Sie darauf, beim Einsatz des Schallsensors keine Verzögerung hinzuzufügen.
 
 ![](media/B56.png)
 
-**5. Test Result**
+**5. Testergebnis**
 
-After connecting the wiring and uploading code, open serial monitor to set baud rate to 9600, the analog value will be displayed.
+Nach dem Anschluss der Verkabelung und dem Hochladen des Codes öffnen Sie den seriellen Monitor und stellen die Baudrate auf 9600 ein. Der analoge Wert wird angezeigt.
 
 ![](media/B57.png)
 
-**6. Expansion Code**
+**6. Erweiterungscode**
 
-The commonly seen corridor light is a kind of sound controlled light. Meanwhile, it also includes a photoresistor. 
+Das häufig zu sehende Flurlicht ist eine Art soundgesteuertes Licht. Gleichzeitig enthält es auch einen Fotowiderstand.
 
-Differed from that, here we establish a model that an LED is only affected by sound. When the analog volume exceeds 100, LED lights up for 2s and then goes off.
+Im Unterschied dazu erstellen wir hier ein Modell, bei dem eine LED nur vom Schall beeinflusst wird. Wenn die analoge Lautstärke 100 überschreitet, leuchtet die LED für 2 Sekunden und geht dann aus.
 
-**Flow Chart：**
+**Flussdiagramm：**
 
 ![](media/B58.png)
 
-**Wiring Diagram：**
+**Schaltplan：**
 
 ![](media/B59.png)
 
 **Code：**
 
-1. Drag two basic blocks.
+1. Ziehen Sie zwei Basisblöcke.
 
-2. Drag an "if else" block, and fill the hexagon with a item＞100 block. Set the value to "read the value of sound IO33". If the condition is satisfied, LED outputs a HIGH level at pin IO25 with a delay of 2s; or else, it outputs a LOW level at the same pin without a delay. 
+2. Ziehen Sie einen „if else“-Block und füllen Sie das Sechseck mit einem item＞100-Block. Setzen Sie den Wert auf „read the value of sound IO33“. Wenn die Bedingung erfüllt ist, gibt die LED am Pin IO25 ein HIGH-Signal mit einer Verzögerung von 2 Sekunden aus; andernfalls gibt sie am gleichen Pin ein LOW-Signal ohne Verzögerung aus.
 
 ![](media/B60.png)
 
-**Complete Code:**
+**Vollständiger Code:**
 
 ![](media/B61.png)
 
-**7. Code Explanation**
+**7. Codeerklärung**
 
-Read the value of sound by setting the related pin.
+Liest den Wert des Schallsensors über den zugehörigen Pin aus.
 
-![](media/B62.png)Project 22 Noise Meter
+![](media/B62.png)  
+Projekt 22 Geräuschpegelmesser
 
-**1.  Description**
+**1. Beschreibung**
 
-Arduino noise meter embodies the sound signal to a series of dots, which are converted into patterns displayed on dot matrix. 
+Der Arduino-Geräuschpegelmesser stellt das Schallsignal als eine Reihe von Punkten dar, die in Mustern auf einer Punktmatrix angezeigt werden.
 
-**2. Wiring Diagram**
+**2. Schaltplan**
 
 ![](media/B63.png)
 
-**3. Test Code**
+**3. Testcode**
 
-1. Drag the basic blocks and initialize the display. Set the pin CS to IO15 and brightness to 3. Then add a variable block and select int and name it as "item" with an initial assignment of 0.
+1. Ziehen Sie die Basisblöcke und initialisieren Sie das Display. Setzen Sie den Pin CS auf IO15 und die Helligkeit auf 3. Fügen Sie dann einen Variablenblock hinzu, wählen Sie int und benennen Sie ihn „item“ mit einer Anfangszuweisung von 0.
 
-2. Add a variable block and name it as "item". Adopt a map function to convert the read sound value range from 0-4095 to 0-7, yet the hypothesis maximum value of sound is 800.
+2. Fügen Sie einen Variablenblock hinzu und benennen Sie ihn „item“. Verwenden Sie eine Map-Funktion, um den gelesenen Schallwert von 0-4095 auf 0-7 zu konvertieren, wobei der angenommene Maximalwert des Schalls 800 beträgt.
 
 ![](media/B64.png)
 
-3. Clear the display. 
+3. Löschen Sie das Display.
 
-4. Program a condition. If the variable item is greater than -1, the dot matrix displays (x0:0  y0:0 x1:1  y1:0) in color of red.
+4. Programmieren Sie eine Bedingung. Wenn die Variable item größer als -1 ist, zeigt die Punktmatrix (x0:0  y0:0 x1:1  y1:0) in roter Farbe an.
 
 ![](media/B65.png)
 
-5. Repeat step 4, but the judgment is whether item is greater than 0. If so, dots at (x0:1  y0:0  x1:1  y1:1) will light up. By that analogy, build code blocks referring to the following coordinates. 
+5. Wiederholen Sie Schritt 4, aber die Bedingung lautet, ob item größer als 0 ist. Wenn ja, leuchten die Punkte bei (x0:1  y0:0  x1:1  y1:1) auf. Nach diesem Prinzip bauen Sie die Codeblöcke entsprechend den folgenden Koordinaten auf.
 
-6. Finally, refresh the display. 
+6. Aktualisieren Sie abschließend das Display.
 
-**Reference Coordinates:**
+**Referenzkoordinaten:**
 
 ![](media/B66.png)
 
 ![](media/B67.png)
 
-**Complete Code:**
+**Vollständiger Code:**
 
 ![](media/B68.png)
 
-**4. Test Result**
+**4. Testergebnis**
 
-After connecting the wiring and uploading code, the noise level view is displayed on dot matrix, as shown below.
-
+Nach dem Anschluss der Verkabelung und dem Hochladen des Codes wird der Geräuschpegel auf der Punktmatrix angezeigt, wie unten dargestellt.
