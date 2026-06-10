@@ -1,20 +1,20 @@
-### Projet 27 Stationnement Intelligent
+### Progetto 27 Parcheggio Intelligente
 
-**1. Description**
+**1. Descrizione**
 
-Ce système de stationnement intelligent détecte et optimise la position de stationnement grâce à un capteur ultrasonique. Avec ce système, les erreurs de stationnement sont largement évitées.
+Questo sistema di parcheggio intelligente rileva e ottimizza la posizione di parcheggio tramite un sensore ad ultrasuoni. Con questo sistema, il parcheggio errato viene evitato in larga misura.
 
-Tout d'abord, vous devez installer le capteur autour du parking. Ensuite, il détectera la distance entre la voiture et ses bords et enverra l'information à la carte de développement afin de contrôler la voiture pour qu'elle s'ajuste automatiquement à la position de stationnement optimale.
+Per prima cosa, è necessario installare il sensore intorno al parcheggio. Successivamente, rileverà la distanza tra l’auto e i suoi bordi e invierà le informazioni alla scheda di sviluppo per controllare l’auto in modo da regolarla automaticamente nella posizione di parcheggio ottimale.
 
-**2. Organigramme**
+**2. Diagramma di Flusso**
 
 ![](media/B35.png)
 
-**3. Schéma de câblage**
+**3. Schema di Collegamento**
 
 ![](media/B36.png)
 
-**4. Code de test**
+**4. Codice di Test**
 
 ```
 /*
@@ -97,8 +97,8 @@ void loop()
 }
 ```
 
-**5. Résultat du test**
+**5. Risultato del Test**
 
-Après avoir connecté le câblage et téléchargé le code, des lignes s'afficheront sur la matrice de points. Si la distance détectée est inférieure à 50 cm, il y aura moins de lignes.
+Dopo aver collegato i cavi e caricato il codice, verranno visualizzate delle linee sulla matrice di punti. Se la distanza rilevata è inferiore a 50 cm, ci saranno meno linee.
 
 ![](media/B37.png)![](media/B38.png)

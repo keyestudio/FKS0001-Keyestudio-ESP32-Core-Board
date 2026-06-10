@@ -1,35 +1,35 @@
-### Projet 30 Maison Intelligente
+### Progetto 30 Casa Intelligente
 
-**1. Description**
+**1. Descrizione**
 
-À l'ère de la technologie, nous sommes tous familiers avec la maison intelligente. C'est un système qui peut contrôler les appareils électriques via des boutons.
+In questa era tecnologica, siamo tutti familiari con la casa intelligente. È un sistema che può controllare gli elettrodomestici tramite pulsanti.
 
-Dans ce projet, nous cherchons à simuler une maison intelligente via une télécommande IR. Avec un MCU Arduino comme cœur, il peut être utilisé pour contrôler la lumière, les climatiseurs, la télévision et les moniteurs de sécurité.
+In questo progetto, vogliamo simulare una casa intelligente tramite un telecomando IR. Con Arduino MCU come nucleo, può essere utilizzato per controllare luci, condizionatori, TV e monitor di sicurezza.
 
-**2. Organigramme**
+**2. Diagramma di Flusso**
 
 ![](media/B130.png)
 
-**3. Schéma de câblage**
+**3. Schema di Collegamento**
 
 ![](media/B131.png)
 
-**4. Code de test**
+**4. Codice di Test**
 
-Avec la télécommande IR, cette maison intelligente affiche diverses valeurs de capteurs sur l'écran LCD, incluant un capteur de température et d'humidité, un capteur sonore, une photorésistance, un potentiomètre et un capteur ultrasonique.
+Con il telecomando IR, questa casa intelligente mostra vari valori dei sensori su LCD, inclusi un sensore di temperatura e umidità, un sensore di suono, un fotoresistore, un potenziometro e un sensore ad ultrasuoni.
 
 ![](media/B132.png)
 
-**5. Résultat du test**
+**5. Risultato del Test**
 
-Après avoir connecté le câblage et téléchargé le code, nous pouvons voir les contenus correspondants sur l'écran LCD en appuyant sur les boutons. Le bouton OK efface l'affichage des capteurs.
+Dopo aver collegato i cavi e caricato il codice, possiamo vedere i contenuti corrispondenti sul LCD premendo i pulsanti. Il pulsante OK cancella la visualizzazione dei sensori.
 
 ![](media/B133.png)
 
-**6. Explication du code**
+**6. Spiegazione del Codice**
 
-Les blocs sont nombreux, c'est pourquoi nous utilisons la fonction "Make a Block". En procédant ainsi, de nombreux blocs sont regroupés et peuvent être rappelés directement, ce qui simplifie grandement l'ensemble du programme.
+I blocchi sono così numerosi che adottiamo la funzione "Make a Block". Facendo ciò, numerosi blocchi vengono raggruppati e possono essere richiamati direttamente, semplificando notevolmente l’intero programma.
 
-Cliquez sur “My Block” pour créer un bloc défini par l'utilisateur, et vous pouvez construire vos propres blocs de code.
+Clicca su “My Block” per creare un blocco definito dall’utente, e potrai costruire i tuoi blocchi di codice.
 
 ![](media/B134.png)

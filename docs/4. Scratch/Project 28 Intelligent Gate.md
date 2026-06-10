@@ -1,27 +1,27 @@
-### Projet 28 Portail Intelligent
+### Progetto 28 Cancello Intelligente
 
-**1. Description**
+**1. Descrizione**
 
-Le portail intelligent est un système de parking intelligent qui intègre un MCU et un capteur ultrasonique, contrôlant automatiquement le portail en fonction de la distance des véhicules, afin de mieux gérer l'accès des voitures.
+Il cancello intelligente è un sistema di parcheggio intelligente che integra MCU e sensore a ultrasuoni, il quale controlla automaticamente il cancello in base alla distanza delle auto, per gestire meglio l’accesso dei veicoli.
 
-Lorsqu'une certaine distance est atteinte, le MCU reçoit le signal du capteur et estime la distance via l'intensité du signal. Si la voiture s'approche ou s'éloigne, le MCU ouvrira ou fermera le portail via un servo.
+Quando viene raggiunta una certa distanza, la MCU riceve il segnale dal sensore e stima la distanza tramite l’intensità del segnale. Se l’auto si sta avvicinando o allontanando, la MCU aprirà o chiuderà il cancello tramite un servo.
 
-**2. Organigramme**
+**2. Diagramma di flusso**
 
 ![](media/B110.png)
 
-**3. Schéma de câblage**
+**3. Schema di collegamento**
 
 ![](media/B111.png)
 
-**4. Code de test**
+**4. Codice di test**
 
-Définir une variable "distance" avec l'affectation de la valeur de distance détectée par le module ultrasonique.
+Definire una variabile "distance" con l’assegnazione del valore di distanza rilevato dal modulo a ultrasuoni.
 
-Ensuite, comparer la valeur de distance avec 30 cm. Si elle est inférieure à 30 cm, le servo tournera à 180° pendant 5 s. Sinon, le servo reviendra à 0°.
+Successivamente, confrontare il valore di distanza con 30cm. Se è inferiore a 30cm, il servo ruoterà a 180° per 5s. Altrimenti, il servo tornerà a 0°.
 
 ![](media/B112.png)
 
-**5. Résultat du test**
+**5. Risultato del test**
 
-Après avoir connecté le câblage et téléchargé le code, le servo tournera à 180° pendant 5 s si la distance détectée est inférieure à 30 cm. Dans le cas contraire, le servo tournera à 0°.
+Dopo aver collegato i cavi e caricato il codice, il servo ruoterà a 180° per 5s se la distanza rilevata è inferiore a 30cm. Al contrario, il servo ruoterà a 0°.

@@ -1,91 +1,91 @@
-### Projet 10 Afficheur Matrice de Points
+### Progetto 10 Display a matrice di punti
 
-**1. Description**
+**1. Descrizione**
 
-Ce module se compose d'une matrice de points LED 8x8 avec une broche de contrôle pour chaque ligne ainsi que chaque colonne afin de régler la luminosité des LED. Connecté à une carte Arduino, la luminosité des LED est contrôlée pour afficher des caractères et des figures via la programmation Arduino. De cette manière, des caractères simples, des chiffres et des figures peuvent être affichés. Il peut également être utilisé dans des machines de jeu ou des écrans.
+Questo modulo consiste in una matrice di LED 8x8 con un pin di controllo per ogni riga e colonna per regolare la luminosità dei LED. Collegandolo alla scheda Arduino, la luminosità dei LED viene controllata per visualizzare caratteri e figure tramite programmazione Arduino. In questo modo, è possibile visualizzare caratteri semplici, numeri e figure. Può essere applicato anche in macchine da gioco o schermi.
 
 ![](media/A109.png)
 
-Le MAX7219 est un circuit intégré avec communication SPI et peut être utilisé pour contrôler la matrice de points 8x8. La communication SPI du MAX7219 est intégrée dans nos bibliothèques et vous pouvez l'appeler directement.
+MAX7219 è un IC con comunicazione SPI e può essere utilizzato per controllare la matrice di punti 8x8. La comunicazione SPI del MAX7219 è integrata nelle nostre librerie e può essere richiamata direttamente.
 
-**2. Schéma de câblage**
+**2. Schema di collegamento**
 
 ![](media/A110.png)
 
-**3. Code de test**
+**3. Codice di prova**
 
-1. Faites glisser les deux blocs de code de base.
+1. Trascina i due blocchi di codice base.
 
 ![](media/A111.png)
 
-2. Faites glisser un bloc "init matrix display" depuis “Matrix” et réglez CS sur IO15. DIN et CLK sont des broches fixes respectivement sur IO23 et IO18.
+2. Trascina un blocco "init matrix display" da “Matrix” e imposta CS su IO15. DIN e CLK sono pin fissi rispettivamente su IO23 e IO18.
 
 ![](media/A112.png)
 
-3. Faites glisser un bloc "set brightness" et réglez-le à 3.
+3. Trascina un blocco "set brightness" e impostalo a 3.
 
 ![](media/A113.png)
 
-4. Faites glisser un bloc "image" et choisissez l’icône cœur.
+4. Trascina un blocco "image" e scegli l’icona del cuore.
 
 ![](media/A114.png)
 
-5. Ajoutez un bloc "refresh" à la fin.
+5. Aggiungi un blocco "refresh" alla fine.
 
 ![](media/A115.png)
 
-**Code complet :**
+**Codice completo：**
 
 ![](media/A116.png)
 
-**4. Résultat du test**
+**4. Risultato del test**
 
-Après avoir connecté le câblage et téléchargé le code, un cœur s’affichera sur la matrice de points, comme montré ci-dessous.
+Dopo aver collegato i fili e caricato il codice, sul display a matrice di punti verrà mostrato un cuore, come illustrato di seguito.
 
 ![](media/A117.png)
 
-**5. Explication du code**
+**5. Spiegazione del codice**
 
-1. Définir la broche CS. Dans le code, DIN est fixé à IO23 et SLK à IO18, tandis que la broche CS est optionnelle. Pour un câblage pratique, nous sélectionnons IO15.
+1. Imposta il pin CS. Nel codice, DIN è fisso su io23 e SLK su io18, mentre il pin CS è opzionale. Per una connessione comoda, selezioniamo io15.
 
 ![](media/A118.png)
 
-2. Dessiner des pixels. Ce bloc de code allume ou éteint les pixels sur la matrice de points selon les axes x et y, avec du rouge pour allumé et du noir pour éteint.
+2. Disegna i pixel. Questo blocco di codice accende o spegne i pixel sulla matrice di punti tramite gli assi x e y, con il rosso per acceso e il nero per spento.
 
 ![](media/A119.png)
 
-3. Dessiner une ligne. Localisez la ligne par deux groupes de points de coordonnées, également en rouge pour allumé et noir pour éteint.
+3. Disegna una linea. Posiziona la linea tramite due gruppi di coordinate, sempre con rosso per acceso e nero per spento.
 
 ![](media/A120.png)
 
-4. Afficher des caractères. Nous avons ajouté des bibliothèques de caractères, vous n’avez donc qu’à taper une lettre pour l’afficher sur la matrice de points. De plus, cela doit être utilisé en coopération avec un bloc "rotation 180°".
+4. Mostra caratteri. Abbiamo aggiunto librerie di caratteri, quindi basta digitare una lettera per visualizzarla sulla matrice di punti. Inoltre, deve essere usato in combinazione con un blocco "rotation 180°".
 
 ![](media/A121.png)
 
-5. Afficher des chiffres. De même, vous n’avez qu’à taper un chiffre pour l’afficher sur la matrice de points, et cela doit aussi être utilisé en coopération avec un bloc "rotation 180°".
+5. Mostra numeri. Analogamente, basta digitare un numero per visualizzarlo sulla matrice di punti, e deve essere usato in combinazione con un blocco "rotation 180°".
 
 ![](media/A122.png)
 
-6. Afficher des chaînes de caractères défilantes. En associant un bloc "rotation 180°", les chaînes défilantes spécifiées s’afficheront après réglage de leur vitesse.
+6. Mostra stringhe di caratteri scorrevoli. Collocando un blocco "rotation 180°", le stringhe scorrevoli specificate verranno visualizzate dopo aver impostato la velocità.
 
 ![](media/A123.png)
 
-7. Afficher une image. Pour plus de commodité, nous avons déjà intégré quelques icônes d’émotions qui peuvent être sélectionnées directement.
+7. Visualizza immagini. Per comodità, abbiamo già integrato alcune icone emotive che possono essere selezionate direttamente.
 
 ![](media/A124.png)
 
-8. Afficher des couleurs de remplissage. Vous pouvez régler sur noir (LED éteinte) ou rouge (LED allumée).
+8. Visualizza colori di riempimento. Puoi impostare su nero (LED spento) o rosso (LED acceso).
 
 ![](media/A125.png)
 
-9. Rafraîchir l’affichage. La matrice de points doit être rafraîchie si elle affiche quelque chose. Sinon, une erreur peut survenir.
+9. Aggiorna il display. La matrice di punti deve essere aggiornata se visualizza qualcosa. Altrimenti, potrebbe verificarsi un errore.
 
 ![](media/A126.png)
 
-10. Régler la luminosité. Vous pouvez baisser la luminosité lors du débogage pour éviter de fatiguer vos yeux.
+10. Imposta la luminosità. Puoi abbassare la luminosità durante il debug per evitare fastidi agli occhi.
 
 ![](media/A127.png)
 
-11. Régler les angles de rotation. Pour une grande compatibilité avec plus de codes, certaines données et icônes nécessitent une rotation afin d’éviter un affichage inversé. C’est pourquoi un bloc "rotation 180°" est nécessaire dans les codes.
+11. Imposta gli angoli di rotazione. Per una maggiore compatibilità con più codici, alcuni dati e icone necessitano di una rotazione per evitare una visualizzazione invertita. Per questo motivo un blocco "rotation 180°" è necessario nei codici.
 
 ![](media/A128.png)

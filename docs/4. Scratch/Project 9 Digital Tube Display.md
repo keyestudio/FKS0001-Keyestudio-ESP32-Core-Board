@@ -1,77 +1,77 @@
-### Projet 9 Affichage à Tube Numérique
+### Progetto 9 Display a Tubo Digitale
 
-**1. Description**
+**1. Descrizione**
 
-Cet affichage à tube 4 chiffres est un dispositif utilisé pour afficher un comptage ou l'heure, capable d’afficher des chiffres de 0 à 9 ainsi que des lettres simples. Il est composé de quatre tubes numériques, chacun comportant sept diodes électroluminescentes (LED).
+Questo display a tubo a 4 cifre è un dispositivo utilizzato per visualizzare conteggi o tempo, in grado di mostrare numeri da 0 a 9 e lettere semplici. È composto da quattro tubi digitali, ognuno dei quali ha sette diodi a emissione luminosa (LED).
 
-De plus, plusieurs fonctions peuvent être réalisées en connectant leurs broches à la carte de développement Arduino, telles que la gestion du temps et certains jeux stockés.
+Inoltre, possono essere realizzate più funzioni collegando i loro pin alla scheda di sviluppo Arduino, come la misurazione del tempo e alcuni giochi memorizzati.
 
-**2. Principe de Fonctionnement**
+**2. Principio di Funzionamento**
 
 ![](media/A96.png)
 
-Le TM1650 utilise le protocole IIC et adopte deux lignes de bus (SDA et SCL).
+TM1650 utilizza il protocollo IIC e adotta due linee bus (SDA e SCL).
 
-Le code est fourni dans nos blocs, et le tube numérique affichera les chiffres via ce code.
+Il codice è fornito nei nostri blocchi, e il tubo digitale visualizzerà i numeri tramite questo codice.
 
-**3. Schéma de Câblage**
+**3. Schema di Collegamento**
 
 ![](media/A97.png)
 
-**4. Code de Test**
+**4. Codice di Test**
 
-Pour afficher des chiffres sur l’écran, il suffit de glisser un bloc "TM 1650 display" depuis "Digital tube" et de définir la chaîne de caractères sur 9999.
+Per mostrare i numeri sul display, è sufficiente trascinare un blocco "TM 1650 display" da "Digital tube" e impostare la stringa numerica su 9999.
 
 ![](media/A98.png)
 
-**5. Résultat du Test**
+**5. Risultato del Test**
 
-Après avoir connecté le câblage et téléchargé le code, l’affichage à tube numérique montre "9999", comme illustré ci-dessous.
+Dopo aver collegato i fili e caricato il codice, il display a tubo digitale mostra "9999", come mostrato di seguito.
 
 ![](media/A99.png)
 
-**6. Code Étendu**
+**6. Codice Esteso**
 
-Passons à des opérations plus complexes. Plutôt que des chiffres statiques, nous allons afficher des chiffres dynamiques.
+Passiamo a operazioni più complesse. Invece di numeri statici, lo gestiamo per mostrare numeri dinamici.
 
-Le code suivant manipule les tubes pour afficher de 1 à 9999.
+Il codice seguente manipola i tubi per visualizzare da 1 a 9999.
 
-1. Glissez les deux blocs de code de base.
+1. Trascina i due blocchi di codice base.
 
 ![](media/A100.png)
 
-2. Glissez le bloc suivant depuis "Variables". Définissez le type sur int et nommez-le item, en lui assignant 0 comme valeur initiale.
+2. Trascina il seguente blocco da "Variables". Imposta il tipo su int e il nome su item, assegnando 0 come valore iniziale.
 
 ![](media/A101.png)
 
-3. Glissez le bloc suivant depuis "Control" et réglez-le pour 9999 répétitions.
+3. Trascina il seguente blocco da "Control" e impostalo per 9999 volte.
 
 ![](media/A102.png)
 
-4. Glissez un "mode variable" depuis "Variables", définissez son nom sur item et réglez le mode sur "++".
+4. Trascina una "modalità variabile" da "Variables", definisci il nome come item e imposta la modalità su "++".
 
-5. Glissez un bloc "TM 1650 display" depuis "Digital tube" et remplacez la valeur de chaîne par la variable item. Ajoutez un délai de 0,5 s après.
+5. Trascina un blocco "TM 1650 display" da "Digital tube" e sostituisci il valore stringa con la variabile item. Aggiungi un ritardo di 0,5s dopo di esso.
 
 ![](media/A103.png)
 
-6. Ajoutez un bloc "set variable" après le bloc "repeat". Réinitialisez la variable item à 0. Sinon, la valeur de item dépassera la plage d’affichage après 9999 boucles.
+6. Aggiungi un blocco "set variable" dopo il blocco "repeat". Imposta la variabile item a 0. Altrimenti, il valore di item uscirà dall'intervallo di visualizzazione dopo 9999 cicli.
 
 ![](media/A104.png)
 
-**Code Complet :**
+**Codice Completo：**
 
 ![](media/A105.png)
 
-**7. Explication du Code**
+**7. Spiegazione del Codice**
 
-1. Définissez la chaîne à afficher. Tapez directement les chiffres ou lettres que vous souhaitez afficher dans le champ vide.
+1. Imposta la stringa da visualizzare. Digita direttamente i numeri o le lettere che vuoi mostrare nel campo vuoto.
 
 ![](media/A106.png)
 
-2. Activez ou désactivez ce tube numérique TM 1650. Chaque tube peut être contrôlé séparément.
+2. Imposta l'ON o OFF di questo tubo digitale TM 1650. Ogni tubo può essere controllato separatamente.
 
 ![](media/A107.png)
 
-3. Il est possible d’effacer l’affichage ou d’utiliser ce bloc comme interrupteur principal pour allumer ou éteindre le tube numérique.
+3. È possibile cancellare il display o usarlo come interruttore principale per accendere o spegnere il tubo digitale.
 
 ![](media/A108.png)

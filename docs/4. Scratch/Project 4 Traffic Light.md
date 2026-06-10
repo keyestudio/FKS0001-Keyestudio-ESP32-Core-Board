@@ -1,51 +1,51 @@
-### Projet 4 Feu de Circulation
+### Progetto 4 Semaforo
 
-**1. Description**
+**1. Descrizione**
 
-Le module de feu de circulation est un dispositif utilisé pour contrôler le passage des piétons et des véhicules. Il comprend une lumière rouge, une jaune et une verte, qui impliquent différentes consignes.
+Il modulo semaforo è un dispositivo utilizzato per controllare il percorso di pedoni e veicoli. Include una luce rossa, una gialla e una verde, che implicano diverse istruzioni.
 
-**Rouge pour Stop :** Les piétons et les véhicules s'arrêtent.
+**Rosso per Stop:** Pedoni e veicoli devono fermarsi.
 
-**Jaune pour Prudence :** Les piétons et les véhicules se préparent à s’arrêter. Si la conduite est déjà en cours, la vitesse doit être réduite.
+**Giallo per Attenzione:** Pedoni e veicoli devono prepararsi a fermarsi. Se la guida è già in corso, la velocità deve essere ridotta.
 
-**Vert pour Passage :** Les piétons et les véhicules continuent en respectant le code de la route.
+**Verde per Procedere:** Pedoni e veicoli possono continuare rispettando il codice della strada.
 
-Dans ce projet, vous pouvez utiliser Arduino pour écrire du code afin de contrôler les feux de circulation. Par exemple, définir la durée de chaque feu et l’intervalle entre eux. De plus, vous pouvez également ajouter un minuteur pour changer les couleurs des feux selon un planning.
+In questo progetto, puoi usare Arduino per scrivere codice che controlla i semafori. Ad esempio, impostare la durata di ogni luce e l’intervallo di tempo tra di esse. Inoltre, puoi anche aggiungere un timer per modificare i colori delle luci secondo una programmazione.
 
-**2. Schéma de câblage**
+**2. Schema di Collegamento**
 
 ![](media/A46.png)
 
-**3. Code de test**
+**3. Codice di Test**
 
-Nous simulons simplement les feux de circulation : la LED verte s’allume pendant 5s, la LED jaune clignote 3 fois, et la LED rouge s’allume pendant 5s. Et nous configurons cela en boucle.
+Stimoliamo semplicemente i semafori: il LED verde si accende per 5s, il LED giallo lampeggia 3 volte, e il LED rosso si accende per 5s. Impostiamo questo ciclo in loop.
 
-Le clignotement de la LED jaune peut utiliser l’instruction for() que nous avons mentionnée dans le projet 3. Ainsi, il suffit de définir le temps d’allumage pour compléter un cycle de feu.
+Il lampeggio del LED giallo può utilizzare l’istruzione for() che abbiamo menzionato nel progetto 3. Quindi, dobbiamo solo impostare il tempo di accensione per completare un ciclo del semaforo.
 
-1. Faites glisser les deux blocs de code.
+1. Trascina i due blocchi di codice.
 
 ![](media/A47.png)
 
-2. Réglez le mode du pin sur « output »
+2. Imposta la modalità del pin su “output”
 
 ![](media/A48.png)
 
-3. Faites glisser les blocs suivants de la partie "LED" et réglez le pin IO27 sur HIGH puis LOW. Ensuite, définissez le délai à 5s.
+3. Trascina i seguenti blocchi dalla sezione "LED" e imposta il pin IO27 su HIGH e poi su LOW. Poi imposta il tempo di delay a 5s.
 
 ![](media/A49.png)
 
-4. Faites glisser les blocs suivants de la partie "Control" et réglez le nombre de répétitions à 3, puis réglez le pin IO26 sur HIGH puis LOW. Ensuite, définissez le délai à 0,5s.
+4. Trascina i seguenti blocchi dalla sezione "Control" e imposta il numero di ripetizioni a 3, poi imposta il pin IO26 su HIGH e poi su LOW. Imposta il tempo di delay a 0.5s.
 
 ![](media/A50.png)
 
-5. Répétez l’étape 3, et réglez le pin sur IO25.
+5. Ripeti il passo 3, impostando il pin su IO25.
 
 ![](media/A51.png)
 
-**Code complet :**
+**Codice Completo：**
 
 ![](media/A52.png)
 
-**4. Résultat du test**
+**4. Risultato del Test**
 
-Après avoir téléversé le code, la LED verte s’allumera pendant 5s, la LED jaune clignotera 3 fois, et la LED rouge restera allumée pendant 5s.
+Dopo aver caricato il codice, il LED verde si accenderà per 5s, il LED giallo lampeggerà 3 volte, e il LED rosso rimarrà acceso per 5s.

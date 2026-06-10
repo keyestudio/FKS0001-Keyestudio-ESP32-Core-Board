@@ -1,22 +1,22 @@
-### Proyecto 7 Zumbador Activo
+### Progetto 7 Buzzer Attivo
 
-**1. Descripción**
+**1. Descrizione**
 
-Un zumbador activo es un componente utilizado como alarma, recordatorio o dispositivo de entretenimiento, que ofrece un sonido confiable. Además, permite estimular sonidos altamente controlables, haciendo nuestros proyectos más interesantes.
+Un buzzer attivo è un componente utilizzato come allarme, promemoria o dispositivo di intrattenimento, che produce un suono affidabile. Inoltre, permette di generare suoni altamente controllabili, rendendo i nostri progetti più interessanti.
 
-**2. Principio de Funcionamiento**
+**2. Principio di Funzionamento**
 
 ![](media/A26.png)
 
-Un zumbador activo integra un multivibrador, por lo que emite sonido solo mediante voltaje DC. El pin 1 del zumbador se conecta a VCC y el pin 2 es controlado por un tríodo. Cuando se proporciona un nivel alto a la base (pin 1) del tríodo, su colector (pin 3) y emisor (pin 2) se conectan a GND, y entonces el zumbador emite sonido.
+Un buzzer attivo integra un multivibratore, quindi emette suono solo tramite tensione DC. Il pin 1 del buzzer è collegato a VCC e il pin 2 è controllato da un triode. Quando viene fornito un livello alto alla base (pin 1) del triode, il suo collettore (pin 3) e l'emettitore (pin 2) si collegano a GND, e il buzzer emette suono.
 
-Por el contrario, si se ofrece un nivel bajo a la base, el resto de los pines quedarán desconectados, por lo que el zumbador permanecerá en silencio.
+Al contrario, se forniamo un livello basso alla base, gli altri pin saranno scollegati, quindi il buzzer rimarrà silenzioso.
 
-**3. Diagrama de Conexiones**
+**3. Schema di Collegamento**
 
 ![](media/A27.png)
 
-**4. Código de Prueba**
+**4. Codice di Test**
 
 ```
  /*
@@ -40,6 +40,6 @@ void loop()
 }
 ```
 
-**5. Resultado de la Prueba**
+**5. Risultato del Test**
 
-Después de subir el código y encender, el zumbador emite sonido durante 1s y permanece en silencio durante 1s.
+Dopo aver caricato il codice e acceso l'alimentazione, il buzzer emette un suono per 1s e rimane silenzioso per 1s.

@@ -1,69 +1,69 @@
-### Projet 16 Bombe à retardement
+### Progetto 16 Timebomb
 
-**1. Description**
+**1. Descrizione**
 
-Ce projet vous offre l'opportunité de découvrir un jeu de bombe à retardement intéressant.
+Questo progetto ti offrirà l'opportunità di sperimentare un interessante gioco della bomba a tempo.
 
-Dans ce projet, la matrice de points représente votre bombe à retardement, tandis que le tube digital affiche le temps restant. Les boutons permettent non seulement de contrôler la bombe mais aussi de régler son temps. Vous pouvez définir un compte à rebours pour contrôler cette bombe, qui explose lorsque le compte à rebours est terminé. De plus, un buzzer est utilisé pour l'alarme.
+In questo progetto, la matrice di punti rappresenta la tua bomba a tempo, mentre il tubo digitale mostra il tempo rimanente. I pulsanti non solo controllano la bomba ma permettono anche di impostarne il tempo. Puoi impostare un conto alla rovescia per controllare questa bomba, che esplode quando il conto alla rovescia termina. Inoltre, è adottato un buzzer per l'allarme.
 
-Quoi qu'il en soit, en programmant avec plusieurs capteurs, votre capacité globale de raisonnement logique peut être améliorée.
+In ogni caso, programmando su più sensori, la tua capacità complessiva di pensiero logico può essere migliorata.
 
-**2. Organigramme**
+**2. Diagramma di flusso**
 
 ![](media/B1.png)
 
-**3. Schéma de câblage**
+**3. Schema di collegamento**
 
 ![](media/B2.png)
 
-**4. Code de test**
+**4. Codice di test**
 
-1. Faites glisser les deux blocs de base.
+1. Trascina i due blocchi base.
 
 ![](media/B3.png)
 
-2. Réglez la broche du bouton en “input”.
+2. Imposta il pin del pulsante su “input”.
 
 ![](media/B4.png)
 
-3. Ajoutez un bloc "init matrix display" depuis "Matrix" et réglez la broche CS sur IO15. Ensuite, ajoutez un bloc "brightness" avec une valeur de 3 et un bloc "variable" (réglez le type de variable sur int et nommez-la item, en lui assignant 0 comme valeur initiale).
+3. Aggiungi un blocco "init matrix display" da "Matrix" e imposta il pin CS su IO15. A seguire, un blocco "brightness" con valore 3 e un blocco "variable" (imposta il tipo variabile su int e il nome su item, assegnando 0 come valore iniziale).
 
 ![](media/B5.png)
 
-4. Dans "Matrix", faites glisser un bloc "fill color" et sélectionnez "black" (c’est-à-dire que toutes les LED s’éteignent pour effacer l’affichage précédent). Ajoutez un bloc "display image" pour définir un visage souriant. Puis, placez un bloc de rafraîchissement pour renouveler l’affichage.
+4. In "Matrix", trascina un blocco "fill color" e seleziona "black" (cioè spegni tutti i LED per cancellare la visualizzazione precedente). Aggiungi un blocco "display image" per definire una faccina sorridente. Poi, inserisci un blocco refresh per aggiornare il display.
 
 ![](media/B6.png)
 
-5. Faites glisser un bloc "if" et remplissez la condition avec "interface IO33 button was be pushed?". Ajoutez un bloc "variable mode" après "then" et réglez son nom sur item et son mode sur "++".
+5. Trascina un blocco "if" e riempi la casella condizione con "interface IO33 button was be pushed?". Aggiungi un blocco "variable mode" dopo "then" e imposta il nome su item e la modalità su "++".
 
 ![](media/B7.png)
 
-6. Répétez l’opération de l’étape 5, mais réglez l’interface sur IO32 et le mode sur "--".
+6. Ripeti l’operazione del passo 5, ma imposta l’interfaccia su IO32 e la modalità su "--".
 
 ![](media/B8.png)
 
-7. Faites glisser un bloc "if" pour vérifier si la broche IO26 est appuyée. Dans ce "if", ajoutez un bloc repeat et réglez sa condition sur "item" = 0.
+7. Trascina un blocco "if" per verificare se il pin IO26 è premuto. In questo "if", aggiungi un blocco repeat e imposta la condizione su "item" = 0.
 
-Dans la boucle "repeat until", placez un bloc "variable mode" et réglez "item" sur "--", comme montré ci-dessous. Faites glisser un bloc "TM1650 display" depuis "Digital tube" et définissez la chaîne affichée comme le bloc "variable item". Ensuite, ajoutez un bloc "buzzer output" et réglez la sortie sur HIGH à la broche IO27 suivi d’un délai de 0,5 s. Reprenez la dernière procédure mais réglez la sortie sur LOW.
+Nel ciclo "repeat until", inserisci un blocco "variable mode" e imposta "item" su "--", come mostrato sotto. Trascina un blocco "TM1650 display" da "Digital tube" e definisci la stringa mostrata come il blocco "variable item". Poi aggiungi un blocco "buzzer output" e imposta l’uscita su HIGH al pin IO27 seguito da un ritardo di 0.5s. Ripeti l’ultima procedura ma imposta l’uscita su LOW.
 
 ![](media/B9.png)
 
-8. Programmez une autre boucle et définissez la condition comme "interface IO25 button was be pushed?". Les exécutions suivantes se trouvent dans cette boucle. Placez un bloc "TM1650 display" et définissez la chaîne affichée comme le bloc "variable item". Puis répétez l’étape 4 mais ici, réglez l’image sur un visage en pleurs.
+8. Programma un altro ciclo e definisci la condizione come "interface IO25 button was be pushed?". Le esecuzioni seguenti sono in questo ciclo. Inserisci un blocco "TM1650 display" e definisci la stringa mostrata come il blocco "variable item". Poi ripeti il passo 4 ma qui imposta l’immagine su una faccina che piange.
 
 ![](media/B10.png)
 
-9. Faites glisser un bloc "if then" et remplissez le champ vide avec la condition : item ＞ 9999. Ajoutez une instruction "set item variable by 0" dans ce bloc conditionnel.
+9. Trascina un blocco "if then" e riempi lo spazio vuoto con la condizione: item ＞ 9999. Aggiungi un’istruzione "set item variable by 0" in questo blocco condizione.
 
 ![](media/B11.png)
 
-10. Faites glisser un bloc "TM1650 display" depuis "Digital tube" et définissez la chaîne affichée comme "variable item". Pour la même raison, n’oubliez pas de mettre un délai de 0,2 s.
+10. Trascina un blocco "TM1650 display" da "Digital tube" e definisci la stringa mostrata come "variable item". Per lo stesso motivo, non dimenticare un ritardo di 0.2s.
 
 ![](media/B12.png)
 
-**Code complet :**
+**Codice completo:**
 
 ![](media/B13.png)
 
-**5. Résultat du test**
+**5. Risultato del test**
 
-Après avoir connecté le câblage et téléchargé le code, appuyez sur le bouton bleu pour ajouter du temps, sur le vert pour réduire et sur le rouge pour réinitialiser. Appuyez sur le bouton jaune pour lancer le compte à rebours. Lorsque celui-ci est terminé, la bombe explose.
+Dopo aver collegato i fili e caricato il codice, premi il pulsante blu per aggiungere tempo, il verde per ridurre e il rosso per resettare. Premi il pulsante giallo per avviare il conto alla rovescia. Quando termina, la bomba esplode.

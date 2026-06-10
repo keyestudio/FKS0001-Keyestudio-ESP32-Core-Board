@@ -1,24 +1,24 @@
-### Projet 20 Colonne de Lumière
+### Progetto 20 Pilastro di Luce
 
-**1. Description**
+**1. Descrizione**
 
-La résistance (inférieure à 1KΩ) de la photorésistance varie en fonction de la lumière, ce qui permet de contrôler la luminosité de la matrice de points. Lors du contrôle, nous connectons cette résistance à une broche analogique de la carte pour surveiller la variation de résistance. De cette façon, la lumière contrôle automatiquement la luminosité de l'affichage.
+La resistenza (inferiore a 1KΩ) della fotoresistenza varia in base alla luce, quindi può controllare la luminosità della matrice di punti. Durante il controllo, colleghiamo questa resistenza a un pin analogico sulla scheda per monitorare la variazione della resistenza. In questo modo, la luce controlla automaticamente la luminosità del display.
 
-De plus, la photorésistance est largement utilisée dans notre vie quotidienne. Par exemple, un rideau s'ouvre ou se ferme automatiquement en fonction de l'intensité lumineuse extérieure.
+Inoltre, la fotoresistenza è ampiamente utilizzata nella vita quotidiana. Ad esempio, una tenda si apre o si chiude automaticamente in base all'intensità della luce esterna.
 
-**2. Principe de fonctionnement**
+**2. Principio di Funzionamento**
 
 ![](media/B8.png)
 
 ![](media/B9.png)
 
-Lorsqu'il fait totalement sombre, la résistance est égale à 0,2MΩ, et la tension au niveau de la broche signal (point 2) tend vers 0V. Plus la lumière est forte, plus la résistance et la tension seront faibles.
+Quando è completamente al buio, la resistenza è pari a 0,2MΩ, e la tensione al terminale di segnale (punto 2) si avvicina a 0V. Più la luce è intensa, più la resistenza e la tensione saranno basse.
 
-**3. Schéma de câblage**
+**3. Schema di Collegamento**
 
 ![](media/B10.png)
 
-**4. Code de test**
+**4. Codice di Test**
 
 ```
 /*
@@ -43,21 +43,21 @@ void loop()
 }
 ```
 
-**5. Résultat du test**
+**5. Risultato del Test**
 
-Après avoir connecté le câblage et téléchargé le code, ouvrez le moniteur série et réglez le débit en bauds à 9600, la valeur analogique s'affichera, dans une plage de 0 à 4095. En modifiant l'intensité lumineuse autour, cette valeur changera.
+Dopo aver collegato i fili e caricato il codice, aprire il monitor seriale impostando la velocità di trasmissione a 9600; verrà visualizzato il valore analogico, nell'intervallo da 0 a 4095. Variando l'intensità della luce intorno al sensore, si modifica il valore letto.
 
 ![](media/B11.png)
 
-**6. Extension des connaissances**
+**6. Approfondimento**
 
-Nous allons utiliser cette photorésistance pour détecter l'intensité lumineuse ambiante. Les deux colonnes centrales sont incluses dans cette expérience pour représenter l'intensité lumineuse. Plus elle est forte, plus le nombre de LED allumées sera élevé. Cela forme une "colonne de lumière".
+Utilizzeremo questa fotoresistenza per rilevare l'intensità della luce ambientale. Le due colonne centrali sono incluse in questo esperimento per rappresentare l'intensità luminosa. Più è forte, più LED si accenderanno. Questo forma un "pilastro di luce".
 
-- **Schéma de câblage :**
+- **Schema di Collegamento：**
 
 ![](media/B12.png)
 
-- **Code :**
+- **Codice：**
 
 ```
 /*
@@ -94,8 +94,8 @@ void loop()
 }
 ```
 
-- **Résultat du test**
+- **Risultato del Test**
 
-Plus la lumière proche de la photorésistance est forte, plus la colonne lumineuse de la matrice LED est haute.
+Più la luce vicino alla fotoresistenza è intensa, più alta sarà la colonna luminosa della matrice LED.
 
 ![](media/B13.png)

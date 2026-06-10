@@ -1,66 +1,66 @@
-### Projet 15 Répondeur
+### Progetto 15 Risponditore
 
-**1. Description**
+**1. Descrizione**
 
-Ce répondeur programmable reçoit et envoie des signaux via une carte de développement Arduino et un groupe de boutons, et il juge la justesse des réponses grâce à une LED. C'est un bon outil pour exercer la capacité de réaction des élèves et attirer leur attention sur les questions. Si la réponse est correcte, le répondant obtient beaucoup de points.
+Questo risponditore programmabile riceve e invia segnali tramite la scheda di sviluppo Arduino e un gruppo di pulsanti, e valuta la correttezza delle risposte tramite un LED. È un ottimo strumento per esercitare la capacità di reazione degli studenti e catturare la loro attenzione sulle domande. Se la risposta è corretta, il rispondente ottiene molti punti.
 
-De plus, il simplifie la gestion des attrapeurs de questions par les enseignants et réduit le désordre des réponses. Il peut même stimuler l'intérêt des élèves pour l'apprentissage.
+Inoltre, semplifica la gestione da parte degli insegnanti dei "question-grabbers" e riduce il disordine delle risposte. Può persino stimolare l’interesse degli studenti nell’apprendimento.
 
-**2. Organigramme**
+**2. Diagramma di flusso**
 
 ![](media/A184.png)
 
-**3. Schéma de câblage**
+**3. Schema di collegamento**
 
 ![](media/A185.png)
 
-**4. Code de test**
+**4. Codice di test**
 
-1. Faites glisser les deux blocs de base et placez un bloc "variable" entre eux. Définissez le type de variable sur int et nommez-la item avec une affectation initiale de 0. Configurez la broche LED en “output” et la broche du bouton en “input”.
+1. Trascina i due blocchi base e inserisci un blocco "variabile" tra di essi. Imposta il tipo di variabile su int e il nome su item con un’assegnazione iniziale di 0. Imposta il pin del LED su “output” e il pin del pulsante su “input”.
 
 ![](media/A186.png)
 
-2. Ajoutez un bloc "LED output", définissez sa broche sur IO27 et réglez la sortie sur HIGH.  
-3. Faites glisser un bloc "if" et ajoutez la condition "interface IO19 button was be pushed?".
+2. Aggiungi un blocco "LED output", definisci il suo pin su IO27 e imposta l’output su HIGH.  
+3. Trascina un blocco "if" e aggiungi la condizione "interface IO19 button was be pushed?".
 
 ![](media/A187.png)
 
-4. Ajoutez une affectation de variable et quatre blocs LED output sous "then". Parmi eux, nommez la variable "item" avec une affectation de "0", et réglez toutes les sorties sur LOW respectivement aux broches 12, 13, 14 et 27 (Le répondeur fonctionne uniquement lorsque toutes les LED sont éteintes). De même, n'oubliez pas un délai de 0,2 s.
+4. Aggiungi un’impostazione di variabile e quattro blocchi LED output sotto "then". Tra questi, nominiamo la variabile "item" con assegnazione "0", e impostiamo tutti gli output su LOW rispettivamente ai pin 12, 13, 14 e 27 (Il risponditore funziona solo quando tutti i LED sono spenti). Allo stesso modo, non dimenticare un ritardo di 0,2s.
 
 ![](media/A188.png)
 
-5. Ajoutez un bloc "repeat until" et réglez le "until" sur "item = 1", comme montré ci-dessous. Lorsque item = 1, la boucle se termine.
+5. Aggiungi un blocco "repeat until" e imposta "until" su "item = 1", come mostrato sotto. Quando item = 1, esci dal ciclo.
 
 ![](media/A189.png)
 
-6. Faites glisser un autre bloc "if" et définissez la condition "Interface IO16 button was be pushed?". Ajoutez un bloc "LED output" sous "then" et réglez la sortie sur HIGH à la broche IO12. Ajoutez également un "set item variable by 1" pour sortir de ce bloc conditionnel.
+6. Trascina un altro blocco "if" e imposta la condizione "Interface IO16 button was be pushed?". Aggiungi un blocco "LED output" sotto "then" e imposta l’output su HIGH al pin IO12. Aggiungi inoltre un "set item variable by 1" per uscire da questo blocco condizionale.
 
 ![](media/A190.png)
 
-7. Répétez l’étape 6, mais réglez l’interface sur IO17 et la broche LED sur IO13.
+7. Ripeti il passo 6, ma imposta l’interfaccia su IO17 e il pin LED su IO13.
 
 ![](media/A191.png)
 
-8. Répétez encore l’étape 6, mais réglez l’interface sur IO18 et la broche LED sur IO14.
+8. Ripeti nuovamente il passo 6, ma imposta l’interfaccia su IO18 e il pin LED su IO14.
 
 ![](media/A192.png)
 
-**Code complet :**
+**Codice completo:**
 
 ![](media/A193.png)
 
-**5. Résultat du test**
+**5. Risultato del test**
 
-Connectez le câblage et téléversez le code. Les réponses des participants ne sont valides que lorsque la LED rouge est éteinte (le bouton rouge est pressé).
+Collega i cablaggi e carica il codice. Le risposte dei partecipanti sono valide solo quando il LED rosso è spento (pulsante rosso premuto).
 
-Lorsqu'une personne appuie sur son bouton (jaune, vert ou bleu), la LED correspondante ainsi que la LED rouge s’allument. À ce moment, les autres LED ne peuvent pas s’allumer en appuyant sur les boutons. L’action de réponse ne peut être effectuée que lorsque le bouton rouge est pressé à nouveau.
+Quando qualcuno preme il proprio pulsante (giallo, verde o blu), si accende il LED corrispondente insieme al LED rosso. A questo punto, gli altri LED non possono accendersi premendo i pulsanti. L’azione di risposta può essere eseguita solo quando il pulsante rosso viene premuto di nuovo.
 
-**6. Explication du code**
+**6. Spiegazione del codice**
 
-1. Module de boucle conditionnelle. Lorsque les conditions dans le losange du module sont remplies, la boucle se termine.
+1. Modulo ciclo condizionale. Quando le condizioni nel riquadro a diamante del modulo sono soddisfatte, il ciclo termina.
 
 ![](media/A194.png)
 
-2. Le bloc "=" est utilisé pour vérifier si les deux valeurs sont égales.
+2. Il blocco "=" viene usato per verificare se i due valori sono uguali.
 
 ![](media/A195.png)

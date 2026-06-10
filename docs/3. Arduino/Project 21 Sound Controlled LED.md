@@ -1,22 +1,22 @@
-### Projet 21 LED Contrôlée par le Son
+### Progetto 21 LED Controllato dal Suono
 
-**1. Description**
+**1. Descrizione**
 
-La LED contrôlée par le son est un dispositif utilisé pour détecter le son afin de contrôler la luminosité de la LED, composé d’une carte Arduino et de quelques composants. Il peut se connecter à plusieurs capteurs tels que des microphones. Il convertit le son en un signal de tension variable reçu par l’Arduino pour contrôler l’allumage et l’extinction de la LED.
+Il LED controllato dal suono è un dispositivo utilizzato per rilevare il suono in modo da controllare la luminosità del LED, composto da una scheda Arduino e alcuni componenti. Può collegarsi a più sensori come i microfoni. Converte il suono in un segnale di tensione variabile che viene ricevuto da Arduino per controllare l'accensione e lo spegnimento del LED.
 
-**2. Principe de Fonctionnement**
+**2. Principio di Funzionamento**
 
 ![](media/B14.png)
 
-Lors de la détection d’un son, la membrane électret du microphone vibre, ce qui modifie la capacité et génère une légère variation de tension.
+Quando viene rilevato un suono, la pellicola elettretica nel microfono vibra, modificando la capacità e generando una sottile variazione di tensione.
 
-Ensuite, nous utilisons la puce LM3 pour construire un circuit adapté afin d’amplifier le son détecté, réglable par un potentiomètre. Tournez-le dans le sens horaire pour augmenter le gain.
+Successivamente, utilizziamo il chip LM3 per costruire un circuito adeguato che amplifica il suono rilevato, regolabile tramite un potenziometro. Ruotandolo in senso orario si aumenta il guadagno.
 
-**3. Schéma de Câblage**
+**3. Schema di Collegamento**
 
 ![](media/B15.png)
 
-**4. Code de Test**
+**4. Codice di Test**
 
 ```
 /*
@@ -39,31 +39,31 @@ void loop()
 }
 ```
 
-**5. Résultat du Test**
+**5. Risultato del Test**
 
-Après avoir connecté le câblage et téléversé le code, ouvrez le moniteur série en réglant le débit à 9600, la valeur analogique s’affichera.
+Dopo aver collegato i fili e caricato il codice, aprire il monitor seriale impostando la velocità a 9600 baud, verrà visualizzato il valore analogico.
 
 ![](media/B16.png)
 
-**Réglage de la sensibilité :**
+**Regolazione della sensibilità:**
 
-Si vous trouvez que la sensibilité du capteur sonore est adéquate, vous pouvez ajuster le potentiomètre du capteur sonore (à droite pour la sensibilité maximale, à gauche pour la sensibilité minimale).
+Se si ritiene che la sensibilità del sensore sonoro sia adeguata, è possibile regolare il potenziometro del sensore (a destra per la massima sensibilità, a sinistra per la minima sensibilità).
 
 ![](media/B17.png)
 
-**6. Extension des Connaissances**
+**6. Approfondimento**
 
-La lumière de couloir courante est un type de lumière contrôlée par le son. Par ailleurs, elle inclut aussi une photorésistance. Contrairement à cela, ici nous établissons un modèle où une LED est uniquement affectée par le son. Lorsque le volume analogique dépasse 100, la LED s’allume pendant 2 secondes puis s’éteint.
+La luce da corridoio comunemente vista è un tipo di luce controllata dal suono. Nel frattempo, include anche una fotoresistenza. Diversamente da questa, qui costruiamo un modello in cui un LED è influenzato solo dal suono. Quando il volume analogico supera 100, il LED si accende per 2 secondi e poi si spegne.
 
-- **Organigramme :**
+- **Diagramma di Flusso:**
 
 ![](media/B18.png)
 
-- **Schéma de Câblage :**
+- **Schema di Collegamento:**
 
 ![](media/B19.png)
 
-- **Code :**
+- **Codice:**
 
 ```
 /*
@@ -94,6 +94,6 @@ void loop()
 }
 ```
 
-- **Résultat du Test**
+- **Risultato del Test**
 
-Lorsque la valeur détectée par le capteur sonore est supérieure à 100, la LED rouge s’allume.
+Quando il valore rilevato dal sensore sonoro è superiore a 100, il LED rosso si accende.

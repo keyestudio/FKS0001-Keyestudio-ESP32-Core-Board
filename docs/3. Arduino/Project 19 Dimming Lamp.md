@@ -1,24 +1,24 @@
-### Projet 19 Lampe à intensité variable
+### Progetto 19 Lampada Dimmerabile
 
-**1. Description**
+**1. Descrizione**
 
-La lampe à intensité variable ajuste la luminosité de la LED via un potentiomètre et un contrôleur Arduino. La luminosité dépend de la valeur de résistance, qui peut être lue et ajustée en connectant les extrémités du potentiomètre aux broches digitales ou analogiques de la carte. De plus, ce système est appliqué pour contrôler la tension ou le courant d'autres appareils tels que ventilateurs, ampoules et chauffages.
+La lampada dimmerabile regola la luminosità del LED tramite un potenziometro e un controller Arduino. La luminosità dipende dal valore di resistenza, che può essere letto e regolato collegando le estremità del potenziometro ai pin digitali o analogici sulla scheda. Inoltre, questo sistema è applicato per controllare la tensione o la corrente di altri dispositivi come ventole, lampadine e riscaldatori.
 
-**2. Principe de fonctionnement**
+**2. Principio di Funzionamento**
 
 ![](media/B3.png)
 
 ![](media/B4.png)
 
-Essentiellement, le potentiomètre est un élément qui peut modifier la valeur de la résistance. Selon la loi d'Ohm (U=I*R), la résistance influence la tension. Notre potentiomètre est de 10K.
+Fondamentalmente, il potenziometro è un elemento che può modificare il valore della resistenza. Secondo la legge di Ohm (U=I*R), la resistenza influisce sulla tensione. Il nostro potenziometro è da 10K.
 
-Dans ce projet, la résistance maximale est de 10K. La carte ESP32 divisera également la tension de 3V en 4095 parties (3/4095=0.0007326007326). La tension analogique est obtenue en multipliant la valeur lue par 0.0007326007326.
+In questo progetto, la resistenza massima è 10K. La scheda ESP32 dividerà equamente la tensione di 3V in 4095 parti (3/4095=0.0007326007326). La tensione analogica si ottiene moltiplicando il valore letto per 0.0007326007326.
 
-**3. Schéma de câblage**
+**3. Schema di Collegamento**
 
 ![](media/B5.png)
 
-**4. Code de test**
+**4. Codice di Test**
 
 ```
 /*
@@ -26,38 +26,38 @@ Dans ce projet, la résistance maximale est de 10K. La carte ESP32 divisera éga
    Project 19.1 Dimming Lamp
   http://www.keyestudio.com
 */
-int pot = 34;      //Define variable pot to IO34
+int pot = 34;      //Definisci la variabile pot su IO34
 
 void setup() 
 {
-  // put your setup code here, to run once:
-  Serial.begin(9600);		//Set baud rate to 9600
+  // inserisci qui il codice di setup, da eseguire una volta:
+  Serial.begin(9600);		//Imposta baud rate a 9600
 }
 
 void loop() 
 {
-  // put your main code here, to run repeatedly:
-  int value = analogRead(pot);	//Read io34 and assign it to the variable value
-  Serial.println(value);		//Print the variable value and wrap it around 
+  // inserisci qui il codice principale, da eseguire ripetutamente:
+  int value = analogRead(pot);	//Leggi io34 e assegna il valore alla variabile value
+  Serial.println(value);		//Stampa la variabile value e vai a capo
   delay(200);
 }
 ```
 
-**5. Résultat du test**
+**5. Risultato del Test**
 
-Après avoir connecté le câblage et téléchargé le code, ouvrez le moniteur série en réglant le débit en bauds à 9600, et la valeur analogique s'affichera, dans la plage de 0 à 4095. La rotation du potentiomètre peut modifier la valeur analogique.
+Dopo aver collegato i fili e caricato il codice, aprire il monitor seriale impostando il baud rate a 9600, e verrà visualizzato il valore analogico, nell’intervallo da 0 a 4095. Ruotando il potenziometro si può modificare il valore analogico.
 
 ![](media/B6.png)
 
-**6. Extension des connaissances**
+**6. Approfondimento**
 
-Nous allons contrôler la luminosité de la LED via un potentiomètre. Comme nous le savons, cela est influencé par le PWM. Cependant, la plage de la valeur analogique est de 0 à 4095 tandis que celle du PWM est de 0 à 255. Ainsi, une fonction "map(value, fromLow, fromHigh, toLow, toHigh)" est nécessaire.
+Controlleremo la luminosità del LED tramite un potenziometro. Come sappiamo, questa è influenzata dal PWM. Tuttavia, l’intervallo del valore analogico è 0-4095 mentre quello del PWM è 0-255. Perciò è necessaria la funzione "map(value, fromLow, fromHigh, toLow, toHigh)".
 
-**Schéma de câblage :**
+**Schema di Collegamento：**
 
 ![](media/B7.png)
 
-**Code :**
+**Codice：**
 
 ```
 /*
@@ -65,24 +65,24 @@ Nous allons contrôler la luminosité de la LED via un potentiomètre. Comme nou
    Project 19.2 Dimming Lamp
   http://www.keyestudio.com
 */
-int led = 25;		//Define LED to IO25
-int pot = 34;		//Define pot to IO34
+int led = 25;		//Definisci LED su IO25
+int pot = 34;		//Definisci pot su IO34
 
 void setup() 
 {
-  // put your setup code here, to run once:
-  pinMode(led,OUTPUT);		//Set LED pin to output 
+  // inserisci qui il codice di setup, da eseguire una volta:
+  pinMode(led,OUTPUT);		//Imposta il pin LED come output
 }
 
 void loop() 
 {
-  // put your main code here, to run repeatedly:
+  // inserisci qui il codice principale, da eseguire ripetutamente:
   int value = analogRead(pot);
-  int led_val = map(value,0,4095,0,255);  //Convert the range of potentiometer analog value to the range we need  
+  int led_val = map(value,0,4095,0,255);  //Converti l’intervallo del valore analogico del potenziometro in quello necessario  
   analogWrite(led,led_val);
 }
 ```
 
-**7. Résultat du test**
+**7. Risultato del Test**
 
-Après le téléchargement réussi du code, la rotation du potentiomètre modifiera la luminosité de la LED rouge.
+Dopo che il codice è stato caricato con successo, ruotando il potenziometro si modificherà la luminosità del LED rosso.

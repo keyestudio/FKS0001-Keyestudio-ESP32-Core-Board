@@ -1,31 +1,31 @@
-### Projet 26 Piano Corporel Humain
+### Progetto 26 Pianoforte Corpo Umano
 
-**1. Description**
+**1. Descrizione**
 
-Le piano analogique comprend une carte de développement et un capteur ultrasonique. Il permet de jouer différentes notes en détectant la position de vos doigts. Ainsi, ce module est capable de stimuler un piano pour interpréter de la musique et des chansons.
+Il pianoforte analogico include una scheda di sviluppo e un sensore ad ultrasuoni. Permette di suonare diverse tonalità rilevando la posizione delle tue dita. Pertanto, questo modulo è in grado di stimolare un pianoforte per eseguire musica e canzoni.
 
-**2. Organigramme**
+**2. Diagramma di Flusso**
 
 ![](media/B101.png)
 
-**3. Schéma de câblage**
+**3. Schema di Collegamento**
 
 ![](media/B102.png)
 
-**4. Code de test**
+**4. Codice di Test**
 
-Attribuez la valeur de distance à item, et les notes jouées varient en fonction de la distance. Sept notes sont incluses : Do, Ré, Mi, Fa, Sol, La, Si.
+Assegna il valore della distanza all'elemento, e le tonalità suonate variano in base alla distanza. Sono incluse sette tonalità: Do, Re, Mi, Fa, So, La, Si.
 
 ![](media/B103.png)
 
-**5. Résultat du test**
+**5. Risultato del Test**
 
-Connectez les câblages et téléversez le code.
+Collega i cablaggi e carica il codice.
 
-- Jouer Do lorsque la distance est inférieure à 10.
-- Jouer Ré lorsque la distance est comprise entre 10 et 20.
-- Jouer Mi lorsque la distance est comprise entre 20 et 30.
-- Jouer Fa lorsque la distance est comprise entre 30 et 40.
-- Jouer Sol lorsque la distance est comprise entre 40 et 50.
-- Jouer La lorsque la distance est comprise entre 50 et 60.
-- Jouer Si lorsque la distance est comprise entre 60 et 70.
+- Suona Do quando la distanza è inferiore a 10.
+- Suona Re quando la distanza è compresa tra 10 e 20.
+- Suona Mi quando la distanza è compresa tra 20 e 30.
+- Suona Fa quando la distanza è compresa tra 30 e 40.
+- Suona So quando la distanza è compresa tra 40 e 50.
+- Suona La quando la distanza è compresa tra 50 e 60.
+- Suona Si quando la distanza è compresa tra 60 e 70.

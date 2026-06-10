@@ -1,20 +1,20 @@
-### Projet 23 Tasse Intelligente
+### Progetto 23 Smart Cup
 
-**1. Description**
+**1. Descrizione**
 
-Dans ce projet, nous utilisons principalement la carte de développement Arduino pour créer une tasse intelligente programmable, qui affiche la température du liquide intérieur via un indicateur RGB. Elle peut contrôler la luminosité de la lumière en réglant un seuil de température. Si le seuil est dépassé, la lumière s’éclaircit. Sinon, elle s’assombrit.
+In questo progetto, utilizziamo principalmente la scheda di sviluppo Arduino per creare una smart cup programmabile, che indica la temperatura del liquido interno tramite un indicatore RGB. È possibile controllare la luminosità della luce impostando una soglia di temperatura. Se la soglia viene superata, la luce si illumina di più. Altrimenti, si attenua.
 
-La tasse intelligente permet d’aider les utilisateurs à mieux contrôler la température de leur eau potable et à prévenir efficacement la surchauffe ou la congélation.
+La smart cup aiuta gli utenti a controllare meglio la temperatura dell'acqua da bere e a prevenire efficacemente il surriscaldamento o il congelamento.
 
-**2. Principe de Fonctionnement**
+**2. Principio di funzionamento**
 
 ![](media/B23.png)
 
-**3. Schéma de Câblage**
+**3. Schema di collegamento**
 
 ![](media/B24.png)
 
-**4. Code de Test**
+**4. Codice di test**
 
 ```
 /*
@@ -51,26 +51,26 @@ void loop()
 }
 ```
 
-**5. Résultat du Test**
+**5. Risultato del test**
 
-Après avoir connecté le câblage et téléversé le code, ouvrez le moniteur série en réglant le débit en bauds à 9600, et la valeur de température et d’humidité sera affichée.
+Dopo aver collegato i cavi e caricato il codice, aprire il monitor seriale impostando la velocità a 9600 baud, e verranno visualizzati i valori di temperatura e umidità.
 
 ![](media/B25.png)
 
-**6. Extension des Connaissances**
+**6. Approfondimento**
 
-Maintenant, nous allons réaliser une tasse intelligente capable d’afficher la température du liquide. Nous divisons 100 en quatre parties avec une LED, comme indiqué ci-dessous :
+Ora realizzeremo una smart cup che può mostrare la temperatura del liquido. Dividiamo 100 in quattro parti con un LED, come mostrato di seguito:
 
-- **LED Rouge :** 100-75°C
-- **LED Jaune :** 75-50°C
-- **LED Verte :** 50-25°C
-- **LED Bleue :** 25-0°C
+- **LED Rosso:** 100-75°C
+- **LED Giallo:** 75-50°C
+- **LED Verde:** 50-25°C
+- **LED Blu:** 25-0°C
 
-**Schéma de Câblage :**
+**Schema di collegamento：**
 
 ![](media/B26.png)
 
-**Code :**
+**Codice：**
 
 ```
 /*
@@ -137,11 +137,11 @@ void loop()
 }
 ```
 
-**Résultat du Test**
+**Risultato del test**
 
-- **LED Rouge :** 100-75°C
-- **LED Jaune :** 75-50°C
-- **LED Verte :** 50-25°C
-- **LED Bleue :** 25-0°C
+- **LED Rosso:** 100-75°C
+- **LED Giallo:** 75-50°C
+- **LED Verde:** 50-25°C
+- **LED Blu:** 25-0°C
 
-Si la LED bleue est allumée, cela signifie que la température détectée par le capteur DHT11 est comprise entre 0 et 25°.
+Se il LED blu è acceso, significa che la temperatura rilevata dal sensore DHT11 è nell'intervallo 0-25°.

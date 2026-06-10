@@ -1,34 +1,34 @@
-### Projet 8 Interprète Musical
+### Progetto 8 Musicista
 
-**1. Description**
+**1. Descrizione**
 
-Dans ce projet, nous utiliserons un haut-parleur amplifié pour jouer de la musique. Ce haut-parleur peut non seulement jouer des chansons simples, mais aussi interpréter ce que vous souhaitez. Ainsi, vous pouvez programmer d'autres codes intéressants dans le projet pour obtenir des résultats d'apprentissage remarquables.
+In questo progetto, utilizzeremo un altoparlante con amplificatore di potenza per riprodurre musica. Questo altoparlante non solo può suonare semplici canzoni, ma anche eseguire ciò che desideri. Pertanto, puoi programmare altri codici interessanti nel progetto per ottenere risultati di apprendimento splendidi.
 
-**2. Principe de fonctionnement**
+**2. Principio di funzionamento**
 
 ![](media/A28.png)
 
-Le signal électrique est injecté à la broche 1 de RP1 (ajuste l'intensité du signal, ce qui correspond également au volume sonore).
+Il segnale elettrico viene immesso dal pin 1 di RP1 (regola l'intensità del segnale, che corrisponde anche al volume del suono).
 
-Après couplage dans C4 et passage par R5, le signal atteint la broche IN- du 8002B, où il est amplifié opérationnellement puis envoyé au haut-parleur BEE1.
+Dopo l'accoppiamento in C4 e il passaggio attraverso R5, il segnale raggiunge il pin IN- del 8002B, dove viene amplificato operazionalmente e inviato all'altoparlante BEE1.
 
-**Tableau de comparaison des fréquences en Do**
+**Tabella di confronto delle frequenze in C**
 
-|    Note     | Fréquence(Hz) |      Note      | Fréquence(Hz) |     Note     | Fréquence(Hz) |
+|    Nota     | Frequenza(Hz) |      Nota      | Frequenza(Hz) |     Nota     | Frequenza(Hz) |
 | :---------: | :-----------: | :------------: | :-----------: | :----------: | :-----------: |
-| Bémol  1  Do |      262      | Naturel  1  Do |      523      | Dièse  1  Do |     1047      |
-| Bémol  2  Ré |      294      | Naturel  2  Ré |      587      | Dièse  2  Ré |     1175      |
-| Bémol  3  Mi |      330      | Naturel  3  Mi |      659      | Dièse  3  Mi |     1319      |
-| Bémol  4  Fa |      349      | Naturel  4  Fa |      698      | Dièse  4  Fa |     1397      |
-| Bémol  5  Sol|      392      | Naturel  5  Sol|      784      | Dièse  5  Sol|     1568      |
-| Bémol  6  La |      440      | Naturel  6  La |      880      | Dièse  6  La |     1760      |
-| Bémol  7  Si |      494      | Naturel  7  Si |      988      | Dièse  7  Si |     1967      |
+| Bemolle  1  Do |      262      | Naturale  1  Do |      523      | Diesis  1  Do |     1047      |
+| Bemolle  2  Re |      294      | Naturale  2  Re |      587      | Diesis  2  Re |     1175      |
+| Bemolle  3  Mi |      330      | Naturale  3  Mi |      659      | Diesis  3  Mi |     1319      |
+| Bemolle  4  Fa |      349      | Naturale  4  Fa |      698      | Diesis  4  Fa |     1397      |
+| Bemolle  5  Sol|      392      | Naturale  5  Sol|      784      | Diesis  5  Sol|     1568      |
+| Bemolle  6  La |      440      | Naturale  6  La |      880      | Diesis  6  La |     1760      |
+| Bemolle  7  Si |      494      | Naturale  7  Si |      988      | Diesis  7  Si |     1967      |
 
-**3. Schéma de câblage**
+**3. Schema di collegamento**
 
 ![](media/A29.png)
 
-**4. Code de test**
+**4. Codice di prova**
 
 ```
 /*
@@ -64,25 +64,25 @@ void loop()
 }
 ```
 
-**5. Résultat du test**
+**5. Risultato del test**
 
-Après avoir téléversé le code et mis sous tension, l'amplificateur joue en boucle des notes musicales avec les fréquences correspondantes : DO, Ré, Mi, Fa, Sol, La, Si.
+Dopo aver caricato il codice e acceso l'alimentazione, l'amplificatore riproduce ciclicamente toni musicali con frequenze corrispondenti: DO, Re, Mi, Fa, Sol, La, Si.
 
-**Réglage du volume de l'amplificateur :**
+**Regolazione del volume dell'amplificatore di potenza:**
 
- **Il y a un potentiomètre à côté du haut-parleur. Nous pouvons ajuster le volume du haut-parleur en le tournant.** (Note : Veuillez utiliser une force appropriée pour le régler afin de ne pas endommager le potentiomètre)
+ **Accanto all'altoparlante c'è un potenziometro. Possiamo regolare il volume dell'altoparlante ruotandolo.** (Nota: Si prega di usare una forza adeguata per regolarlo, per non danneggiare il potenziometro)
 
 ![](media/A30.png)
 
-**6. Extension des connaissances**
+**6. Espansione della conoscenza**
 
- Jouons une chanson d'anniversaire. Le câblage reste inchangé.
+Suoniamo una canzone di compleanno. I collegamenti rimangono invariati.
 
-**Notation musicale chiffrée :**
+**Notazione musicale numerica:**
 
 ![](media/A31.png)
 
-**Diagramme comparatif des bémols, naturels et dièses**
+**Diagramma di confronto tra Bemolle, Naturale e Diesis**
 
 ![](media/A32.png)
 

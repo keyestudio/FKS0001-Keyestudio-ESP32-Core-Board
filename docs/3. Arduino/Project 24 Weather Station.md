@@ -1,14 +1,14 @@
-### Projet 24 Station Météo
+### Progetto 24 Stazione Meteo
 
-**1. Description**
+**1. Descrizione**
 
-Cette station météo enregistre la température ambiante et l'humidité via une carte Arduino et un capteur de température et d'humidité.
+Questa stazione meteo registra la temperatura e l'umidità ambientale tramite scheda Arduino e un sensore di temperatura e umidità.
 
-**2. Schéma de câblage**
+**2. Schema di Collegamento**
 
 ![](media/B27.png)
 
-**3. Code de test**
+**3. Codice di Test**
 
 ```
 /*
@@ -46,8 +46,8 @@ void loop()
 }
 ```
 
-**4. Résultat du test**
+**4. Risultato del Test**
 
-Après avoir connecté le câblage et téléversé le code, l'affichage LCD montrera directement la valeur d'humidité et de température ambiantes.
+Dopo aver collegato i cavi e caricato il codice, il display LCD mostrerà direttamente il valore di umidità e temperatura ambientale.
 
 ![](media/B28.png)

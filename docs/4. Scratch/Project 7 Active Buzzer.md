@@ -1,49 +1,49 @@
-### Projet 7 Buzzer Actif
+### Progetto 7 Buzzer Attivo
 
-**1. Description**
+**1. Descrizione**
 
-Un buzzer actif est un composant utilisé comme alarme, rappel ou dispositif de divertissement, qui produit un son fiable.
+Un buzzer attivo è un componente utilizzato come allarme, promemoria o dispositivo di intrattenimento, che produce un suono affidabile.
 
-De plus, il permet de générer des sons hautement contrôlables, rendant nos projets plus intéressants.
+Inoltre, permette di generare suoni altamente controllabili, rendendo i nostri progetti più interessanti.
 
-**2. Principe de fonctionnement**
+**2. Principio di Funzionamento**
 
 ![](media/A82.png)
 
-Un buzzer actif intègre un multivibrateur, il produit donc un son uniquement via une tension continue. La broche 1 du buzzer est connectée à VCC et la broche 2 est contrôlée par un triode. Lorsqu’un niveau haut est appliqué à la base (broche 1) du triode, son collecteur (broche 3) et son émetteur (broche 2) sont reliés à la masse, et le buzzer émet un son.
+Un buzzer attivo integra un multivibratore, quindi emette suono solo tramite tensione DC. Il pin 1 del buzzer si collega a VCC e il pin 2 è controllato da un triode. Quando viene fornito un livello alto alla base (pin 1) del triode, il collettore (pin 3) e l'emettitore (pin 2) si collegano a GND, e il buzzer emette suono.
 
-Inversement, si un niveau bas est appliqué à la base, les autres broches seront déconnectées, donc le buzzer restera silencieux.
+Al contrario, se forniamo un livello basso alla base, gli altri pin saranno scollegati, quindi il buzzer rimarrà silenzioso.
 
-**3. Schéma de câblage**
+**3. Schema di Collegamento**
 
 ![](media/A83.png)
 
-**4. Code de test**
+**4. Codice di Test**
 
-Si la carte de développement sort un niveau haut, le buzzer émettra un son. S’il sort un niveau bas, le buzzer cessera de sonner.
+Se la scheda di sviluppo emette un livello alto, il buzzer emetterà suono. Se emette un livello basso, il buzzer smetterà di suonare.
 
-1. Faites glisser les deux blocs de code de base.
+1. Trascina i due blocchi di codice base.
 
 ![](media/A84.png)
 
-2. Faites glisser les blocs suivants depuis la partie "Buzzer" et réglez la broche IO5 sur HIGH. Puis réglez le temps de délai à 1s.
+2. Trascina i seguenti blocchi dalla sezione "Buzzer" e imposta il pin IO5 su HIGH. Poi imposta il tempo di ritardo a 1s.
 
 ![](media/A85.png)
 
-3. Faites glisser les blocs suivants depuis la partie "Buzzer" et réglez la broche IO5 sur LOW. Puis réglez le temps de délai à 1s.
+3. Trascina i seguenti blocchi dalla sezione "Buzzer" e imposta il pin IO5 su LOW. Poi imposta il tempo di ritardo a 1s.
 
 ![](media/A86.png)
 
-**Code complet :**
+**Codice Completo：**
 
 ![](media/A87.png)
 
-**5. Résultat du test**
+**5. Risultato del Test**
 
-Après avoir téléversé le code et mis sous tension, le buzzer émet un son pendant 1s puis reste silencieux pendant 1s.
+Dopo aver caricato il codice e acceso l'alimentazione, il buzzer emette suono per 1s e rimane silenzioso per 1s.
 
-**6. Explication du code**
+**6. Spiegazione del Codice**
 
-Bloc de sortie du buzzer. Nous définissons d’abord la broche sur IO5 puis réglons la sortie sur "HIGH" ou "LOW". Le buzzer émettra un bip lorsqu’il est à HIGH, tandis qu’il restera silencieux à LOW.
+Blocco di output del buzzer. Prima definiamo il pin su IO5 e poi impostiamo l'uscita su "HIGH" o "LOW". Il buzzer emetterà un beep quando è su HIGH, mentre rimarrà silenzioso su LOW.
 
 ![](media/A88.png)

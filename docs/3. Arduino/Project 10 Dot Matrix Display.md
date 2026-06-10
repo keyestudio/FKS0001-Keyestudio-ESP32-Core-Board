@@ -1,42 +1,42 @@
-### Projet 10 Affichage Matrice de Points
+### Progetto 10 Display a Matrice di Punti
 
-**1. Description**
+**1. Descrizione**
 
-Ce module se compose d'une matrice de points LED 8x8 avec une broche de contrôle pour chaque ligne ainsi que chaque colonne afin de régler la luminosité des LED. Connecté à une carte Arduino, la luminosité des LED est contrôlée pour afficher des caractères et des figures via la programmation Arduino. De cette manière, des caractères simples, des chiffres et des figures peuvent être affichés. Il peut également être utilisé dans des machines de jeu ou des écrans.
+Questo modulo consiste in una matrice di LED 8x8 con un pin di controllo per ogni riga e colonna per regolare la luminosità dei LED. Collegandolo alla scheda Arduino, la luminosità dei LED viene controllata per visualizzare caratteri e figure tramite programmazione Arduino. In questo modo, è possibile visualizzare caratteri semplici, numeri e figure. Può essere applicato anche in macchine da gioco o schermi.
 
-**2. Principe de Fonctionnement**
+**2. Principio di Funzionamento**
 
 ![](media/A37.png)
 
-Le MAX7219 est un circuit intégré avec communication SPI et peut être utilisé pour contrôler la matrice de points 8x8. La communication SPI du MAX7219 est intégrée dans nos bibliothèques et vous pouvez l'appeler directement.
+MAX7219 è un IC con comunicazione SPI e può essere utilizzato per controllare la matrice di punti 8x8. La comunicazione SPI del MAX7219 è integrata nelle nostre librerie e può essere richiamata direttamente.
 
-**Fonctionnement du Module Matrice de Points**
+**Funzionamento del Modulo Matrice di Punti**
 
-Cliquez sur le lien pour le Modulo ：[http://dotmatrixtool.com/#](http://dotmatrixtool.com/#)
+Clicca sul link per il Modulo ：[http://dotmatrixtool.com/#](http://dotmatrixtool.com/#)
 
-**Étapes :**
+**Passaggi:**
 
-1. Cliquez sur le lien et définissez la hauteur et la largeur de la matrice de points. Ici, nous réglons les deux à 8.
+1. Clicca sul link e imposta l'altezza e la larghezza della matrice di punti. Qui impostiamo entrambi a 8.
 
 ![](media/A38.png)
 
-2. Réglez "Byte Order" sur "Column Major".
+2. Imposta "Byte Order" su "Column Major".
 
 ![](media/A39.png)
 
-3. Réglez "Endian" sur "Big Endian".
+3. Imposta "Endian" su "Big Endian".
 
 ![](media/A40.png)
 
-4. Cliquez sur les cases blanches pour former le motif souhaité (cliquez de nouveau pour désélectionner), puis cliquez sur "Generate" pour générer un tableau pour cette icône. Copiez ce tableau et collez-le dans le code, puis le motif sera affiché sur la matrice de points.
+4. Clicca sulle tessere bianche per formare il motivo desiderato (clicca di nuovo per deselezionare), quindi clicca su "Generate" per generare un array per questa icona. Copia questo array e incollalo nel codice, così il motivo verrà visualizzato sulla matrice di punti.
 
 ![](media/A41.png)
 
-**3. Schéma de Câblage**
+**3. Schema di Collegamento**
 
 ![](media/A42.png)
 
-**4. Code de Test**
+**4. Codice di Test**
 
 ```
 /*
@@ -55,9 +55,9 @@ const byte IMAGES[8] = {0x30, 0x78, 0x7c, 0x3e, 0x3e, 0x7c, 0x78, 0x30};
 void setup() 
 {
   lc.shutdown(0,false);
-  // Set brightness to a medium value
+  // Imposta la luminosità a un valore medio
   lc.setIntensity(0,8);
-  // Clear the display
+  // Pulisce il display
   lc.clearDisplay(0);  
 }
 
@@ -70,8 +70,8 @@ void loop()
 }
 ```
 
-**5. Résultat du Test**
+**5. Risultato del Test**
 
-Après avoir connecté le câblage et téléchargé le code, un cœur s'affichera sur la matrice de points, comme illustré ci-dessous.
+Dopo aver collegato i fili e caricato il codice, un cuore verrà visualizzato sulla matrice di punti, come mostrato di seguito.
 
 ![](media/A43.png)

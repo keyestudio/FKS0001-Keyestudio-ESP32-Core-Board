@@ -1,20 +1,20 @@
-### Projet 15 Répondeur
+### Progetto 15 Risponditore
 
-**1. Description**
+**1. Descrizione**
 
-Ce répondeur programmable reçoit et envoie des signaux via une carte de développement Arduino et un groupe de boutons, et il juge la justesse des réponses grâce à une LED. C'est un bon outil pour exercer la capacité de réaction des élèves et attirer leur attention sur les questions. Si la réponse est correcte, le répondant obtient beaucoup de points.
+Questo risponditore programmabile riceve e invia segnali tramite la scheda di sviluppo Arduino e un gruppo di pulsanti, e valuta la correttezza delle risposte tramite un LED. È un ottimo strumento per esercitare la capacità di reazione degli studenti e catturare la loro attenzione sulle domande. Se la risposta è corretta, il partecipante ottiene molti punti.
 
-De plus, il simplifie la gestion des attrapeurs de questions par les enseignants et réduit le désordre des réponses. Il peut même stimuler l'intérêt des élèves pour l'apprentissage.
+Inoltre, semplifica la gestione da parte degli insegnanti dei "grabber" delle domande e riduce il disordine delle risposte. Può persino stimolare l’interesse degli studenti nell’apprendimento.
 
-**2. Organigramme**
+**2. Diagramma di flusso**
 
 ![image-20251013104115790](media/A60.png)
 
-**3. Schéma de câblage**
+**3. Schema di collegamento**
 
 ![](media/A61.png)
 
-**4. Code de test**
+**4. Codice di test**
 
 ```
 /*
@@ -83,8 +83,8 @@ void loop()
 }
 ```
 
-**5. Résultat du test**
+**5. Risultato del test**
 
-Simulons un jeu de réponses rapides.
+Simuliamo un gioco di risposta rapida.
 
-Appuyez sur le bouton rouge pour éteindre toutes les LED. Ensuite, nous pouvons sélectionner les boutons jaune, vert et bleu pour allumer les LED correspondantes. La personne dont la LED s'allume en premier peut répondre en premier.
+Premere il pulsante rosso per spegnere tutte le luci LED. Poi possiamo selezionare i pulsanti giallo, verde e blu per accendere i LED corrispondenti. La persona il cui LED si accende per prima può rispondere per prima.

@@ -1,20 +1,20 @@
-### Projet 30 Maison Intelligente
+### Progetto 30 Casa Intelligente
 
-**1. Description**
+**1. Descrizione**
 
-À l'ère de la technologie, nous sommes tous familiers avec la maison intelligente. C'est un système qui peut contrôler les appareils électriques via des boutons.
+In questa era tecnologica, siamo tutti familiari con la casa intelligente. È un sistema che può controllare gli elettrodomestici tramite pulsanti.
 
-Dans ce projet, nous cherchons à simuler une maison intelligente via une télécommande IR. Avec un MCU Arduino comme cœur, il peut être utilisé pour contrôler la lumière, les climatiseurs, la télévision et les moniteurs de sécurité.
+In questo progetto, vogliamo simulare una casa intelligente tramite un telecomando IR. Con Arduino MCU come nucleo, può essere utilizzato per controllare luci, condizionatori, TV e monitor di sicurezza.
 
-**2. Organigramme**
+**2. Diagramma di Flusso**
 
 ![](media/B47.png)
 
-**3. Schéma de câblage**
+**3. Schema di Collegamento**
 
 ![](media/B48.png)
 
-**4. Code de test**
+**4. Codice di Test**
 
 ```
 /*
@@ -218,8 +218,8 @@ void show_pot()  //Read the analog value of potentiometer
 }
 ```
 
-**5. Résultat du test**
+**5. Risultato del Test**
 
-Après avoir connecté le câblage et téléchargé le code, nous pouvons voir le contenu correspondant sur le LCD en appuyant sur les boutons. Le bouton OK efface l'affichage des capteurs.
+Dopo aver collegato i fili e caricato il codice, possiamo vedere i contenuti corrispondenti sul LCD premendo i pulsanti. Il pulsante OK cancella la visualizzazione dei sensori.
 
 ![](media/B49.png)

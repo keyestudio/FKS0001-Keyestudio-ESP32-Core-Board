@@ -1,110 +1,110 @@
-### Projet 5 Lumière d'Ambiance Arc-en-Ciel
+### Progetto 5 Luce Ambientale Arcobaleno
 
-**1. Description**
+**1. Descrizione**
 
-La LED 2812RGB est une lumière programmable colorée et onirique, dont la couleur, la luminosité et le rythme sont réglables. Cette lumière d'ambiance arc-en-ciel peut être utilisée comme décoration dynamique à volonté. Ou vous pouvez la contrôler pour qu'elle "danse avec la musique". Important, elle peut être améliorée en alarme. Son capteur intégré détecte l'environnement ambiant pour avertir les utilisateurs en changeant sa couleur, sa luminosité et son rythme.
+Il LED 2812RGB è una luce programmabile colorata e suggestiva, il cui colore, luminosità e ritmo sono regolabili. Questa luce ambientale arcobaleno può essere utilizzata come decorazione dinamica a piacimento. Oppure può essere controllata per "danzare con la musica". Importante, può essere migliorata come allarme. Il suo sensore integrato rileva l'ambiente circostante per avvisare gli utenti cambiando colore, luminosità e ritmo.
 
-**2. Principe de Fonctionnement**
+**2. Principio di Funzionamento**
 
 ![](media/A53.png)
 
-Le protocole de données adopte un mode de communication en code retour à zéro sur une seule ligne. Après la réinitialisation du pixel à la mise sous tension, la borne DIN reçoit les données du contrôleur. Les premières données 24 bits arrivant seront extraites par le premier pixel et envoyées au registre de données interne.
+Il protocollo dati adotta una modalità di comunicazione a codice single-line return-to-zero. Dopo il reset del pixel all'accensione, il terminale DIN riceve i dati dal controller. I primi 24 bit di dati ricevuti vengono estratti dal primo pixel e inviati al registro dati interno.
 
-Les données restantes seront amplifiées par un circuit d'amplification et transmises via la sortie DOUT au pixel en cascade suivant.  
-En étant transmises à travers les pixels, le signal diminue de 24 bits à chaque fois.
+I dati rimanenti vengono amplificati da un circuito di amplificazione e trasmessi tramite la porta DOUT al pixel successivo in cascata.  
+Durante la trasmissione attraverso i pixel, il segnale diminuisce di 24 bit ogni volta.
 
-De plus, le pixel adopte une technologie d'auto-formage et de retransmission, de sorte que le nombre de pixels en cascade est uniquement limité par la vitesse de transmission du signal.
+Inoltre, il pixel adotta una tecnologia di rimodellamento e inoltro automatico, per cui il numero di pixel in cascata è limitato solo dalla velocità di trasmissione del segnale.
 
-**3. Schéma de Câblage**
+**3. Schema di Collegamento**
 
 ![](media/A54.png)
 
-**4. Code de Test**
+**4. Codice di Test**
 
-Apprenons à allumer la LED 2812 RGB et à régler ses couleurs.
+Impariamo come accendere il 2812 RGB e impostarne i colori.
 
-1. Faites glisser les deux blocs de code.
+1. Trascina i due blocchi di codice.
 
 ![](media/A55.png)
 
-2. Faites glisser le bloc suivant depuis la partie "RGB LED" et réglez la broche sur IO15 et le nombre de LED sur 6.
+2. Trascina il blocco seguente dalla sezione "RGB LED" e imposta il pin su IO15 e il numero di LED a 6.
 
 ![](media/A56.png)
 
-3. Faites glisser le bloc suivant depuis la partie "RGB LED" et réglez la luminosité à 20.
+3. Trascina il blocco seguente dalla sezione "RGB LED" e imposta la luminosità a 20.
 
 ![](media/A57.png)
 
-4. Faites glisser les blocs suivants et réglez le nombre de LED sur 0, 1, 2, 3, 4 et 5, puis choisissez les couleurs rouge, vert, bleu, jaune, violet et blanc.
+4. Trascina i blocchi seguenti e imposta il numero di LED a 0, 1, 2, 3, 4 e 5, quindi scegli i colori rosso, verde, blu, giallo, viola e bianco.
 
 ![](media/A58.png)
 
-5. Ajoutez le bloc suivant.
+5. Aggiungi il blocco seguente.
 
 ![](media/A59.png)
 
-**Code Complet :**
+**Codice Completo：**
 
 ![](media/A60.png)
 
-**5. Résultat du Test**
+**5. Risultato del Test**
 
-Après avoir téléchargé le code, connecté le câblage et mis sous tension, la LED s'allumera en différentes couleurs, comme montré ci-dessous :
+Dopo aver caricato il codice, collegato i fili e acceso l'alimentazione, i LED si illumineranno con colori diversi, come mostrato di seguito:
 
 ![](media/A61.png)
 
-**6. Extension des Connaissances**
+**6. Espansione della Conoscenza**
 
-Dans ce projet d'extension, réalisons un mini spectacle lumineux !
+In questo progetto di espansione, realizziamo uno mini spettacolo di luci!
 
-Imbriquez quatre blocs "répéter" et ajoutez un "variable +" dedans, puis remettez les variables correspondantes à 0 à la fin de chaque boucle.
+Annida quattro blocchi "ripeti" e aggiungi un "variabile +" in essi, quindi azzera le variabili corrispondenti a 0 alla fine di ogni ciclo.
 
 ![](media/A62.png)
 
-Placez les trois variables ci-dessus dans le bloc "RGB" afin que ces valeurs de couleur soient contrôlées. Ensuite, ajoutez un module de rafraîchissement.
+Inserisci le tre variabili sopra nel blocco "RGB" in modo che questi valori di colore siano controllati. Poi aggiungi un modulo di aggiornamento.
 
 ![](media/A63.png)
 
-Placez le RGB dans un bloc "afficher couleur" pour afficher les couleurs. Et définissez une variable item pour contrôler la LED affichée.
+Inserisci l'RGB in un blocco "mostra colore" per visualizzare i colori. E definisci una variabile item per controllare il LED visualizzato.
 
 ![](media/A64.png)
 
-Le module "pour toujours" est utilisé pour contrôler les LEDs RGB, qui vont cycler de 0 à 5 pour allumer progressivement chaque lumière.
+Il modulo forever viene usato per controllare i LED RGB, che cicleranno da 0 a 5 per accendere gradualmente ogni luce.
 
 ![](media/A65.png)
 
-**Code Complet**
+**Codice Completo**
 
 ![](media/A66.png)
 
-**7. Explication du Code**
+**7. Spiegazione del Codice**
 
-1. Définir le nombre de 2812 RGB. Une broche de la carte de développement peut contrôler plusieurs LEDs 2812 RGB, donc il faut définir le nombre à l'avance et sélectionner la broche connectée.
+1. Imposta il numero di 2812 RGB. Un pin della scheda di sviluppo può controllare più LED 2812 RGB, quindi è necessario impostare il numero in anticipo e selezionare il pin collegato.
 
 ![](media/A67.png)
 
-2. Régler la luminosité des 2812 RGB. Entrez une valeur de luminosité entre 0 et 255, où 255 est la luminosité maximale.
+2. Imposta la luminosità del 2812 RGB. Inserisci un valore di luminosità compreso tra 0 e 255, dove 255 è il massimo.
 
 ![](media/A68.png)
 
-3. Ce bloc éteint toutes les LEDs 2812 RGB.
+3. Questo blocco spegne tutti i 2812 RGB.
 
 ![](media/A69.png)
 
-4. Contrôler l'affichage des 2812 RGB. Nous pouvons remplir les champs pour contrôler la LED allumée et sa couleur après avoir sélectionné la broche. Par exemple, "0 à 0" signifie que seule la première LED s'allume. Après avoir téléchargé le code, la première LED s'allumera dans la couleur définie.
+4. Controlla la visualizzazione dei 2812 RGB. Possiamo compilare gli spazi vuoti per controllare il LED acceso e il suo colore dopo aver selezionato il pin. Per esempio, "0 a 0" significa che si accende solo il primo LED. Dopo aver caricato il codice, il primo LED si accenderà nel colore impostato.
 
-**NOTE :** Les deux champs peuvent aussi être remplis avec des variables, permettant ainsi de créer un spectacle lumineux.
+**NOTA:** I due spazi vuoti possono anche essere compilati con variabili, così da poter creare uno spettacolo di luci.
 
 ![](media/A70.png)
 
-5. Régler la couleur des 2812 RGB. La couleur affichée peut être modulée par les valeurs de rouge, vert et bleu. Nous pouvons ajouter ce bloc dans les réglages de couleur des 2812 RGB.
+5. Imposta il colore dei 2812 RGB. Il colore visualizzato può essere modulato dai valori di rosso, verde e blu. Possiamo aggiungere questo blocco nelle impostazioni colore del 2812 RGB.
 
 ![](media/A71.png)
 
-6. Il peut contrôler l'affichage d'une seule LED 2812 RGB en entrant le numéro de la LED à contrôler et en sélectionnant la couleur.
+6. Può controllare la visualizzazione di un singolo 2812 RGB inserendo il numero del LED da controllare e selezionando il colore.
 
 ![](media/A72.png)
 
-7. Les 2812 RGB afficheront la couleur définie uniquement après rafraîchissement.
+7. Il 2812 RGB visualizzerà il colore impostato solo dopo l'aggiornamento.
 
 ![](media/A73.png)

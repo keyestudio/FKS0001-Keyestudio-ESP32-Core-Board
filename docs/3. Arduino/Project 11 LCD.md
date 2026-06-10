@@ -1,22 +1,22 @@
-### Projet 11 LCD
+### Progetto 11 LCD
 
-**1. Description**
+**1. Descrizione**
 
-L'écran Arduino I2C 1602 LCD est un dispositif auxiliaire couramment utilisé pour les cartes de développement MCU afin de se connecter à des capteurs et modules externes. Il dispose d'un écran LCD à 16 caractères de large sur 2 lignes avec une luminosité réglable. Ce module programmable est pratique pour l'édition, l'affichage et la gestion des données. De plus, il peut afficher non seulement des caractères et des chiffres, mais aussi des valeurs de capteurs, comme la température, l'humidité ou la pression.
+Arduino I2C 1602 LCD è un dispositivo ausiliario comunemente usato per le schede di sviluppo MCU per collegarsi a sensori e moduli esterni. Presenta uno schermo LCD a 16 caratteri di larghezza e 2 linee con luminosità regolabile. Questo modulo programmabile è comodo per la modifica, visualizzazione e gestione dei dati. Inoltre, può mostrare non solo caratteri e cifre, ma anche valori dei sensori, come temperatura, umidità o pressione.
 
-En raison de son utilité, cet affichage est largement utilisé dans de nombreux domaines, notamment les produits domotiques, les systèmes de surveillance industrielle, les systèmes de contrôle robotique et les systèmes électroniques automobiles.
+Grazie alla sua versatilità, il display è ampiamente utilizzato in molti settori, inclusi prodotti per la casa intelligente, sistemi di monitoraggio industriale, sistemi di controllo robotico e sistemi elettronici automobilistici.
 
-**2. Principe de fonctionnement**
+**2. Principio di funzionamento**
 
 ![](media/A44.png)
 
-Il fonctionne selon le même principe que la communication IIC. Les fonctions sous-jacentes ont été encapsulées dans des bibliothèques afin que vous puissiez les appeler directement. Si vous êtes intéressé, vous pouvez approfondir les principes de pilotage sous-jacents.
+Il principio è lo stesso della comunicazione IIC. Le funzioni di base sono state incapsulate in librerie in modo che possano essere richiamate direttamente. Se sei interessato, puoi approfondire i principi di funzionamento sottostanti.
 
-**3. Schéma de câblage**
+**3. Schema di collegamento**
 
 ![](media/A45.png)
 
-**4. Code de test**
+**4. Codice di prova**
 
 ```
 /*
@@ -44,13 +44,13 @@ void loop()
 }
 ```
 
-**5. Résultat du test**
+**5. Risultato del test**
 
-Après avoir connecté le câblage et téléchargé le code, allumez le LCD, "Hello, world!" et "keyestudio!" s'afficheront sur l'écran LCD.
+Dopo aver collegato i fili e caricato il codice, accendi l’LCD, verranno visualizzati "Hello, world!" e "keyestudio!" sul display.
 
 ![](media/A46.png)
 
-Si les caractères sont flous, veuillez ajuster le potentiomètre du rétroéclairage à l'aide d'un petit tournevis plat (Veuillez appliquer une force appropriée pour le réglage). Connectez une alimentation externe si nécessaire.
+Se i caratteri risultano poco chiari, regola il potenziometro della retroilluminazione con un piccolo cacciavite a taglio (usa una forza adeguata per la regolazione). Collega un’alimentazione esterna se necessario.
 
 ![](media/A47.png)
 

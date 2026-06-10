@@ -1,22 +1,22 @@
-### Projet 4 Feu de Circulation
+### Progetto 4 Semaforo
 
-**1. Description**
+**1. Descrizione**
 
-Le module de feu de circulation est un dispositif utilisé pour contrôler le passage des piétons et des véhicules. Il comprend une lumière rouge, une jaune et une verte, chacune impliquant des consignes différentes.
+Il modulo semaforo è un dispositivo utilizzato per controllare il percorso di pedoni e veicoli. Include una luce rossa, una gialla e una verde, che indicano istruzioni diverse.
 
-**Rouge pour Stop :** Les piétons et les véhicules doivent s’arrêter.
+**Rosso per Stop:** Pedoni e veicoli devono fermarsi.
 
-**Jaune pour Prudence :** Les piétons et les véhicules doivent se préparer à s’arrêter. Si la circulation est déjà en cours, la vitesse doit être réduite.
+**Giallo per Attenzione:** Pedoni e veicoli devono prepararsi a fermarsi. Se la marcia è già in corso, la velocità deve essere ridotta.
 
-**Vert pour Passage :** Les piétons et les véhicules peuvent continuer en respectant le code de la route.
+**Verde per Procedere:** Pedoni e veicoli possono continuare rispettando il codice della strada.
 
-Dans ce projet, vous pouvez utiliser Arduino pour écrire un code afin de contrôler les feux de circulation. Par exemple, définir la durée de chaque feu et l’intervalle entre eux. De plus, vous pouvez également ajouter un minuteur pour changer les couleurs des feux selon un planning.
+In questo progetto, puoi usare Arduino per scrivere codice che controlli i semafori. Ad esempio, impostare la durata di ogni luce e l’intervallo di tempo tra di esse. Inoltre, puoi aggiungere un timer per modificare i colori delle luci secondo una programmazione.
 
-**2. Schéma de câblage**
+**2. Schema di Collegamento**
 
 ![](media/A21.png)
 
-**3. Code de test**
+**3. Codice di Test**
 
 ```
 /*
@@ -55,6 +55,6 @@ void loop()
 }
 ```
 
-**4. Résultat du test**
+**4. Risultato del Test**
 
-Après avoir téléversé le code, la LED verte s’allumera pendant 5s, la LED jaune clignotera 3 fois, et la LED rouge s’allumera pendant 5s, en boucle.
+Dopo aver caricato il codice, il LED verde si accenderà per 5 secondi, il LED giallo lampeggerà 3 volte e il LED rosso si accenderà per 5 secondi, in ciclo continuo.

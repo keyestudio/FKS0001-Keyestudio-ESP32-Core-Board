@@ -1,61 +1,61 @@
-### Projet 14 Compteur
+### Progetto 14 Contatore
 
-**1. Description**
+**1. Descrizione**
 
-Le compteur à tube numérique Arduino 4 bits peut enregistrer des nombres de 0 à 9999. Il dispose d’une vitesse d’affichage, d’un réglage du mode de comptage ainsi que d’une fonction de réinitialisation. Ce module est largement utilisé dans les compteurs en temps réel (comme le comptage d’appuis sur bouton et la rotation de moteur DC), les jeux et les équipements expérimentaux.
+Il contatore a tubo digitale Arduino a 4 bit può registrare numeri da 0 a 9999. Dispone di regolazione della velocità di visualizzazione, modalità di conteggio e funzione di reset. Questo modulo è ampiamente utilizzato in contatori in tempo reale (come il conteggio delle pressioni di un pulsante e la rotazione di un motore DC), giochi e apparecchiature sperimentali.
 
-**2. Organigramme**
+**2. Diagramma di flusso**
 
 ![](media/A172.png)
 
-**3. Schéma de câblage**
+**3. Schema di collegamento**
 
 ![](media/A173.png)
 
-**4. Code de test**
+**4. Codice di test**
 
-1. Faites glisser les deux blocs de base.
+1. Trascina i due blocchi base.
 
 ![](media/A174.png)
 
-2. Réglez la broche du bouton sur « input ».
+2. Imposta il pin del pulsante su “input”.
 
 ![](media/A175.png)
 
-3. Placez un bloc « variable ». Définissez le type de variable sur int et nommez-la item. Assignez 0 comme valeur initiale.
+3. Inserisci un blocco "variabile". Imposta il tipo di variabile su int e il nome su item. Assegna 0 come valore iniziale.
 
 ![](media/A176.png)
 
-4. Faites glisser un bloc « if » depuis « Control » (il s’exécute uniquement lorsque sa condition est satisfaite). Mettez un bloc « Button pressed » depuis « Button » dans la zone condition (le losange) et réglez la broche sur IO19. Faites glisser un bloc « variable mode » et placez-le après « then », définissez-le comme « item » et réglez le mode sur « ++ ».
+4. Trascina un blocco "if" da “Control” (viene eseguito solo quando la condizione è soddisfatta). Metti un blocco “Button pressed” da “Button” nella casella condizione (quella esagonale) e imposta il pin su IO19. Trascina un blocco "modalità variabile" e posizionalo dopo "then", definendolo come "item" e impostando la modalità su "++".
 
 ![](media/A177.png)
 
-5. Répétez l’étape 4, mais réglez l’interface sur IO18 et le mode sur « – – ».
+5. Ripeti il passo 4, ma imposta l’interfaccia su IO18 e la modalità su "– –".
 
 ![](media/A178.png)
 
-6. Faites glisser un autre bloc « if » depuis « Control » et définissez sa condition : « le bouton de l’interface IO17 a-t-il été pressé ? ». Placez un bloc de réglage de variable après « then » et réglez la variable à 0.
+6. Trascina un altro blocco "if" da “Control” e definisci la condizione "il pulsante dell’interfaccia IO17 è stato premuto?". Metti un blocco di impostazione variabile dopo "then" e imposta la variabile a 0.
 
 ![](media/A179.png)
 
-7. Faites glisser un bloc « if » depuis « Control ». Trouvez le bloc « ＞ » dans « Operators » et remplissez le champ gauche avec la variable item et le champ droit avec « 9999 ». Placez également un bloc de réglage de variable après « then » et réglez la variable à 0.
+7. Trascina un blocco "if" da “Control”. Trova il blocco "＞" in “Operators” e riempi il campo sinistro con la "variabile item" e quello destro con "9999". Inoltre, metti un blocco di impostazione variabile dopo "then" e imposta la variabile a 0.
 
 ![](media/A180.png)
 
-8. Faites glisser un bloc « TM1650 display » depuis « Digital tube » et réglez la chaîne affichée sur la variable item. Enfin, n’oubliez pas d’ajouter un délai de 0,2 s.
+8. Trascina un blocco "TM1650 display" da "Digital tube" e imposta la stringa visualizzata sul blocco "variabile item". Infine, non dimenticare di aggiungere un ritardo di 0,2s.
 
 ![](media/A181.png)
 
-**Code complet :**
+**Codice completo:**
 
 ![](media/A182.png)
 
-**5. Résultat du test**
+**5. Risultato del test**
 
-Après avoir connecté le câblage et téléchargé le code, appuyez sur le bouton vert pour ajouter 1, sur le jaune pour soustraire 1, et sur le rouge pour réinitialiser.
+Dopo aver collegato i cavi e caricato il codice, premi il pulsante verde per aggiungere 1, quello giallo per sottrarre 1 e quello rosso per resettare.
 
-**6. Explication du code**
+**6. Spiegazione del codice**
 
-Le bloc **">"** est utilisé pour comparer deux valeurs. Ces deux champs peuvent être remplacés par des nombres ou des variables.
+Il blocco **">"** viene usato per il confronto tra due valori. Questi due campi possono essere sostituiti sia da numeri che da variabili.
 
 ![](media/A183.png)

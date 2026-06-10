@@ -1,14 +1,14 @@
-### Projet 3 Dispositif de Détresse SOS
+### Progetto 3 Dispositivo di Soccorso SOS
 
-**1. Description**
+**1. Descrizione**
 
-Le dispositif Arduino SOS est capable d’émettre des signaux de détresse, ce qui correspond au principe du code Morse. Il est pratique en cas d’urgence.
+Il dispositivo Arduino SOS è in grado di emettere segnali di soccorso, che coincidono con il principio del codice Morse. È utile in situazioni di emergenza.
 
-**2. Schéma de câblage**
+**2. Schema di Collegamento**
 
 ![](media/A20.png)
 
-**3. Code de test**
+**3. Codice di Test**
 
 ```
 /*
@@ -57,6 +57,6 @@ void loop()
 }
 ```
 
-**4. Résultat du test**
+**4. Risultato del Test**
 
-Après le téléchargement réussi du code, on peut voir que la LED clignote 3 fois rapidement, puis 3 fois lentement, puis à nouveau 3 fois rapidement, alternant entre rapide et lent.
+Dopo che il codice è stato caricato con successo, possiamo vedere che il LED lampeggia 3 volte rapidamente, poi lampeggia 3 volte lentamente e infine lampeggia 3 volte rapidamente, alternando tra veloce e lento.

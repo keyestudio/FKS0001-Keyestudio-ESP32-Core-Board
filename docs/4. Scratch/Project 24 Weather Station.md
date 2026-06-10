@@ -1,39 +1,39 @@
-### Projet 24 Station Météo
+### Progetto 24 Stazione Meteo
 
-**1. Description**
+**1. Descrizione**
 
-Cette station météo enregistre la température ambiante et la valeur d'humidité via une carte Arduino et un capteur de température et d'humidité.
+Questa stazione meteo registra la temperatura e l'umidità ambientale tramite una scheda Arduino e un sensore di temperatura e umidità.
 
-De plus, elle permet d'ajuster les valeurs de température et d'humidité en fonction des paramètres environnementaux afin d'obtenir des conditions environnementales confortables.
+Inoltre, permette di regolare i valori di temperatura e umidità in base ai parametri ambientali come metodo per ottenere condizioni ambientali confortevoli.
 
-**2. Schéma de câblage**
+**2. Schema di Collegamento**
 
 ![](media/B84.png)
 
-**3. Code de test**
+**3. Codice di Test**
 
-1. Ajoutez deux modules de base. Initialisez le LCD 1602 et allumez le rétroéclairage du LCD 1602 (n'oubliez pas de mettre le LCD en marche). Configurez la broche du dht sur IO26 et le mode sur dht11. Déclarez deux variables int nommées “RH“ et “temp“ à 0.
+1. Aggiungere due moduli base. Inizializzare l'LCD 1602 e accendere la retroilluminazione dell'LCD 1602 (ricordarsi di impostare l'LCD su ON). Impostare il pin del dht su IO26 e la modalità su dht11. Impostare due variabili int “RH“ e “temp“ a 0.
 
 ![](media/B85.png)
 
-2. Assignez la valeur d'humidité à la variable RH, et la valeur de température à la variable temp.
+2. Assegnare il valore di umidità alla variabile RH e il valore di temperatura alla variabile temp.
 
 ![](media/B86.png)
 
-3. Positionnez l'affichage du LCD à x : 0 et y : 0. Ajoutez le module d'affichage lcd et définissez le texte affiché sur "humidity:". Ajoutez de nouveau le module d'affichage lcd et insérez la variable RH dans la zone blanche.
+3. Impostare la posizione di visualizzazione dell'LCD su x: 0 e y: 0. Aggiungere il modulo di visualizzazione lcd e impostare il carattere da visualizzare su "humidity:". Aggiungere nuovamente il modulo di visualizzazione lcd e aggiungere la variabile RH nella casella bianca.
 
 ![](media/B87.png)
 
-4. Répétez l'étape 3, mais positionnez y : 1 et le texte affiché sur “temperature:”, puis ajoutez la variable temp dans la zone blanche.
+4. Ripetere il passo 3, ma impostare y: 1 e il carattere da visualizzare su “temperature:” e aggiungere la variabile temp nella casella bianca.
 
 ![](media/B88.png)
 
-**Code complet :**
+**Codice Completo:**
 
 ![](media/B89.png)
 
-**4. Résultat du test**
+**4. Risultato del Test**
 
-Après avoir connecté le câblage et téléversé le code, l'affichage LCD détectera directement la valeur d'humidité et de température ambiantes.
+Dopo aver collegato i cavi e caricato il codice, l'LCD mostrerà direttamente i valori di umidità e temperatura ambientale.
 
 ![](media/B90.png)

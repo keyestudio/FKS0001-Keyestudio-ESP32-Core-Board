@@ -1,52 +1,52 @@
-### Projet 9 Affichage à Tube Numérique
+### Progetto 9 Display a Tubo Digitale
 
-**1. Description**
+**1. Descrizione**
 
-Cet affichage à 4 chiffres est un dispositif utilisé pour afficher un comptage ou l'heure, capable d'afficher des chiffres de 0 à 9 ainsi que des lettres simples. Il se compose de quatre tubes numériques, chacun comportant sept diodes électroluminescentes (LED).
+Questo display a tubo digitale a 4 cifre è un dispositivo utilizzato per visualizzare conteggi o tempo, in grado di mostrare numeri da 0 a 9 e lettere semplici. È composto da quattro tubi digitali, ognuno dei quali ha sette diodi emettitori di luce (LED).
 
-De plus, plusieurs fonctions peuvent être réalisées en connectant leurs broches à la carte de développement Arduino, telles que la gestion du temps et certains jeux stockés.
+Inoltre, molteplici funzioni possono essere realizzate collegando i loro pin alla scheda di sviluppo Arduino, come la misurazione del tempo e alcuni giochi memorizzati.
 
-**2. Principe de Fonctionnement**
+**2. Principio di Funzionamento**
 
 ![](media/A33.png)
 
-Le TM1650 utilise le protocole IIC et adopte deux lignes de bus (SDA et SCL).
+TM1650 utilizza il protocollo IIC e adotta due linee bus (SDA e SCL).
 
-**Commande de Données :** 0x48.  
-Cette commande indique au TM1650 d’allumer les tubes numériques plutôt que de scanner les touches.
+**Comando Dati:** 0x48.  
+Questo comando indica al TM1650 di accendere i tubi digitali anziché effettuare la scansione dei tasti.
 
-**Commande d’Affichage :**
+**Comando Display:**
 
 ![](media/A34.png)
 
-En réalité, il s'agit d'un octet de données avec différents bits représentant différentes fonctions.  
-**bit[6:4] :** Définit la luminosité des LED. Notez que 000 indique la luminosité maximale.  
-**bit[3] :** Détermine la présence d’un point décimal.  
-**bit[0] :** Détermine si l’affichage est allumé.
+In realtà, è un byte di dati con bit diversi che rappresentano funzioni differenti.  
+**bit[6:4]:** Imposta la luminosità del LED. Nota che 000 indica la massima luminosità.  
+**bit[3]:** Determina se è presente un punto decimale.  
+**bit[0]:** Determina se accendere il display.
 
-**Allumage du Tube Numérique**  
-Prenons un exemple : luminosité niveau 8 sans point correspond à 0x05.  
-Étapes : Signal de démarrage — Envoi de 0x48 — Réception par l’esclave — Envoi de 0x05 — Réception par l’esclave — Signal de fin  
-Après l’allumage, il n’est pas nécessaire de renvoyer 0x48 de manière répétée, car la fonction du tube numérique est confirmée.  
-De plus, la luminosité et les modes d’affichage peuvent être énumérés avec plusieurs données en une seule fois, ce qui est clair et économise de l’espace.
+**Accensione del Tubo Digitale**  
+Prendiamo un esempio: luminosità livello 8 senza punto decimale corrisponde a 0x05.  
+Passaggi: Segnale di inizio — Invia 0x48 — Dispositivo slave riceve — Invia 0x05 — Dispositivo slave riceve — Segnale di fine  
+Dopo l’accensione, non è necessario inviare ripetutamente 0x48, poiché la funzione del tubo digitale è stata confermata.  
+Inoltre, la luminosità e i metodi di visualizzazione possono essere elencati con più dati in un unico punto, rendendo il tutto chiaro e salvaspazio.
 
-**Extinction du Tube Numérique**  
-Étapes : Signal de démarrage — Envoi de 0x48 — Réception par l’esclave — Envoi de 0x00 — Réception par l’esclave — Signal de fin
+**Spegnimento del Tubo Digitale**  
+Passaggi: Segnale di inizio — Invia 0x48 — Dispositivo slave riceve — Invia 0x00 — Dispositivo slave riceve — Segnale di fine
 
-**Affichage des Chiffres sur le Tube Numérique**  
-Nous indiquons d’abord au TM1650 d’afficher un chiffre sur le tube prédéterminé. Ensuite, le chiffre sera affiché. Ses huit bits correspondent à huit segments, avec 1 pour allumer et 0 pour éteindre. En cas de doute sur la correspondance, vous pouvez allumer bit par bit en boucle.
+**Visualizzazione Numeri sul Tubo Digitale**  
+Prima diciamo al TM1650 di visualizzare numeri sul tubo predeterminato. Successivamente il numero verrà mostrato. I suoi otto bit corrispondono a otto segmenti, con 1 per accendere e 0 per spegnere. Se ci sono dubbi sulla corrispondenza, è possibile accendere bit per bit in un ciclo.
 
-Par exemple, lorsque le bit 1 est allumé et affiche 8, la donnée est 0x68. S’il y a un point, 8 sera également affiché en envoyant 0x7f.  
-Étapes : Signal de démarrage — Envoi de 0x68 — Réception par l’esclave — Envoi de 0x7f — Réception par l’esclave — Signal de fin  
-Résultat : 8 est affiché sur le bit 1.
+Ad esempio, quando il bit 1 è acceso e visualizza 8, il dato è 0x68. Se è presente un punto, 8 verrà comunque visualizzato inviando 0x7f.  
+Passaggi: Segnale di inizio — Invia 0x68 — Dispositivo slave riceve — Invia 0x7f — Dispositivo slave riceve — Segnale di fine  
+Risultato: 8 viene visualizzato sul Bit 1.
 
-Pour plus de commodité, un tableau des valeurs correspondantes de 0 à 9 peut être créé. Après amélioration, il est possible d’afficher des chiffres, d’ajuster la luminosité, de déplacer le point décimal et les tubes.
+Per comodità, può essere creata una matrice di valori corrispondenti da 0 a 9. Dopo ulteriori miglioramenti, è possibile visualizzare numeri, regolare la luminosità, spostare il punto decimale e i tubi.
 
-**3. Schéma de Câblage**
+**3. Schema di Collegamento**
 
 ![](media/A35.png)
 
-**4. Code de Test**
+**4. Codice di Test**
 
 ```
 /*
@@ -73,13 +73,13 @@ void loop()
 }
 ```
 
-**5. Résultat du Test**
+**5. Risultato del Test**
 
-Après avoir connecté le câblage et téléchargé le code, l’affichage à tube numérique montre "9999", comme illustré ci-dessous.
+Dopo aver collegato i cavi e caricato il codice, il display a tubo digitale mostra "9999", come mostrato di seguito.
 
 ![](media/A36.png)
 
-**6. Code Étendu**
+**6. Codice Esteso**
 
 ```
 /*
@@ -103,13 +103,13 @@ void setup()
 void loop()
 {
   for(int num=0; num<10000; num++)
-  {   //Si num est inférieur à 10000, num augmente de 1 à chaque cycle
-    DigitalTube.displayFloatNum(num);   //Les valeurs ou variables dans les parenthèses peuvent être affichées via le tube numérique
+  {   //Se num è inferiore a 10000, num aumenterà di 1 ad ogni ciclo
+    DigitalTube.displayFloatNum(num);   //Valori o variabili nelle parentesi possono essere visualizzati tramite il tubo digitale
     delay(100);
   }
 }
 ```
 
-**7. Résultat du Test**
+**7. Risultato del Test**
 
-Après le téléchargement du code, le tube numérique affiche de 1 à 9999 grâce à la boucle "for".
+Dopo aver caricato il codice, il tubo digitale visualizza i numeri da 1 a 9999 tramite il ciclo "for".

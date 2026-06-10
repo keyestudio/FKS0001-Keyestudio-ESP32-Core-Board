@@ -1,33 +1,33 @@
-### Projet 27 Stationnement Intelligent
+### Progetto 27 Parcheggio Intelligente
 
-**1. Description**
+**1. Descrizione**
 
-Ce système de stationnement intelligent détecte et optimise la position de stationnement grâce à un capteur ultrasonique. Avec ce système, les erreurs de stationnement sont largement évitées.
+Questo sistema di parcheggio intelligente rileva e ottimizza la posizione di parcheggio tramite un sensore ad ultrasuoni. Con questo sistema, si evita in larga misura il parcheggio errato.
 
-Tout d'abord, vous devez installer le capteur autour du parking. Ensuite, il détectera la distance entre la voiture et ses bords et enverra l'information à la carte de développement afin de contrôler la voiture pour qu'elle s'ajuste automatiquement à la position de stationnement optimale.
+Per prima cosa, è necessario installare il sensore intorno al parcheggio. Successivamente, rileverà la distanza tra l’auto e i suoi bordi e invierà le informazioni alla scheda di sviluppo per controllare l’auto in modo che si regoli automaticamente alla posizione di parcheggio ottimale.
 
-**2. Diagramme de flux**
+**2. Diagramma di Flusso**
 
 ![](media/B104.png)
 
-**3. Schéma de câblage**
+**3. Schema di Collegamento**
 
 ![](media/B105.png)
 
-**4. Code de test**
+**4. Codice di Test**
 
-Attribuez la valeur de distance détectée à une variable, et vérifiez si elle est supérieure à la valeur seuil définie. Si c'est le cas, les lignes correspondantes sur la matrice de points s'allument. De cette manière, une distance peut être indiquée par l'allumage des lignes.
+Assegna il valore della distanza rilevata a una variabile e verifica se è maggiore del valore soglia impostato. In tal caso, si accendono le linee corrispondenti sulla matrice di punti. In questo modo, una distanza può essere indicata accendendo le linee.
 
-**Coordonnées de référence :**
+**Coordinate di Riferimento:**
 
 ![](media/B106.png)
 
-**Code complet :**
+**Codice Completo:**
 
 ![](media/B107.png)
 
-**5. Résultat du test**
+**5. Risultato del Test**
 
-Après avoir connecté le câblage et téléchargé le code, des lignes s'afficheront sur la matrice de points. Si la distance détectée est inférieure à 50 cm, il y aura moins de lignes.
+Dopo aver collegato i cavi e caricato il codice, le linee verranno visualizzate sulla matrice di punti. Se la distanza rilevata è inferiore a 50 cm, ci saranno meno linee.
 
 ![](media/B108.png)![](media/B109.png)

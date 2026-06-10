@@ -1,32 +1,32 @@
-### Projet 25 Télémètre Ultrasonique
+### Progetto 25 Misuratore di Distanza Ultrasonico
 
-**1. Description**
+**1. Descrizione**
 
-Ce télémètre ultrasonique mesure la distance des obstacles en émettant des ondes sonores puis en recevant l’écho. Autrement dit, la distance n’est pas une valeur immédiate, mais une valeur observée par un calcul théorique de la différence de temps entre l’émetteur et le récepteur.
+Questo misuratore di distanza ultrasonico misura la distanza degli ostacoli emettendo onde sonore e poi ricevendo l'eco. Cioè, la distanza non è un valore immediato, ma uno osservato tramite un calcolo teorico della differenza di tempo tra emettitore e ricevitore.
 
-L’ultrason permet de détecter la forme des objets, de commander des portes automatiques et d’estimer la vitesse d’écoulement et la pression.
+L'ultrasuono è in grado di rilevare la forma degli oggetti, attivare porte automatiche e stimare la velocità di flusso e la pressione.
 
-De plus, il supporte le travail en coopération avec des ordinateurs. Ainsi, la valeur mesurée peut être transmise aux ordinateurs via une carte Arduino.
+Inoltre, supporta lavori cooperativi con computer. Di conseguenza, il valore misurato può essere trasmesso ai computer tramite scheda Arduino.
 
-Dans la vie quotidienne, il est largement utilisé pour les moteurs, servomoteurs et LEDs ainsi que dans des systèmes (navigation automatique, contrôle et systèmes de surveillance de sécurité).
+Nella vita quotidiana, è ampiamente utilizzato per motori, servocomandi e LED così come per sistemi (navigazione automatica, controllo e sistemi di monitoraggio della sicurezza).
 
-**2. Principe de fonctionnement**
+**2. Principio di Funzionamento**
 
 ![](media/B29.png)
 
-Comme nous le savons tous, l’ultrason est un type d’onde sonore inaudible à haute fréquence. À l’image d’une chauve-souris, ce module mesure la distance des obstacles en calculant la différence de temps entre l’émission de l’onde et la réception de l’écho.
+Come tutti sappiamo, l'ultrasuono è un tipo di segnale sonoro ad alta frequenza non udibile. Simile a un pipistrello, questo modulo misura la distanza degli ostacoli calcolando la differenza di tempo tra l'emissione dell'onda e la ricezione dell'eco.
 
-**Distance maximale :** 3M
+**Distanza massima:** 3M
 
-**Distance minimale :** 5cm
+**Distanza minima:** 5cm
 
-**Angle de détection :** ≤15°
+**Angolo di rilevamento:** ≤15°
 
-**3. Schéma de câblage**
+**3. Schema di Collegamento**
 
 ![](media/B30.png)
 
-**4. Code de test**
+**4. Codice di Test**
 
 ```
 /*
@@ -74,25 +74,25 @@ void loop()
 }
 ```
 
-**5. Résultat du test**
+**5. Risultato del Test**
 
-Après avoir connecté le câblage et téléchargé le code, ouvrez le moniteur série et réglez la vitesse à 9600 bauds, le port série affiche la valeur de la distance.
+Dopo aver collegato i fili e caricato il codice, aprire il monitor seriale impostando la velocità di trasmissione a 9600, la porta seriale stampa il valore della distanza.
 
 ![](media/B31.png)
 
-**6. Extension des connaissances**
+**6. Approfondimento**
 
-Faisons un télémètre.
+Creiamo un misuratore di distanza.
 
-Nous affichons des caractères sur un LCD 1602. Le programme affiche "Keyestudio" en (3,0) et “distance:” en (0,1) suivi de la valeur de la distance en (9,1).
+Visualizziamo i caratteri su LCD 1602. Programmare per mostrare "Keyestudio" in (3,0) e “distance:” in (0,1) seguito dal valore della distanza in (9,1).
 
-Lorsque la valeur est inférieure à 100 (ou 10), un résidu du troisième (ou du deuxième) chiffre subsiste encore. Par conséquent, un test "if" est nécessaire pour déterminer une certaine condition.
+Quando il valore è inferiore a 100 (o 10), rimane un residuo della terza (o della seconda) cifra. Pertanto, è necessario un controllo "if" per determinare una certa condizione.
 
-**Schéma de câblage :**
+**Schema di Collegamento：**
 
 ![](media/B32.png)
 
-**Code :**
+**Codice：**
 
 ```
 /*
