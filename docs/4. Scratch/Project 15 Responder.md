@@ -1,66 +1,66 @@
-### Projekt 15 Responder
+### Proyecto 15 Respondedor
 
-**1. Beschreibung**
+**1. Descripción**
 
-Dieser programmierbare Responder empfängt Signale über ein Arduino-Entwicklungsboard und eine Gruppe von Tasten und bewertet die Richtigkeit der Antworten über eine LED. Er ist ein gutes Objekt, um die Reaktionsfähigkeit der Schüler zu trainieren und ihre Aufmerksamkeit auf Fragen zu lenken. Wenn die Antwort richtig ist, erhält der Teilnehmer viele Punkte.
+Este respondedor programable recibe y envía señales a través de la placa de desarrollo Arduino y un grupo de botones, y juzga la corrección de las respuestas mediante un LED. Es un buen objeto para ejercitar la capacidad de reacción de los estudiantes y captar su atención hacia las preguntas. Si la respuesta es correcta, el participante obtiene muchos puntos.
 
-Außerdem vereinfacht er die Handhabung von Antwortgebern für Lehrer und reduziert Antwortchaos. Er kann sogar das Interesse der Schüler am Lernen fördern.
+Además, simplifica la manipulación de los capturadores de preguntas por parte de los profesores y reduce el desorden de respuestas. Incluso puede estimular el interés de los estudiantes por el aprendizaje.
 
-**2. Flussdiagramm**
+**2. Diagrama de flujo**
 
 ![](media/A184.png)
 
-**3. Schaltplan**
+**3. Diagrama de conexiones**
 
 ![](media/A185.png)
 
-**4. Testcode**
+**4. Código de prueba**
 
-1. Ziehen Sie die zwei Basisblöcke und setzen Sie einen „Variable“-Block dazwischen. Stellen Sie den Variablentyp auf int und den Namen auf item mit einer Anfangszuweisung von 0 ein. Setzen Sie den LED-Pin auf „output“ und den Tasten-Pin auf „input“.
+1. Arrastra los dos bloques básicos y coloca un bloque de "variable" entre ellos. Configura el tipo de variable a int y nómbrala como item con una asignación inicial de 0. Configura el pin del LED como “output” y el pin del botón como “input”.
 
 ![](media/A186.png)
 
-2. Fügen Sie einen „LED output“-Block hinzu, definieren Sie den Pin als IO27 und setzen Sie die Ausgabe auf HIGH.  
-3. Ziehen Sie einen „if“-Block und fügen Sie die Bedingung „interface IO19 button was be pushed?“ hinzu.
+2. Añade un bloque de "LED output", define su pin en IO27 y configura la salida en HIGH.  
+3. Arrastra un bloque "if" y añade la condición "interface IO19 button was be pushed?".
 
 ![](media/A187.png)
 
-4. Fügen Sie eine Variablenzuweisung und vier LED-Ausgabeblöcke unter „then“ hinzu. Dabei benennen wir die Variable „item“ mit der Zuweisung „0“ und setzen alle Ausgänge an den Pins 12, 13, 14 und 27 jeweils auf LOW (Der Responder funktioniert nur, wenn alle LEDs aus sind). Vergessen Sie auch nicht eine Verzögerung von 0,2 s.
+4. Añade una asignación de variable y cuatro bloques de salida LED bajo "then". Entre ellos, nombramos la variable "item" con una asignación de "0", y configuramos todas las salidas en LOW respectivamente en los pines 12, 13, 14 y 27 (El respondedor funciona solo cuando todos los LEDs están apagados). Asimismo, no olvides un retardo de 0.2s.
 
 ![](media/A188.png)
 
-5. Fügen Sie einen „repeat until“-Block hinzu und setzen Sie „until“ auf „item = 1“, wie unten gezeigt. Wenn item = 1 ist, wird die Schleife verlassen.
+5. Añade un bloque "repeat until" y configura el "until" a "item = 1", como se muestra a continuación. Cuando item = 1, se sale del bucle.
 
 ![](media/A189.png)
 
-6. Ziehen Sie einen weiteren „if“-Block und setzen Sie die Bedingung „Interface IO16 button was be pushed?“. Fügen Sie unter „then“ einen „LED output“-Block hinzu und setzen Sie die Ausgabe auf HIGH am Pin IO12. Fügen Sie außerdem eine „set item variable by 1“-Anweisung hinzu, um diesen Bedingungsblock zu verlassen.
+6. Arrastra otro bloque "if" y configura la condición "Interface IO16 button was be pushed?". Añade un bloque "LED output" bajo "then" y configura la salida en HIGH en el pin IO12. Y añade un "set item variable by 1" para salir de este bloque condicional.
 
 ![](media/A190.png)
 
-7. Wiederholen Sie Schritt 6, setzen Sie jedoch das Interface auf IO17 und den LED-Pin auf IO13.
+7. Repite el paso 6, pero configura la interfaz en IO17 y el pin del LED en IO13.
 
 ![](media/A191.png)
 
-8. Führen Sie Schritt 6 erneut aus, setzen Sie das Interface auf IO18 und den LED-Pin auf IO14.
+8. Repite el paso 6 nuevamente, pero configura la interfaz en IO18 y el pin del LED en IO14.
 
 ![](media/A192.png)
 
-**Vollständiger Code:**
+**Código completo:**
 
 ![](media/A193.png)
 
-**5. Testergebnis**
+**5. Resultado de la prueba**
 
-Verbinden Sie die Verkabelung und laden Sie den Code hoch. Die Antworten der Teilnehmer sind nur gültig, wenn die rote LED aus ist (rote Taste gedrückt).
+Conecta el cableado y sube el código. Las respuestas de los participantes solo son válidas cuando el LED rojo está apagado (el botón rojo está presionado).
 
-Wenn jemand seine Taste (gelb, grün oder blau) drückt, leuchtet die entsprechende LED sowie die rote Gegen-LED auf. Bis dahin können die übrigen LEDs beim Drücken der Tasten nicht eingeschaltet werden. Die Antwortaktion kann nur ausgeführt werden, wenn die rote Taste erneut gedrückt wird.
+Cuando alguien presiona su botón (amarillo, verde o azul), el LED correspondiente así como el rojo se encienden. En este momento, el resto de los LEDs no pueden encenderse al presionar botones. La acción de respuesta solo puede realizarse cuando se presiona nuevamente el botón rojo.
 
-**6. Code-Erklärung**
+**6. Explicación del código**
 
-1. Bedingungsschleifenmodul. Wenn die Bedingungen im Rautenfeld des Moduls erfüllt sind, wird die Schleife verlassen.
+1. Módulo de bucle condicional. Cuando se cumplen las condiciones en el recuadro de diamante del módulo, el bucle se termina.
 
 ![](media/A194.png)
 
-2. Der „=“-Block wird verwendet, um zu prüfen, ob zwei Werte gleich sind.
+2. El bloque "=" se usa para juzgar si dos valores son iguales.
 
 ![](media/A195.png)

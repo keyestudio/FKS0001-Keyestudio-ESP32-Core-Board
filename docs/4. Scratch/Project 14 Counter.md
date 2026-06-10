@@ -1,61 +1,61 @@
-### Projekt 14 Zähler
+### Proyecto 14 Contador
 
-**1. Beschreibung**
+**1. Descripción**
 
-Der Arduino 4-Bit Digitalrohrzähler kann Zahlen im Bereich von 0~9999 erfassen. Er verfügt über eine Anzeige-Geschwindigkeit, Zählmodus-Anpassung sowie eine Rücksetzfunktion. Dieses Modul wird häufig in Echtzeit-Zählern (wie Tastenbetätigung und DC-Motor-Drehzahlzählung), Spiel- und Versuchsausrüstung eingesetzt.
+El contador de tubo digital de 4 bits Arduino puede registrar números dentro del rango 0~9999. Cuenta con ajuste de velocidad de visualización, modo de conteo y función de reinicio. Este módulo se aplica ampliamente en contadores en tiempo real (como conteo de pulsaciones de botón y rotación de motor DC), juegos y equipos de experimentación.
 
-**2. Flussdiagramm**
+**2. Diagrama de flujo**
 
 ![](media/A172.png)
 
-**3. Schaltplan**
+**3. Diagrama de conexiones**
 
 ![](media/A173.png)
 
-**4. Testcode**
+**4. Código de prueba**
 
-1. Ziehen Sie die beiden Grundblöcke.
+1. Arrastra los dos bloques básicos.
 
 ![](media/A174.png)
 
-2. Stellen Sie den Tasten-Pin auf „input“.
+2. Configura el pin del botón como “input”.
 
 ![](media/A175.png)
 
-3. Fügen Sie einen „Variable“-Block hinzu. Setzen Sie den Variablentyp auf int und den Namen auf item. Weisen Sie 0 als Anfangswert zu.
+3. Coloca un bloque de "variable". Establece el tipo de variable como int y nómbrala como item. Asigna 0 como su valor inicial.
 
 ![](media/A176.png)
 
-4. Ziehen Sie einen „if“-Block aus „Control“ (er wird nur ausgeführt, wenn die Bedingung erfüllt ist). Legen Sie einen „Button pressed“-Block aus „Button“ in das Bedingungsfeld (das sechseckige) und setzen Sie den Pin auf IO19. Ziehen Sie einen „variable mode“-Block und setzen Sie ihn nach „then“, definieren Sie ihn als „item“ und stellen Sie den Modus auf „++“.
+4. Arrastra un bloque "if" desde “Control” (se ejecuta solo cuando su condición se cumple). Coloca un bloque “Button pressed” desde “Button” en el cuadro de condición (el hexágono) y configura el pin en IO19. Arrastra un bloque "variable mode" y colócalo después de "then", definiéndolo como "item" y establece el modo en "++".
 
 ![](media/A177.png)
 
-5. Wiederholen Sie Schritt 4, setzen Sie jedoch die Schnittstelle auf IO18 und den Modus auf „– –“.
+5. Repite el paso 4, pero configura la interfaz en IO18 y el modo en "– –".
 
 ![](media/A178.png)
 
-6. Ziehen Sie einen weiteren „if“-Block aus „Control“ und definieren Sie die Bedingung „wurde die Taste an Schnittstelle IO17 gedrückt?“. Legen Sie nach „then“ einen Variablen-Setzblock und setzen Sie die Variable auf 0.
+6. Arrastra otro bloque "if" desde “Control” y define su condición como "¿se presionó el botón de la interfaz IO17?". Coloca un bloque de configuración de variable después de "then" y establece la variable en 0.
 
 ![](media/A179.png)
 
-7. Ziehen Sie einen „if“-Block aus „Control“. Finden Sie den „＞“-Block in „Operators“ und füllen Sie das linke Feld mit „variable item“ und das rechte mit „9999“. Legen Sie ebenfalls nach „then“ einen Variablen-Setzblock und setzen Sie die Variable auf 0.
+7. Arrastra un bloque "if" desde “Control”. Busca el bloque "＞" en “Operators” y rellena el espacio izquierdo con la "variable item" y el derecho con "9999". Además, coloca un bloque de configuración de variable después de "then" y establece la variable en 0.
 
 ![](media/A180.png)
 
-8. Ziehen Sie einen „TM1650 display“-Block aus „Digital tube“ und setzen Sie die angezeigte Zeichenfolge auf den „variable item“-Block. Vergessen Sie abschließend nicht, eine Verzögerung von 0,2 s hinzuzufügen.
+8. Arrastra un bloque "TM1650 display" desde "Digital tube" y configura la cadena mostrada con el bloque "variable item". Finalmente, no olvides añadir un retardo de 0.2s.
 
 ![](media/A181.png)
 
-**Vollständiger Code:**
+**Código completo:**
 
 ![](media/A182.png)
 
-**5. Testergebnis**
+**5. Resultado de la prueba**
 
-Nach dem Anschließen der Verkabelung und Hochladen des Codes drücken Sie die grüne Taste, um 1 zu addieren, die gelbe, um 1 zu subtrahieren, und die rote, um zurückzusetzen.
+Después de conectar el cableado y subir el código, presiona el botón verde para sumar 1, el amarillo para restar 1 y el rojo para reiniciar.
 
-**6. Code-Erklärung**
+**6. Explicación del código**
 
-Der **">"**-Block wird verwendet, um zwischen zwei Werten zu vergleichen. Diese beiden Felder können entweder mit Zahlen oder Variablen belegt werden.
+El bloque **">"** se usa para comparar dos valores. Estos dos espacios pueden ser reemplazados por números o variables.
 
 ![](media/A183.png)

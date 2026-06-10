@@ -1,14 +1,14 @@
-### Projekt 3 SOS-Notrufgerät
+### Proyecto 3 Dispositivo de Socorro SOS
 
-**1. Beschreibung**
+**1. Descripción**
 
-Das Arduino SOS-Gerät kann Notsignale aussenden, die dem Prinzip des Morse-Codes entsprechen. Es ist praktisch für Notfälle.
+El dispositivo Arduino SOS es capaz de emitir señales de socorro, que coinciden con el principio del código Morse. Es conveniente para emergencias.
 
-**2. Schaltplan**
+**2. Diagrama de Conexiones**
 
 ![](media/A20.png)
 
-**3. Testcode**
+**3. Código de Prueba**
 
 ```
 /*
@@ -57,6 +57,6 @@ void loop()
 }
 ```
 
-**4. Testergebnis**
+**4. Resultado de la Prueba**
 
-Nachdem der Code erfolgreich hochgeladen wurde, sieht man, dass die LED 3-mal schnell blinkt, dann 3-mal langsam blinkt und anschließend wieder 3-mal schnell blinkt, wobei sich schnelle und langsame Blinks abwechseln.
+Después de que el código se carga correctamente, podemos ver que el LED parpadea 3 veces rápidamente, luego parpadea 3 veces lentamente y después parpadea 3 veces rápidamente, alternando entre rápido y lento.

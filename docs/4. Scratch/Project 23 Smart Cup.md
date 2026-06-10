@@ -1,85 +1,85 @@
-### Projekt 23 Smart Cup
+### Proyecto 23 Vaso Inteligente
 
-**1. Beschreibung**
+**1. Descripción**
 
-In diesem Projekt verwenden wir hauptsächlich das Arduino-Entwicklungsboard, um einen programmierbaren Smart Cup zu erstellen, der die Temperatur der inneren Flüssigkeit über eine RGB-Anzeige anzeigt. Die Helligkeit des Lichts kann durch das Einstellen eines Temperaturschwellenwerts gesteuert werden. Wird der Schwellenwert überschritten, wird das Licht heller. Andernfalls wird es dunkler.
+En este proyecto, utilizamos principalmente la placa de desarrollo Arduino para crear un vaso inteligente programable, que muestra la temperatura del líquido interno mediante un indicador RGB. Puede controlar el brillo de la luz configurando un umbral de temperatura. Si se supera el umbral, la luz se vuelve más brillante. De lo contrario, se atenúa.
 
-Der Smart Cup hilft den Benutzern, die Temperatur ihres Trinkwassers besser zu kontrollieren und effektiv Überhitzung oder Einfrieren zu verhindern.
+El vaso inteligente ayuda a los usuarios a controlar mejor la temperatura de su agua para beber y previene eficazmente el sobrecalentamiento o la congelación.
 
-**2. Funktionsprinzip**
+**2. Principio de Funcionamiento**
 
 ![](media/B71.png)
 
-Die zugehörigen Einstellungen im DHT11 werden vom Hersteller bereitgestellt, sodass Sie nur die Daten gemäß dem Sequenzdiagramm nacheinander lesen und verarbeiten müssen.
+Las configuraciones relacionadas con el DHT11 son proporcionadas por los fabricantes, por lo que solo necesitas leer y procesar los datos de forma ordenada según su diagrama de secuencia.
 
-Außerdem sind die relevanten Codes in unseren Bibliotheken verpackt, was es Ihnen erleichtert, Pins einzustellen und Werte auszulesen.
+Además, los códigos relevantes están empaquetados en nuestras librerías, lo que facilita configurar los pines y leer los valores.
 
-**3. Schaltplan**
+**3. Diagrama de Conexiones**
 
 ![](media/B72.png)
 
-**4. Testcode**
+**4. Código de Prueba**
 
-1. Ziehen Sie zwei Basisblöcke. Fügen Sie das Modul für die serielle Baudrate hinzu und setzen Sie die Baudrate auf 9600.
+1. Arrastra dos bloques básicos. Añade el módulo de velocidad de baudios serial y configura la velocidad a 9600.
 
-2. Ziehen Sie das DHT-Modul aus „Temperatur und Luftfeuchtigkeit“ und setzen Sie den Pin auf IO26, den Modus auf dht11.
+2. Arrastra el módulo DHT desde “Temperatura y humedad” y configura el pin en IO26, modo en dht11.
 
 ![](media/B73.png)
 
-3. Fügen Sie das Modul für serielle Ausgabe ohne Zeilenumbruch hinzu und setzen Sie die Ausgabe auf „RH:“, dann folgen Sie den untenstehenden Schritten und fügen eine Verzögerung von 1s hinzu.
+3. Añade el módulo de impresión serial sin salto de línea, y configura la impresión en “RH:”, luego sigue los pasos siguientes y añade un retardo de 1s.
 
-**Vollständiger Code:**
+**Código Completo:**
 
 ![](media/B74.png)
 
-**5. Testergebnis**
+**5. Resultado de la Prueba**
 
-Nach dem Anschließen der Verkabelung und Hochladen des Codes klicken Sie auf ![](media/B75.png), um den seriellen Monitor zu öffnen, stellen die Baudrate auf 9600 ein, und die Temperatur- und Luftfeuchtigkeitswerte werden angezeigt.
+Después de conectar el cableado y subir el código, haz clic ![](media/B75.png) para abrir el monitor serial, configura la velocidad de baudios a 9600, y se mostrarán los valores de temperatura y humedad.
 
 ![](media/B76.png)
 
-**6. Erweiterungscode**
+**6. Código de Expansión**
 
-In diesem Erweiterungsexperiment erstellen wir einen Smart Cup, der die Flüssigkeitstemperatur anzeigen kann. Wir teilen 100 in vier Bereiche auf, wobei jede LED einen Bereich repräsentiert:
+En este experimento de expansión, haremos un vaso inteligente que puede mostrar la temperatura del líquido. Dividimos 100 en cuatro partes con un LED representando cada una:
 
-- **Rote LED:** 100-75°C
+- **LED Rojo:** 100-75°C
 
-- **Gelbe LED:** 75-50°C
+- **LED Amarillo:** 75-50°C
 
-- **Grüne LED:** 50-25°C
+- **LED Verde:** 50-25°C
 
-- **Blaue LED:** 25-0°C
+- **LED Azul:** 25-0°C
 
-- **Flussdiagramm：**
+- **Diagrama de Flujo：**
 
 ![](media/B77.png)
 
-**Schaltplan：**
+**Diagrama de Conexiones：**
 
 ![](media/B78.png)
 
-**Code：**
+**Código：**
 
-1. Ziehen Sie zwei Basisblöcke. Stellen Sie dann die 4 LED-Pins auf „output“, den DHT11-Pin auf IO26, den Modus auf dht11 und den Variablennamen auf temp ein.
+1. Arrastra dos bloques básicos. Luego configura los 4 pines de los LED como “output”, el pin del DHT11 en IO26, modo en dht11 y el nombre de la variable como temp.
 
 ![](media/B79.png)
 
-2. Weisen Sie den Temperaturwert des DHT11 der Variablen temp zu.
+2. Asigna el valor de temperatura del DHT11 a la variable temp.
 
 ![](media/B80.png)
 
-3. Verwenden Sie „if else“, um die Variable temp zu prüfen. Wenn die Bedingungen erfüllt sind, wird die entsprechende LED eingeschaltet, andernfalls ausgeschaltet.
+3. Usa el bloque "if else" para evaluar la variable temp. Si se cumplen las condiciones, el LED correspondiente se encenderá, de lo contrario se apagará.
 
-**Vollständiger Code:**
+**Código Completo:**
 
 ![](media/B81.png)
 
-**7. Codeerklärung**
+**7. Explicación del Código**
 
-1. In diesem Codeblock kann die markierte Zahl in das Feld eingetragen werden, sodass mehrere Temperatur- und Luftfeuchtigkeitssensoren angeschlossen werden können. Nach dem Einstellen von Pin und Modus kann der Wert ausgelesen werden. In diesem Projekt setzen wir den Modus auf DHT11.
+1. En este bloque de código, el número marcado puede rellenarse en el espacio en blanco para conectar múltiples sensores de temperatura y humedad. Después de configurar el pin y el modo, se puede leer el valor. En este proyecto, configuramos el modo en DHT11.
 
 ![](media/B82.png)
 
-2. Codeblock zum Auslesen von Temperatur und Luftfeuchtigkeit.
+2. Bloque de código para leer la temperatura y humedad.
 
 ![](media/B83.png)

@@ -1,51 +1,51 @@
-### Projekt 4 Ampel
+### Proyecto 4 Semáforo
 
-**1. Beschreibung**
+**1. Descripción**
 
-Das Ampelmodul ist ein Gerät zur Steuerung des Verkehrs von Fußgängern und Fahrzeugen. Es umfasst eine rote, eine gelbe und eine grüne Lampe, die unterschiedliche Anweisungen bedeuten.
+El módulo de semáforo es un dispositivo utilizado para controlar el paso de peatones y vehículos. Incluye una luz roja, una amarilla y una verde, que implican diferentes instrucciones.
 
-**Rot für Stopp:** Fußgänger und Fahrzeuge halten an.
+**Rojo para Detenerse:** Peatones y vehículos deben detenerse.
 
-**Gelb für Vorsicht:** Fußgänger und Fahrzeuge bereiten sich auf das Anhalten vor. Wenn die Fahrt bereits im Gange ist, sollte die Geschwindigkeit reduziert werden.
+**Amarillo para Precaución:** Peatones y vehículos deben prepararse para detenerse. Si la conducción ya está en proceso, la velocidad debe ser lenta.
 
-**Grün für Weiterfahren:** Fußgänger und Fahrzeuge fahren unter Beachtung der Verkehrsregeln weiter.
+**Verde para Avanzar:** Peatones y vehículos continúan respetando las normas de tráfico.
 
-In diesem Projekt können Sie Arduino verwenden, um Code zur Steuerung der Ampel zu schreiben. Zum Beispiel können Sie die Dauer jeder Lampe und die Zeitintervalle dazwischen einstellen. Außerdem können Sie einen Timer hinzufügen, um die Lichtfarben nach Zeitplan zu ändern.
+En este proyecto, puedes usar Arduino para escribir código que controle los semáforos. Por ejemplo, establecer la duración de cada luz y el intervalo entre ellas. Además, también puedes añadir un temporizador para cambiar los colores de las luces según un horario.
 
-**2. Schaltplan**
+**2. Diagrama de Conexiones**
 
 ![](media/A46.png)
 
-**3. Testcode**
+**3. Código de Prueba**
 
-Wir simulieren einfach die Ampel: Die grüne LED leuchtet 5 Sekunden, die gelbe LED blinkt 3 Mal und die rote LED leuchtet 5 Sekunden. Dies wird in einer Schleife wiederholt.
+Simplemente simulamos los semáforos: el LED verde se enciende durante 5s, el LED amarillo parpadea 3 veces, y el LED rojo se enciende durante 5s. Y configuramos esto para que se repita en bucle.
 
-Das Blinken der gelben LED kann mit der for()-Anweisung aus Projekt 3 realisiert werden. Somit müssen wir nur die Leuchtdauer einstellen, um eine Ampel zu vervollständigen.
+El parpadeo del LED amarillo puede utilizar la instrucción for() que mencionamos en el proyecto 3. Por lo tanto, solo necesitamos establecer el tiempo de iluminación para completar un ciclo del semáforo.
 
-1. Ziehen Sie die zwei Codeblöcke.
+1. Arrastra los dos bloques de código.
 
 ![](media/A47.png)
 
-2. Stellen Sie den Pin-Modus auf „output“ ein.
+2. Configura el modo del pin a “output”
 
 ![](media/A48.png)
 
-3. Ziehen Sie die folgenden Blöcke aus dem Bereich „LED“ und setzen Sie den IO27-Pin auf HIGH und dann auf LOW. Stellen Sie anschließend die Verzögerungszeit auf 5 Sekunden ein.
+3. Arrastra los siguientes bloques de la sección "LED" y configura el pin IO27 a HIGH y luego a LOW. Luego establece el tiempo de retardo a 5s.
 
 ![](media/A49.png)
 
-4. Ziehen Sie die folgenden Blöcke aus dem Bereich „Control“ und setzen Sie die Wiederholungsanzahl auf 3, dann setzen Sie den IO26-Pin auf HIGH und danach auf LOW. Stellen Sie die Verzögerungszeit auf 0,5 Sekunden ein.
+4. Arrastra los siguientes bloques de la sección "Control" y configura el número de repeticiones a 3, luego configura el pin IO26 a HIGH y luego a LOW. Después establece el tiempo de retardo a 0.5s.
 
 ![](media/A50.png)
 
-5. Wiederholen Sie Schritt 3 und setzen Sie den Pin auf IO25.
+5. Repite el paso 3, y configura el pin a IO25.
 
 ![](media/A51.png)
 
-**Vollständiger Code：**
+**Código Completo：**
 
 ![](media/A52.png)
 
-**4. Testergebnis**
+**4. Resultado de la Prueba**
 
-Nach dem Hochladen des Codes leuchtet die grüne LED 5 Sekunden, die gelbe LED blinkt 3 Mal und die rote LED leuchtet 5 Sekunden.
+Después de subir el código, el LED verde se encenderá durante 5s, el LED amarillo parpadeará 3 veces, y el LED rojo se encenderá durante 5s.

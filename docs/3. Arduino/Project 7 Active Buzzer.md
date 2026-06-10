@@ -1,22 +1,22 @@
-### Projekt 7 Aktiver Summer
+### Proyecto 7 Zumbador Activo
 
-**1. Beschreibung**
+**1. Descripción**
 
-Ein aktiver Summer ist eine Komponente, die als Alarm, Erinnerung oder Unterhaltungsgerät verwendet wird und einen zuverlässigen Klang bietet. Darüber hinaus ermöglicht er die Erzeugung hochgradig kontrollierbarer Töne, wodurch unsere Projekte interessanter werden.
+Un zumbador activo es un componente utilizado como alarma, recordatorio o dispositivo de entretenimiento, que ofrece un sonido confiable. Además, permite estimular sonidos altamente controlables, haciendo nuestros proyectos más interesantes.
 
-**2. Funktionsprinzip**
+**2. Principio de Funcionamiento**
 
 ![](media/A26.png)
 
-Ein aktiver Summer integriert einen Multivibrator, daher erzeugt er nur durch Gleichspannung Ton. Pin 1 des Summers wird mit VCC verbunden und Pin 2 wird durch einen Transistor gesteuert. Wenn für die Basis (Pin 1) des Transistors ein hoher Pegel anliegt, verbinden sich dessen Kollektor (Pin 3) und Emitter (Pin 2) mit GND, und der Summer gibt einen Ton von sich.
+Un zumbador activo integra un multivibrador, por lo que emite sonido solo mediante voltaje DC. El pin 1 del zumbador se conecta a VCC y el pin 2 es controlado por un tríodo. Cuando se proporciona un nivel alto a la base (pin 1) del tríodo, su colector (pin 3) y emisor (pin 2) se conectan a GND, y entonces el zumbador emite sonido.
 
-Umgekehrt, wenn wir der Basis einen niedrigen Pegel geben, werden die übrigen Pins getrennt, sodass der Summer still bleibt.
+Por el contrario, si se ofrece un nivel bajo a la base, el resto de los pines quedarán desconectados, por lo que el zumbador permanecerá en silencio.
 
-**3. Schaltplan**
+**3. Diagrama de Conexiones**
 
 ![](media/A27.png)
 
-**4. Testcode**
+**4. Código de Prueba**
 
 ```
  /*
@@ -40,6 +40,6 @@ void loop()
 }
 ```
 
-**5. Testergebnis**
+**5. Resultado de la Prueba**
 
-Nach dem Hochladen des Codes und Einschalten gibt der Summer 1 Sekunde lang einen Ton von sich und bleibt anschließend 1 Sekunde still.
+Después de subir el código y encender, el zumbador emite sonido durante 1s y permanece en silencio durante 1s.

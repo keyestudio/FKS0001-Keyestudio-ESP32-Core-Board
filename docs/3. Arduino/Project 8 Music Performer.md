@@ -1,34 +1,34 @@
-### Projekt 8 Musikspieler
+### Proyecto 8 Intérprete Musical
 
-**1. Beschreibung**
+**1. Descripción**
 
-In diesem Projekt verwenden wir einen Leistungsverstärker-Lautsprecher, um Musik abzuspielen. Dieser Lautsprecher kann nicht nur einfache Lieder wiedergeben, sondern auch das performen, was Sie wünschen. So können Sie im Projekt weitere interessante Codes programmieren, um großartige Lernergebnisse zu erzielen.
+En este proyecto, utilizaremos un altavoz con amplificador de potencia para reproducir música. Este altavoz no solo puede tocar canciones simples, sino también interpretar lo que desees. Por lo tanto, puedes programar otros códigos interesantes en el proyecto para lograr resultados de aprendizaje espléndidos.
 
-**2. Funktionsprinzip**
+**2. Principio de Funcionamiento**
 
 ![](media/A28.png)
 
-Das elektrische Signal wird an Pin 1 von RP1 eingespeist (regelt die Signalstärke, was auch die Lautstärke des Tons ist).
+La señal eléctrica se introduce desde el pin 1 de RP1 (ajusta la intensidad de la señal, que también es el volumen del sonido).
 
-Nach der Kopplung in C4 und dem Durchlaufen von R5 erreicht das Signal den IN- Pin des 8002B, wo es operativ verstärkt und an den BEE1 Lautsprecher ausgegeben wird.
+Después de acoplarse en C4 y pasar por R5, la señal llega al pin IN- del 8002B, donde se amplifica operativamente y se envía al altavoz BEE1.
 
-**Frequenzvergleichstabelle in C**
+**Tabla de Comparación de Frecuencias en C**
 
-|    Note     | Frequenz(Hz) |      Note      | Frequenz(Hz) |     Note     | Frequenz(Hz) |
-| :---------: | :----------: | :------------: | :----------: | :----------: | :----------: |
-| B  1  Do    |      262     | Natürlich  1  Do |      523     | Kreuz  1  Do |     1047     |
-| B  2  Re    |      294     | Natürlich  2  Re |      587     | Kreuz  2  Re |     1175     |
-| B  3  Mi    |      330     | Natürlich  3  Mi |      659     | Kreuz  3  Mi |     1319     |
-| B  4  Fa    |      349     | Natürlich  4  Fa |      698     | Kreuz  4  Fa |     1397     |
-| B  5  So    |      392     | Natürlich  5  So |      784     | Kreuz  5  So |     1568     |
-| B  6  La    |      440     | Natürlich  6  La |      880     | Kreuz  6  La |     1760     |
-| B  7  Si    |      494     | Natürlich  7  Si |      988     | Kreuz  7  Si |     1967     |
+|    Nota     | Frecuencia(Hz) |      Nota      | Frecuencia(Hz) |     Nota     | Frecuencia(Hz) |
+| :---------: | :------------: | :------------: | :------------: | :----------: | :------------: |
+| Bemol  1  Do |      262       | Natural  1  Do |      523       | Sostenido  1  Do |     1047      |
+| Bemol  2  Re |      294       | Natural  2  Re |      587       | Sostenido  2  Re |     1175      |
+| Bemol  3  Mi |      330       | Natural  3  Mi |      659       | Sostenido  3  Mi |     1319      |
+| Bemol  4  Fa |      349       | Natural  4  Fa |      698       | Sostenido  4  Fa |     1397      |
+| Bemol  5  So |      392       | Natural  5  So |      784       | Sostenido  5  So |     1568      |
+| Bemol  6  La |      440       | Natural  6  La |      880       | Sostenido  6  La |     1760      |
+| Bemol  7  Si |      494       | Natural  7  Si |      988       | Sostenido  7  Si |     1967      |
 
-**3. Schaltplan**
+**3. Diagrama de Conexiones**
 
 ![](media/A29.png)
 
-**4. Testcode**
+**4. Código de Prueba**
 
 ```
 /*
@@ -64,25 +64,25 @@ void loop()
 }
 ```
 
-**5. Testergebnis**
+**5. Resultado de la Prueba**
 
-Nach dem Hochladen des Codes und Einschalten spielt der Verstärker zyklisch Musiknoten mit den entsprechenden Frequenzen: DO, Re, Mi, Fa, So, La, Si.
+Después de subir el código y encender, el amplificador reproduce circularmente tonos musicales con la frecuencia correspondiente: DO, Re, Mi, Fa, So, La, Si.
 
-**Lautstärkeanpassung des Leistungsverstärkers:**
+**Ajuste de volumen del amplificador de potencia:**
 
-**Neben dem Lautsprecher befindet sich ein Potentiometer. Wir können die Lautstärke des Lautsprechers durch Drehen einstellen.** (Hinweis: Bitte verwenden Sie angemessene Kraft, um das Potentiometer nicht zu beschädigen)
+ **Hay un potenciómetro junto al altavoz. Podemos ajustar el volumen del altavoz girándolo.** (Nota: Por favor, use la fuerza adecuada para ajustarlo, para no dañar el potenciómetro)
 
 ![](media/A30.png)
 
-**6. Wissensvertiefung**
+**6. Ampliación de Conocimientos**
 
-Lassen Sie uns ein Geburtstagslied spielen. Die Verkabelung bleibt unverändert.
+Vamos a tocar una canción de cumpleaños. Las conexiones permanecen sin cambios.
 
-**Nummerierte Notenschrift:**
+**Notación musical numerada:**
 
 ![](media/A31.png)
 
-**Vergleichsdiagramm von B, natürlich und Kreuz**
+**Diagrama comparativo de Bemol, Natural y Sostenido**
 
 ![](media/A32.png)
 

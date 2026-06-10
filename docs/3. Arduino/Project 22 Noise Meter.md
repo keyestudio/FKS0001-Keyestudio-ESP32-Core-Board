@@ -1,14 +1,14 @@
-### Projekt 22 Geräuschmesser
+### Proyecto 22 Medidor de Ruido
 
-**1. Beschreibung**
+**1. Descripción**
 
-Der Geräuschmesser verwendet die Anzahl der Punkte auf der LED-Matrix, um die Lautstärke des Geräuschs darzustellen.
+El medidor de ruido podrá usar el número de puntos en la matriz LED para reflejar la intensidad del ruido.
 
-**2. Schaltplan**
+**2. Diagrama de Conexiones**
 
 ![](media/B20.png)
 
-**3. Testcode**
+**3. Código de Prueba**
 
 ```
 /*
@@ -55,8 +55,8 @@ void loop()
 }  
 ```
 
-**4. Testcode**
+**4. Código de Prueba**
 
-Je höher der vom Schallsensor erkannte Wert, desto mehr Punkte leuchten auf der LED-Matrix auf.
+Cuanto mayor sea el valor de sonido detectado por el sensor de sonido, más puntos se encenderán en la matriz LED.
 
 ![](media/B21.png)![](media/B22.png)

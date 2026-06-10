@@ -1,42 +1,42 @@
-### Projekt 29 IR-Fernbedienung
+### Proyecto 29 Control Remoto IR
 
-**1. Beschreibung**
+**1. Descripción**
 
-Die IR-Fernbedienung verwendet IR-Signale zur Steuerung einer LED, was den Prozess der LED-Steuerung erheblich vereinfacht.
+El control remoto IR utiliza señal IR para controlar el LED, lo que simplifica en gran medida el proceso de control del LED.
 
-**2. Funktionsprinzip**
+**2. Principio de Funcionamiento**
 
 ![](media/B41.png)
 
-In diesem Projekt verwenden wir häufig einen Träger mit etwa 38K zur Modulation.
+En este proyecto, a menudo usamos un portador de aproximadamente 38K para la modulación.
 
-Das IR-Fernbediensystem umfasst Modulation, Aussendung und Empfang. Es sendet Daten durch Modulation, was die Übertragungseffizienz verbessert und den Stromverbrauch reduziert.
+El sistema de control remoto IR incluye modulación, emisión y recepción. Envía datos mediante modulación, lo que mejora la eficiencia de transmisión y reduce el consumo de energía.
 
-Im Allgemeinen liegt die Frequenz der Trägermodulation im Bereich von 30kHz bis 60kHz (meist 38kHz). Das Tastverhältnis der Rechteckwelle beträgt 1/3, wie unten gezeigt, und wird durch den 455kHz Quarzoszillator auf der Senderseite bestimmt.
+Generalmente, la frecuencia de modulación del portador está dentro de 30kHz~60kHz (usualmente 38kHz). El ciclo de trabajo de la onda cuadrada es 1/3, como se muestra a continuación, lo cual está determinado por el oscilador de cristal de 455kHz en el extremo emisor.
 
-Eine ganzzahlige Frequenzteilung ist für den Quarzoszillator an dieser Stelle unerlässlich, und der Frequenzfaktor beträgt üblicherweise 12. Daher gilt: 455kHz ÷ 12 ≈ 37,9kHz ≈ 38kHz.
+Una división entera de frecuencia es esencial para el oscilador de cristal en este extremo, y el coeficiente de frecuencia usualmente evalúa 12. Por lo tanto, 455kHz÷12≈37.9kHz≈38kHz.
 
-**38kHz Träger (vollständig) Aussendediagramm:**
+**Diagrama completo de emisión del portador de 38KH:**
 
 ![](media/B42.jpg)
 
-**Trägerfrequenz:** 38kHz
+**Frecuencia del portador:** 38KHz
 
-**Wellenlänge:** 940nm
+**Longitud de onda:** 940nm
 
-**Empfangswinkel:** 90°
+**Ángulo de recepción:** 90°
 
-**Steuerabstand:** 6M
+**Distancia de control:** 6M
 
-**Schaltplan der Fernbedienungstasten:**
+**Diagrama esquemático de los botones del control remoto:**
 
 ![](media/B43.png)
 
-**3. Anschlussdiagramm**
+**3. Diagrama de Conexiones**
 
 ![](media/B44.png)
 
-**4. Testcode**
+**4. Código de Prueba**
 
 ```
 /*
@@ -49,49 +49,49 @@ Eine ganzzahlige Frequenzteilung ist für den Quarzoszillator an dieser Stelle u
 #include <IRrecv.h>
 #include <IRutils.h>
 
-const uint16_t recvPin = 19;  // Infrarot-Empfangspin
-IRrecv irrecv(recvPin);  // Erstellen eines Klassenobjekts zum Empfang
-decode_results results;   // Erstellen eines Objekts für Dekodierungsergebnisse
+const uint16_t recvPin = 19;  // Infrared receiving pin
+IRrecv irrecv(recvPin);  // Create a class object used to receive class
+decode_results results;   // Create a decoding results class object
 long ir_rec;
 
 void setup()
 {
-  Serial.begin(9600); // Initialisiert die serielle Schnittstelle und setzt die Baudrate auf 9600
-  irrecv.enableIRIn(); // Startet den Empfang von Signalen
+  Serial.begin(9600); // Initialize the serial port and set the baud rate to 9600
+  irrecv.enableIRIn(); // start receiving signals
 }
 
 void loop() 
 {
   if (irrecv.decode(&results)) 
   {
-    ir_rec = results.value; // Weist das Signal der Variablen ir_rec zu
+    ir_rec = results.value; //assign the signal to the variable ir_rec
     if(ir_rec != 0)
-    {		// Verhindert, dass der Code bei gedrückter Taste mehrfach ausgeführt wird
-        Serial.print(ir_rec, HEX); // Gibt die Variable ir_rec im Hexadezimalformat aus
-        Serial.println();// Zeilenumbruch
+    {		//Prevente the code from repeating execute when the button is pressed 
+        Serial.print(ir_rec, HEX); //Print the variable ir_rec in hexadecimal
+        Serial.println();//Wrapping lines
     }
-    irrecv.resume(); // Gibt die IR-Fernbedienung frei und empfängt den nächsten Wert.
+    irrecv.resume(); //Release the IR remote and receive the next value.
   }
 } 
 ```
 
-**5. Testergebnis**
+**5. Resultado de la Prueba**
 
-Nach dem Anschluss der Verkabelung und Hochladen des Codes öffnen Sie den seriellen Monitor und stellen die Baudrate auf 9600 ein.
+Después de conectar el cableado y subir el código, abra el monitor serial y configure la velocidad en 9600.
 
-Drücken Sie eine Taste auf der Fernbedienung, und Sie sehen den Wert im Hexadezimalformat.
+Presione el botón en el control remoto y verá el valor en hexadecimal.
 
 ![](media/B45.png)
 
-**6. Wissensvertiefung**
+**6. Ampliación de Conocimientos**
 
-Als Nächstes verwenden wir eine IR-Fernbedienung, um die LED zu steuern. Drücken Sie OK, um die LED einzuschalten, und drücken Sie erneut, um sie auszuschalten.
+A continuación, usaremos un control remoto IR para controlar el LED. Presione OK para encender el LED y presione nuevamente para apagarlo.
 
-**Anschlussdiagramm：**
+**Diagrama de Conexiones：**
 
 ![](media/B46.png)
 
-**Code：**
+**Código：**
 
 ```
 /*
@@ -106,15 +106,15 @@ Als Nächstes verwenden wir eine IR-Fernbedienung, um die LED zu steuern. Drück
 
 int led = 25;
 int led_val = 0;
-const uint16_t recvPin = 19;  // Infrarot-Empfangspin
-IRrecv irrecv(recvPin);       // Erstellen eines Klassenobjekts zum Empfang
-decode_results results;       // Erstellen eines Objekts für Dekodierungsergebnisse
+const uint16_t recvPin = 19;  // Infrared receiving pin
+IRrecv irrecv(recvPin);       // Create a class object used to receive class
+decode_results results;       // Create a decoding results class object
 long ir_rec;
 
 void setup() 
 {
-  Serial.begin(9600);   // Initialisiert die serielle Schnittstelle und setzt die Baudrate auf 9600
-  irrecv.enableIRIn();  // Startet den Empfang von Signalen
+  Serial.begin(9600);   // Initialize the serial port and set the baud rate to 9600
+  irrecv.enableIRIn();  // start receiving signals
   pinMode(led, OUTPUT);
 }
 
@@ -122,20 +122,20 @@ void loop()
 {
   if (irrecv.decode(&results)) 
   {
-    ir_rec = results.value;      // Weist das Signal der Variablen ir_rec zu
+    ir_rec = results.value;      //assign the signal to the variable ir_rec
     if (ir_rec != 0) 
-    {           // Verhindert, dass der Code bei gedrückter Taste mehrfach ausgeführt wird
-      if (ir_rec == 0xFF02FD) // Prüft, ob das empfangene IR-Signal von der OK-Taste stammt
+    {           //Prevente the code from repeating execute when the button is pressed
+      if (ir_rec == 0xFF02FD) //Determine whether the received IR signal is from button OK
       {  
-        led_val = !led_val;      // Kehrt die Variable um. Wenn der Anfangswert 0 ist, wird er nach der Umkehrung 1
+        led_val = !led_val;      //Reverse a variable. If the initial value is 0, it turns to 1 after reversing  
         digitalWrite(led, led_val);
       }
     }
-    irrecv.resume();  // Gibt die IR-Fernbedienung frei und empfängt den nächsten Wert.
+    irrecv.resume();  //Release the IR remote and receive the next value.
   }
 }
 ```
 
-**Testergebnis:** 
+**Resultado de la Prueba:** 
 
-Drücken Sie OK, um die LED einzuschalten, und drücken Sie erneut, um sie auszuschalten.
+Presione OK para encender el LED y presione nuevamente para apagarlo.

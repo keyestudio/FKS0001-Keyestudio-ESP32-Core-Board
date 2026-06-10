@@ -1,71 +1,71 @@
-### Projekt 19  Dimmbares Licht
+### Proyecto 19  Lámpara Regulable
 
-**1. Beschreibung**
+**1. Descripción**
 
-Die dimmbare Lampe passt die Helligkeit der LED über ein Potentiometer und einen Arduino-Controller an. Die Helligkeit hängt vom Widerstandswert ab, der durch Anschluss der Enden des Potentiometers an digitale oder analoge Pins auf dem Board ausgelesen und eingestellt werden kann.  
-Darüber hinaus wird dieses System zur Steuerung der Spannung oder des Stroms anderer Geräte wie Lüfter, Glühbirnen und Heizungen verwendet.
+La lámpara regulable ajusta el brillo del LED mediante un potenciómetro y un controlador Arduino. El brillo depende del valor de resistencia, que puede ser leído y ajustado conectando los extremos del potenciómetro a pines digitales o analógicos en la placa.  
+Además, este sistema se aplica para controlar el voltaje o corriente de otros dispositivos como ventiladores, bombillas y calentadores.
 
-**2. Funktionsprinzip**
+**2. Principio de Funcionamiento**
 
 ![](media/B32.png)
 
-Im Wesentlichen ist ein Potentiometer ein Bauelement, das den Widerstandswert verändern kann. Nach dem Ohmschen Gesetz (U=I*R) beeinflusst der Widerstand die Spannung. Unser Potentiometer hat 10K.
+Esencialmente, el potenciómetro es un elemento que puede cambiar el valor de la resistencia. Según la ley de Ohm (U=I*R), la resistencia afecta el voltaje. Nuestro potenciómetro es de 10K.
 
-In diesem Projekt beträgt der maximale Widerstand 10K. Das ESP32-Board teilt die Spannung von 3V gleichmäßig in 4095 Teile (3/4095=0.0007326007326). Die analoge Spannung wird durch Multiplikation des ausgelesenen Werts mit 0.0007326007326 erhalten.
+En este proyecto, la resistencia máxima es 10K. La placa ESP32 dividirá igualmente el voltaje de 3V en 4095 partes (3/4095=0.0007326007326). El voltaje analógico se obtiene multiplicando el valor leído por 0.0007326007326.
 
-**3. Schaltplan**
+**3. Diagrama de Conexiones**
 
 ![](media/B33.png)
 
-**4. Testcode**
+**4. Código de Prueba**
 
-Der analoge Wert des Potentiometers kann ausgelesen werden:
+Se puede leer el valor analógico del potenciómetro:
 
-1. Ziehen Sie die zwei Basisblöcke. Setzen Sie den Baudraten-Block dazwischen und stellen Sie ihn auf 9600 ein.
+1. Arrastra los dos bloques básicos. Coloca el bloque de configuración de baud rate entre ellos y configúralo a 9600.
 
-2. Fügen Sie im „forever“-Loop einen „serial print“-Block hinzu und wählen Sie „warp“ als Druckmodus.
+2. Añade un bloque de "serial print" dentro del bucle "forever", y selecciona "warp" como modo de impresión.
 
-3. Ziehen Sie einen „read the value“-Block vom „pot“ zum serial print und setzen Sie den Pin auf IO33.
+3. Arrastra un bloque de "read the value" desde “pot” al serial print, y configura el pin en IO33.
 
 ![](media/B34.png)
 
-**5. Testergebnis**
+**5. Resultado de la Prueba**
 
-Nach Anschluss der Verkabelung und Hochladen des Codes öffnen Sie den seriellen Monitor, stellen die Baudrate auf 9600 ein, und der analoge Wert wird im Bereich von 0-4095 angezeigt.
+Después de conectar el cableado y subir el código, abre el monitor serial, ajusta el baud rate a 9600, y el valor analógico se mostrará dentro del rango de 0-4095.
 
 ![](media/B35.png)
 
-**6. Erweiterungscode**
+**6. Código de Expansión**
 
-Wir steuern die Helligkeit der LED über ein Potentiometer. Wie bekannt, wird dies durch PWM beeinflusst. Der Bereich des analogen Werts liegt jedoch bei 0-4095, während der von PWM bei 0-255 liegt. Daher wird eine „map(value, fromLow, fromHigh, toLow, toHigh)“-Funktion benötigt.
+Controlaremos el brillo del LED mediante un potenciómetro. Como sabemos, esto se ve influenciado por PWM. Sin embargo, el rango del valor analógico es 0-4095 mientras que el de PWM es 0-255. Por lo tanto, se necesita una función "map(value, fromLow, fromHigh, toLow, toHigh)".
 
-**Schaltplan：**
+**Diagrama de Conexiones：**
 
 ![](media/B36.png)
 
-1. Ziehen Sie die zwei Basisblöcke.
-2. Fügen Sie einen Variablenblock hinzu und setzen Sie ihn auf lokal. Wählen Sie „int“ als Typ und benennen Sie ihn „pot“.
+1. Arrastra los dos bloques básicos.  
+2. Añade un bloque de variable y configúralo como local. Selecciona "int" como tipo y nómbralo "pot".
 
 ![](media/B37.png)
 
-3. Ziehen Sie eine „map“-Funktion aus „Data“ und setzen Sie sie an die Zuweisungsstelle. Setzen Sie den Wert von „map“ auf „read the value of pot IO33“, dessen Bereich von (0,4095) auf (0,255) abgebildet wird.
+3. Arrastra una función "map" desde “Data” y colócala en la posición de asignación. Configura el valor de "map" para que sea "read the value of pot IO33", cuyo rango es de (0,4095) a (0,255).
 
 ![](media/B38.png)
 
-4. Fügen Sie abschließend einen „LED analogWrite“-Block hinzu. Setzen Sie den Pin auf IO25 und den analogen Wert auf die Variable „pot“.
+4. Finalmente, añade un bloque "LED analogWrite". Configura el pin en IO25 y el valor analógico a la variable "pot".
 
 ![](media/B39.png)
 
-**Vollständiger Code:**
+**Código Completo:**
 
 ![](media/B40.png)
 
-**7. Code-Erklärung**
+**7. Explicación del Código**
 
-1. **map**-Funktion. Der Bereich des analogen Werts kann von 0-4095 auf 0-255 umgerechnet werden.
+1. Función **map**. El rango del valor analógico puede convertirse de 0-4095 a 0-255.
 
 ![](media/B41.png)
 
-2. Liest den analogen Wert des Potentiometers durch Setzen des Pins aus.
+2. Lee el valor analógico del potenciómetro configurando su pin.
 
 ![](media/B42.png)

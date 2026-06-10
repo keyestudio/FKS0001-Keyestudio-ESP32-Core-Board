@@ -1,30 +1,30 @@
-### Projekt 34 Smart Home
+### Proyecto 34 Casa Inteligente
 
-**1. Beschreibung**
+**1. Descripción**
 
-In diesem Projekt simulieren wir das Smart Home mit dem Inventor-Kit.
+En este proyecto, simulamos la casa inteligente con el kit inventor.
 
-**Hinweise**
+**Notas**
 
-1. Sie müssen ein 2,4-GHz-WLAN vorbereiten, kein 5-GHz-Netzwerk. Es kann ein mobiler Hotspot oder ein Router sein.  
-2. Das ESP32-Board verbraucht mehr Strom, wenn es mit dem Netzwerk verbunden ist, daher müssen Sie eine externe Stromversorgung an dieses Kit anschließen. Wir stellen Ihnen einen 6XAA-Batteriehalter (Batterien nicht enthalten) zur Verfügung, den Sie an den DC-Anschluss des integrierten ESP32-Boards anschließen können.
+1. Necesitas preparar una red WIFI de frecuencia 2.4GHz, no de 5GHz. Puede ser un hotspot móvil o un router.
+2. La placa ESP32 consume más energía cuando está conectada a la red, por lo que necesitas conectar una fuente de alimentación externa a este kit. Te proporcionamos un portapilas de 6XAA (pilas no incluidas), que puedes conectar al puerto DC de la placa integrada ESP32.
 
 ![](media/B62.png)![](media/B63.png)
 
-3. Wenn Sie andere Geräte zur Steuerung dieses Kits verwenden, muss das ESP32-Board mit demselben Netzwerk wie Ihr Steuergerät verbunden sein.
+3. Al usar otros dispositivos para controlar este kit, la placa ESP32 debe estar conectada a la misma red que tu dispositivo de control.
 
-4. Merken Sie sich Ihren WLAN-Netzwerknamen und das Passwort und tragen Sie diese vor dem Hochladen in den Code ein.
+4. Recuerda el nombre y la contraseña de tu red wifi y complétalos en el código antes de subirlo.
 
 ```
-const char* ssid = "your_SSID"; // WLAN-Name eintragen, z.B. "KEYES"
-const char* password = "your_password"; // WLAN-Passwort eintragen, z.B. "123456"
+const char* ssid = "your_SSID"; // Completa con el nombre del WiFi, por ejemplo,= "KEYES"
+const char* password = "your_password"; // Completa con la contraseña del WiFi, por ejemplo,= "123456"
 ```
 
-**2. Schaltplan**
+**2. Diagrama de Conexiones**
 
 ![](media/B64.png)
 
-**3. Code hochladen**
+**3. Subir Código**
 
 ```
 #include <WiFi.h>
@@ -34,79 +34,79 @@ const char* password = "your_password"; // WLAN-Passwort eintragen, z.B. "123456
 
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
-// WiFi-Konfiguration
-const char* ssid = "your-SSID";     // Ihr WLAN-Name
-const char* password = "your-PASSWORD";  // Ihr WLAN-Passwort
+// Configuración WiFi
+const char* ssid = "your-SSID";     // nombre de tu WiFi
+const char* password = "your-PASSWORD";  // contraseña de tu WiFi
 
-// DHT11-Konfiguration
-xht11 xht(26);                         // DHT11-Sensor-Pin auf IO26 setzen
-unsigned char dat[] = { 0, 0, 0, 0 };  // Array zur Speicherung von Temperatur- und Feuchtigkeitswerten definieren
+// Configuración DHT11
+xht11 xht(26);                         // asignar pin del sensor DHT11 a IO26
+unsigned char dat[] = { 0, 0, 0, 0 };  // Definir un arreglo para almacenar valores de temperatura y humedad
 int i = 0;
 
-// Fotowiderstand Analog-Pin
-#define LDR_PIN 34  // Fotowiderstand an GPIO 34 anschließen
+// pin analógico del fotorresistor
+#define LDR_PIN 34  // conectar el fotorresistor a GPIO 34
 
-// LED-Pins
+// pines LED
 #define redLED_PIN 12
 #define yellowLED_PIN 13
 #define greenLED_PIN 14
 #define blueLED_PIN 15
-// LED-Zustand
+// estado de los LED
 bool redLEDState = false;
 bool yellowLEDState = false;
 bool greenLEDState = false;
 bool blueLEDState = false;
 
-// Webserver
+// Servidor web
 AsyncWebServer server(80);
 
 String generateHTML() {
   String html = "<html><head><style>";
 
-  // Grundformat
+  // formato básico
   html += "body { font-family: Arial, sans-serif; background-color: #f4f4f4; }";
   html += "h2 { color: #333; }";
   html += "div.sensor { background-color: #fff; padding: 20px; margin: 15px; border-radius: 10px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); }";
   html += "div.sensor h3 { margin: 0; }";
   html += "div.sensor p { font-size: 20px; color: #555; }";
 
-  // Button-Format
+  // formato de botones
   html += "button { font-size: 30px; padding: 15px; margin: 10px; border: none; cursor: pointer; width: 200px; height: 100px; }";
-  html += "button.on { background-color: #4CAF50; color: white; }";   // Farbe der eingeschalteten LED
-  html += "button.off { background-color: #f44336; color: white; }";  // Farbe der ausgeschalteten LED
+  html += "button.on { background-color: #4CAF50; color: white; }";   // color LED encendido
+  html += "button.off { background-color: #f44336; color: white; }";  // color LED apagado
 
   html += "</style>";
-  html += "<meta http-equiv='refresh' content='5'>";  // Automatisches Aktualisieren alle 5 Sekunden
+  html += "<meta http-equiv='refresh' content='5'>";  // refrescar automáticamente cada 5 segundos
   html += "</head><body>";
 
-  // Temperatur
-  html += "<h2>Sensor-Daten</h2>";
+  // temperatura
+  html += "<h2>Datos del Sensor</h2>";
 
   html += "<div class='sensor'>";
-  html += "<h3>Temperatur</h3>";
+  html += "<h3>Temperatura</h3>";
   html += "<p>" + String(dat[2]) + " &deg;C</p>";
   html += "</div>";
-  // Luftfeuchtigkeit
+  // humedad
   html += "<div class='sensor'>";
-  html += "<h3>Feuchtigkeit</h3>";
+  html += "<h3>Humedad</h3>";
   html += "<p>" + String(dat[0]) + " %</p>";
   html += "</div>";
 
-  // Anzeige des Fotowiderstand-Werts
-  int lightValue = analogRead(LDR_PIN);  // Wert des Fotowiderstands
+  // mostrar valor de resistencia del fotorresistor
+  int lightValue = analogRead(LDR_PIN);  // valor del fotorresistor
   html += "<div class='sensor'>";
-  html += "<h3>Helligkeit</h3>";
+  html += "<h3>Luminancia</h3>";
   html += "<p>" + String(lightValue) + "</p>";
   html += "</div>";
 
-  // LED-Steuerungstasten
-  html += "<h2>LEDs steuern</h2>";
-  html += "<button id='btn0' class='" + String(redLEDState ? "on" : "off") + "' onclick='toggleLed(0)'>Rote LED</button>";
-  html += "<button id='btn1' class='" + String(yellowLEDState ? "on" : "off") + "' onclick='toggleLed(1)'>Gelbe LED</button>";
-  html += "<button id='btn2' class='" + String(greenLEDState ? "on" : "off") + "' onclick='toggleLed(2)'>Grüne LED</button>";
-  html += "<button id='btn3' class='" + String(blueLEDState ? "on" : "off") + "' onclick='toggleLed(3)'>Blaue LED</button>";
+  // botones de control de LED
+  html += "<h2>Control de LEDs</h2>";
+  html += "<button id='btn0' class='" + String(redLEDState ? "on" : "off") + "' onclick='toggleLed(0)'>LED Rojo</button>";
+  html += "<button id='btn1' class='" + String(yellowLEDState ? "on" : "off") + "' onclick='toggleLed(1)'>LED Amarillo</button>";
+  html += "<button id='btn2' class='" + String(greenLEDState ? "on" : "off") + "' onclick='toggleLed(2)'>LED Verde</button>";
+  html += "<button id='btn3' class='" + String(blueLEDState ? "on" : "off") + "' onclick='toggleLed(3)'>LED Azul</button>";
 
-  // JavaScript zur Steuerung der LEDs Ein/Aus
+  // JavaScript para controlar encendido/apagado de LED
   html += "<script>";
   html += "function toggleLed(led) {";
   html += "  var xhr = new XMLHttpRequest();";
@@ -131,15 +131,15 @@ String generateHTML() {
 
 void setup() 
 {
-  // Serielle Schnittstelle initialisieren
+  // Inicializar puerto serial
   Serial.begin(115200);
 
-  lcd.init();  // LCD initialisieren
+  lcd.init();  // inicializar el lcd
   lcd.backlight();
   lcd.setCursor(0, 0);
   lcd.print("IP:");
 
-  // WLAN-Verbindung
+  // Conexión WiFi
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
     lcd.setCursor(i, 1);
@@ -157,13 +157,13 @@ void setup()
   lcd.setCursor(0, 1);
   lcd.print(WiFi.localIP());
 
-  // LED-Pins als Ausgang setzen
+  // Configurar pines LED como salida
   pinMode(redLED_PIN, OUTPUT);
   pinMode(yellowLED_PIN, OUTPUT);
   pinMode(greenLED_PIN, OUTPUT);
   pinMode(blueLED_PIN, OUTPUT);
 
-  // Web-Anfragen verarbeiten
+  // Procesar solicitudes web
   server.on("/", HTTP_GET, [](AsyncWebServerRequest* request) {
     if (!xht.receive(dat)) {
       Serial.println("sensor error");
@@ -172,45 +172,45 @@ void setup()
     request->send(200, "text/html", html);
   });
 
-  // Steuerung der LEDs
+  // Controlar el estado de los LED
   server.on("/toggle", HTTP_GET, [](AsyncWebServerRequest* request) {
     String led = request->getParam("led")->value();
     int ledNum = led.toInt();
     if (ledNum == 0) {
       redLEDState = !redLEDState;
-      digitalWrite(redLED_PIN, redLEDState ? HIGH : LOW);  // LED 1
+      digitalWrite(redLED_PIN, redLEDState ? HIGH : LOW);  //  LED 1
     } else if (ledNum == 1) {
       yellowLEDState = !yellowLEDState;
-      digitalWrite(yellowLED_PIN, yellowLEDState ? HIGH : LOW);  // LED 2
+      digitalWrite(yellowLED_PIN, yellowLEDState ? HIGH : LOW);  //  LED 2
     } else if (ledNum == 2) {
       greenLEDState = !greenLEDState;
-      digitalWrite(greenLED_PIN, greenLEDState ? HIGH : LOW);  // LED 3
+      digitalWrite(greenLED_PIN, greenLEDState ? HIGH : LOW);  //  LED 3
     } else if (ledNum == 3) {
       blueLEDState = !blueLEDState;
-      digitalWrite(blueLED_PIN, blueLEDState ? HIGH : LOW);  // LED 4
+      digitalWrite(blueLED_PIN, blueLEDState ? HIGH : LOW);  //  LED 4
     }
-    request->redirect("/");  // Zurück zur Startseite
+    request->redirect("/");  // Volver a la página principal
   });
 
-  // Webserver starten
+  // Iniciar el servidor web
   server.begin();
 }
 
 void loop() 
 {
-  // Temperatur- und Feuchtigkeitswerte lesen und Webseite aktualisieren
+  // Leer los valores de temperatura y humedad y actualizar la página web
   if (!xht.receive(dat)) 
   {
     Serial.println("sensor error");
   }
-    delay(2000);  // Seite alle 2 Sekunden aktualisieren
+    delay(2000);  // Refrescar la página cada 2 segundos
 }
 ```
 
-**4. Testergebnis**
+**4. Resultado de la Prueba**
 
-Nach dem Hochladen des Codes zeigt das LCD1602 die IP-Adresse an. Öffnen Sie den Browser, geben Sie die IP-Adresse ein und Sie sehen die Steuerungsseite.
+Después de subir el código, el LCD1602 muestra la dirección IP. Abre el navegador, ingresa la dirección IP y verás la página de control.
 
-Sie können nun mit dem Steuergerät die vom Sensor gelesenen Werte auslesen und die LEDs ein- und ausschalten.
+En este momento, puedes usar el dispositivo de control para leer los valores captados por el sensor, y también puedes controlar el encendido y apagado de los LED.
 
 ![](media/B65.jpg)

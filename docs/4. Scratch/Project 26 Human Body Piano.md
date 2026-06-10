@@ -1,31 +1,31 @@
-### Projekt 26 Human Body Piano
+### Proyecto 26 Piano Corporal Humano
 
-**1. Beschreibung**
+**1. Descripción**
 
-Das analoge Klavier besteht aus einem Entwicklungsboard und einem Ultraschallsensor. Es ermöglicht das Spielen verschiedener Töne durch Erkennung der Position Ihrer Finger. Somit kann dieses Modul ein Klavier stimulieren, um Musik und Lieder zu spielen.
+El piano analógico incluye una placa de desarrollo y un sensor ultrasónico. Permite reproducir diferentes tonos detectando la posición de tus dedos. Así, este módulo es capaz de simular un piano para interpretar música y canciones.
 
-**2. Flussdiagramm**
+**2. Diagrama de Flujo**
 
 ![](media/B101.png)
 
-**3. Schaltplan**
+**3. Diagrama de Conexiones**
 
 ![](media/B102.png)
 
-**4. Testcode**
+**4. Código de Prueba**
 
-Weist den Distanzwert dem Element zu, und die gespielten Töne variieren je nach Entfernung. Sieben Töne sind enthalten: Do, Re, Mi, Fa, So, La, Si.
+Asigna el valor de distancia a item, y los tonos reproducidos varían según la distancia. Se incluyen siete tonos: Do, Re, Mi, Fa, So, La, Si.
 
 ![](media/B103.png)
 
-**5. Testergebnis**
+**5. Resultado de la Prueba**
 
-Verbinden Sie die Verkabelung und laden Sie den Code hoch.
+Conecta las conexiones y sube el código.
 
-- Spiele Do, wenn die Entfernung weniger als 10 beträgt.
-- Spiele Re, wenn die Entfernung zwischen 10 und 20 liegt.
-- Spiele Mi, wenn die Entfernung zwischen 20 und 30 liegt.
-- Spiele Fa, wenn die Entfernung zwischen 30 und 40 liegt.
-- Spiele So, wenn die Entfernung zwischen 40 und 50 liegt.
-- Spiele La, wenn die Entfernung zwischen 50 und 60 liegt.
-- Spiele Si, wenn die Entfernung zwischen 60 und 70 liegt.
+- Reproduce Do cuando la distancia es menor a 10.
+- Reproduce Re cuando la distancia está entre 10 y 20.
+- Reproduce Mi cuando la distancia está entre 20 y 30.
+- Reproduce Fa cuando la distancia está entre 30 y 40.
+- Reproduce So cuando la distancia está entre 40 y 50.
+- Reproduce La cuando la distancia está entre 50 y 60.
+- Reproduce Si cuando la distancia está entre 60 y 70.

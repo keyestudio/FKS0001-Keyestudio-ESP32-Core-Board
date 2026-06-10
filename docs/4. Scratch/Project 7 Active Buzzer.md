@@ -1,49 +1,49 @@
-### Projekt 7 Aktiver Summer
+### Proyecto 7 Zumbador Activo
 
-**1. Beschreibung**
+**1. Descripción**
 
-Ein aktiver Summer ist eine Komponente, die als Alarm, Erinnerung oder Unterhaltungsgerät verwendet wird und einen zuverlässigen Ton erzeugt.
+Un zumbador activo es un componente utilizado como alarma, recordatorio o dispositivo de entretenimiento, que ofrece un sonido confiable.
 
-Darüber hinaus ermöglicht er die Erzeugung hochgradig kontrollierbarer Töne, wodurch unsere Projekte interessanter werden.
+Además, permite estimular sonidos altamente controlables, haciendo nuestros proyectos más interesantes.
 
-**2. Funktionsprinzip**
+**2. Principio de Funcionamiento**
 
 ![](media/A82.png)
 
-Ein aktiver Summer integriert einen Multivibrator, daher erzeugt er nur bei Gleichspannung Ton. Pin 1 des Summers ist mit VCC verbunden und Pin 2 wird von einem Triod gesteuert. Wenn für die Basis (Pin 1) des Triods ein hoher Pegel anliegt, verbinden sich Kollektor (Pin 3) und Emitter (Pin 2) mit GND, und der Summer gibt einen Ton von sich.
+Un zumbador activo integra un multivibrador, por lo que emite sonido solo mediante voltaje DC. El pin 1 del zumbador se conecta a VCC y el pin 2 es controlado por un tríodo. Cuando se proporciona un nivel alto a la base (pin 1) del tríodo, su colector (pin 3) y emisor (pin 2) se conectan a GND, y entonces el zumbador emite sonido.
 
-Umgekehrt, wenn wir der Basis einen niedrigen Pegel geben, werden die übrigen Pins getrennt, sodass der Summer still bleibt.
+Por el contrario, si se ofrece un nivel bajo a la base, el resto de los pines quedarán desconectados, por lo que el zumbador permanecerá en silencio.
 
-**3. Schaltplan**
+**3. Diagrama de Conexiones**
 
 ![](media/A83.png)
 
-**4. Testcode**
+**4. Código de Prueba**
 
-Wenn das Entwicklungsboard einen hohen Pegel ausgibt, gibt der Summer einen Ton von sich. Wenn es einen niedrigen Pegel ausgibt, hört der Summer auf zu klingeln.
+Si la placa de desarrollo emite un nivel alto, el zumbador emitirá sonido. Si emite un nivel bajo, el zumbador dejará de sonar.
 
-1. Ziehen Sie die beiden grundlegenden Codeblöcke.
+1. Arrastra los dos bloques básicos de código.
 
 ![](media/A84.png)
 
-2. Ziehen Sie die folgenden Blöcke aus dem Bereich „Buzzer“ und setzen Sie den IO5-Pin auf HIGH. Stellen Sie dann die Verzögerungszeit auf 1s ein.
+2. Arrastra los siguientes bloques de la sección "Buzzer" y configura el pin IO5 en HIGH. Luego establece el tiempo de retardo en 1s.
 
 ![](media/A85.png)
 
-3. Ziehen Sie die folgenden Blöcke aus dem Bereich „Buzzer“ und setzen Sie den IO5-Pin auf LOW. Stellen Sie dann die Verzögerungszeit auf 1s ein.
+3. Arrastra los siguientes bloques de la sección "Buzzer" y configura el pin IO5 en LOW. Luego establece el tiempo de retardo en 1s.
 
 ![](media/A86.png)
 
-**Vollständiger Code：**
+**Código Completo：**
 
 ![](media/A87.png)
 
-**5. Testergebnis**
+**5. Resultado de la Prueba**
 
-Nach dem Hochladen des Codes und dem Einschalten gibt der Summer 1s lang einen Ton von sich und bleibt 1s still.
+Después de subir el código y encender la alimentación, el zumbador emite sonido durante 1s y permanece en silencio durante 1s.
 
-**6. Codeerklärung**
+**6. Explicación del Código**
 
-Buzzer-Ausgabeblock. Zuerst definieren wir den Pin als IO5 und setzen dann die Ausgabe auf „HIGH“ oder „LOW“. Der Summer piept bei HIGH, während er bei LOW still bleibt.
+Bloque de salida para el zumbador. Primero definimos el pin como IO5 y luego configuramos la salida en "HIGH" o "LOW". El zumbador emitirá un pitido cuando esté en HIGH, mientras que permanecerá en silencio en LOW.
 
 ![](media/A88.png)

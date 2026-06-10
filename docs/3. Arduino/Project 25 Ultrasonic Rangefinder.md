@@ -1,32 +1,32 @@
-### Projekt 25 Ultraschall-Entfernungsmesser
+### Proyecto 25 Medidor de Distancia Ultrasónico
 
-**1. Beschreibung**
+**1. Descripción**
 
-Dieser Ultraschall-Entfernungsmesser misst die Entfernung von Hindernissen, indem er Schallwellen aussendet und dann das Echo empfängt. Das heißt, die Entfernung ist kein unmittelbarer Wert, sondern ein beobachteter, der durch eine theoretische Berechnung der Zeitdifferenz zwischen Sender und Empfänger ermittelt wird.
+Este medidor de distancia ultrasónico mide la distancia de obstáculos emitiendo ondas sonoras y luego recibiendo el eco. Es decir, la distancia no es un valor inmediato, sino uno observado mediante un cálculo teórico de la diferencia de tiempo entre el emisor y el receptor.
 
-Ultraschall kann die Form von Objekten erkennen, automatische Türen steuern sowie Fließgeschwindigkeit und Druck schätzen.
+El ultrasónico es capaz de detectar la forma de objetos, configurar puertas automáticas y estimar la velocidad de flujo y presión.
 
-Außerdem unterstützt er die Zusammenarbeit mit Computern. Dadurch kann der gemessene Wert über ein Arduino-Board an Computer übertragen werden.
+Además, soporta trabajos cooperativos con computadoras. Como resultado, el valor medido puede ser transmitido a computadoras a través de la placa Arduino.
 
-Im Alltag wird er häufig für Motoren, Servos und LEDs sowie für Systeme (automatische Navigation, Steuerung und Sicherheitsüberwachungssysteme) eingesetzt.
+En la vida diaria, se utiliza ampliamente para motores, servos y LEDs, así como en sistemas (navegación automática, control y sistemas de monitoreo de seguridad).
 
-**2. Funktionsprinzip**
+**2. Principio de Funcionamiento**
 
 ![](media/B29.png)
 
-Wie allgemein bekannt ist, handelt es sich bei Ultraschall um eine Art unhörbares Schallwellensignal mit hoher Frequenz. Ähnlich wie eine Fledermaus misst dieses Modul die Entfernung von Hindernissen, indem es die Zeitdifferenz zwischen der Aussendung der Welle und dem Empfang des Echos berechnet.
+Como todos sabemos, el ultrasónico es un tipo de señal de onda sonora inaudible con alta frecuencia. Similar a un murciélago, este módulo mide la distancia de obstáculos calculando la diferencia de tiempo entre la emisión de la onda y la recepción del eco.
 
-**Maximale Entfernung:** 3M
+**Distancia máxima:** 3M
 
-**Minimale Entfernung:** 5cm
+**Distancia mínima:** 5cm
 
-**Erfassungswinkel:** ≤15°
+**Ángulo de detección:** ≤15°
 
-**3. Schaltplan**
+**3. Diagrama de Conexiones**
 
 ![](media/B30.png)
 
-**4. Testcode**
+**4. Código de Prueba**
 
 ```
 /*
@@ -34,36 +34,36 @@ Wie allgemein bekannt ist, handelt es sich bei Ultraschall um eine Art unhörbar
   Project 25.1：Ultrasonic Rangefinder
   http://www.keyestudio.com
 */
-int distance = 0; //Define a variable to receive the diatance value 
-int EchoPin = 14; //Connect Echo pin to io14
-int TrigPin = 13; //Connect Trig pin to io13
+int distance = 0; //Define una variable para recibir el valor de distancia 
+int EchoPin = 14; //Conecta el pin Echo a io14
+int TrigPin = 13; //Conecta el pin Trig a io13
 
-float checkdistance() { //Acquire the distance 
-  // preserve a short low level to ensure a clear high pulse:
+float checkdistance() { //Adquiere la distancia 
+  // conserva un nivel bajo corto para asegurar un pulso alto claro:
   digitalWrite(TrigPin, LOW);
-  delayMicroseconds(2);    //Delay 2um
-  //Trigger the sensor by a high pulse of 10um or longer 
+  delayMicroseconds(2);    //Retraso de 2us
+  //Dispara el sensor con un pulso alto de 10us o más 
   digitalWrite(TrigPin, HIGH);
-  delayMicroseconds(10);		//Delay 10um
+  delayMicroseconds(10);		//Retraso de 10us
   digitalWrite(TrigPin, LOW);
-  //Read the signal from the sensor: a high level pulse
-  //Duration is detected from the point sending "ping" command to the time receiving echo signal (unit: um).
-  float distance = pulseIn(EchoPin, HIGH) / 58.00;  //Convert into distance
+  //Lee la señal del sensor: un pulso de nivel alto
+  //La duración se detecta desde el momento de enviar el comando "ping" hasta recibir la señal de eco (unidad: us).
+  float distance = pulseIn(EchoPin, HIGH) / 58.00;  //Convierte a distancia
   delay(10);
-  return distance; //Return the diatance value
+  return distance; //Devuelve el valor de distancia
 }
 
 void setup() 
 {
-  Serial.begin(9600);//Set the baud rate to 9600
-  pinMode(TrigPin, OUTPUT);//Set Trig pin to output
-  pinMode(EchoPin, INPUT);  //Set Echo pin to input 
+  Serial.begin(9600);//Configura la velocidad en baudios a 9600
+  pinMode(TrigPin, OUTPUT);//Configura el pin Trig como salida
+  pinMode(EchoPin, INPUT);  //Configura el pin Echo como entrada 
 }
 
 void loop() 
 {
-  distance = checkdistance();   //Assign the read value to "distance" 
-  if (distance < 4 || distance >= 400) //Display "-1" if exceeding the detection range 
+  distance = checkdistance();   //Asigna el valor leído a "distance" 
+  if (distance < 4 || distance >= 400) //Muestra "-1" si excede el rango de detección 
   {  
     distance = -1;
   }
@@ -74,25 +74,25 @@ void loop()
 }
 ```
 
-**5. Testergebnis**
+**5. Resultado de la Prueba**
 
-Nach dem Anschluss der Verkabelung und dem Hochladen des Codes öffnen Sie den seriellen Monitor und stellen die Baudrate auf 9600 ein. Der serielle Port gibt dann den Entfernungswert aus.
+Después de conectar el cableado y subir el código, abre el monitor serial y configura la velocidad en baudios a 9600, el puerto serial imprimirá el valor de la distancia.
 
 ![](media/B31.png)
 
-**6. Wissensvertiefung**
+**6. Ampliación de Conocimientos**
 
-Lassen Sie uns einen Entfernungsmesser bauen.
+Vamos a hacer un medidor de distancia.
 
-Wir zeigen Zeichen auf dem LCD 1602 an. Das Programm zeigt „Keyestudio“ bei (3,0) und „distance:“ bei (0,1) gefolgt vom Entfernungswert bei (9,1).
+Mostramos caracteres en un LCD 1602. Programa para mostrar "Keyestudio" en (3,0) y “distance:” en (0,1) seguido del valor de distancia en (9,1).
 
-Wenn der Wert kleiner als 100 (oder 10) ist, bleibt ein Rest der dritten (bzw. zweiten) Stelle sichtbar. Daher ist eine „if“-Abfrage notwendig, um eine bestimmte Bedingung zu prüfen.
+Cuando el valor es menor que 100 (o 10), aún queda un residuo del tercer (o segundo) dígito. Por lo tanto, es necesario un juicio "if" para determinar una condición específica.
 
-**Schaltplan：**
+**Diagrama de Conexiones：**
 
 ![](media/B32.png)
 
-**Code：**
+**Código：**
 
 ```
 /*
@@ -102,33 +102,33 @@ Wenn der Wert kleiner als 100 (oder 10) ist, bleibt ein Rest der dritten (bzw. z
 */
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
-LiquidCrystal_I2C lcd(0x27,16,2); //set the LCD address to 0x27 for a 16 chars and 2 line display
+LiquidCrystal_I2C lcd(0x27,16,2); //configura la dirección del LCD a 0x27 para una pantalla de 16 caracteres y 2 líneas
 
-int distance = 0; //Define a variable to receive the diatance value 
-int EchoPin = 14; //Connect Echo pin to io14
-int TrigPin = 13; //Connect Trig pin to io13
-float checkdistance() { //Acquire the distance 
-  // preserve a short low level to ensure a clear high pulse:
+int distance = 0; //Define una variable para recibir el valor de distancia 
+int EchoPin = 14; //Conecta el pin Echo a io14
+int TrigPin = 13; //Conecta el pin Trig a io13
+float checkdistance() { //Adquiere la distancia 
+  // conserva un nivel bajo corto para asegurar un pulso alto claro:
   digitalWrite(TrigPin, LOW);
   delayMicroseconds(2);
-  //Trigger the sensor by a high pulse of 10um or longer 
+  //Dispara el sensor con un pulso alto de 10us o más 
   digitalWrite(TrigPin, HIGH);
   delayMicroseconds(10);
   digitalWrite(TrigPin, LOW);
-  // Read the signal from the sensor: a high level pulse
-  //Duration is detected from the point sending "ping" command to the time receiving echo signal (unit: um).
-  float distance = pulseIn(EchoPin, HIGH) / 58.00;  //Convert into distance
+  // Lee la señal del sensor: un pulso de nivel alto
+  //La duración se detecta desde el momento de enviar el comando "ping" hasta recibir la señal de eco (unidad: us).
+  float distance = pulseIn(EchoPin, HIGH) / 58.00;  //Convierte a distancia
   delay(10);
   return distance;
 }
 
 void setup() 
 {
-  	Serial.begin(9600);//Set the baud rate to 9600
-  	pinMode(TrigPin, OUTPUT);//Set Trig pin to output
-  	pinMode(EchoPin, INPUT);  //Set Echo pin to input 
-    lcd.init(); // initialize the lcd
-    // Print a message to the LCD.
+  	Serial.begin(9600);//Configura la velocidad en baudios a 9600
+  	pinMode(TrigPin, OUTPUT);//Configura el pin Trig como salida
+  	pinMode(EchoPin, INPUT);  //Configura el pin Echo como entrada 
+    lcd.init(); // inicializa el lcd
+    // Imprime un mensaje en el LCD.
     lcd.backlight();
     lcd.setCursor(3,0);
     lcd.print("Keyestudio");
@@ -138,15 +138,15 @@ void loop()
 {
   distance = checkdistance();
  
-  if (distance < 2 || distance >= 400) //Display "-1" if exceeding the detection range 
+  if (distance < 2 || distance >= 400) //Muestra "-1" si excede el rango de detección 
   {  
     distance = -1;
   }
-  if(distance < 100 && distance > 10){             //Eliminate the shadow of the third digit when the value drops to two digits
+  if(distance < 100 && distance > 10){             //Elimina la sombra del tercer dígito cuando el valor baja a dos dígitos
     lcd.setCursor(11,1);
     lcd.print(" ");
   }
-  if(distance < 10)//Eliminate two-digit shadows when the value drops to one digit
+  if(distance < 10)//Elimina las sombras de dos dígitos cuando el valor baja a un dígito
   {              
     lcd.setCursor(10,1);
     lcd.print(" ");

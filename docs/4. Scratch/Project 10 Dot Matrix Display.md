@@ -1,91 +1,91 @@
-### Projekt 10 Punktmatrix-Display
+### Proyecto 10 Pantalla de Matriz de Puntos
 
-**1. Beschreibung**
+**1. Descripción**
 
-Dieses Modul besteht aus einer 8x8 LED-Punktmatrix mit jeweils einem Steuerpin für jede Reihe sowie jede Spalte, um die Helligkeit der LEDs anzupassen. In Verbindung mit einem Arduino-Board wird die Helligkeit der LEDs über Arduino-Programmierung gesteuert, um Zeichen und Figuren anzuzeigen. Auf diese Weise können einfache Zeichen, Zahlen und Figuren dargestellt werden. Es kann auch in Spielgeräten oder Bildschirmen eingesetzt werden.
+Este módulo consiste en una matriz de puntos LED de 8x8 con un pin de control para cada fila y cada columna para ajustar el brillo del LED. Conectado a una placa Arduino, el brillo del LED se controla para mostrar caracteres y figuras mediante programación en Arduino. De esta manera, se pueden mostrar caracteres simples, números y figuras. También puede aplicarse en máquinas de juego o pantallas.
 
 ![](media/A109.png)
 
-Der MAX7219 ist ein IC mit SPI-Kommunikation und kann zur Steuerung der 8x8 Punktmatrix verwendet werden. Die MAX7219 SPI-Kommunikation ist in unseren Bibliotheken integriert und kann direkt aufgerufen werden.
+MAX7219 es un CI con comunicación SPI que puede usarse para controlar la matriz de puntos 8x8. La comunicación SPI del MAX7219 está integrada en nuestras librerías y puedes llamarla directamente.
 
-**2. Schaltplan**
+**2. Diagrama de Conexiones**
 
 ![](media/A110.png)
 
-**3. Testcode**
+**3. Código de Prueba**
 
-1. Ziehen Sie die beiden grundlegenden Codeblöcke.
+1. Arrastra los dos bloques básicos de código.
 
 ![](media/A111.png)
 
-2. Ziehen Sie einen „init matrix display“ Block aus „Matrix“ und setzen Sie CS auf IO15. DIN und CLK sind jeweils fest auf IO23 und IO18 gelegt.
+2. Arrastra un bloque "init matrix display" desde “Matrix” y configura CS en IO15. DIN y CLK son pines fijos respectivamente en IO23 e IO18.
 
 ![](media/A112.png)
 
-3. Ziehen Sie einen „set brightness“ Block und setzen Sie ihn auf 3.
+3. Arrastra un bloque "set brightness" y configúralo en 3.
 
 ![](media/A113.png)
 
-4. Ziehen Sie einen „image“ Block und wählen Sie das Herzsymbol.
+4. Arrastra un bloque "image" y elige el icono de corazón.
 
 ![](media/A114.png)
 
-5. Fügen Sie am Ende einen „refresh“ Block hinzu.
+5. Añade un bloque "refresh" al final.
 
 ![](media/A115.png)
 
-**Vollständiger Code：**
+**Código Completo：**
 
 ![](media/A116.png)
 
-**4. Testergebnis**
+**4. Resultado de la Prueba**
 
-Nach dem Anschluss der Verkabelung und dem Hochladen des Codes wird ein Herz auf der Punktmatrix angezeigt, wie unten dargestellt.
+Después de conectar el cableado y subir el código, se mostrará un corazón en la matriz de puntos, como se muestra a continuación.
 
 ![](media/A117.png)
 
-**5. Code-Erklärung**
+**5. Explicación del Código**
 
-1. Setzen Sie den CS-Pin. Im Code ist DIN fest auf IO23 und SLK auf IO18 gelegt, während der CS-Pin optional ist. Für eine bequeme Verkabelung wählen wir IO15.
+1. Configura el pin CS. En el código, DIN está fijo en io23 y SLK en io18, mientras que el pin CS es opcional. Para facilitar el cableado, seleccionamos io15.
 
 ![](media/A118.png)
 
-2. Pixel zeichnen. Dieser Codeblock schaltet Pixel auf der Punktmatrix an oder aus, basierend auf den Achsen x und y, wobei Rot für an und Schwarz für aus steht.
+2. Dibujar píxeles. Este bloque de código encenderá o apagará píxeles en la matriz de puntos según los ejes x e y, con rojo para encendido y negro para apagado.
 
 ![](media/A119.png)
 
-3. Linie zeichnen. Die Linie wird durch zwei Gruppen von Koordinatenpunkten definiert, ebenfalls mit Rot für an und Schwarz für aus.
+3. Dibujar línea. Ubica la línea mediante dos grupos de puntos de coordenadas, también con rojo para encendido y negro para apagado.
 
 ![](media/A120.png)
 
-4. Zeichen anzeigen. Wir haben Zeichensatzbibliotheken hinzugefügt, sodass Sie nur einen Buchstaben eingeben müssen, um ihn auf der Punktmatrix anzuzeigen. Außerdem muss dieser Block zusammen mit einem „rotation 180°“ Block verwendet werden.
+4. Mostrar caracteres. Hemos añadido librerías de caracteres, por lo que solo necesitas escribir una letra para mostrarla en la matriz de puntos. Además, debe usarse conjuntamente con un bloque "rotation 180°".
 
 ![](media/A121.png)
 
-5. Zahlen anzeigen. Ähnlich müssen Sie nur eine Zahl eingeben, um sie auf der Punktmatrix anzuzeigen, und auch hier muss der „rotation 180°“ Block verwendet werden.
+5. Mostrar números. De manera similar, solo necesitas escribir un número para mostrarlo en la matriz de puntos, y también debe usarse conjuntamente con un bloque "rotation 180°".
 
 ![](media/A122.png)
 
-6. Laufende Zeichenketten anzeigen. In Kombination mit einem „rotation 180°“ Block werden die angegebenen Lauftextzeichenketten nach Einstellung der Geschwindigkeit angezeigt.
+6. Mostrar cadenas de caracteres desplazándose. Colocando un bloque "rotation 180°", las cadenas de texto desplazadas especificadas se mostrarán después de configurar su velocidad.
 
 ![](media/A123.png)
 
-7. Bild anzeigen. Zur Vereinfachung haben wir einige Emoticons integriert, die direkt ausgewählt werden können.
+7. Mostrar imagen. Para mayor comodidad, ya hemos integrado algunos iconos de emociones que pueden seleccionarse directamente.
 
 ![](media/A124.png)
 
-8. Füllfarben anzeigen. Sie können Schwarz (LED aus) oder Rot (LED an) einstellen.
+8. Mostrar colores de relleno. Puedes configurar en negro (LED apagado) o rojo (LED encendido).
 
 ![](media/A125.png)
 
-9. Display aktualisieren. Die Punktmatrix muss aktualisiert werden, wenn etwas angezeigt wird. Andernfalls kann ein Fehler auftreten.
+9. Refrescar la pantalla. La matriz de puntos debe refrescarse si muestra algo. De lo contrario, puede ocurrir un error.
 
 ![](media/A126.png)
 
-10. Helligkeit einstellen. Sie können die Helligkeit beim Debuggen reduzieren, um Ihre Augen zu schonen.
+10. Ajustar el brillo. Puedes bajar el brillo durante la depuración para evitar molestias a tus ojos.
 
 ![](media/A127.png)
 
-11. Rotationswinkel einstellen. Für eine hohe Kompatibilität mit mehr Code benötigen einige Daten und Symbole eine Rotation, um eine invertierte Anzeige zu vermeiden. Deshalb ist ein „rotation 180°“ Block im Code notwendig.
+11. Ajustar ángulos de rotación. Para alta compatibilidad con más código, algunos datos e iconos necesitan una rotación para evitar una visualización invertida. Por eso es necesario un bloque "rotation 180°" en los códigos.
 
 ![](media/A128.png)

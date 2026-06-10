@@ -1,18 +1,18 @@
-### Projekt 26 Körperklavier
+### Proyecto 26 Piano de Cuerpo Humano
 
-**1. Beschreibung**
+**1. Descripción**
 
-Das analoge Klavier besteht aus einem Entwicklungsboard und einem Ultraschallsensor. Es ermöglicht das Spielen verschiedener Töne, indem die Position Ihrer Finger erkannt wird. Somit kann dieses Modul ein Klavier stimulieren, um Musik und Lieder zu spielen.
+El piano analógico incluye una placa de desarrollo y un sensor ultrasónico. Permite reproducir diferentes tonos detectando la posición de tus dedos. Así, este módulo es capaz de estimular un piano para interpretar música y canciones.
 
-**2. Flussdiagramm**
+**2. Diagrama de Flujo**
 
 ![](media/B33.png)
 
-**3. Schaltplan**
+**3. Diagrama de Conexiones**
 
 ![](media/B34.png)
 
-**4. Testcode**
+**4. Código de Prueba**
 
 ```
 /*
@@ -90,14 +90,14 @@ void loop()
 }
 ```
 
-**5. Testergebnis**
+**5. Resultado de la Prueba**
 
-Verbinden Sie die Verkabelung und laden Sie den Code hoch.
+Conecta las conexiones y sube el código.
 
-- Spiele Do, wenn der Abstand kleiner als 10 ist.  
-- Spiele Re, wenn der Abstand zwischen 10 und 20 liegt.  
-- Spiele Mi, wenn der Abstand zwischen 20 und 30 liegt.  
-- Spiele Fa, wenn der Abstand zwischen 30 und 40 liegt.  
-- Spiele So, wenn der Abstand zwischen 40 und 50 liegt.  
-- Spiele La, wenn der Abstand zwischen 50 und 60 liegt.  
-- Spiele Si, wenn der Abstand zwischen 60 und 70 liegt.
+- Reproduce Do cuando la distancia es menor a 10.
+- Reproduce Re cuando la distancia está entre 10 y 20.
+- Reproduce Mi cuando la distancia está entre 20 y 30.
+- Reproduce Fa cuando la distancia está entre 30 y 40.
+- Reproduce So cuando la distancia está entre 40 y 50.
+- Reproduce La cuando la distancia está entre 50 y 60.
+- Reproduce Si cuando la distancia está entre 60 y 70.

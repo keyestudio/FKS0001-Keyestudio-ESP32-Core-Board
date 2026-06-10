@@ -1,45 +1,45 @@
-### Projekt 6 Wasserflusslicht
+### Proyecto 6 Luz de Flujo de Agua
 
-**1. Beschreibung**
+**1. Descripción**
 
-Dieses einfache Wasserflusslicht-Projekt hilft Ihnen, die elektronische Verpackung zu erlernen. In diesem Projekt steuern wir LEDs, um die Farbe mit einer bestimmten Geschwindigkeit über ein Arduino-Board zu ändern.
+Este sencillo proyecto de luz de flujo de agua te ayuda a aprender sobre el empaquetado electrónico. En este proyecto, controlaremos LEDs para cambiar el color a una velocidad especificada mediante una placa Arduino.
 
-**2. Schaltplan**
+**2. Diagrama de Conexiones**
 
 ![](media/A74.png)
 
-**3. Testcode**
+**3. Código de Prueba**
 
-Ein Wasserflusslicht besteht aus einem LED-Lichtstrom von links nach rechts.
+Una luz de flujo de agua consiste en una secuencia de iluminación de LEDs de izquierda a derecha.
 
-1. Ziehen Sie die beiden grundlegenden Codeblöcke.
+1. Arrastra los dos bloques básicos de código.
 
 ![](media/A75.png)
 
-2. Stellen Sie den Pin-Modus auf „output“ ein.
+2. Configura el modo del pin a “output”.
 
 ![](media/A76.png)
 
-3. Ziehen Sie die folgenden Blöcke aus dem Bereich „LED“ und setzen Sie den IO15-Pin auf LOW, den IO12-Pin auf HIGH. Stellen Sie dann die Verzögerungszeit auf 0,2 s ein.
+3. Arrastra los siguientes bloques de la sección "LED" y configura el pin IO15 en LOW, el pin IO12 en HIGH. Luego establece el tiempo de retardo a 0.2s.
 
 ![](media/A77.png)
 
-4. Ziehen Sie die folgenden Blöcke aus dem Bereich „LED“ und setzen Sie den IO12-Pin auf LOW, den IO13-Pin auf HIGH. Stellen Sie dann die Verzögerungszeit auf 0,2 s ein.
+4. Arrastra los siguientes bloques de la sección "LED" y configura el pin IO12 en LOW, el pin IO13 en HIGH. Luego establece el tiempo de retardo a 0.2s.
 
 ![](media/A78.png)
 
-5. Ziehen Sie die folgenden Blöcke aus dem Bereich „LED“ und setzen Sie den IO13-Pin auf LOW, den IO14-Pin auf HIGH. Stellen Sie dann die Verzögerungszeit auf 0,2 s ein.
+5. Arrastra los siguientes bloques de la sección "LED" y configura el pin IO13 en LOW, el pin IO14 en HIGH. Luego establece el tiempo de retardo a 0.2s.
 
 ![](media/A79.png)
 
-6. Ziehen Sie die folgenden Blöcke aus dem Bereich „LED“ und setzen Sie den IO14-Pin auf LOW, den IO15-Pin auf HIGH. Stellen Sie dann die Verzögerungszeit auf 0,2 s ein.
+6. Arrastra los siguientes bloques de la sección "LED" y configura el pin IO14 en LOW, el pin IO15 en HIGH. Luego establece el tiempo de retardo a 0.2s.
 
    ![](media/A80.png)
 
-**Vollständiger Code：**
+**Código Completo：**
 
 ![](media/A81.png)
 
-**4. Testergebnis**
+**4. Resultado de la Prueba**
 
-Nach dem Hochladen des Codes und dem Einschalten leuchten die LEDs von links nach rechts auf.
+Después de subir el código y encender la alimentación, los LEDs se iluminan de izquierda a derecha.

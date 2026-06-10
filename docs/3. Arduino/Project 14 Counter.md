@@ -1,18 +1,18 @@
-### Projekt 14 Zähler
+### Proyecto 14 Contador
 
-**1. Beschreibung**
+**1. Descripción**
 
-Der Arduino 4-Bit Digitalröhrenzähler kann Zahlen im Bereich von 0 bis 9999 erfassen. Er verfügt über eine Anzeige-Geschwindigkeit, Zählmodus-Anpassung sowie eine Rücksetzfunktion. Dieses Modul wird häufig in Echtzeit-Zählern (wie Tasterbetätigung und DC-Motor-Drehzahlerfassung), Spiel- und Versuchsausrüstung eingesetzt.
+El contador de tubo digital Arduino de 4 bits puede registrar números dentro del rango 0~9999. Cuenta con ajuste de velocidad de visualización, modo de conteo y función de reinicio. Este módulo se aplica ampliamente en contadores en tiempo real (como conteo de pulsaciones de botón y rotación de motor DC), juegos y equipos de experimentación.
 
-**2. Flussdiagramm**
+**2. Diagrama de flujo**
 
 ![](media/A58.png)
 
-**3. Schaltplan**
+**3. Diagrama de conexiones**
 
 ![](media/A59.png)
 
-**4. Testcode**
+**4. Código de prueba**
 
 ```
 /*
@@ -68,6 +68,6 @@ void loop()
 }
 ```
 
-**4. Testergebnis**
+**4. Resultado de la prueba**
 
-Nach dem Anschließen der Verkabelung und Hochladen des Codes drücken Sie die grüne Taste, um 1 zu addieren, die gelbe Taste, um 1 zu subtrahieren, und die rote Taste, um zurückzusetzen. Halten Sie die Taste gedrückt, wird der angezeigte Wert kontinuierlich erhöht oder verringert.
+Después de conectar el cableado y subir el código, presione el botón verde para sumar 1, el amarillo para restar 1 y el rojo para reiniciar. Mantenga presionado el botón y el valor mostrado seguirá aumentando o disminuyendo.

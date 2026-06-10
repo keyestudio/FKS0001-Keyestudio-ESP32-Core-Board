@@ -1,17 +1,17 @@
-### Projekt 6 Wasserflusslicht
+### Proyecto 6 Luz de Flujo de Agua
 
-**1. Beschreibung**
+**1. Descripción**
 
-Dieses einfache Wasserflusslicht-Projekt hilft Ihnen, die elektronische Verpackung zu erlernen. In diesem Projekt steuern wir LEDs, die die Farbe mit einer vorgegebenen Geschwindigkeit über ein Arduino-Board ändern.
+Este sencillo proyecto de luz de flujo de agua te ayuda a aprender sobre el empaquetado electrónico. En este proyecto, controlaremos LEDs para cambiar el color a una velocidad especificada mediante una placa Arduino.
 
-**2. Schaltplan**
+**2. Diagrama de Conexiones**
 
 ![](media/A25.png)
 
-**3. Testcode**
+**3. Código de Prueba**
 
-Ein Wasserflusslicht bedeutet, dass die LED-Leuchten von links nach rechts und dann von rechts nach links laufen.  
-In diesem Experiment verwenden wir aufeinanderfolgende Pins, sodass die „for“-Schleife nicht nur zum Setzen des Ausgangsmodus (Ersetzen der Pins durch eine zirkuläre Variable im Code) sondern auch zur Ausgabe genutzt werden kann.
+Una luz de flujo de agua significa que las luces LED se encienden de izquierda a derecha y luego de derecha a izquierda.  
+En este experimento, usamos pines continuos, de modo que la instrucción "for" puede utilizarse no solo para configurar el modo de salida (reemplazando los pines con una variable circular en el código) sino también para la salida.
 
 ```
 /*
@@ -44,6 +44,6 @@ void loop()
 }
 ```
 
-**4. Testergebnis**
+**4. Resultado de la Prueba**
 
-Nach dem Hochladen des Codes und Einschalten leuchten die LEDs von links nach rechts und dann von rechts nach links.
+Después de subir el código y encender la alimentación, los LEDs se encienden de izquierda a derecha y luego de derecha a izquierda.

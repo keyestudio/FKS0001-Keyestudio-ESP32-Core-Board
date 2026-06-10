@@ -1,22 +1,22 @@
-### Projekt 16 Zeitbombe
+### Proyecto 16 Bomba de Tiempo
 
-**1. Beschreibung**
+**1. Descripción**
 
-Dieses Projekt bietet Ihnen die Möglichkeit, ein interessantes Zeitbomben-Spiel zu erleben.
+Este proyecto te dará la oportunidad de experimentar un interesante juego de bomba de tiempo.
 
-In diesem Projekt stellt die Punktmatrix Ihre Zeitbombe dar, während die digitale Röhre die verbleibende Zeit anzeigt. Die Tasten können nicht nur die Bombe steuern, sondern auch ihre Zeit einstellen. Sie können einen Countdown festlegen, um die Bombe zu kontrollieren, und sie explodiert, wenn der Countdown abgelaufen ist. Darüber hinaus wird ein Summer zur Alarmierung verwendet.
+En este proyecto, la matriz de puntos representa tu bomba de tiempo, mientras que el tubo digital muestra el tiempo restante. Los botones no solo pueden controlar la bomba, sino también configurar su tiempo. Puedes establecer una cuenta regresiva para controlar esta bomba, y esta explota cuando la cuenta regresiva termina. Además, se utiliza un zumbador para la alarma.
 
-Durch die Programmierung mehrerer Sensoren kann Ihre umfassende Fähigkeit zum logischen Denken verbessert werden.
+De cualquier manera, al programar con múltiples sensores, tu capacidad integral de pensamiento lógico puede ser mejorada.
 
-**2. Flussdiagramm**
+**2. Diagrama de Flujo**
 
 ![](media/A62.png)
 
-**3. Schaltplan**
+**3. Diagrama de Conexiones**
 
 ![](media/A63.png)
 
-**4. Testcode**
+**4. Código de Prueba**
 
 ```
 /*
@@ -124,6 +124,6 @@ void loop()
 }
 ```
 
-**5. Testergebnis**
+**5. Resultado de la Prueba**
 
-Nach dem Verbinden der Kabel und Hochladen des Codes können Sie mit der blauen Taste (Erhöhen) und der grünen Taste (Verringern) die Zeit einstellen, und mit der gelben Taste den Countdown starten. Wenn der Countdown endet, verwandelt sich das Smiley-Gesicht auf der Punktmatrixanzeige in ein weinendes Gesicht, das die Explosion der Bombe simuliert. Durch Drücken der roten Taste kann das Programm zurückgesetzt werden.
+Después de conectar los cables y subir el código, el botón azul (aumentar) y el botón verde (disminuir) pueden usarse para configurar el tiempo, y el botón amarillo puede usarse para iniciar la cuenta regresiva. Cuando la cuenta regresiva termina, la cara sonriente en la Matriz de Puntos se convierte en una cara llorando, simulando la explosión de la bomba. Presionar el botón rojo puede reiniciar el programa.

@@ -1,14 +1,14 @@
-### Projekt 24 Wetterstation
+### Proyecto 24 Estación Meteorológica
 
-**1. Beschreibung**
+**1. Descripción**
 
-Diese Wetterstation erfasst die Umgebungstemperatur und den Feuchtigkeitswert über ein Arduino-Board und einen Temperatur- und Feuchtigkeitssensor.
+Esta estación meteorológica registra la temperatura y humedad ambiental mediante una placa Arduino y un sensor de temperatura y humedad.
 
-**2. Schaltplan**
+**2. Diagrama de Conexiones**
 
 ![](media/B27.png)
 
-**3. Testcode**
+**3. Código de Prueba**
 
 ```
 /*
@@ -46,8 +46,8 @@ void loop()
 }
 ```
 
-**4. Testergebnis**
+**4. Resultado de la Prueba**
 
-Nach dem Verbinden der Verkabelung und Hochladen des Codes zeigt das LCD-Display direkt den Umgebungsfeuchtigkeits- und Temperaturwert an.
+Después de conectar el cableado y subir el código, la pantalla LCD mostrará directamente el valor de humedad y temperatura ambiental.
 
 ![](media/B28.png)

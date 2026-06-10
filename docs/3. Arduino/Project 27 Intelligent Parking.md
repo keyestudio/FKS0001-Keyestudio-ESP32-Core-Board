@@ -1,20 +1,20 @@
-### Projekt 27 Intelligentes Parken
+### Proyecto 27 Estacionamiento Inteligente
 
-**1. Beschreibung**
+**1. Descripción**
 
-Dieses intelligente Parksystem erkennt und optimiert die Parkposition mittels eines Ultraschallsensors. Mit diesem System wird falsches Parken weitgehend vermieden.
+Este sistema de estacionamiento inteligente detecta y optimiza la posición de estacionamiento mediante un sensor ultrasónico. Con este sistema, se evita en gran medida el estacionamiento incorrecto.
 
-Zuerst müssen Sie den Sensor rund um den Parkplatz installieren. Anschließend erkennt er den Abstand zwischen dem Auto und seinen Begrenzungen und sendet die Informationen an das Entwicklungsboard, um das Auto automatisch auf die optimale Parkposition einzustellen.
+Primero, debe instalar el sensor alrededor del estacionamiento. Luego, detectará la distancia entre el coche y sus bordes y enviará la información a la placa de desarrollo para controlar el coche y ajustarlo automáticamente a la posición óptima de estacionamiento.
 
-**2. Flussdiagramm**
+**2. Diagrama de Flujo**
 
 ![](media/B35.png)
 
-**3. Schaltplan**
+**3. Diagrama de Conexiones**
 
 ![](media/B36.png)
 
-**4. Testcode**
+**4. Código de Prueba**
 
 ```
 /*
@@ -97,8 +97,8 @@ void loop()
 }
 ```
 
-**5. Testergebnis**
+**5. Resultado de la Prueba**
 
-Nach dem Anschließen der Verkabelung und Hochladen des Codes werden Linien auf der Punktmatrix angezeigt. Wenn der erkannte Abstand weniger als 50 cm beträgt, werden weniger Linien angezeigt.
+Después de conectar el cableado y subir el código, se mostrarán líneas en la matriz de puntos. Si la distancia detectada es menor a 50 cm, habrá menos líneas.
 
 ![](media/B37.png)![](media/B38.png)

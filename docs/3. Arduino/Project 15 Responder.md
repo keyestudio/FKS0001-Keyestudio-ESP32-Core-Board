@@ -1,20 +1,20 @@
-### Projekt 15 Responder
+### Proyecto 15 Respondedor
 
-**1. Beschreibung**
+**1. Descripción**
 
-Dieser programmierbare Responder empfängt und sendet Signale über ein Arduino-Entwicklungsboard und eine Gruppe von Tasten und bewertet die Richtigkeit der Antworten über eine LED. Er ist ein gutes Objekt, um die Reaktionsfähigkeit der Schüler zu trainieren und ihre Aufmerksamkeit auf Fragen zu lenken. Wenn die Antwort korrekt ist, erhält der Teilnehmer viele Punkte.
+Este respondedor programable recibe y envía señales a través de la placa de desarrollo Arduino y un grupo de botones, y juzga la corrección de las respuestas mediante un LED. Es un buen objeto para ejercitar la capacidad de reacción de los estudiantes y captar su atención hacia las preguntas. Si la respuesta es correcta, el participante obtiene muchos puntos.
 
-Darüber hinaus vereinfacht er die Handhabung von Fragegreifern durch Lehrer und reduziert Antwortchaos. Er kann sogar das Interesse der Schüler am Lernen fördern.
+Además, simplifica la manipulación de los captadores de preguntas por parte de los profesores y reduce el desorden de respuestas. Incluso puede estimular el interés de los estudiantes por el aprendizaje.
 
-**2. Flussdiagramm**
+**2. Diagrama de flujo**
 
 ![image-20251013104115790](media/A60.png)
 
-**3. Schaltplan**
+**3. Diagrama de conexiones**
 
 ![](media/A61.png)
 
-**4. Testcode**
+**4. Código de prueba**
 
 ```
 /*
@@ -83,8 +83,8 @@ void loop()
 }
 ```
 
-**5. Testergebnis**
+**5. Resultado de la prueba**
 
-Simulieren wir ein Schnellantwortspiel.
+Vamos a simular un juego de respuestas rápidas.
 
-Drücken Sie die rote Taste, um alle LEDs auszuschalten. Dann können wir die gelbe, grüne und blaue Taste drücken, um die entsprechende LED einzuschalten. Die Person, deren LED zuerst leuchtet, darf als Erste antworten.
+Presione el botón rojo para apagar todas las luces LED. Luego podemos seleccionar los botones amarillo, verde y azul para encender las luces LED correspondientes. La persona cuya luz LED se encienda primero puede responder primero.

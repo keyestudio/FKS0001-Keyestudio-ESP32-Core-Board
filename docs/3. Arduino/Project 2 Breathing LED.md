@@ -1,28 +1,28 @@
-### Projekt 2 Atmende LED
+### Proyecto 2 LED Respiratorio
 
-**1. Beschreibung**
+**1. Descripción**
 
-Die Arduino atmende LED nutzt den programmierbaren PWM an Bord, um eine analoge Wellenform auszugeben. Nach dem Einschalten kann die Helligkeit der LED über den Tastgrad der Wellenform angepasst werden, um schließlich den Effekt einer atmenden LED zu realisieren.
+El LED respiratorio de Arduino utiliza PWM programable a bordo para emitir una forma de onda analógica. Después de encender, el brillo del LED puede ajustarse mediante el ciclo de trabajo de la forma de onda para finalmente lograr el efecto de LED respiratorio.
 
-Auf diese Weise kann Umgebungslicht simuliert werden, indem die LED-Helligkeit über die Zeit verändert wird. Außerdem kann die atmende LED ein farbenfrohes Mini-Licht bilden, um eine ruhige und warme Atmosphäre zu schaffen.
+De esta manera, se puede simular la luz ambiental cambiando el brillo del LED con el tiempo. Además, el LED respiratorio puede formar una mini luz colorida para crear un ambiente tranquilo y cálido.
 
-**2. Was ist PWM?**
+**2. ¿Qué es PWM?**
 
-PWM steuert analoge Ausgaben auf digitale Weise, indem der Tastgrad der Welle (ein Signal, das zyklisch zwischen hohem und niedrigem Pegel wechselt) angepasst wird.
+PWM controla la salida analógica mediante medios digitales, lo que permite ajustar el ciclo de trabajo de la onda (una señal que cambia circularmente entre nivel alto y nivel bajo).
 
-Für Arduino sind die digitalen Ausgangsports LOW und HIGH, die jeweils 0V und 5V entsprechen. Allgemein definieren wir LOW als 0 und HIGH als 1. Arduino gibt innerhalb von 1 Sekunde 500 Signale mit 0 oder 1 aus. Wenn sie „1“ sind, wird 5V ausgegeben. Umgekehrt, wenn sie alle 0 sind, beträgt die Ausgabe 0V. Oder wenn sie 010101010101... sind, beträgt der durchschnittliche Ausgang 2,5V.
+Para Arduino, los puertos digitales de salida de voltaje son LOW y HIGH, que corresponden respectivamente a 0V y 5V. Generalmente, definimos LOW como 0 y HIGH como 1. Arduino emitirá 500 señales de 0 o 1 en 1 segundo. Si son "1", se emitirá 5V. Por el contrario, si son todas 0, la salida será 0V. O si son 010101010101..., el promedio de salida será 2.5V.
 
-Mit anderen Worten beeinflusst das Verhältnis von 0 und 1 die Spannung, je mehr 0- und 1-Signale pro Zeiteinheit ausgegeben werden, desto genauer ist die Steuerung.
+En otras palabras, la proporción de salida de 0 y 1 afecta el valor del voltaje; cuanto más señales 0 y 1 se emitan por unidad de tiempo, más preciso será el control.
 
-Die GPIO34, 35, 36 und 39 des ESP32 können kein PWM verwenden.
+Los GPIO34, 35, 36 y 39 del ESP32 no pueden usar PWM.
 
 ![](media/A18.png)
 
-**3. Schaltplan**
+**3. Diagrama de Conexiones**
 
 ![](media/A19.png)
 
-**4. Testcode**
+**4. Código de Prueba**
 
 ```
 /*
@@ -56,6 +56,6 @@ void loop()
 }
 ```
 
-**5. Testergebnis**
+**5. Resultado de la Prueba**
 
-Nach dem Hochladen des Codes sehen wir, wie die LED langsam heller und dunkler wird, genau wie der Rhythmus des Atmens.
+Después de cargar el código, veremos que el LED se ilumina y atenúa lentamente, como el ritmo de la respiración.

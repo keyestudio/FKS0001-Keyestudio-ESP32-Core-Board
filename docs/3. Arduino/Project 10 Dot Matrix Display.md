@@ -1,42 +1,42 @@
-### Projekt 10 Punktmatrix-Display
+### Proyecto 10 Pantalla de Matriz de Puntos
 
-**1. Beschreibung**
+**1. Descripción**
 
-Dieses Modul besteht aus einer 8x8 LED-Punktmatrix mit jeweils einem Steuerpin für jede Reihe sowie jede Spalte, um die Helligkeit der LEDs anzupassen. In Verbindung mit einem Arduino-Board wird die Helligkeit der LEDs über Arduino-Programmierung gesteuert, um Zeichen und Figuren anzuzeigen. Auf diese Weise können einfache Zeichen, Zahlen und Figuren dargestellt werden. Es kann auch in Spielgeräten oder Bildschirmen eingesetzt werden.
+Este módulo consiste en una matriz de puntos LED de 8x8 con un pin de control para cada fila y cada columna para ajustar el brillo del LED. Al conectarlo con la placa Arduino, el brillo del LED se controla para mostrar caracteres y figuras mediante programación en Arduino. De esta manera, se pueden mostrar caracteres simples, números y figuras. También puede aplicarse en máquinas de juego o pantallas.
 
-**2. Funktionsprinzip**
+**2. Principio de Funcionamiento**
 
 ![](media/A37.png)
 
-Der MAX7219 ist ein IC mit SPI-Kommunikation und kann zur Steuerung der 8x8 Punktmatrix verwendet werden. Die MAX7219 SPI-Kommunikation ist in unseren Bibliotheken integriert und kann direkt aufgerufen werden.
+MAX7219 es un IC con comunicación SPI y puede usarse para controlar la matriz de puntos 8x8. La comunicación SPI del MAX7219 está integrada en nuestras librerías y puedes llamarla directamente.
 
-**Punktmatrix-Moduloperation**
+**Operación del Módulo Matriz de Puntos**
 
-Klicken Sie auf den Link für das Modul ：[http://dotmatrixtool.com/#](http://dotmatrixtool.com/#)
+Haz clic en el enlace para el Módulo: [http://dotmatrixtool.com/#](http://dotmatrixtool.com/#)
 
-**Schritte:**
+**Pasos:**
 
-1. Klicken Sie auf den Link und stellen Sie die Höhe und Breite der Punktmatrix ein. Hier setzen wir beide auf 8.
+1. Haz clic en el enlace y configura la altura y el ancho de la matriz de puntos. Aquí configuramos ambos a 8.
 
 ![](media/A38.png)
 
-2. Stellen Sie "Byte Order" auf "Column Major".
+2. Configura "Byte Order" a "Column Major".
 
 ![](media/A39.png)
 
-3. Stellen Sie "Endian" auf "Big Endian".
+3. Configura "Endian" a "Big Endian".
 
 ![](media/A40.png)
 
-4. Klicken Sie auf die weißen Kacheln, um ein Muster zu erstellen (erneut klicken zum Abwählen), und klicken Sie dann auf "Generate", um ein Array für dieses Symbol zu erzeugen. Kopieren Sie dieses Array und fügen Sie es in den Code ein, dann wird das Muster auf der Punktmatrix angezeigt.
+4. Haz clic en los cuadros blancos para formar el patrón que deseas (haz clic de nuevo para deseleccionar), y luego haz clic en "Generate" para generar un arreglo para este ícono. Copia este arreglo y pégalo en el código, y entonces el patrón se mostrará en la matriz de puntos.
 
 ![](media/A41.png)
 
-**3. Schaltplan**
+**3. Diagrama de Conexiones**
 
 ![](media/A42.png)
 
-**4. Testcode**
+**4. Código de Prueba**
 
 ```
 /*
@@ -70,8 +70,8 @@ void loop()
 }
 ```
 
-**5. Testergebnis**
+**5. Resultado de la Prueba**
 
-Nach dem Anschließen der Verkabelung und Hochladen des Codes wird ein Herz auf der Punktmatrix angezeigt, wie unten dargestellt.
+Después de conectar el cableado y subir el código, un corazón se mostrará en la matriz de puntos, como se muestra a continuación.
 
 ![](media/A43.png)

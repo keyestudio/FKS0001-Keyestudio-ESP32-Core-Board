@@ -1,39 +1,39 @@
-### Projekt 18 Schlagendes Herz
+### Proyecto 18 Corazón Palpitante
 
-**1. Beschreibung**
+**1. Descripción**
 
-In diesem Projekt wird ein schlagendes Herz über ein Arduino-Board, ein 8x8 Punktmatrix-Display, eine Schaltung und einige elektronische Bauteile dargestellt. Durch Programmierung können Sie die Schlagfrequenz, die Herzgröße und die Helligkeit steuern.
+En este proyecto, se presentará un corazón palpitante mediante una placa Arduino, una pantalla de matriz de puntos 8X8, una placa de circuito y algunos componentes electrónicos. Mediante programación, puedes controlar la frecuencia de los latidos, la dimensión del corazón y su brillo.
 
-**2. Schaltplan**
+**2. Diagrama de Conexiones**
 
 ![](media/B24.png)
 
-**3. Testcode**
+**3. Código de Prueba**
 
-1. Ziehen Sie die beiden Basisblöcke.
+1. Arrastra los dos bloques básicos.
 
-2. Initialisieren Sie das Punktmatrix-Display. Setzen Sie den CS-Pin auf IO15 und die Helligkeit auf 3. Fügen Sie diese beiden Ausführungen zwischen die Basisblöcke ein.
+2. Inicializa la pantalla de matriz de puntos. Configura el pin CS en IO15 y su brillo en 3. Coloca estas dos ejecuciones entre los bloques básicos.
 
-Die folgenden Ausführungen befinden sich alle im „forever“-Block.
+Las siguientes ejecuciones están todas dentro del bloque "forever".
 
-3. Löschen Sie das Display. Steuern Sie das Display, um Linien zu zeichnen und ein Koordinatensystem sowie dessen Ursprung wie folgt festzulegen. Aktualisieren Sie dann das Display, um das kleinere Herz mit einer Verzögerung von 1 Sekunde anzuzeigen.
+3. Limpia la pantalla. Controla la pantalla para dibujar líneas y establecer el sistema de coordenadas y su origen como se muestra a continuación. Luego, actualiza la pantalla para mostrar el corazón pequeño con un retardo de 1s.
 
 ![](media/B25.png)
 
 ![](media/B26.png)
 
-4. Wiederholen Sie Schritt 3, zeichnen Sie jedoch die Linien wie im folgenden Bild, um ein größeres Herz anzuzeigen.
+4. Repite el paso 3 pero dibuja las líneas como en la imagen siguiente para mostrar un corazón más grande.
 
 ![](media/B27.png)
 
 ![](media/B28.png)
 
-**Vollständiger Code:**
+**Código Completo:**
 
 ![](media/B29.png)
 
-**4. Testergebnis**
+**4. Resultado de la Prueba**
 
-Nach dem Verbinden der Verkabelung und Hochladen des Codes werden die beiden Herzgrößen abwechselnd angezeigt.
+Después de conectar el cableado y subir el código, los dos tamaños de corazones se muestran de forma alternada.
 
 ![](media/B30.png)![](media/B31.png)

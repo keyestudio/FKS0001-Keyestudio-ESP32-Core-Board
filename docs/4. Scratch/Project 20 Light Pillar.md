@@ -1,71 +1,71 @@
-### Projekt 20 Lichtsäule
+### Proyecto 20 Pilar de Luz
 
-**1. Beschreibung**
+**1. Descripción**
 
-Der Widerstand (weniger als 1KΩ) des Fotowiderstands variiert mit dem Licht, wodurch die Helligkeit der Punktmatrix gesteuert werden kann. Beim Steuern verbinden wir diesen Widerstand mit einem analogen Pin auf dem Board, um die Widerstandsänderung zu überwachen. Auf diese Weise steuert das Licht automatisch die Helligkeit der Anzeige.
+La resistencia (menos de 1KΩ) de la fotorresistencia varía según la luz, por lo que puede controlar el brillo de la matriz de puntos. Al controlar, conectamos esta resistencia a un pin analógico en la placa para monitorear el cambio de resistencia. De esta manera, la luz controla automáticamente el brillo de la pantalla.
 
-Außerdem wird der Fotowiderstand in unserem täglichen Leben häufig angewendet. Zum Beispiel öffnet oder schließt sich ein Vorhang automatisch entsprechend der äußeren Lichtintensität.
+Además, la fotorresistencia se aplica ampliamente en nuestra vida diaria. Por ejemplo, una cortina se abre o cierra automáticamente según la intensidad de la luz exterior.
 
-**2. Funktionsprinzip**
+**2. Principio de Funcionamiento**
 
 ![](media/B43.png)
 
-Wenn es völlig dunkel ist, beträgt der Widerstand 0,2MΩ, und die Spannung am Signalausgang (Punkt 2) nähert sich 0V an. Je stärker das Licht ist, desto kleiner werden Widerstand und Spannung.
+Cuando está completamente en oscuridad, la resistencia es igual a 0.2MΩ, y el voltaje en el terminal de señal (punto 2) se acerca a 0V. Cuanto más fuerte es la luz, menor será la resistencia y el voltaje.
 
-**3. Schaltplan**
+**3. Diagrama de Conexiones**
 
 ![](media/B44.png)
 
-**4. Testcode**
+**4. Código de Prueba**
 
-Der analoge Wert des Fotowiderstands kann ausgelesen werden:
+Se puede leer el valor analógico de la fotorresistencia:
 
-1. Ziehen Sie die beiden Basisblöcke. Setzen Sie den Baudraten-Block dazwischen und stellen Sie ihn auf 9600 ein.
+1. Arrastra los dos bloques básicos. Coloca el bloque de configuración de baud rate entre ellos y configúralo a 9600.
 
-2. Fügen Sie im „forever“-Loop einen „serial print“-Block mit dem Modus „warp“ hinzu.
+2. Añade un bloque de "serial print" dentro del bucle "forever" con el modo "warp".
 
-3. Ziehen Sie einen „read the value“-Block aus „Light“ in den „serial print“-Block und setzen Sie den Pin auf IO33.
+3. Arrastra un bloque de "read the value" desde “Light” al bloque de "serial print", y configura el pin a IO33.
 
 ![](media/B45.png)
 
-**5. Testergebnis**
+**5. Resultado de la Prueba**
 
-Nach dem Anschließen der Verkabelung und Hochladen des Codes öffnen Sie den seriellen Monitor und stellen die Baudrate auf 9600 ein. Der analoge Wert wird im Bereich von 0-4095 angezeigt.
+Después de conectar el cableado y subir el código, abre el monitor serial y configura el baud rate a 9600, se mostrará el valor analógico dentro del rango de 0-4095.
 
 ![](media/B46.png)
 
-**6. Erweiterungscode**
+**6. Código de Expansión**
 
-In diesem Erweiterungsprojekt verwenden wir den Fotowiderstand, um die Umgebungslichtintensität zu erfassen. Die mittleren zwei Spalten sind in diesem Experiment enthalten, um die Lichtintensität darzustellen. Je heller es ist, desto mehr LEDs leuchten. So entsteht eine „Lichtsäule“.
+En este proyecto de expansión, usamos esta fotorresistencia para detectar la intensidad de luz ambiental. Las dos columnas centrales están incluidas en este experimento para representar la intensidad de luz. Cuanto más claro esté, más LEDs se encenderán. Esto forma un "pilar de luz".
 
-**Schaltplan:**
+**Diagrama de Conexiones:**
 
 ![](media/B47.png)
 
-1. Ziehen Sie die beiden Basisblöcke.
+1. Arrastra los dos bloques básicos.
 
-2. Initialisieren Sie im Bereich „Matrix“ die Punktmatrix-Anzeige und setzen Sie den Pin CS auf IO15. Fügen Sie einen „brightness setting“-Block hinzu und weisen Sie den Wert 3 zu.
+2. En "Matrix", inicializa la pantalla de matriz de puntos y configura el pin CS a IO15. Añade un bloque de "brightness setting" y asígnale el valor 3.
 
 ![](media/B48.png)
 
-3. Ziehen Sie einen „variable“-Block. Stellen Sie den Bereich auf Lokal, den Typ auf int und den Namen auf light ein.
+3. Arrastra un bloque de "variable". Configura su alcance a Local, tipo a int y nómbralo light.
 
 ![](media/B49.png)
 
-4. Weisen Sie der Variablen eine map-Funktion zu. Fügen Sie „read the value of light IO33“ aus „Light“ als Wert der map-Funktion hinzu, deren Bereich von (0,4095) auf (0,7) abgebildet wird.
+4. Asigna una función map a la variable. Añade "read the value of light IO33" desde "Light" al valor de la función map, cuyo rango es de (0,4095) a (0,7).
 
 ![](media/B50.png)
 
-5. Finden Sie die folgenden Blöcke in „Matrix“. Löschen Sie zuerst die Anzeige, und zeichnen Sie dann Linien auf der Anzeige an den Punkten (x0:3  y0:0, x1:3  y1: Variable light) und (x0:4  y0:0, x1:4  y1: Variable light). Aktualisieren Sie abschließend die Matrix-Anzeige.
+5. Encuentra los siguientes bloques en "Matrix". Limpia primero la pantalla, y luego dibuja líneas en la pantalla en los puntos (x0:3  y0:0, x1:3  y1: variable light) y (x0:4  y0:0, x1:4  y1: variable light). Finalmente, actualiza la pantalla de la matriz.
 
 ![](media/B51.png)
 
-**Vollständiger Code:**
+**Código Completo:**
 
 ![](media/B52.png)
 
-**7. Code-Erklärung**
+**7. Explicación del Código**
 
-Liest den analogen Wert des Fotowiderstands durch Setzen des Pins aus.
+Lee el valor analógico de la fotorresistencia configurando el pin.
 
 ![](media/B53.png)

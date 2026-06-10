@@ -1,77 +1,77 @@
-### Projekt 1 LED Blinken
+### Proyecto 1 Parpadeo de LED
 
-**1. Beschreibung**
+**1. Descripción**
 
-LED-Blinken ist ein einfaches Projekt, das für Einsteiger konzipiert ist. Sie müssen nur eine LED auf dem Arduino-Board installieren und den Code in der Arduino IDE hochladen. Dieses Projekt festigt das Verständnis des Arduino-Konzeptes und die Anwendung von Methoden für Einsteiger.
+El parpadeo de LED es un proyecto sencillo diseñado para principiantes. Solo necesitas instalar un LED en la placa Arduino y subir el código en el Arduino IDE. Este proyecto refuerza el aprendizaje del marco conceptual de Arduino y el uso de métodos para principiantes.
 
-**2. Funktionsprinzip**
+**2. Principio de Funcionamiento**
 
 ![](media/A7.png)
 
-**LED:** Allgemein gesprochen kann die begrenzte Ausgangsstromstärke der IO-Ports eine geringe Helligkeit der LED verursachen, daher wird im Schaltkreis ein NPN-Transistor (Q2) als Schalter eingesetzt. In diesem Fall leuchtet die LED, wenn die Basis (Pin 1) des Transistors auf hohem Pegel ist. Im Gegensatz dazu geht die LED aus, wenn die Basis auf niedrigem Pegel ist.
+**LED:** En términos generales, los puertos IO limitados en corriente de salida pueden causar baja luminosidad del LED, por lo que se aplica un transistor NPN (Q2) en el circuito como interruptor. En este caso, el LED se encenderá si la base (pin 1) del transistor está en nivel alto. Por el contrario, el LED se apaga cuando la base está en nivel bajo.
 
-**Transistorschalter:** Kurz gesagt, die LED leuchtet, wenn die Basis (Pin 1) auf hohem Pegel ist. Gleichzeitig sind Kollektor (Pin 3) und Emitter (Pin 2) verbunden, und VCC fließt über einen strombegrenzenden Widerstand zur LED und schließlich zu GND, wodurch ein Stromkreis entsteht. Im Gegensatz dazu geht die LED aus, wenn die Basis auf niedrigem Pegel ist. In diesem Fall sind Kollektor und Emitter getrennt und die LED ist aus.
+**Interruptor transistor:** En resumen, el LED se enciende cuando la base (pin 1) está en nivel alto. Al mismo tiempo, el colector (pin 3) y el emisor (pin 2) están conectados, y entonces VCC pasa a través de una resistencia limitadora de corriente hacia el LED y finalmente a GND, formando un circuito. Por el contrario, el LED se apaga cuando la base está en nivel bajo. En esta circunstancia, el colector y el emisor están desconectados y el LED se apaga.
 
-**3. Schaltplan**
+**3. Diagrama de Conexiones**
 
 ![](media/A8.png)
 
-**4. Testcode**
+**4. Código de Prueba**
 
-Nach den vorherigen Prinzipien können wir die LED über die Pegel der Pins auf dem Entwicklungsboard steuern.
+De acuerdo con los principios anteriores, podemos controlar el LED mediante los niveles de los pines en la placa de desarrollo.
 
-1. Ziehen Sie den folgenden Block im Bereich „Events“ hinein.
+1. Arrastra el siguiente bloque en la sección "Events".
 
 ![](media/A9.png)
 
-2. Ziehen Sie den folgenden Block im Bereich „Control“ hinein.
+2. Arrastra el siguiente bloque en la sección "Control".
 
 ![](media/A10.png)
 
-3. Ziehen Sie den folgenden Block im Bereich „Pins“ hinein und setzen Sie den IO5-Pin auf output.
+3. Arrastra el siguiente bloque en la sección "Pins" y configura el pin IO5 como salida.
 
    ![](media/A11.png)
 
-4. Ziehen Sie den folgenden Block im Bereich „LED“ hinein und setzen Sie den IO5-Pin auf HIGH.
+4. Arrastra el siguiente bloque en la sección "LED" y configura el pin IO5 en HIGH.
 
 ![](media/A12.png)
 
-5. Ziehen Sie den folgenden Block im Bereich „Control“ hinein.
+5. Arrastra el siguiente bloque en la sección "Control".
 
 ![](media/A13.png)
 
-6. Ziehen Sie die folgenden Blöcke hinein und setzen Sie den IO5-Pin auf LOW.
+6. Arrastra los siguientes bloques y configura el pin IO5 en LOW.
 
 ![](media/A14.png)
 
-**Vollständiger Code：**
+**Código Completo：**
 
 ![](media/A15.png)
 
-**5. Testergebnis**
+**5. Resultado de la Prueba**
 
-Nach dem Hochladen des Codes und dem Einschalten wird die LED 1 Sekunde lang leuchten und 1 Sekunde lang aus sein.
+Después de subir el código y encender la alimentación, el LED estará encendido durante 1s y apagado durante 1s.
 
-**6. Code-Erklärung**
+**6. Explicación del Código**
 
-<p style="color:red;">Hinweis: Der Pin-Modus muss auf „output“ gesetzt werden, wenn das LED-Modul verwendet wird.<p>
+<p style="color:red;">Nota: El modo del pin debe estar configurado como "output" cuando se use el módulo LED.<p>
 
-1. Codeblöcke werden nicht ausgeführt, wenn der folgende Block nicht vorhanden ist.
+1. Los bloques de código no se ejecutarán si no existe el siguiente bloque.
 
 ![](media/A16.png)
 
-2. Codeblöcke im folgenden Block werden in einer Schleife ausgeführt.
+2. Los bloques de código dentro del siguiente bloque se ejecutarán en un bucle.
 
 ![](media/A17.png)
 
-3. Dies ist ein Modul, das den Pin-Modus einstellt (LED und Summer für „output“-Modus steuern, und Sensor-Modul lesen für „input“).
+3. Es un módulo usado para configurar el modo del pin (controlar LED y buzzer en modo “output”, y leer el módulo sensor en modo “input”).
 
 ![](media/A18.png)
 
-4. Dies ist ein Modul, das den Pin und die Pegel („HIGH“ und „LOW“) einstellt.
+4. Es un módulo usado para configurar el pin y los niveles ("HIGH" y "LOW").
 
 ![](media/A19.png)
 
-5. Dies ist ein Modul, das die Verzögerungszeit einstellt.
+5. Es un módulo usado para configurar el tiempo de retardo.
 
 ![](media/A20.png)

@@ -1,33 +1,33 @@
-### Projekt 27 Intelligentes Parken
+### Proyecto 27 Estacionamiento Inteligente
 
-**1. Beschreibung**
+**1. Descripción**
 
-Dieses intelligente Parksystem erkennt und optimiert die Parkposition mittels eines Ultraschallsensors. Mit diesem System wird falsches Parken weitgehend vermieden.
+Este sistema de estacionamiento inteligente detecta y optimiza la posición de estacionamiento mediante un sensor ultrasónico. Con este sistema, se evita en gran medida el estacionamiento incorrecto.
 
-Zuerst müssen Sie den Sensor rund um den Parkplatz installieren. Anschließend erkennt er den Abstand zwischen dem Auto und den Begrenzungen und sendet die Informationen an das Entwicklungsboard, um das Auto automatisch auf die optimale Parkposition zu steuern.
+Primero, debe instalar el sensor alrededor del estacionamiento. Luego, detectará la distancia entre el coche y sus bordes y enviará la información a la placa de desarrollo para controlar que el coche se ajuste automáticamente a la posición óptima de estacionamiento.
 
-**2. Flussdiagramm**
+**2. Diagrama de Flujo**
 
 ![](media/B104.png)
 
-**3. Schaltplan**
+**3. Diagrama de Conexiones**
 
 ![](media/B105.png)
 
-**4. Testcode**
+**4. Código de Prueba**
 
-Weisen Sie den erfassten Distanzwert einer Variablen zu und prüfen Sie, ob dieser größer als der eingestellte Schwellenwert ist. Falls ja, leuchten entsprechende Linien auf der Punktmatrix auf. So kann eine Entfernung durch das Beleuchten von Linien dargestellt werden.
+Asigne el valor de la distancia detectada a una variable y determine si es mayor que el valor umbral establecido. Si es así, se encenderán las líneas correspondientes en la matriz de puntos. De esta manera, se puede indicar una distancia iluminando líneas.
 
-**Referenzkoordinaten:**
+**Coordenadas de Referencia:**
 
 ![](media/B106.png)
 
-**Vollständiger Code:**
+**Código Completo:**
 
 ![](media/B107.png)
 
-**5. Testergebnis**
+**5. Resultado de la Prueba**
 
-Nach dem Anschluss der Verkabelung und dem Hochladen des Codes werden Linien auf der Punktmatrix angezeigt. Wenn der erkannte Abstand weniger als 50 cm beträgt, werden weniger Linien angezeigt.
+Después de conectar el cableado y subir el código, se mostrarán líneas en la matriz de puntos. Si la distancia detectada es menor a 50 cm, habrá menos líneas.
 
 ![](media/B108.png)![](media/B109.png)

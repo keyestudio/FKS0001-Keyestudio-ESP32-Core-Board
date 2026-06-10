@@ -1,20 +1,20 @@
-### Projekt 23 Smart Cup
+### Proyecto 23 Taza Inteligente
 
-**1. Beschreibung**
+**1. Descripción**
 
-In diesem Projekt verwenden wir hauptsächlich das Arduino-Entwicklungsboard, um einen programmierbaren Smart Cup zu erstellen, der die Temperatur der inneren Flüssigkeit über eine RGB-Anzeige anzeigt. Die Helligkeit des Lichts kann durch das Einstellen eines Temperaturschwellenwerts gesteuert werden. Wird der Schwellenwert überschritten, wird das Licht heller. Andernfalls wird es dunkler.
+En este proyecto, utilizamos principalmente la placa de desarrollo Arduino para crear una taza inteligente programable, que muestra la temperatura del líquido interior mediante un indicador RGB. Puede controlar el brillo de la luz configurando un umbral de temperatura. Si se supera el umbral, la luz se vuelve más brillante. De lo contrario, se atenúa.
 
-Der Smart Cup hilft den Benutzern, die Temperatur ihres Trinkwassers besser zu kontrollieren und effektiv Überhitzung oder Einfrieren zu verhindern.
+La taza inteligente ayuda a los usuarios a controlar mejor la temperatura de su agua para beber y a prevenir eficazmente el sobrecalentamiento o la congelación.
 
-**2. Funktionsprinzip**
+**2. Principio de Funcionamiento**
 
 ![](media/B23.png)
 
-**3. Schaltplan**
+**3. Diagrama de Conexiones**
 
 ![](media/B24.png)
 
-**4. Testcode**
+**4. Código de Prueba**
 
 ```
 /*
@@ -51,26 +51,26 @@ void loop()
 }
 ```
 
-**5. Testergebnis**
+**5. Resultado de la Prueba**
 
-Nach dem Verbinden der Schaltung und Hochladen des Codes öffnen Sie den seriellen Monitor, stellen die Baudrate auf 9600 ein, und die Temperatur- sowie Feuchtigkeitswerte werden angezeigt.
+Después de conectar el cableado y subir el código, abra el monitor serial y configure la velocidad en 9600 baudios, y se mostrarán los valores de temperatura y humedad.
 
 ![](media/B25.png)
 
-**6. Wissensvertiefung**
+**6. Ampliación de Conocimientos**
 
-Nun bauen wir einen Smart Cup, der die Flüssigkeitstemperatur anzeigen kann. Wir teilen 100 in vier Bereiche mit einer LED auf, wie unten gezeigt:
+Ahora, haremos una taza inteligente que pueda mostrar la temperatura del líquido. Dividimos 100 en cuatro partes con un LED, como se muestra a continuación:
 
-- **Rote LED:** 100-75°C
-- **Gelbe LED:** 75-50°C
-- **Grüne LED:** 50-25°C
-- **Blaue LED:** 25-0°C
+- **LED Rojo:** 100-75°C
+- **LED Amarillo:** 75-50°C
+- **LED Verde:** 50-25°C
+- **LED Azul:** 25-0°C
 
-**Schaltplan：**
+**Diagrama de Conexiones：**
 
 ![](media/B26.png)
 
-**Code：**
+**Código：**
 
 ```
 /*
@@ -137,11 +137,11 @@ void loop()
 }
 ```
 
-**Testergebnis**
+**Resultado de la Prueba**
 
-- **Rote LED:** 100-75°C
-- **Gelbe LED:** 75-50°C
-- **Grüne LED:** 50-25°C
-- **Blaue LED:** 25-0°C
+- **LED Rojo:** 100-75°C
+- **LED Amarillo:** 75-50°C
+- **LED Verde:** 50-25°C
+- **LED Azul:** 25-0°C
 
-Wenn die blaue LED leuchtet, bedeutet dies, dass die vom DHT11-Sensor gemessene Temperatur im Bereich von 0-25° liegt.
+Si el LED azul está encendido, significa que la temperatura detectada por el sensor DHT11 está en el rango de 0-25°.

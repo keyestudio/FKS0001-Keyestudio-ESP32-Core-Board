@@ -1,39 +1,39 @@
-### Projekt 24 Wetterstation
+### Proyecto 24 Estación Meteorológica
 
-**1. Beschreibung**
+**1. Descripción**
 
-Diese Wetterstation erfasst die Umgebungstemperatur und den Feuchtigkeitswert über ein Arduino-Board und einen Temperatur- und Feuchtigkeitssensor.
+Esta estación meteorológica registra la temperatura y humedad ambiental mediante una placa Arduino y un sensor de temperatura y humedad.
 
-Außerdem ermöglicht sie die Anpassung der Temperatur- und Feuchtigkeitswerte entsprechend den Umweltparametern, um angenehme Umweltbedingungen zu erreichen.
+Además, permite ajustar los valores de temperatura y humedad según los parámetros ambientales como una forma de lograr condiciones ambientales confortables.
 
-**2. Schaltplan**
+**2. Diagrama de Conexiones**
 
 ![](media/B84.png)
 
-**3. Testcode**
+**3. Código de Prueba**
 
-1. Fügen Sie zwei Basismodule hinzu. Initialisieren Sie das LCD 1602 und schalten Sie die Hintergrundbeleuchtung des LCD 1602 ein (denken Sie daran, das LCD einzuschalten). Setzen Sie den Pin des dht auf IO26 und den Modus auf dht11. Setzen Sie zwei int-Variablen „RH“ und „temp“ auf 0.
+1. Añade dos módulos básicos. Inicializa el LCD 1602 y enciende la luz de fondo del LCD 1602 (recuerda activar el LCD). Configura el pin del dht en IO26 y el modo en dht11. Declara dos variables int llamadas “RH“ y “temp“ con valor 0.
 
 ![](media/B85.png)
 
-2. Weisen Sie der Variable RH den Feuchtigkeitswert und der Variable temp den Temperaturwert zu.
+2. Asigna el valor de humedad a la variable RH, y el valor de temperatura a la variable temp.
 
 ![](media/B86.png)
 
-3. Setzen Sie die LCD-Anzeigeposition auf x: 0 und y: 0. Fügen Sie das LCD-Anzeigemodul hinzu und setzen Sie das Anzeigewort auf „humidity:“. Fügen Sie das LCD-Anzeigemodul erneut hinzu und fügen Sie die Variable RH in das weiße Feld ein.
+3. Establece la posición de la pantalla LCD en x: 0 y y: 0. Añade el módulo de visualización lcd y configura el texto a mostrar como "humidity:". Añade nuevamente el módulo de visualización lcd y agrega la variable RH en el recuadro blanco.
 
 ![](media/B87.png)
 
-4. Wiederholen Sie Schritt 3, setzen Sie jedoch y: 1 und das Anzeigewort auf „temperature:“ und fügen Sie die Variable temp in das weiße Feld ein.
+4. Repite el paso 3, pero configura y : 1 y el texto a mostrar como “temperature:” y agrega la variable temp en el recuadro blanco.
 
 ![](media/B88.png)
 
-**Vollständiger Code:**
+**Código Completo:**
 
 ![](media/B89.png)
 
-**4. Testergebnis**
+**4. Resultado de la Prueba**
 
-Nach dem Anschließen der Verkabelung und Hochladen des Codes zeigt das LCD direkt den Umgebungsfeuchtigkeits- und Temperaturwert an.
+Después de conectar el cableado y subir el código, la pantalla LCD mostrará directamente el valor de humedad y temperatura ambiental.
 
 ![](media/B90.png)

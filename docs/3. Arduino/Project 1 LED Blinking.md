@@ -1,22 +1,22 @@
-### Projekt 1 LED Blinken
+### Proyecto 1 Parpadeo de LED
 
-**1. Beschreibung**
+**1. Descripción**
 
-LED Blinken ist ein einfaches Projekt, das für Einsteiger konzipiert wurde. Sie müssen nur eine LED auf dem Arduino-Board installieren und den Code in der Arduino IDE hochladen. Dieses Projekt festigt das Verständnis des Arduino-Konzeptframeworks und die Anwendungsmethoden für Anfänger.
+El parpadeo de LED es un proyecto sencillo diseñado para principiantes. Solo necesitas instalar un LED en la placa Arduino y cargar el código en el IDE de Arduino. Este proyecto refuerza el aprendizaje del marco conceptual de Arduino y el uso de métodos para principiantes.
 
-**2. Funktionsprinzip**
+**2. Principio de Funcionamiento**
 
 ![](media/A16.png)
 
-- **LED:** Oben ist das Schaltbild der LED dargestellt. Allgemein gesprochen kann die begrenzte Ausgangsstromstärke der IO-Ports zu einer niedrigen Helligkeit der LED führen, daher wird im Schaltkreis ein NPN-Transistor (Q2) als Schalter verwendet. In diesem Fall leuchtet die LED, wenn die Basis (Pin 1) des Transistors auf hohem Pegel ist. Im Gegensatz dazu geht die LED aus, wenn die Basis auf niedrigem Pegel ist.
+- **LED:** El diagrama de circuito anterior corresponde al LED. En términos generales, los puertos IO limitados en corriente de salida pueden causar un brillo bajo del LED, por lo que se utiliza un transistor NPN (Q2) en el circuito como interruptor. En este caso, el LED se encenderá si la base (pin 1) del transistor está en un nivel alto. Por el contrario, el LED se apaga cuando la base está en bajo.
 
-- **Transistorschalter:** Um das Prinzip klar zu verstehen, sind gewisse Kenntnisse der Elektronik erforderlich. Für Details konsultieren Sie bitte entsprechende Materialien. Kurz gesagt, das Ein- und Ausschalten der LED hängt von den hohen und niedrigen Pegeln der Transistorbasis ab, die durch den Pin auf dem Entwicklungsboard bestimmt werden. Die LED leuchtet, wenn die Basis (Pin 1) auf hohem Pegel ist, und geht aus, wenn die Basis auf niedrigem Pegel ist.
+- **Interruptor de transistor:** Para entender claramente su principio, se requiere cierto conocimiento de circuitos electrónicos. Para más detalles, consulte materiales por su cuenta. En resumen, el encendido y apagado del LED depende de los niveles alto y bajo de la base del transistor, que son determinados por el pin en la placa de desarrollo. El LED se enciende cuando la base (pin 1) está en nivel alto, y se apaga cuando la base está en bajo.
 
-**3. Schaltplan：**
+**3. Diagrama de Conexiones：**
 
 ![](media/A17.png)
 
-**4. Code hochladen**
+**4. Cargar Código**
 
 ```
 /*
@@ -39,6 +39,6 @@ void loop()
 }
 ```
 
-**5. Testergebnis**
+**5. Resultado de la Prueba**
 
-Nach dem Hochladen des Codes und Einschalten der Stromversorgung leuchtet die LED für 1 Sekunde und ist dann für 1 Sekunde aus.
+Después de cargar el código y encender la alimentación, el LED se encenderá durante 1 s y se apagará durante 1 s.

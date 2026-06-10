@@ -1,14 +1,14 @@
-### Projekt 18 Schlagendes Herz
+### Proyecto 18 Corazón Palpitante
 
-**1. Beschreibung**
+**1. Descripción**
 
-In diesem Projekt wird ein schlagendes Herz über ein Arduino-Board, ein 8x8 Punktmatrix-Display, eine Leiterplatte und einige elektronische Bauteile dargestellt. Durch Programmierung können Sie die Schlagfrequenz, die Herzgröße und die Helligkeit steuern.
+En este proyecto, se presentará un corazón palpitante mediante una placa Arduino, una pantalla de matriz de puntos 8X8, una placa de circuito y algunos componentes electrónicos. Mediante programación, puedes controlar la frecuencia de latido, la dimensión del corazón y su brillo.
 
-**2. Schaltplan**
+**2. Diagrama de Conexiones**
 
 ![](media/B1.png)
 
-**3. Testcode**
+**3. Código de Prueba**
 
 ```
 /*
@@ -49,8 +49,8 @@ void loop()
 }
 ```
 
-**4. Testergebnis**
+**4. Resultado de la Prueba**
 
-Nach dem Verbinden der Verkabelung und Hochladen des Codes werden die beiden Herzgrößen abwechselnd angezeigt.
+Después de conectar el cableado y subir el código, los dos tamaños de corazones se muestran de forma alternada.
 
 ![image-20251013113903734](media/B2.png)

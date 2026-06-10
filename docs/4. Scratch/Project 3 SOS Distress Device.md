@@ -1,61 +1,61 @@
-### Projekt 3 SOS Notsignalgerät
+### Proyecto 3 Dispositivo de Socorro SOS
 
-**1. Beschreibung**
+**1. Descripción**
 
-Das SOS-Gerät kann Notsignale aussenden, die dem Prinzip des Morse-Codes entsprechen. Es ist praktisch für Notfälle.
+El dispositivo SOS es capaz de emitir señales de socorro, que coinciden con el principio del código Morse. Es conveniente para emergencias.
 
-**2. Schaltplan**
+**2. Diagrama de Conexiones**
 
 ![](media/A36.png)
 
-**3. Testcode**
+**3. Código de Prueba**
 
-Zuerst sollten wir klären, wie das SOS-Notsignal blinkt: Die LED blinkt schnell 3-mal für „S“ und langsam 3-mal für „O“.
+Lo que debemos aclarar primero es cómo parpadea la luz de socorro SOS: el LED parpadea rápidamente 3 veces para la “S” y lentamente 3 veces para la “O”.
 
-Anschließend steuern wir die Blinkanzahl und -dauer über eine "for"-Schleife und legen die Pausenzeit zwischen den Buchstaben fest.
+Luego, controlamos el número de parpadeos y la duración mediante la instrucción "for" y establecemos el intervalo de tiempo entre letras.
 
-1. Ziehen Sie die beiden Codeblöcke.
+1. Arrastra los dos bloques de código.
 
 ![](media/A37.png)
 
-2. Ziehen Sie den folgenden Block aus dem Bereich "Pins" und setzen Sie den IO5-Pin auf Ausgang.
+2. Arrastra el siguiente bloque en la sección "Pins" y configura el pin IO5 como salida.
 
 ![](media/A38.png)
 
-**Buchstabe „S“**
+**Letra "S"**
 
-3. Ziehen Sie den folgenden Block aus dem Bereich "Control" und setzen Sie ihn auf 3-mal, da „S“ für 3-maliges Blinken steht.
+3. Arrastra el siguiente bloque de la sección "Control" y configúralo para 3 veces, ya que "S" significa parpadear 3 veces.
 
 ![](media/A39.png)
 
-4. Ziehen Sie die folgenden Blöcke aus dem Bereich "LED" und setzen Sie den IO5-Pin auf HIGH. Stellen Sie dann die Verzögerungszeit auf 0,15 s ein.
+4. Arrastra los siguientes bloques de la sección "LED" y configura el pin IO5 en HIGH. Luego establece el tiempo de retardo a 0.15s.
 
 ![](media/A40.png)
 
-5. Ziehen Sie die folgenden Blöcke aus dem Bereich "LED" und setzen Sie den IO5-Pin auf LOW. Stellen Sie dann die Verzögerungszeit auf 0,1 s ein.
+5. Arrastra los siguientes bloques de la sección "LED" y configura el pin IO5 en LOW. Luego establece el tiempo de retardo a 0.1s.
 
 ![](media/A41.png)
 
-**Buchstabe O**
+**Letra O**
 
-6. Orientieren Sie sich an den vorherigen Schritten, um die folgenden Codeblöcke zu erstellen. Ändern Sie die HIGH-Ausgabe auf eine Verzögerung von 0,4 s und LOW auf 0,2 s.
+6. Refiérete a los pasos anteriores para construir los siguientes bloques de código. Modifica la salida HIGH para que dure 0.4s y LOW para 0.2s.
 
 ![](media/A42.png)
 
-**Buchstabe S**
+**Letra S**
 
-7. Führen Sie die Schritte 3, 4 und 5 erneut aus.
+7. Repite los pasos 3, 4 y 5 nuevamente.
 
 ![](media/A43.png)
 
-8. Fügen Sie am Ende eine Verzögerung von 5 s hinzu, damit sich „SOS“ alle 5 s wiederholt.
+8. Añade un tiempo de retardo de 5s al final, y el "SOS" se repetirá cada 5s.
 
    ![](media/A44.png)
 
-**Vollständiger Code:**
+**Código Completo：**
 
 ![](media/A45.png)
 
-**4. Testergebnis**
+**4. Resultado de la Prueba**
 
-Nach dem Hochladen des Codes blinkt die LED jeweils 3-mal schnell und langsam.
+Después de subir el código, el LED parpadea respectivamente 3 veces rápido y luego 3 veces lento.

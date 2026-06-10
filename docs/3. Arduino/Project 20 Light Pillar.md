@@ -1,24 +1,24 @@
-### Projekt 20 Lichtsäule
+### Proyecto 20 Pilar de Luz
 
-**1. Beschreibung**
+**1. Descripción**
 
-Der Widerstand (weniger als 1KΩ) des Fotowiderstands variiert mit dem Licht, wodurch die Helligkeit der Punktmatrix gesteuert werden kann. Beim Steuern verbinden wir diesen Widerstand mit einem analogen Pin auf dem Board, um die Widerstandsänderung zu überwachen. Auf diese Weise steuert das Licht automatisch die Helligkeit der Anzeige.
+La resistencia (menos de 1KΩ) de la fotorresistencia varía según la luz, por lo que puede controlar el brillo de la matriz de puntos. Al controlar, conectamos esta resistencia a un pin analógico en la placa para monitorear el cambio de resistencia. De esta manera, la luz controla automáticamente el brillo de la pantalla.
 
-Außerdem wird der Fotowiderstand in unserem täglichen Leben häufig eingesetzt. Zum Beispiel öffnet oder schließt sich ein Vorhang automatisch entsprechend der äußeren Lichtintensität.
+Además, la fotorresistencia se aplica ampliamente en nuestra vida diaria. Por ejemplo, una cortina se abre o cierra automáticamente según la intensidad de la luz exterior.
 
-**2. Funktionsprinzip**
+**2. Principio de Funcionamiento**
 
 ![](media/B8.png)
 
 ![](media/B9.png)
 
-Wenn es völlig dunkel ist, beträgt der Widerstand 0,2MΩ, und die Spannung am Signalausgang (Punkt 2) nähert sich 0V an. Je stärker das Licht ist, desto kleiner werden Widerstand und Spannung.
+Cuando está totalmente en oscuridad, la resistencia es igual a 0.2MΩ, y el voltaje en el terminal de señal (punto 2) se acerca a 0V. Cuanto más fuerte es la luz, menor será la resistencia y el voltaje.
 
-**3. Schaltplan**
+**3. Diagrama de Conexiones**
 
 ![](media/B10.png)
 
-**4. Testcode**
+**4. Código de Prueba**
 
 ```
 /*
@@ -43,21 +43,21 @@ void loop()
 }
 ```
 
-**5. Testergebnis**
+**5. Resultado de la Prueba**
 
-Nach dem Verbinden der Schaltung und Hochladen des Codes öffnen Sie den seriellen Monitor und stellen die Baudrate auf 9600 ein. Der analoge Wert wird im Bereich von 0-4095 angezeigt. Durch Ändern der Lichtintensität in der Umgebung ändert sich der Wert.
+Después de conectar el cableado y subir el código, abra el monitor serial y configure la tasa de baudios a 9600, se mostrará el valor analógico, dentro del rango de 0-4095. Cambiar la intensidad de luz alrededor puede modificar su valor.
 
 ![](media/B11.png)
 
-**6. Wissensvertiefung**
+**6. Ampliación de Conocimientos**
 
-Wir verwenden diesen Fotowiderstand, um die Umgebungslichtintensität zu erfassen. Die beiden mittleren Spalten sind in diesem Experiment enthalten, um die Lichtintensität darzustellen. Je stärker sie ist, desto mehr LEDs leuchten. So entsteht eine „Lichtsäule“.
+Usaremos esta fotorresistencia para detectar la intensidad de luz ambiental. Las dos columnas del medio están incluidas en este experimento para representar la intensidad de la luz. Cuanto más fuerte sea, más LEDs se encenderán. Esto forma un "pilar de luz".
 
-- **Schaltplan：**
+- **Diagrama de Conexiones：**
 
 ![](media/B12.png)
 
-- **Code：**
+- **Código：**
 
 ```
 /*
@@ -94,8 +94,8 @@ void loop()
 }
 ```
 
-- **Testergebnis**
+- **Resultado de la Prueba**
 
-Je stärker das Licht in der Nähe des Fotowiderstands ist, desto höher ist die Lichtsäule der LED-Matrix.
+Cuanto más fuerte sea la luz cerca de la fotorresistencia, más alta será la columna de luz en la matriz LED.
 
 ![](media/B13.png)

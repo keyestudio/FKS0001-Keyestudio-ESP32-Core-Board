@@ -1,35 +1,35 @@
-### Projekt 30 Smart Home
+### Proyecto 30 Casa Inteligente
 
-**1. Beschreibung**
+**1. Descripción**
 
-In diesem Technologiezeitalter sind wir alle mit Smart Home vertraut. Es ist ein System, das elektrische Geräte über Tasten steuern kann.
+En esta era tecnológica, todos estamos familiarizados con la casa inteligente. Es un sistema que puede controlar electrodomésticos mediante botones.
 
-In diesem Projekt wollen wir ein Smart Home mittels einer IR-Fernbedienung simulieren. Mit dem Arduino MCU als Kern kann es verwendet werden, um Licht, Klimaanlagen, Fernseher und Sicherheitsmonitore zu steuern.
+En este proyecto, buscamos simular una casa inteligente mediante un control remoto IR. Con Arduino MCU como núcleo, puede usarse para controlar luces, aires acondicionados, TV y monitores de seguridad.
 
-**2. Flussdiagramm**
+**2. Diagrama de Flujo**
 
 ![](media/B130.png)
 
-**3. Schaltplan**
+**3. Diagrama de Conexiones**
 
 ![](media/B131.png)
 
-**4. Testcode**
+**4. Código de Prueba**
 
-Mit der IR-Fernbedienung zeigt dieses Smart Home verschiedene Sensorwerte auf dem LCD an, darunter einen Temperatur- und Feuchtigkeitssensor, einen Tonsensor, einen Fotowiderstand, ein Potentiometer und einen Ultraschallsensor.
+Con el control remoto IR, esta casa inteligente muestra varios valores de sensores en el LCD, incluyendo un sensor de temperatura y humedad, un sensor de sonido, una fotorresistencia, un potenciómetro y un sensor ultrasónico.
 
 ![](media/B132.png)
 
-**5. Testergebnis**
+**5. Resultado de la Prueba**
 
-Nach dem Anschluss der Verkabelung und dem Hochladen des Codes können wir durch Drücken der Tasten die entsprechenden Inhalte auf dem LCD sehen. Die OK-Taste löscht die Sensordarstellung.
+Después de conectar el cableado y subir el código, podemos ver los contenidos correspondientes en el LCD al presionar los botones. El botón OK limpia la pantalla de sensores.
 
 ![](media/B133.png)
 
-**6. Code-Erklärung**
+**6. Explicación del Código**
 
-Die Blöcke sind so zahlreich, dass wir die Funktion „Make a Block“ verwenden. Dadurch werden zahlreiche Blöcke zusammengefasst und können direkt aufgerufen werden, was das gesamte Programm erheblich vereinfacht.
+Los bloques son tantos que adoptamos la función "Make a Block". Al hacer esto, numerosos bloques se empaquetan y pueden ser llamados directamente, lo que simplifica enormemente todo el programa.
 
-Klicken Sie auf „My Block“, um einen selbstdefinierten Block zu erstellen, und Sie können Ihre eigenen Codeblöcke bauen.
+Haz clic en “My Block” para crear un bloque definido por ti mismo, y podrás construir tus propios bloques de código.
 
 ![](media/B134.png)

@@ -1,22 +1,22 @@
-### Projekt 21 Soundgesteuerte LED
+### Proyecto 21 LED Controlado por Sonido
 
-**1. Beschreibung**
+**1. Descripción**
 
-Die soundgesteuerte LED ist ein Gerät, das Schall erkennt und die Helligkeit der LED steuert. Es besteht aus einem Arduino-Board und einigen Komponenten. Es kann mit mehreren Sensoren wie Mikrofonen verbunden werden. Es wandelt Schall in ein sich änderndes Spannungssignal um, das vom Arduino empfangen wird, um die LED ein- und auszuschalten.
+El LED controlado por sonido es un dispositivo utilizado para detectar sonido de manera que controla el brillo del LED, el cual está compuesto por una placa Arduino y algunos componentes. Puede conectarse a múltiples sensores como micrófonos. Convierte el sonido en una señal de voltaje variable que es recibida por Arduino para controlar el encendido y apagado del LED.
 
-**2. Funktionsprinzip**
+**2. Principio de Funcionamiento**
 
 ![](media/B14.png)
 
-Beim Erkennen eines Tons vibriert die Elektretfolie im Mikrofon, was die Kapazität ändert und eine subtile Spannungsänderung erzeugt.
+Al detectar un sonido, la película electret en el micrófono vibra, lo que cambia la capacitancia y genera un cambio sutil de voltaje.
 
-Anschließend verwenden wir den LM3-Chip, um eine geeignete Schaltung zum Verstärken des erfassten Tons aufzubauen, die mit einem Potentiometer eingestellt werden kann. Drehen Sie es im Uhrzeigersinn, um die Verstärkung zu erhöhen.
+A continuación, utilizamos el chip LM3 para construir un circuito adecuado que amplifique el sonido detectado, el cual puede ajustarse mediante un potenciómetro. Gírelo en sentido horario para aumentar la amplificación.
 
-**3. Schaltplan**
+**3. Diagrama de Conexiones**
 
 ![](media/B15.png)
 
-**4. Testcode**
+**4. Código de Prueba**
 
 ```
 /*
@@ -39,31 +39,31 @@ void loop()
 }
 ```
 
-**5. Testergebnis**
+**5. Resultado de la Prueba**
 
-Nach dem Verbinden der Verkabelung und Hochladen des Codes öffnen Sie den seriellen Monitor und stellen die Baudrate auf 9600 ein, der analoge Wert wird angezeigt.
+Después de conectar el cableado y subir el código, abra el monitor serial y configure la tasa de baudios a 9600, se mostrará el valor analógico.
 
 ![](media/B16.png)
 
-**Empfindlichkeitseinstellung:**
+**Ajuste de sensibilidad:**
 
-Wenn Sie das Gefühl haben, dass die Empfindlichkeit des Schallsensors passend ist, können wir das Potentiometer des Schallsensors einstellen (rechts für höchste Empfindlichkeit, links für niedrigste Empfindlichkeit).
+Si considera que la sensibilidad del sensor de sonido es adecuada, podemos ajustar el potenciómetro del sensor de sonido (hacia la derecha para la sensibilidad más alta, hacia la izquierda para la sensibilidad más baja).
 
 ![](media/B17.png)
 
-**6. Wissensvertiefung**
+**6. Ampliación de Conocimientos**
 
-Das häufig zu sehende Flurlicht ist eine Art soundgesteuertes Licht. Gleichzeitig enthält es auch einen Fotowiderstand. Anders als dort bauen wir hier ein Modell auf, bei dem eine LED nur vom Schall beeinflusst wird. Wenn die analoge Lautstärke 100 überschreitet, leuchtet die LED für 2 Sekunden und geht dann aus.
+La luz de pasillo comúnmente vista es un tipo de luz controlada por sonido. Además, incluye una fotorresistencia. A diferencia de eso, aquí establecemos un modelo en el que un LED solo es afectado por el sonido. Cuando el volumen analógico supera 100, el LED se enciende durante 2 segundos y luego se apaga.
 
-- **Flussdiagramm:**
+- **Diagrama de Flujo:**
 
 ![](media/B18.png)
 
-- **Schaltplan:**
+- **Diagrama de Conexiones:**
 
 ![](media/B19.png)
 
-- **Code:**
+- **Código:**
 
 ```
 /*
@@ -94,6 +94,6 @@ void loop()
 }
 ```
 
-- **Testergebnis**
+- **Resultado de la Prueba**
 
-Wenn der vom Schallsensor erkannte Wert größer als 100 ist, leuchtet die rote LED.
+Cuando el valor detectado por el sensor de sonido es mayor que 100, el LED rojo se encenderá.
