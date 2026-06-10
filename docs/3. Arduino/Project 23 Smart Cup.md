@@ -1,20 +1,20 @@
-### Proyecto 23 Taza Inteligente
+### Projet 23 Tasse Intelligente
 
-**1. Descripción**
+**1. Description**
 
-En este proyecto, utilizamos principalmente la placa de desarrollo Arduino para crear una taza inteligente programable, que muestra la temperatura del líquido interior mediante un indicador RGB. Puede controlar el brillo de la luz configurando un umbral de temperatura. Si se supera el umbral, la luz se vuelve más brillante. De lo contrario, se atenúa.
+Dans ce projet, nous utilisons principalement la carte de développement Arduino pour créer une tasse intelligente programmable, qui affiche la température du liquide intérieur via un indicateur RGB. Elle peut contrôler la luminosité de la lumière en réglant un seuil de température. Si le seuil est dépassé, la lumière s’éclaircit. Sinon, elle s’assombrit.
 
-La taza inteligente ayuda a los usuarios a controlar mejor la temperatura de su agua para beber y a prevenir eficazmente el sobrecalentamiento o la congelación.
+La tasse intelligente permet d’aider les utilisateurs à mieux contrôler la température de leur eau potable et à prévenir efficacement la surchauffe ou la congélation.
 
-**2. Principio de Funcionamiento**
+**2. Principe de Fonctionnement**
 
 ![](media/B23.png)
 
-**3. Diagrama de Conexiones**
+**3. Schéma de Câblage**
 
 ![](media/B24.png)
 
-**4. Código de Prueba**
+**4. Code de Test**
 
 ```
 /*
@@ -51,26 +51,26 @@ void loop()
 }
 ```
 
-**5. Resultado de la Prueba**
+**5. Résultat du Test**
 
-Después de conectar el cableado y subir el código, abra el monitor serial y configure la velocidad en 9600 baudios, y se mostrarán los valores de temperatura y humedad.
+Après avoir connecté le câblage et téléversé le code, ouvrez le moniteur série en réglant le débit en bauds à 9600, et la valeur de température et d’humidité sera affichée.
 
 ![](media/B25.png)
 
-**6. Ampliación de Conocimientos**
+**6. Extension des Connaissances**
 
-Ahora, haremos una taza inteligente que pueda mostrar la temperatura del líquido. Dividimos 100 en cuatro partes con un LED, como se muestra a continuación:
+Maintenant, nous allons réaliser une tasse intelligente capable d’afficher la température du liquide. Nous divisons 100 en quatre parties avec une LED, comme indiqué ci-dessous :
 
-- **LED Rojo:** 100-75°C
-- **LED Amarillo:** 75-50°C
-- **LED Verde:** 50-25°C
-- **LED Azul:** 25-0°C
+- **LED Rouge :** 100-75°C
+- **LED Jaune :** 75-50°C
+- **LED Verte :** 50-25°C
+- **LED Bleue :** 25-0°C
 
-**Diagrama de Conexiones：**
+**Schéma de Câblage :**
 
 ![](media/B26.png)
 
-**Código：**
+**Code :**
 
 ```
 /*
@@ -137,11 +137,11 @@ void loop()
 }
 ```
 
-**Resultado de la Prueba**
+**Résultat du Test**
 
-- **LED Rojo:** 100-75°C
-- **LED Amarillo:** 75-50°C
-- **LED Verde:** 50-25°C
-- **LED Azul:** 25-0°C
+- **LED Rouge :** 100-75°C
+- **LED Jaune :** 75-50°C
+- **LED Verte :** 50-25°C
+- **LED Bleue :** 25-0°C
 
-Si el LED azul está encendido, significa que la temperatura detectada por el sensor DHT11 está en el rango de 0-25°.
+Si la LED bleue est allumée, cela signifie que la température détectée par le capteur DHT11 est comprise entre 0 et 25°.

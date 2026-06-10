@@ -1,38 +1,38 @@
-### Proyecto 12 Servo
+### Projet 12 Servo
 
-**1. Descripción**
+**1. Description**
 
-Este servo cuenta con alto rendimiento y alta precisión con un ángulo máximo de rotación de 180°. Con un peso de solo 9g, es perfectamente adecuado para cualquier dispositivo mini en múltiples ocasiones. Además, disfruta de un tiempo de arranque corto, bajo ruido y gran estabilidad.
+Ce servo offre des performances élevées et une grande précision avec un angle de rotation maximal de 180°. Pesant seulement 9g, il est parfaitement adapté à tout mini dispositif dans de multiples occasions. De plus, il bénéficie d’un temps de démarrage court, d’un faible bruit et d’une grande stabilité.
 
-**2. Principio de Funcionamiento**
+**2. Principe de fonctionnement**
 
-**Rango de ángulo:** 180° (360°, 180° y 90°)
+**Plage d’angle :** 180° (360°, 180° et 90°)
 
-**Voltaje de alimentación:** 3.3V o 5V
+**Tension d’alimentation :** 3.3V ou 5V
 
-**Pin:** Tres cables
+**Broche :** Trois fils
 
 ![](media/A49.png)
 
-**GND:** Tierra (marrón)
+**GND :** Masse (marron)
 
-**VCC:** Un pin rojo que se conecta a una fuente de +5V (3.3V)
+**VCC :** Broche rouge connectée à une alimentation +5V (3.3V)
 
-**S:** Un pin de señal naranja controlado mediante señal PWM
+**S :** Broche signal orange contrôlée via un signal PWM
 
 ![](media/A50.png)
 
-**Principio de Control**: El ángulo de rotación se controla mediante el ciclo de trabajo del PWM. Teóricamente, el ciclo estándar de PWM es de 20ms (50Hz), por lo que el ancho del pulso debe distribuirse entre 1ms y 2ms. Sin embargo, el ancho real del pulso alcanza de 0.5ms a 2.5ms, lo que corresponde a 0° a 180°. Preste atención a que, para la misma señal, el ángulo de rotación puede variar según la marca del servo.
+**Principe de contrôle** : L’angle de rotation est contrôlé via le rapport cyclique du PWM. Théoriquement, le cycle PWM standard est de 20ms (50Hz), donc la largeur d’impulsion doit se situer entre 1ms et 2ms. Cependant, la largeur d’impulsion réelle varie de 0.5ms à 2.5ms, ce qui correspond à 0°～180°. Notez que, pour un même signal, l’angle de rotation peut varier selon les marques de servo.
 
-**3. Diagrama de Conexiones**
+**3. Schéma de câblage**
 
 ![](media/A51.png)
 
-Agregue una fuente de alimentación externa en lugar de usar solo USB para la alimentación.
+Ajoutez une source d’alimentation externe au lieu d’utiliser uniquement l’USB pour l’alimentation.
 
 ![](media/A52.png)
 
-**4. Código de Prueba**
+**4. Code de test**
 
 ```
 int servoPin = 4;//servo PIN
@@ -68,6 +68,6 @@ void servopulse(int pin, int myangle)
 }
 ```
 
-**5. Resultado de la Prueba**
+**5. Résultat du test**
 
-Después de conectar el cableado y cargar el código, el servo comienza a rotar de 0° a 180° y luego en sentido inverso.
+Après avoir connecté le câblage et téléchargé le code, le servo commence à tourner de 0° à 180° puis inverse sa rotation.

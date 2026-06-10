@@ -1,104 +1,104 @@
-### Proyecto 29 Control Remoto IR
+### Projet 29 Télécommande IR
 
-**1. Descripción**
+**1. Description**
 
-El control remoto IR utiliza señal IR para controlar el LED, lo que simplifica en gran medida el proceso de control del LED.
+La télécommande IR utilise un signal IR pour contrôler une LED, ce qui simplifie grandement le processus de contrôle de la LED.
 
-**2. Principio de Funcionamiento**
+**2. Principe de fonctionnement**
 
 ![](media/B113.png)
 
-En este proyecto, a menudo usamos un portador de aproximadamente 38K para la modulación.
+Dans ce projet, nous utilisons souvent un porteuse d'environ 38K pour la modulation.
 
-El sistema de control remoto IR incluye modulación, emisión y recepción. Envía datos mediante modulación, lo que mejora la eficiencia de transmisión y reduce el consumo de energía.
+Le système de télécommande IR comprend la modulation, l'émission et la réception. Il envoie des données par modulation, ce qui améliore l'efficacité de transmission et réduit la consommation d'énergie.
 
-Generalmente, la frecuencia de modulación del portador está dentro de 30kHz~60kHz (usualmente 38kHz). El ciclo de trabajo de la onda cuadrada es 1/3, como se muestra a continuación, lo cual está determinado por el oscilador de cristal de 455kHz en el extremo emisor.  
-Una división entera de frecuencia es esencial para el oscilador de cristal en este extremo, y el coeficiente de frecuencia usualmente evalúa 12. Por lo tanto, 455kHz÷12≈37.9kHz≈38kHz.
+Généralement, la fréquence de modulation porteuse est comprise entre 30kHz et 60kHz (habituellement 38kHz). Le rapport cyclique de l'onde carrée est de 1/3, comme illustré ci-dessous, ce qui est déterminé par le quartz oscillateur à 455kHz à l'extrémité émettrice.  
+Une division de fréquence entière est essentielle pour le quartz oscillateur à cette extrémité, et le coefficient de fréquence est généralement évalué à 12. Par conséquent, 455kHz ÷ 12 ≈ 37,9kHz ≈ 38kHz.
 
-Diagrama completo de emisión del portador de 38KHz:
+Diagramme d'émission complet de la porteuse 38kHz :
 
 ![](media/B114.jpg)
 
-- **Frecuencia del portador:** 38KHz
+- **Fréquence porteuse :** 38kHz
 
-- **Longitud de onda:** 940nm
+- **Longueur d'onde :** 940nm
 
-- **Ángulo de recepción:** 90°
+- **Angle de réception :** 90°
 
-- **Distancia de control:** 6M
+- **Distance de contrôle :** 6M
 
-**Diagrama esquemático de los botones del control remoto:**
+**Schéma des boutons de la télécommande :**
 
 ![](media/B115.png)
 
-**3. Diagrama de Conexiones**
+**3. Schéma de câblage**
 
 ![](media/B116.png)
 
-**4. Código de Prueba**
+**4. Code de test**
 
-1. Arrastra los dos bloques básicos.
+1. Faites glisser les deux blocs de base.
 
-2. Busca y arrastra el bloque "IR remote init" desde “IR Remote” y configura su pin en IO19. Añade un bloque "baud rate" desde "serial" y configúralo a 9600.
+2. Trouvez et faites glisser le bloc "IR remote init" depuis “IR Remote” et réglez sa broche sur IO19. Ajoutez un bloc "baud rate" depuis "serial" et réglez-le à 9600.
 
 ![](media/B117.png)、
 
-3. Arrastra un bloque "if" y completa su condición con "Received data". Solo cuando el módulo IR reciba datos, se ejecutarán los bloques de código dentro del "if".
+3. Faites glisser un bloc "if" et remplissez sa condition avec "Received data". Ce n’est que lorsque le module IR reçoit des données que les blocs de code dans "if" s’exécuteront.
 
 ![](media/B118.png)
 
-4. Arrastra otro bloque "if" y configura su condición a "Read the data ＞ 0". Solo cuando esta condición se cumpla, el puerto serial comenzará a imprimir datos.
+4. Faites glisser un autre bloc "if" et réglez sa condition sur "Read the data ＞ 0". Ce n’est que lorsque cette condition est satisfaite que le port série commence à imprimer les données.
 
-   Este sensor funciona tan rápido que el código puede ejecutarse dos veces o más mientras presionas los botones de control. Sin embargo, la segunda vez que se envía un mismo comando, se enviará un valor de 0, por lo que es necesario un bloque ">" para evitar duplicaciones.
+   Ce capteur fonctionne très rapidement, le code peut donc s’exécuter deux fois ou plus lorsque vous appuyez sur les boutons de contrôle. Cependant, la deuxième fois qu’une même commande est envoyée, une valeur de 0 est émise, donc un bloc ">" est nécessaire pour éviter les doublons.
 
 ![](media/B119.png)
 
-5. Añade un bloque "serial print" después de "then". Configúralo para imprimir los datos leídos del módulo "IR remote" en modo "warp".
+5. Ajoutez un bloc "serial print" après "then". Réglez-le pour imprimer les données lues depuis le module "IR remote" en mode "warp".
 
 ![](media/B120.png)
 
-6. Finalmente, no olvides refrescar los datos después de la ejecución.
+6. Enfin, n’oubliez pas de rafraîchir les données après l’exécution.
 
 ![](media/B121.png)
 
-**Código Completo:**
+**Code complet :**
 
 ![](media/B122.png)
 
-**5. Resultado de la Prueba**
+**5. Résultat du test**
 
-Después de conectar el cableado y subir el código, abre el monitor serial y configura la tasa de baudios a 9600. Presiona el botón en la unidad del control remoto y verás el valor en hexadecimal.
+Après avoir connecté le câblage et téléchargé le code, ouvrez le moniteur série et réglez le débit en bauds à 9600. Appuyez sur un bouton de la télécommande, et vous verrez la valeur en hexadécimal.
 
 ![](media/B123.png)
 
-**6. Código de Expansión**
+**6. Code d’extension**
 
-En este código de expansión, haremos que una luz sea controlada por un interruptor remoto IR. Presiona OK para encender el LED y presiona nuevamente para apagarlo.
+Dans ce code d’extension, nous allons faire une lumière contrôlée par un interrupteur télécommandé IR. Appuyez sur OK pour allumer la LED et appuyez de nouveau pour l’éteindre.
 
-Para realizar esta operación repetible, la variable "item" es esencial en todo el código. La primera vez, item = 0, por lo que se ejecutan los códigos en "else" para asignar 1 como su nuevo valor. La segunda vez, cuando item = 1, sin embargo, se ejecuta el bloque "if" para reasignar a 0, alternativamente.
+Pour réaliser cette opération répétable, la variable "item" est essentielle dans tout le code. La première fois, item = 0 donc les codes dans "else" s’exécutent pour lui assigner 1 comme nouvelle valeur. La deuxième fois, lorsque item = 1, le bloc "if" s’exécute pour réassigner 0, alternativement.
 
-**Diagrama de Conexiones:**
+**Schéma de câblage :**
 
 ![](media/B124.png)
 
-**Código:**
+**Code :**
 
 ![](media/B125.png)
 
-**7. Explicación del Código**
+**7. Explication du code**
 
-1. Inicializa el módulo remoto IR después de configurar su pin receptor.
+1. Initialisez le module télécommande IR après avoir configuré sa broche de réception.
 
 ![](media/B126.png)
 
-2. Determina si el sensor ha recibido datos. Si es así, se ejecutarán los bloques de código relacionados.
+2. Vérifiez si le capteur a reçu des données. Si oui, les blocs de code associés s’exécutent.
 
 ![](media/B127.png)
 
-3. Lee los datos recibidos del control remoto IR.
+3. Lisez les données reçues depuis la télécommande IR.
 
 ![](media/B128.png)
 
-4. Refresca los datos recibidos después de cada ejecución completa de recepción.
+4. Rafraîchissez les données reçues après chaque exécution complète de réception.
 
 ![](media/B129.png)

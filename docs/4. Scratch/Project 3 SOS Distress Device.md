@@ -1,61 +1,61 @@
-### Proyecto 3 Dispositivo de Socorro SOS
+### Projet 3 Dispositif de Détresse SOS
 
-**1. Descripción**
+**1. Description**
 
-El dispositivo SOS es capaz de emitir señales de socorro, que coinciden con el principio del código Morse. Es conveniente para emergencias.
+Le dispositif SOS est capable d’émettre des signaux de détresse, ce qui correspond au principe du code Morse. Il est pratique en cas d’urgence.
 
-**2. Diagrama de Conexiones**
+**2. Schéma de câblage**
 
 ![](media/A36.png)
 
-**3. Código de Prueba**
+**3. Code de test**
 
-Lo que debemos aclarar primero es cómo parpadea la luz de socorro SOS: el LED parpadea rápidamente 3 veces para la “S” y lentamente 3 veces para la “O”.
+Ce que nous devons d’abord clarifier est la façon dont la lumière de détresse SOS clignote : la LED clignote rapidement 3 fois pour le “S” et lentement 3 fois pour le “O”.
 
-Luego, controlamos el número de parpadeos y la duración mediante la instrucción "for" y establecemos el intervalo de tiempo entre letras.
+Ensuite, nous contrôlons le nombre de clignotements et la durée via l’instruction "for" et définissons un intervalle de temps entre les lettres.
 
-1. Arrastra los dos bloques de código.
+1. Faites glisser les deux blocs de code.
 
 ![](media/A37.png)
 
-2. Arrastra el siguiente bloque en la sección "Pins" y configura el pin IO5 como salida.
+2. Faites glisser le bloc suivant dans la partie "Pins" et configurez la broche IO5 en sortie.
 
 ![](media/A38.png)
 
-**Letra "S"**
+**Lettre "S"**
 
-3. Arrastra el siguiente bloque de la sección "Control" y configúralo para 3 veces, ya que "S" significa parpadear 3 veces.
+3. Faites glisser le bloc suivant depuis la partie "Control" et réglez-le sur 3 fois, car "S" signifie clignoter 3 fois.
 
 ![](media/A39.png)
 
-4. Arrastra los siguientes bloques de la sección "LED" y configura el pin IO5 en HIGH. Luego establece el tiempo de retardo a 0.15s.
+4. Faites glisser les blocs suivants depuis la partie "LED" et réglez la broche IO5 sur HIGH. Puis réglez le temps de délai à 0,15 s.
 
 ![](media/A40.png)
 
-5. Arrastra los siguientes bloques de la sección "LED" y configura el pin IO5 en LOW. Luego establece el tiempo de retardo a 0.1s.
+5. Faites glisser les blocs suivants depuis la partie "LED" et réglez la broche IO5 sur LOW. Puis réglez le temps de délai à 0,1 s.
 
 ![](media/A41.png)
 
-**Letra O**
+**Lettre O**
 
-6. Refiérete a los pasos anteriores para construir los siguientes bloques de código. Modifica la salida HIGH para que dure 0.4s y LOW para 0.2s.
+6. Référez-vous aux étapes précédentes pour construire les blocs de code suivants. Modifiez la sortie HIGH pour un délai de 0,4 s et LOW pour 0,2 s.
 
 ![](media/A42.png)
 
-**Letra S**
+**Lettre S**
 
-7. Repite los pasos 3, 4 y 5 nuevamente.
+7. Répétez les étapes 3, 4 et 5.
 
 ![](media/A43.png)
 
-8. Añade un tiempo de retardo de 5s al final, y el "SOS" se repetirá cada 5s.
+8. Ajoutez un délai de 5 s à la fin, et le "SOS" se répétera toutes les 5 s.
 
    ![](media/A44.png)
 
-**Código Completo：**
+**Code complet :**
 
 ![](media/A45.png)
 
-**4. Resultado de la Prueba**
+**4. Résultat du test**
 
-Después de subir el código, el LED parpadea respectivamente 3 veces rápido y luego 3 veces lento.
+Après avoir téléchargé le code, la LED clignote respectivement 3 fois rapidement puis lentement.

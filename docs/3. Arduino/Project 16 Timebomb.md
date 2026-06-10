@@ -1,22 +1,22 @@
-### Proyecto 16 Bomba de Tiempo
+### Projet 16 Bombe à retardement
 
-**1. Descripción**
+**1. Description**
 
-Este proyecto te dará la oportunidad de experimentar un interesante juego de bomba de tiempo.
+Ce projet vous offre l'opportunité de vivre une expérience intéressante avec un jeu de bombe à retardement.
 
-En este proyecto, la matriz de puntos representa tu bomba de tiempo, mientras que el tubo digital muestra el tiempo restante. Los botones no solo pueden controlar la bomba, sino también configurar su tiempo. Puedes establecer una cuenta regresiva para controlar esta bomba, y esta explota cuando la cuenta regresiva termina. Además, se utiliza un zumbador para la alarma.
+Dans ce projet, la matrice de points représente votre bombe à retardement, tandis que le tube digital affiche le temps restant. Les boutons permettent non seulement de contrôler la bombe mais aussi de régler son temps. Vous pouvez définir un compte à rebours pour contrôler cette bombe, qui explose lorsque le compte à rebours est terminé. De plus, un buzzer est utilisé pour l'alarme.
 
-De cualquier manera, al programar con múltiples sensores, tu capacidad integral de pensamiento lógico puede ser mejorada.
+Quoi qu'il en soit, en programmant avec plusieurs capteurs, votre capacité globale de raisonnement logique peut être améliorée.
 
-**2. Diagrama de Flujo**
+**2. Organigramme**
 
 ![](media/A62.png)
 
-**3. Diagrama de Conexiones**
+**3. Schéma de câblage**
 
 ![](media/A63.png)
 
-**4. Código de Prueba**
+**4. Code de test**
 
 ```
 /*
@@ -124,6 +124,6 @@ void loop()
 }
 ```
 
-**5. Resultado de la Prueba**
+**5. Résultat du test**
 
-Después de conectar los cables y subir el código, el botón azul (aumentar) y el botón verde (disminuir) pueden usarse para configurar el tiempo, y el botón amarillo puede usarse para iniciar la cuenta regresiva. Cuando la cuenta regresiva termina, la cara sonriente en la Matriz de Puntos se convierte en una cara llorando, simulando la explosión de la bomba. Presionar el botón rojo puede reiniciar el programa.
+Après avoir connecté les fils et téléchargé le code, le bouton bleu (augmentation) et le bouton vert (diminution) peuvent être utilisés pour régler le temps, et le bouton jaune peut être utilisé pour lancer le compte à rebours. Lorsque le compte à rebours se termine, le visage souriant sur la matrice de points se transforme en visage en pleurs, simulant l'explosion de la bombe. Appuyer sur le bouton rouge permet de réinitialiser le programme.

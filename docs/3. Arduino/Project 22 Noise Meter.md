@@ -1,14 +1,14 @@
-### Proyecto 22 Medidor de Ruido
+### Projet 22 Compteur de Bruit
 
-**1. Descripción**
+**1. Description**
 
-El medidor de ruido podrá usar el número de puntos en la matriz LED para reflejar la intensidad del ruido.
+Le compteur de bruit pourra utiliser le nombre de points sur la matrice LED pour refléter l'intensité du bruit.
 
-**2. Diagrama de Conexiones**
+**2. Schéma de câblage**
 
 ![](media/B20.png)
 
-**3. Código de Prueba**
+**3. Code de test**
 
 ```
 /*
@@ -38,16 +38,16 @@ byte data_val[8][8]= {
 
 void setup()
 {  
- lc.shutdown(0,false);       //When powering on, MAX72XX is in the power saving mode. 
- lc.setIntensity(0,8);       //Set the brightness to the maximum
- lc.clearDisplay(0);         //Clear the display 
+ lc.shutdown(0,false);       //Lorsque l'alimentation est activée, le MAX72XX est en mode économie d'énergie. 
+ lc.setIntensity(0,8);       //Réglez la luminosité au maximum
+ lc.clearDisplay(0);         //Effacez l'affichage 
 }  
   
 void loop()
 {   
   int val = analogRead(sensor);
   Serial.println(val);
-  int temp = map(val,0,800,0,7);  //The range of analog values in the 0-800 is the most appropriate
+  int temp = map(val,0,800,0,7);  //La plage des valeurs analogiques entre 0 et 800 est la plus appropriée
   for(int i=0;i<8;i++)  
   {  
     lc.setRow(0,7-i,data_val[temp][i]);  
@@ -55,8 +55,8 @@ void loop()
 }  
 ```
 
-**4. Código de Prueba**
+**4. Code de test**
 
-Cuanto mayor sea el valor de sonido detectado por el sensor de sonido, más puntos se encenderán en la matriz LED.
+Plus la valeur sonore détectée par le capteur de son est élevée, plus de points s'allument sur la matrice LED.
 
 ![](media/B21.png)![](media/B22.png)

@@ -1,18 +1,18 @@
-### Proyecto 14 Contador
+### Projet 14 Compteur
 
-**1. Descripción**
+**1. Description**
 
-El contador de tubo digital Arduino de 4 bits puede registrar números dentro del rango 0~9999. Cuenta con ajuste de velocidad de visualización, modo de conteo y función de reinicio. Este módulo se aplica ampliamente en contadores en tiempo real (como conteo de pulsaciones de botón y rotación de motor DC), juegos y equipos de experimentación.
+Le compteur à tube numérique Arduino 4 bits peut enregistrer des nombres de 0 à 9999. Il dispose d’une vitesse d’affichage, d’un réglage du mode de comptage ainsi que d’une fonction de réinitialisation. Ce module est largement utilisé dans les compteurs en temps réel (comme le comptage d’appuis sur bouton et la rotation de moteur DC), les équipements de jeu et les expériences.
 
-**2. Diagrama de flujo**
+**2. Schéma fonctionnel**
 
 ![](media/A58.png)
 
-**3. Diagrama de conexiones**
+**3. Schéma de câblage**
 
 ![](media/A59.png)
 
-**4. Código de prueba**
+**4. Code de test**
 
 ```
 /*
@@ -68,6 +68,6 @@ void loop()
 }
 ```
 
-**4. Resultado de la prueba**
+**4. Résultat du test**
 
-Después de conectar el cableado y subir el código, presione el botón verde para sumar 1, el amarillo para restar 1 y el rojo para reiniciar. Mantenga presionado el botón y el valor mostrado seguirá aumentando o disminuyendo.
+Après avoir connecté le câblage et téléchargé le code, appuyez sur le bouton vert pour ajouter 1, sur le jaune pour soustraire 1, et sur le rouge pour réinitialiser. Maintenez le bouton enfoncé, et la valeur affichée continuera à augmenter ou diminuer.

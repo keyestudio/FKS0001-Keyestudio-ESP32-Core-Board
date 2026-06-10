@@ -1,35 +1,35 @@
-### Proyecto 30 Casa Inteligente
+### Projet 30 Maison Intelligente
 
-**1. Descripción**
+**1. Description**
 
-En esta era tecnológica, todos estamos familiarizados con la casa inteligente. Es un sistema que puede controlar electrodomésticos mediante botones.
+À l'ère de la technologie, nous sommes tous familiers avec la maison intelligente. C'est un système qui peut contrôler les appareils électriques via des boutons.
 
-En este proyecto, buscamos simular una casa inteligente mediante un control remoto IR. Con Arduino MCU como núcleo, puede usarse para controlar luces, aires acondicionados, TV y monitores de seguridad.
+Dans ce projet, nous cherchons à simuler une maison intelligente via une télécommande IR. Avec un MCU Arduino comme cœur, il peut être utilisé pour contrôler la lumière, les climatiseurs, la télévision et les moniteurs de sécurité.
 
-**2. Diagrama de Flujo**
+**2. Organigramme**
 
 ![](media/B130.png)
 
-**3. Diagrama de Conexiones**
+**3. Schéma de câblage**
 
 ![](media/B131.png)
 
-**4. Código de Prueba**
+**4. Code de test**
 
-Con el control remoto IR, esta casa inteligente muestra varios valores de sensores en el LCD, incluyendo un sensor de temperatura y humedad, un sensor de sonido, una fotorresistencia, un potenciómetro y un sensor ultrasónico.
+Avec la télécommande IR, cette maison intelligente affiche diverses valeurs de capteurs sur l'écran LCD, incluant un capteur de température et d'humidité, un capteur sonore, une photorésistance, un potentiomètre et un capteur ultrasonique.
 
 ![](media/B132.png)
 
-**5. Resultado de la Prueba**
+**5. Résultat du test**
 
-Después de conectar el cableado y subir el código, podemos ver los contenidos correspondientes en el LCD al presionar los botones. El botón OK limpia la pantalla de sensores.
+Après avoir connecté le câblage et téléchargé le code, nous pouvons voir les contenus correspondants sur l'écran LCD en appuyant sur les boutons. Le bouton OK efface l'affichage des capteurs.
 
 ![](media/B133.png)
 
-**6. Explicación del Código**
+**6. Explication du code**
 
-Los bloques son tantos que adoptamos la función "Make a Block". Al hacer esto, numerosos bloques se empaquetan y pueden ser llamados directamente, lo que simplifica enormemente todo el programa.
+Les blocs sont nombreux, c'est pourquoi nous utilisons la fonction "Make a Block". En procédant ainsi, de nombreux blocs sont regroupés et peuvent être rappelés directement, ce qui simplifie grandement l'ensemble du programme.
 
-Haz clic en “My Block” para crear un bloque definido por ti mismo, y podrás construir tus propios bloques de código.
+Cliquez sur “My Block” pour créer un bloc défini par l'utilisateur, et vous pouvez construire vos propres blocs de code.
 
 ![](media/B134.png)

@@ -1,34 +1,34 @@
-### Proyecto 8 Intérprete Musical
+### Projet 8 Interprète Musical
 
-**1. Descripción**
+**1. Description**
 
-En este proyecto, utilizaremos un altavoz con amplificador de potencia para reproducir música. Este altavoz no solo puede tocar canciones simples, sino también interpretar lo que desees. Por lo tanto, puedes programar otros códigos interesantes en el proyecto para lograr resultados de aprendizaje espléndidos.
+Dans ce projet, nous utiliserons un haut-parleur amplifié pour jouer de la musique. Ce haut-parleur peut non seulement jouer des chansons simples, mais aussi interpréter ce que vous souhaitez. Ainsi, vous pouvez programmer d'autres codes intéressants dans le projet pour obtenir des résultats d'apprentissage remarquables.
 
-**2. Principio de Funcionamiento**
+**2. Principe de fonctionnement**
 
 ![](media/A28.png)
 
-La señal eléctrica se introduce desde el pin 1 de RP1 (ajusta la intensidad de la señal, que también es el volumen del sonido).
+Le signal électrique est injecté à la broche 1 de RP1 (ajuste l'intensité du signal, ce qui correspond également au volume sonore).
 
-Después de acoplarse en C4 y pasar por R5, la señal llega al pin IN- del 8002B, donde se amplifica operativamente y se envía al altavoz BEE1.
+Après couplage dans C4 et passage par R5, le signal atteint la broche IN- du 8002B, où il est amplifié opérationnellement puis envoyé au haut-parleur BEE1.
 
-**Tabla de Comparación de Frecuencias en C**
+**Tableau de comparaison des fréquences en Do**
 
-|    Nota     | Frecuencia(Hz) |      Nota      | Frecuencia(Hz) |     Nota     | Frecuencia(Hz) |
-| :---------: | :------------: | :------------: | :------------: | :----------: | :------------: |
-| Bemol  1  Do |      262       | Natural  1  Do |      523       | Sostenido  1  Do |     1047      |
-| Bemol  2  Re |      294       | Natural  2  Re |      587       | Sostenido  2  Re |     1175      |
-| Bemol  3  Mi |      330       | Natural  3  Mi |      659       | Sostenido  3  Mi |     1319      |
-| Bemol  4  Fa |      349       | Natural  4  Fa |      698       | Sostenido  4  Fa |     1397      |
-| Bemol  5  So |      392       | Natural  5  So |      784       | Sostenido  5  So |     1568      |
-| Bemol  6  La |      440       | Natural  6  La |      880       | Sostenido  6  La |     1760      |
-| Bemol  7  Si |      494       | Natural  7  Si |      988       | Sostenido  7  Si |     1967      |
+|    Note     | Fréquence(Hz) |      Note      | Fréquence(Hz) |     Note     | Fréquence(Hz) |
+| :---------: | :-----------: | :------------: | :-----------: | :----------: | :-----------: |
+| Bémol  1  Do |      262      | Naturel  1  Do |      523      | Dièse  1  Do |     1047      |
+| Bémol  2  Ré |      294      | Naturel  2  Ré |      587      | Dièse  2  Ré |     1175      |
+| Bémol  3  Mi |      330      | Naturel  3  Mi |      659      | Dièse  3  Mi |     1319      |
+| Bémol  4  Fa |      349      | Naturel  4  Fa |      698      | Dièse  4  Fa |     1397      |
+| Bémol  5  Sol|      392      | Naturel  5  Sol|      784      | Dièse  5  Sol|     1568      |
+| Bémol  6  La |      440      | Naturel  6  La |      880      | Dièse  6  La |     1760      |
+| Bémol  7  Si |      494      | Naturel  7  Si |      988      | Dièse  7  Si |     1967      |
 
-**3. Diagrama de Conexiones**
+**3. Schéma de câblage**
 
 ![](media/A29.png)
 
-**4. Código de Prueba**
+**4. Code de test**
 
 ```
 /*
@@ -64,25 +64,25 @@ void loop()
 }
 ```
 
-**5. Resultado de la Prueba**
+**5. Résultat du test**
 
-Después de subir el código y encender, el amplificador reproduce circularmente tonos musicales con la frecuencia correspondiente: DO, Re, Mi, Fa, So, La, Si.
+Après avoir téléversé le code et mis sous tension, l'amplificateur joue en boucle des notes musicales avec les fréquences correspondantes : DO, Ré, Mi, Fa, Sol, La, Si.
 
-**Ajuste de volumen del amplificador de potencia:**
+**Réglage du volume de l'amplificateur :**
 
- **Hay un potenciómetro junto al altavoz. Podemos ajustar el volumen del altavoz girándolo.** (Nota: Por favor, use la fuerza adecuada para ajustarlo, para no dañar el potenciómetro)
+ **Il y a un potentiomètre à côté du haut-parleur. Nous pouvons ajuster le volume du haut-parleur en le tournant.** (Note : Veuillez utiliser une force appropriée pour le régler afin de ne pas endommager le potentiomètre)
 
 ![](media/A30.png)
 
-**6. Ampliación de Conocimientos**
+**6. Extension des connaissances**
 
-Vamos a tocar una canción de cumpleaños. Las conexiones permanecen sin cambios.
+ Jouons une chanson d'anniversaire. Le câblage reste inchangé.
 
-**Notación musical numerada:**
+**Notation musicale chiffrée :**
 
 ![](media/A31.png)
 
-**Diagrama comparativo de Bemol, Natural y Sostenido**
+**Diagramme comparatif des bémols, naturels et dièses**
 
 ![](media/A32.png)
 

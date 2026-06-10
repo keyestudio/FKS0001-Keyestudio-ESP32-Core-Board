@@ -1,22 +1,22 @@
-### Proyecto 1 Parpadeo de LED
+### Projet 1 Clignotement de LED
 
-**1. Descripción**
+**1. Description**
 
-El parpadeo de LED es un proyecto sencillo diseñado para principiantes. Solo necesitas instalar un LED en la placa Arduino y cargar el código en el IDE de Arduino. Este proyecto refuerza el aprendizaje del marco conceptual de Arduino y el uso de métodos para principiantes.
+Le clignotement de LED est un projet simple conçu pour les débutants. Il suffit d’installer une LED sur la carte Arduino et de téléverser le code dans l’IDE Arduino. Ce projet renforce l’apprentissage du cadre conceptuel Arduino et des méthodes d’utilisation pour les débutants.
 
-**2. Principio de Funcionamiento**
+**2. Principe de fonctionnement**
 
 ![](media/A16.png)
 
-- **LED:** El diagrama de circuito anterior corresponde al LED. En términos generales, los puertos IO limitados en corriente de salida pueden causar un brillo bajo del LED, por lo que se utiliza un transistor NPN (Q2) en el circuito como interruptor. En este caso, el LED se encenderá si la base (pin 1) del transistor está en un nivel alto. Por el contrario, el LED se apaga cuando la base está en bajo.
+- **LED :** Le schéma ci-dessus représente le circuit de la LED. En général, le courant de sortie limité des ports IO peut entraîner une faible luminosité de la LED, c’est pourquoi un transistor NPN (Q2) est utilisé dans le circuit comme interrupteur. Dans ce cas, la LED s’allume si la base (broche 1) du transistor est à un niveau haut. À l’inverse, la LED s’éteint lorsque la base est à un niveau bas.
 
-- **Interruptor de transistor:** Para entender claramente su principio, se requiere cierto conocimiento de circuitos electrónicos. Para más detalles, consulte materiales por su cuenta. En resumen, el encendido y apagado del LED depende de los niveles alto y bajo de la base del transistor, que son determinados por el pin en la placa de desarrollo. El LED se enciende cuando la base (pin 1) está en nivel alto, y se apaga cuando la base está en bajo.
+- **Interrupteur transistor :** Pour bien comprendre son principe, des connaissances en électronique sont nécessaires. Pour plus de détails, veuillez consulter les documents par vous-même. En résumé, l’allumage et l’extinction de la LED dépendent des niveaux haut et bas de la base du transistor, qui sont déterminés par la broche de la carte de développement. La LED s’allume lorsque la base (broche 1) est à un niveau haut, et s’éteint lorsque la base est à un niveau bas.
 
-**3. Diagrama de Conexiones：**
+**3. Schéma de câblage :**
 
 ![](media/A17.png)
 
-**4. Cargar Código**
+**4. Téléversement du code**
 
 ```
 /*
@@ -39,6 +39,6 @@ void loop()
 }
 ```
 
-**5. Resultado de la Prueba**
+**5. Résultat du test**
 
-Después de cargar el código y encender la alimentación, el LED se encenderá durante 1 s y se apagará durante 1 s.
+Après avoir téléversé le code et mis sous tension, la LED s’allumera pendant 1 s puis s’éteindra pendant 1 s.

@@ -1,71 +1,71 @@
-### Proyecto 20 Pilar de Luz
+### Projet 20 Pilier de Lumière
 
-**1. Descripción**
+**1. Description**
 
-La resistencia (menos de 1KΩ) de la fotorresistencia varía según la luz, por lo que puede controlar el brillo de la matriz de puntos. Al controlar, conectamos esta resistencia a un pin analógico en la placa para monitorear el cambio de resistencia. De esta manera, la luz controla automáticamente el brillo de la pantalla.
+La résistance (inférieure à 1KΩ) de la photorésistance varie en fonction de la lumière, ce qui permet de contrôler la luminosité de la matrice de points. Lors du contrôle, nous connectons cette résistance à une broche analogique de la carte pour surveiller la variation de résistance. De cette manière, la lumière contrôle automatiquement la luminosité de l'affichage.
 
-Además, la fotorresistencia se aplica ampliamente en nuestra vida diaria. Por ejemplo, una cortina se abre o cierra automáticamente según la intensidad de la luz exterior.
+De plus, la photorésistance est largement utilisée dans notre vie quotidienne. Par exemple, un rideau s'ouvre ou se ferme automatiquement en fonction de l'intensité lumineuse extérieure.
 
-**2. Principio de Funcionamiento**
+**2. Principe de fonctionnement**
 
 ![](media/B43.png)
 
-Cuando está completamente en oscuridad, la resistencia es igual a 0.2MΩ, y el voltaje en el terminal de señal (punto 2) se acerca a 0V. Cuanto más fuerte es la luz, menor será la resistencia y el voltaje.
+Lorsqu'il fait totalement sombre, la résistance est égale à 0,2MΩ, et la tension au niveau de la borne signal (point 2) tend vers 0V. Plus la lumière est forte, plus la résistance et la tension seront faibles.
 
-**3. Diagrama de Conexiones**
+**3. Schéma de câblage**
 
 ![](media/B44.png)
 
-**4. Código de Prueba**
+**4. Code de test**
 
-Se puede leer el valor analógico de la fotorresistencia:
+La valeur analogique de la photorésistance peut être lue :
 
-1. Arrastra los dos bloques básicos. Coloca el bloque de configuración de baud rate entre ellos y configúralo a 9600.
+1. Faites glisser les deux blocs de base. Placez le bloc de réglage du débit en bauds entre eux et réglez-le à 9600.
 
-2. Añade un bloque de "serial print" dentro del bucle "forever" con el modo "warp".
+2. Ajoutez un bloc "impression série" dans la boucle "pour toujours" avec le mode "warp".
 
-3. Arrastra un bloque de "read the value" desde “Light” al bloque de "serial print", y configura el pin a IO33.
+3. Faites glisser un bloc "lire la valeur" depuis “Light” vers le bloc "impression série", et réglez la broche sur IO33.
 
 ![](media/B45.png)
 
-**5. Resultado de la Prueba**
+**5. Résultat du test**
 
-Después de conectar el cableado y subir el código, abre el monitor serial y configura el baud rate a 9600, se mostrará el valor analógico dentro del rango de 0-4095.
+Après avoir connecté le câblage et téléchargé le code, ouvrez le moniteur série et réglez le débit en bauds à 9600, la valeur analogique s'affichera, dans une plage de 0 à 4095.
 
 ![](media/B46.png)
 
-**6. Código de Expansión**
+**6. Code d'extension**
 
-En este proyecto de expansión, usamos esta fotorresistencia para detectar la intensidad de luz ambiental. Las dos columnas centrales están incluidas en este experimento para representar la intensidad de luz. Cuanto más claro esté, más LEDs se encenderán. Esto forma un "pilar de luz".
+Dans ce projet d'extension, nous utilisons cette photorésistance pour détecter l'intensité lumineuse ambiante. Les deux colonnes centrales sont incluses dans cette expérience pour représenter l'intensité lumineuse. Plus il fait clair, plus les LED allumées seront nombreuses. Cela forme un "pilier de lumière".
 
-**Diagrama de Conexiones:**
+**Schéma de câblage :**
 
 ![](media/B47.png)
 
-1. Arrastra los dos bloques básicos.
+1. Faites glisser les deux blocs de base.
 
-2. En "Matrix", inicializa la pantalla de matriz de puntos y configura el pin CS a IO15. Añade un bloque de "brightness setting" y asígnale el valor 3.
+2. Dans "Matrix", initialisez l'affichage matriciel et réglez la broche CS sur IO15. Ajoutez un bloc "réglage de la luminosité" et assignez la valeur 3.
 
 ![](media/B48.png)
 
-3. Arrastra un bloque de "variable". Configura su alcance a Local, tipo a int y nómbralo light.
+3. Faites glisser un bloc "variable". Réglez sa portée sur Local, son type sur int et nommez-la light.
 
 ![](media/B49.png)
 
-4. Asigna una función map a la variable. Añade "read the value of light IO33" desde "Light" al valor de la función map, cuyo rango es de (0,4095) a (0,7).
+4. Assignez une fonction map à la variable. Ajoutez "lire la valeur de light IO33" depuis "Light" à la valeur de la fonction map, dont la plage va de (0,4095) à (0,7).
 
 ![](media/B50.png)
 
-5. Encuentra los siguientes bloques en "Matrix". Limpia primero la pantalla, y luego dibuja líneas en la pantalla en los puntos (x0:3  y0:0, x1:3  y1: variable light) y (x0:4  y0:0, x1:4  y1: variable light). Finalmente, actualiza la pantalla de la matriz.
+5. Trouvez les blocs suivants dans "Matrix". Effacez d'abord l'affichage, puis dessinez des lignes sur l'affichage aux points (x0:3  y0:0, x1:3  y1: variable light) et (x0:4  y0:0, x1:4  y1: variable light). Enfin, rafraîchissez l'affichage de la matrice.
 
 ![](media/B51.png)
 
-**Código Completo:**
+**Code complet :**
 
 ![](media/B52.png)
 
-**7. Explicación del Código**
+**7. Explication du code**
 
-Lee el valor analógico de la fotorresistencia configurando el pin.
+Lire la valeur analogique de la photorésistance en configurant la broche.
 
 ![](media/B53.png)

@@ -1,46 +1,46 @@
-### Proyecto 8 Intérprete Musical
+### Projet 8 Interprète Musical
 
-**1. Descripción**
+**1. Description**
 
-En este proyecto, utilizaremos un altavoz con amplificador de potencia para reproducir música. Este altavoz no solo puede reproducir canciones simples, sino también interpretar lo que desees. Por lo tanto, puedes programar otros códigos interesantes en el proyecto para lograr resultados de aprendizaje espléndidos.
+Dans ce projet, nous utiliserons un haut-parleur amplifié pour jouer de la musique. Ce haut-parleur peut non seulement jouer des chansons simples, mais aussi interpréter ce que vous souhaitez. Ainsi, vous pouvez programmer d'autres codes intéressants dans le projet pour obtenir des résultats d'apprentissage remarquables.
 
-**2. Principio de Funcionamiento**
+**2. Principe de Fonctionnement**
 
 ![](media/A89.png)
 
-La señal eléctrica se introduce desde el pin 1 de RP1 (ajusta la intensidad de la señal, que también es el volumen del sonido).  
-Después de acoplarse en C4 y pasar por R5, la señal llega al pin IN- del 8002B, donde se amplifica operativamente y se envía al altavoz BEE1.
+Le signal électrique est injecté depuis la broche 1 de RP1 (ajuste l'intensité du signal, ce qui correspond également au volume sonore).  
+Après couplage dans C4 et passage par R5, le signal atteint la broche IN- du 8002B, où il est amplifié opérationnellement puis envoyé au haut-parleur BEE1.
 
-**3. Diagrama de Conexiones**
+**3. Schéma de Câblage**
 
 ![](media/A90.png)
 
-**4. Código de Prueba**
+**4. Code de Test**
 
 ![](media/A91.png)
 
-**5. Resultado de la Prueba**
+**5. Résultat du Test**
 
-Después de cargar el código y encender, el amplificador reproduce circularmente tonos musicales con la frecuencia correspondiente: DO, Re, Mi, Fa, So, La, Si.
+Après avoir téléversé le code et mis sous tension, l'amplificateur joue en boucle des notes musicales avec les fréquences correspondantes : DO, Ré, Mi, Fa, Sol, La, Si.
 
-**6. Ampliación de Conocimientos**
+**6. Extension des Connaissances**
 
-Hagamos que reproduzca una canción de cumpleaños. Ya hemos añadido algunas canciones en la biblioteca para que puedas arrastrar directamente estos bloques de canción desde "Music".
+Faisons-le jouer une chanson d'anniversaire. Nous avons déjà ajouté plusieurs chansons dans la bibliothèque, vous pouvez donc directement glisser ces blocs de chansons depuis "Music".
 
-**Código:**
+**Code :**
 
 ![](media/A92.png)
 
-**7. Explicación del Código**
+**7. Explication du Code**
 
-1. Establecer la frecuencia del tono. Después de configurar el pin, podemos seleccionar la frecuencia para componer música.
+1. Définir la fréquence de la note. Après avoir configuré la broche, nous pouvons sélectionner la fréquence pour composer la musique.
 
 ![](media/A93.png)
 
-2. Módulo de música, para facilitar su uso, hemos integrado 6 piezas musicales en el código, por lo que solo necesitamos configurar el pin y seleccionar la música.
+2. Module musique, pour faciliter l'utilisation, nous avons intégré 6 morceaux dans le code, ainsi, il suffit de configurer la broche et de sélectionner la musique.
 
 ![](media/A94.png)
 
-3. Módulo de detención de reproducción, solo necesitamos configurar el pin correspondiente para detener la música.
+3. Module arrêt de la lecture, il suffit de configurer la broche correspondante pour arrêter la musique.
 
 ![](media/A95.png)

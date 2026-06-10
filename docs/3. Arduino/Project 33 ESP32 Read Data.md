@@ -1,30 +1,30 @@
-### Proyecto 33 ESP32 Leer Datos
+### Projet 33 ESP32 Lecture de Données
 
-**1. Descripción**
+**1. Description**
 
-Aprendimos cómo controlar la luz led a través del WiFi del ESP32 y mostrar la dirección IP en el LCD1602. A continuación, usaremos la placa ESP32 para leer los datos del sensor y transmitirlos a la página web.
+Nous avons appris à contrôler la LED via le WiFi de l'ESP32 et afficher l'adresse IP sur le LCD1602. Ensuite, nous allons utiliser la carte ESP32 pour lire les données du capteur et les transmettre à une page web.
 
-**Notas**
+**Notes**
 
-1. Necesitas preparar un WIFI de frecuencia 2.4GHz, no de 5GHz. Puede ser un hotspot móvil o un router.
-2. La placa ESP32 consume más energía cuando está conectada a la red, por lo que necesitas conectar una fuente de alimentación externa a este kit. Te proporcionamos un portapilas de 6XAA (pilas no incluidas), que puedes conectar al puerto DC de la placa integrada ESP32.
+1. Vous devez préparer un réseau WIFI à fréquence 2,4 GHz, pas 5 GHz. Cela peut être un hotspot mobile ou un routeur.
+2. La carte ESP32 consomme plus d'énergie lorsqu'elle est connectée au réseau, vous devez donc connecter une alimentation externe à ce kit. Nous vous fournissons un porte-piles 6XAA (piles non incluses), que vous pouvez connecter au port DC de la carte ESP32 intégrée.
 
 ![](media/B58.png)![](media/B59.png)
 
-3. Al usar otros dispositivos para controlar este kit, la placa ESP32 debe estar conectada a la misma red que tu dispositivo de control.
+3. Lors de l'utilisation d'autres appareils pour contrôler ce kit, la carte ESP32 doit être connectée au même réseau que votre appareil de contrôle.
 
-4. Recuerda el nombre y la contraseña de tu red wifi y complétalos en el código antes de subirlo.
+4. N'oubliez pas le nom et le mot de passe de votre réseau WiFi et remplissez-les dans le code avant de le téléverser.
 
 ```
-const char* ssid = "your_SSID"; // Completa con el nombre del WiFi, por ejemplo,= "KEYES"
-const char* password = "your_password"; // Completa con la contraseña del WiFi, por ejemplo,= "123456"
+const char* ssid = "your_SSID"; // Remplir le nom du WiFi, par exemple,= "KEYES"
+const char* password = "your_password"; // Remplir le mot de passe WiFi, par exemple,= "123456"
 ```
 
-**2. Diagrama de Conexiones**
+**2. Schéma de câblage**
 
 ![](media/B60.png)
 
-**3. Subir Código**
+**3. Téléversement du code**
 
 ```
 #include <WiFi.h>
@@ -33,29 +33,29 @@ const char* password = "your_password"; // Completa con la contraseña del WiFi,
 #include <LiquidCrystal_I2C.h>
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
-// Configuración WiFi
-const char* ssid = "your-SSID";    // nombre de tu WiFi
-const char* password = "your-PASSWORD";  // contraseña de tu WiFi
+// Configuration WiFi
+const char* ssid = "your-SSID";    // nom de votre WiFi
+const char* password = "your-PASSWORD";  // mot de passe de votre WiFi
 
-// Crear un servidor web
+// Création d'un serveur Web
 AsyncWebServer server(80);
 
-// Configuración DHT11
-xht11 xht(26);                         // asignar pin del sensor DHT11 a IO26
-unsigned char dat[] = { 0, 0, 0, 0 };  // Definir un arreglo para almacenar valores de temperatura y humedad
+// Configuration DHT11
+xht11 xht(26);                         // définir la broche du capteur DHT11 sur IO26
+unsigned char dat[] = { 0, 0, 0, 0 };  // Définir un tableau pour stocker les valeurs de température et d'humidité
 int i = 0;
 
-// Configuración fotoresistor
-#define LDRPIN 34  // conectar fotoresistor a GPIO34 (entrada analógica)
+// Configuration photoresistance
+#define LDRPIN 34  // connecter la photoresistance à GPIO34 (entrée analogique)
 
 void setup() 
 {
-  lcd.init();  // inicializar el lcd
+  lcd.init();  // initialiser le lcd
   lcd.backlight();
   lcd.setCursor(0, 0);
   lcd.print("IP:");
 
-  // Conexión WiFi
+  // Connexion WiFi
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
     lcd.setCursor(i, 1);
@@ -73,22 +73,22 @@ void setup()
   lcd.setCursor(0, 1);
   lcd.print(WiFi.localIP());
 
-  // Procesar la solicitud del cliente y devolver la página
+  // Traiter la requête client et retourner la page
   server.on("/", HTTP_GET, [](AsyncWebServerRequest* request) {
     String html = generateHTML();
     request->send(200, "text/html", html);
   });
 
-  // Iniciar el servidor web
+  // Démarrer le serveur Web
   server.begin();
 }
 
 String generateHTML() 
 {
-  // obtener valor del fotoresistor
-  int lightValue = analogRead(LDRPIN);  // leer valor analógico del fotoresistor
+  // acquérir la valeur de la photoresistance
+  int lightValue = analogRead(LDRPIN);  // lire la valeur analogique de la photoresistance
 
-  // Generar página HTML
+  // Générer la page HTML
   String html = "<html><head><style>";
   html += "body { font-family: Arial, sans-serif; background-color: #f4f4f4; }";
   html += "h2 { color: #333; }";
@@ -96,24 +96,24 @@ String generateHTML()
   html += "div.sensor h3 { margin: 0; }";
   html += "div.sensor p { font-size: 20px; color: #555; }";
   html += "</style>";
-  // agregar actualización automática, refrescar la página cada 5 segundos
+  // ajout du rafraîchissement automatique, rafraîchir la page toutes les 5 secondes
   html += "<meta http-equiv='refresh' content='5'>";
   html += "</head><body>";
 
-  // mostrar temperatura y humedad
+  // afficher la température et l'humidité
   html += "<div class='sensor'>";
-  html += "<h3>Temperatura</h3>";
+  html += "<h3>Température</h3>";
   html += "<p>" + String(dat[2]) + " &deg;C</p>";
   html += "</div>";
 
   html += "<div class='sensor'>";
-  html += "<h3>Humedad</h3>";
+  html += "<h3>Humidité</h3>";
   html += "<p>" + String(dat[0]) + " %</p>";
   html += "</div>";
 
-  // mostrar valor de resistencia del fotoresistor
+  // afficher la valeur de résistance de la photoresistance
   html += "<div class='sensor'>";
-  html += "<h3>Luminancia</h3>";
+  html += "<h3>Luminance</h3>";
   html += "<p>" + String(lightValue) + "</p>";
   html += "</div>";
   html += "</body></html>";
@@ -123,16 +123,16 @@ String generateHTML()
 
 void loop() 
 {
-  // Actualizar temperatura, humedad e intensidad de luz cada 2 segundos
+  // Mettre à jour la température, l'humidité et l'intensité lumineuse toutes les 2 secondes
   if (!xht.receive(dat)) {
-    Serial.println("error del sensor");
+    Serial.println("erreur capteur");
   }
   delay(2000);
 }
 ```
 
-**4. Resultado de la Prueba**
+**4. Résultat du test**
 
-Después de subir el código, el LCD1602 muestra la dirección IP. Usa una computadora o teléfono móvil conectado a la misma red que la placa ESP32, abre el navegador e ingresa la dirección IP, podrás ver los valores del sensor en la página de control que se actualiza cada 5 segundos.
+Après avoir téléversé le code, le LCD1602 affiche l'adresse IP. Utilisez un ordinateur ou un téléphone mobile connecté au même réseau que la carte ESP32, ouvrez le navigateur et entrez l'adresse IP, vous pouvez voir les valeurs des capteurs sur la page de contrôle qui se rafraîchit toutes les 5 secondes.
 
 ![](media/B61.png)

@@ -1,20 +1,20 @@
-### Proyecto 28 Puerta Inteligente
+### Projet 28 Portail Intelligent
 
-**1. Descripción**
+**1. Description**
 
-La puerta inteligente es un sistema de estacionamiento inteligente que integra MCU y sensor ultrasónico, el cual controla automáticamente la puerta según la distancia de los vehículos, para así controlar mejor el acceso de los autos.
+Le portail intelligent est un système de parking intelligent qui intègre un MCU et un capteur ultrasonique, contrôlant automatiquement le portail en fonction de la distance des voitures, afin de mieux gérer l'accès des véhicules.
 
-Cuando se alcanza cierta distancia, la MCU recibe la señal del sensor y estima la distancia mediante la intensidad de la señal. Si el auto se está acercando o alejando, la MCU abrirá o cerrará la puerta mediante un servo.
+Lorsqu'une certaine distance est atteinte, le MCU reçoit le signal du capteur et estime la distance via l'intensité du signal. Si la voiture s'approche ou s'éloigne, le MCU ouvrira ou fermera le portail via un servo.
 
-**2. Diagrama de Flujo**
+**2. Organigramme**
 
 ![](media/B39.png)
 
-**3. Diagrama de Conexiones**
+**3. Schéma de câblage**
 
 ![](media/B40.png)
 
-**4. Código de Prueba**
+**4. Code de test**
 
 ```
 /*
@@ -23,55 +23,55 @@ Cuando se alcanza cierta distancia, la MCU recibe la señal del sensor y estima 
   http://www.keyestudio.com
 */
 #define servo_pin  25
-int distance = 0; //Define una variable para recibir la distancia
-int EchoPin = 14; //Conectar pin Echo a IO14
-int TrigPin = 13; //Conectar pin Trig a IO13
+int distance = 0; //Define a variable to receive the distance
+int EchoPin = 14; //Connect Echo pin to IO14
+int TrigPin = 13; //Connect Trig pin to IO13
 
-//Programa de medición ultrasónica
-float checkdistance() { //Adquirir distancia
-  //mantener un nivel bajo corto para asegurar un pulso alto claro:
+//Ultrasonic ranging program
+float checkdistance() { //Acquire distance
+  //preserve a short low level to ensure a clear high pulse:
   digitalWrite(TrigPin, LOW);
   delayMicroseconds(2);
-  //Disparar el sensor con un pulso alto de 10us o más
+  //Trigger the sensor by a high pulse of 10um or longer
   digitalWrite(TrigPin, HIGH);
   delayMicroseconds(10);
   digitalWrite(TrigPin, LOW);
-  //Leer la señal del sensor: un pulso de nivel alto
-  //La duración se detecta desde el envío del comando "ping" hasta la recepción del eco (unidad: us).
-  float distance = pulseIn(EchoPin, HIGH) / 58.00;  //Convertir a distancia
+  //Read the signal from the sensor: a high level pulse
+  //Duration is detected from the point sending "ping" command to the time receiving echo signal (unit: um).
+  float distance = pulseIn(EchoPin, HIGH) / 58.00;  //Convert into distance
   delay(10);
   return distance;
 }
 
-//Programa de rotación del servo
-void Set_Angle(int angle_val) //Función de impulso
+//Servo rotation program
+void Set_Angle(int angle_val) //Impulse function
 { 
-  int pulsewidth = map(angle_val, 0, 180, 500, 2500); //Mapear ángulo a ancho de pulso
-  for (int i = 0; i < 10; i++) { //Emitir algunos pulsos más
-    digitalWrite(servo_pin, HIGH);//Poner el nivel del pin del servo en alto
-    delayMicroseconds(pulsewidth);//Número de microsegundos del ancho de pulso
-    digitalWrite(servo_pin, LOW);//Bajar el nivel del pin del servo
-    delay(20 - pulsewidth / 1000);  //Agregar el paréntesis
+  int pulsewidth = map(angle_val, 0, 180, 500, 2500); //Map Angle to pulse width
+  for (int i = 0; i < 10; i++) { //Output a few more pulses
+    digitalWrite(servo_pin, HIGH);//Set the servo interface level to high
+    delayMicroseconds(pulsewidth);//The number of microseconds of delayed pulse width value
+    digitalWrite(servo_pin, LOW);//Lower the level of servo interface
+    delay(20 - pulsewidth / 1000);  //Add the bracket
   }
 } 
 
 void setup() 
 {
-  // coloca tu código de configuración aquí, para que se ejecute una vez:
+  // put your setup code here, to run once:
   pinMode(servo_pin,OUTPUT);
-  pinMode(TrigPin, OUTPUT);//Configurar pin Trig como salida
-  pinMode(EchoPin, INPUT);  //Configurar pin Echo como entrada
+  pinMode(TrigPin, OUTPUT);//Set Trig pin to output 
+  pinMode(EchoPin, INPUT);  //Set Echo pin to input 
 }
 
 void loop() 
 {
-  // coloca tu código principal aquí, para que se ejecute repetidamente:
+  // put your main code here, to run repeatedly:
  distance = checkdistance();
  Serial.println();
   if(distance < 30)
   {
     Set_Angle(180);
-    delay(5000);//Esperar 5s   
+    delay(5000);//Wait for 5s   
   }
   if(distance > 30)
   {
@@ -80,6 +80,6 @@ void loop()
 }
 ```
 
-**5. Resultado de la Prueba**
+**5. Résultat du test**
 
-Después de conectar el cableado y subir el código, el servo girará a 180° durante 5s si la distancia detectada es menor a 30cm. Por el contrario, el servo girará a 0°.
+Après avoir connecté le câblage et téléchargé le code, le servo tournera à 180° pendant 5 secondes si la distance détectée est inférieure à 30 cm. Dans le cas contraire, le servo tournera à 0°.

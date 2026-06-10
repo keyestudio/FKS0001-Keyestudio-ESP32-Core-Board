@@ -1,22 +1,22 @@
-### Projekt 4 Ampel
+### Projet 4 Feu de Circulation
 
-**1. Beschreibung**
+**1. Description**
 
-Das Ampelmodul ist ein Gerät zur Steuerung des Verkehrs von Fußgängern und Fahrzeugen. Es umfasst eine rote, eine gelbe und eine grüne Lampe, die unterschiedliche Anweisungen bedeuten.
+Le module de feu de circulation est un dispositif utilisé pour contrôler le passage des piétons et des véhicules. Il comprend une lumière rouge, une jaune et une verte, chacune impliquant des consignes différentes.
 
-**Rot für Stopp:** Fußgänger und Fahrzeuge halten an.
+**Rouge pour Stop :** Les piétons et les véhicules doivent s’arrêter.
 
-**Gelb für Vorsicht:** Fußgänger und Fahrzeuge bereiten sich auf das Anhalten vor. Wenn die Fahrt bereits im Gange ist, sollte die Geschwindigkeit reduziert werden.
+**Jaune pour Prudence :** Les piétons et les véhicules doivent se préparer à s’arrêter. Si la circulation est déjà en cours, la vitesse doit être réduite.
 
-**Grün für Weiterfahren:** Fußgänger und Fahrzeuge fahren unter Beachtung der Verkehrsregeln weiter.
+**Vert pour Passage :** Les piétons et les véhicules peuvent continuer en respectant le code de la route.
 
-In diesem Projekt können Sie Arduino verwenden, um Code zur Steuerung der Ampel zu schreiben. Zum Beispiel können Sie die Dauer jeder Lampe und die Zeitintervalle dazwischen einstellen. Außerdem können Sie einen Timer hinzufügen, um die Lichtfarben nach einem Zeitplan zu ändern.
+Dans ce projet, vous pouvez utiliser Arduino pour écrire un code afin de contrôler les feux de circulation. Par exemple, définir la durée de chaque feu et l’intervalle entre eux. De plus, vous pouvez également ajouter un minuteur pour changer les couleurs des feux selon un planning.
 
-**2. Schaltplan**
+**2. Schéma de câblage**
 
 ![](media/A21.png)
 
-**3. Testcode**
+**3. Code de test**
 
 ```
 /*
@@ -55,6 +55,6 @@ void loop()
 }
 ```
 
-**4. Testergebnis**
+**4. Résultat du test**
 
-Nach dem Hochladen des Codes leuchtet die grüne LED für 5 Sekunden, die gelbe LED blinkt 3-mal und die rote LED leuchtet für 5 Sekunden, und das in einem Zyklus.
+Après avoir téléversé le code, la LED verte s’allumera pendant 5s, la LED jaune clignotera 3 fois, et la LED rouge s’allumera pendant 5s, en boucle.

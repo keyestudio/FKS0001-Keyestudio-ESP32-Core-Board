@@ -1,39 +1,39 @@
-### Proyecto 18 Corazón Palpitante
+### Projet 18 Cœur Battant
 
-**1. Descripción**
+**1. Description**
 
-En este proyecto, se presentará un corazón palpitante mediante una placa Arduino, una pantalla de matriz de puntos 8X8, una placa de circuito y algunos componentes electrónicos. Mediante programación, puedes controlar la frecuencia de los latidos, la dimensión del corazón y su brillo.
+Dans ce projet, un cœur battant sera présenté via une carte Arduino, un écran matrice de points 8x8, une carte de circuit imprimé et quelques composants électroniques. Grâce à la programmation, vous pouvez contrôler la fréquence des battements, la dimension du cœur et sa luminosité.
 
-**2. Diagrama de Conexiones**
+**2. Schéma de câblage**
 
 ![](media/B24.png)
 
-**3. Código de Prueba**
+**3. Code de test**
 
-1. Arrastra los dos bloques básicos.
+1. Faites glisser les deux blocs de base.
 
-2. Inicializa la pantalla de matriz de puntos. Configura el pin CS en IO15 y su brillo en 3. Coloca estas dos ejecuciones entre los bloques básicos.
+2. Initialisez l'écran matrice de points. Réglez la broche CS sur IO15 et sa luminosité à 3. Placez ces deux exécutions entre les blocs de base.
 
-Las siguientes ejecuciones están todas dentro del bloque "forever".
+Les exécutions suivantes sont toutes dans un bloc "pour toujours".
 
-3. Limpia la pantalla. Controla la pantalla para dibujar líneas y establecer el sistema de coordenadas y su origen como se muestra a continuación. Luego, actualiza la pantalla para mostrar el corazón pequeño con un retardo de 1s.
+3. Effacez l'écran. Contrôlez l'affichage pour tracer des lignes et établir le système de coordonnées ainsi que son origine comme suit. Ensuite, rafraîchissez l'écran pour afficher le petit cœur avec un délai de 1s.
 
 ![](media/B25.png)
 
 ![](media/B26.png)
 
-4. Repite el paso 3 pero dibuja las líneas como en la imagen siguiente para mostrar un corazón más grande.
+4. Répétez l'étape 3 mais tracez les lignes comme sur l'image ci-dessous pour afficher un cœur plus grand.
 
 ![](media/B27.png)
 
 ![](media/B28.png)
 
-**Código Completo:**
+**Code complet :**
 
 ![](media/B29.png)
 
-**4. Resultado de la Prueba**
+**4. Résultat du test**
 
-Después de conectar el cableado y subir el código, los dos tamaños de corazones se muestran de forma alternada.
+Après avoir connecté le câblage et téléchargé le code, les deux tailles de cœurs s'affichent alternativement.
 
 ![](media/B30.png)![](media/B31.png)

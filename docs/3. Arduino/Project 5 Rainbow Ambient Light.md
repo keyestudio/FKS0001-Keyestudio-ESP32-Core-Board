@@ -1,24 +1,24 @@
-### Proyecto 5 Luz Ambiental Arcoíris
+### Projet 5 Lumière d'Ambiance Arc-en-Ciel
 
-**1. Descripción**
+**1. Description**
 
-El LED Arduino 2812RGB es una luz programable, colorida y soñadora, cuyo color, brillo y ritmo son ajustables. Esta luz ambiental arcoíris puede usarse como una decoración dinámica a voluntad. O puede controlarse para "bailar con la música". Lo importante es que puede mejorarse como una alarma. Su sensor incorporado detecta el entorno ambiental para advertir a los usuarios cambiando su color, brillo y ritmo.
+La LED Arduino 2812RGB est une lumière programmable colorée et onirique, dont la couleur, la luminosité et le rythme sont réglables. Cette lumière d'ambiance arc-en-ciel peut être utilisée comme décoration dynamique à volonté. Vous pouvez également la contrôler pour la faire "danser avec la musique". Important, elle peut être améliorée en tant qu'alarme. Son capteur intégré détecte l'environnement ambiant pour avertir les utilisateurs en changeant sa couleur, sa luminosité et son rythme.
 
-**2. Principio de Funcionamiento**
+**2. Principe de Fonctionnement**
 
 ![](media/A22.png)
 
-El protocolo de datos adopta un modo de comunicación de código de retorno a cero en línea única. Después de que el píxel se reinicia al encenderse, el terminal DIN recibe datos del controlador. Los primeros 24 bits de datos que llegan serán extraídos por el primer píxel y enviados al registro de datos interno.
+Le protocole de données adopte un mode de communication à code retour à zéro sur une seule ligne. Après la réinitialisation du pixel à la mise sous tension, la borne DIN reçoit les données du contrôleur. Les premières données de 24 bits reçues seront extraites par le premier pixel et envoyées au registre de données interne.
 
-Los datos restantes serán amplificados por un circuito amplificador y transmitidos a través del puerto DOUT al siguiente píxel en cascada. Al transmitirse a través de los píxeles, la señal disminuye 24 bits cada vez.
+Les données restantes seront amplifiées par un circuit d'amplification et transmises via la sortie DOUT au pixel suivant en cascade. En traversant les pixels, le signal diminue de 24 bits à chaque fois.
 
-Además, el píxel adopta tecnología de conformado y reenvío automático, de modo que el número en cascada de píxeles está limitado solo por la velocidad de transmisión de la señal.
+De plus, le pixel utilise une technologie d'auto-mise en forme et de retransmission, de sorte que le nombre de pixels en cascade est uniquement limité par la vitesse de transmission du signal.
 
-**3. Diagrama de Conexiones**
+**3. Schéma de Câblage**
 
 ![](media/A23.png)
 
-**4. Código de Prueba**
+**4. Code de Test**
 
 ```
 /*
@@ -51,22 +51,22 @@ void loop()
 }
 ```
 
-**5. Resultado de la Prueba**
+**5. Résultat du Test**
 
-Después de cargar el código y encender, el LED se iluminará en diferentes colores.
+Après avoir téléversé le code et mis sous tension, la LED s'allumera en différentes couleurs.
 
-De izquierda a derecha:
+De gauche à droite :
 
-- El primer LED RGB es rojo  
-- El segundo LED RGB es verde  
-- El tercer LED RGB es azul  
-- El cuarto LED RGB es amarillo  
-- El quinto LED RGB es púrpura  
-- El sexto LED RGB es blanco  
+- La première LED RGB est rouge  
+- La deuxième LED RGB est verte  
+- La troisième LED RGB est bleue  
+- La quatrième LED RGB est jaune  
+- La cinquième LED RGB est violette  
+- La sixième LED RGB est blanche  
 
 ![](media/A24.png)
 
-**6. Código Extendido**
+**6. Code Étendu**
 
 ```
 /*
@@ -205,6 +205,6 @@ uint32_t Wheel(byte WheelPos)
 }
 ```
 
-**7. Resultado de la Prueba**
+**7. Résultat du Test**
 
-Después de cargar el código y encender, el LED se iluminará en diferentes colores y realizará un espectáculo de luces.
+Après avoir téléversé le code et mis sous tension, la LED s'allumera en différentes couleurs et réalisera un spectacle lumineux.

@@ -1,85 +1,85 @@
-### Proyecto 23 Vaso Inteligente
+### Projet 23 Tasse Intelligente
 
-**1. Descripción**
+**1. Description**
 
-En este proyecto, utilizamos principalmente la placa de desarrollo Arduino para crear un vaso inteligente programable, que muestra la temperatura del líquido interno mediante un indicador RGB. Puede controlar el brillo de la luz configurando un umbral de temperatura. Si se supera el umbral, la luz se vuelve más brillante. De lo contrario, se atenúa.
+Dans ce projet, nous utilisons principalement la carte de développement Arduino pour créer une tasse intelligente programmable, qui affiche la température du liquide intérieur via un indicateur RGB. Elle peut contrôler la luminosité de la lumière en définissant un seuil de température. Si le seuil est dépassé, la lumière s’éclaircit. Sinon, elle s’assombrit.
 
-El vaso inteligente ayuda a los usuarios a controlar mejor la temperatura de su agua para beber y previene eficazmente el sobrecalentamiento o la congelación.
+La tasse intelligente permet d’aider les utilisateurs à mieux contrôler la température de leur eau potable et à prévenir efficacement la surchauffe ou le gel.
 
-**2. Principio de Funcionamiento**
+**2. Principe de Fonctionnement**
 
 ![](media/B71.png)
 
-Las configuraciones relacionadas con el DHT11 son proporcionadas por los fabricantes, por lo que solo necesitas leer y procesar los datos de forma ordenada según su diagrama de secuencia.
+Les réglages liés au DHT11 sont fournis par les fabricants, vous n’avez donc qu’à lire et traiter les données dans l’ordre selon son diagramme de séquence.
 
-Además, los códigos relevantes están empaquetados en nuestras librerías, lo que facilita configurar los pines y leer los valores.
+De plus, les codes correspondants sont emballés dans nos bibliothèques, ce qui vous facilite la configuration des pins et la lecture des valeurs.
 
-**3. Diagrama de Conexiones**
+**3. Schéma de Câblage**
 
 ![](media/B72.png)
 
-**4. Código de Prueba**
+**4. Code de Test**
 
-1. Arrastra dos bloques básicos. Añade el módulo de velocidad de baudios serial y configura la velocidad a 9600.
+1. Faites glisser deux blocs de base. Ajoutez le module de débit en bauds série et réglez le débit à 9600.
 
-2. Arrastra el módulo DHT desde “Temperatura y humedad” y configura el pin en IO26, modo en dht11.
+2. Faites glisser le module DHT depuis « Température et humidité » et réglez la pin sur IO26, le mode sur dht11.
 
 ![](media/B73.png)
 
-3. Añade el módulo de impresión serial sin salto de línea, y configura la impresión en “RH:”, luego sigue los pasos siguientes y añade un retardo de 1s.
+3. Ajoutez un module d’impression série sans retour à la ligne, et réglez l’impression sur « RH: », puis suivez les étapes ci-dessous, et ajoutez un délai de 1s.
 
-**Código Completo:**
+**Code Complet :**
 
 ![](media/B74.png)
 
-**5. Resultado de la Prueba**
+**5. Résultat du Test**
 
-Después de conectar el cableado y subir el código, haz clic ![](media/B75.png) para abrir el monitor serial, configura la velocidad de baudios a 9600, y se mostrarán los valores de temperatura y humedad.
+Après avoir connecté le câblage et téléchargé le code, cliquez ![](media/B75.png) pour ouvrir le moniteur série, réglez le débit à 9600, et la valeur de température et d’humidité s’affichera.
 
 ![](media/B76.png)
 
-**6. Código de Expansión**
+**6. Code d’Extension**
 
-En este experimento de expansión, haremos un vaso inteligente que puede mostrar la temperatura del líquido. Dividimos 100 en cuatro partes con un LED representando cada una:
+Dans cette expérience d’extension, nous allons réaliser une tasse intelligente capable d’afficher la température du liquide. Nous divisons 100 en quatre parties avec une LED représentant chacune :
 
-- **LED Rojo:** 100-75°C
+- **LED Rouge :** 100-75°C
 
-- **LED Amarillo:** 75-50°C
+- **LED Jaune :** 75-50°C
 
-- **LED Verde:** 50-25°C
+- **LED Verte :** 50-25°C
 
-- **LED Azul:** 25-0°C
+- **LED Bleue :** 25-0°C
 
-- **Diagrama de Flujo：**
+- **Organigramme :**
 
 ![](media/B77.png)
 
-**Diagrama de Conexiones：**
+**Schéma de Câblage :**
 
 ![](media/B78.png)
 
-**Código：**
+**Code :**
 
-1. Arrastra dos bloques básicos. Luego configura los 4 pines de los LED como “output”, el pin del DHT11 en IO26, modo en dht11 y el nombre de la variable como temp.
+1. Faites glisser deux blocs de base. Puis réglez les 4 pins des LED en « output », la pin du DHT11 sur IO26, le mode sur dht11 et le nom de la variable sur temp.
 
 ![](media/B79.png)
 
-2. Asigna el valor de temperatura del DHT11 a la variable temp.
+2. Assignez la valeur de température du DHT11 à la variable temp.
 
 ![](media/B80.png)
 
-3. Usa el bloque "if else" para evaluar la variable temp. Si se cumplen las condiciones, el LED correspondiente se encenderá, de lo contrario se apagará.
+3. Utilisez le bloc "if else" pour juger la variable temp. Si les conditions sont remplies, la LED correspondante s’allume, sinon elle s’éteint.
 
-**Código Completo:**
+**Code Complet :**
 
 ![](media/B81.png)
 
-**7. Explicación del Código**
+**7. Explication du Code**
 
-1. En este bloque de código, el número marcado puede rellenarse en el espacio en blanco para conectar múltiples sensores de temperatura y humedad. Después de configurar el pin y el modo, se puede leer el valor. En este proyecto, configuramos el modo en DHT11.
+1. Dans ce bloc de code, le numéro marqué peut être rempli dans le champ vide afin de connecter plusieurs capteurs de température et d’humidité. Après avoir configuré la pin et le mode, la valeur peut être lue. Dans ce projet, nous avons réglé le mode sur DHT11.
 
 ![](media/B82.png)
 
-2. Bloque de código para leer la temperatura y humedad.
+2. Bloc de code de lecture de la température et de l’humidité.
 
 ![](media/B83.png)

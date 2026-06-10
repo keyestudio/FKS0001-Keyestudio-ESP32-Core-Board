@@ -1,63 +1,63 @@
-### Proyecto 17 Alarma de Invasión
+### Projet 17 Alarme d'Invasion
 
-**1. Descripción**
+**1. Description**
 
-Este sistema de alarma de invasión es capaz de detectar intrusos en casas o pequeñas oficinas y advertir al propietario para que tome medidas a tiempo.
+Ce système d'alarme d'invasion est capable de détecter les intrus dans les maisons ou les petits bureaux et d'avertir l'hôte afin qu'il prenne des mesures à temps.
 
-En este proyecto, el sensor monitorea una determinada área. Un dispositivo en la placa Arduino activará un LED para que se encienda y un buzzer para que emita un sonido de advertencia si se detecta movimiento en esa zona. Además, su sensibilidad es ajustable para una detección más precisa.
+Dans ce projet, le capteur surveille une certaine zone. Un dispositif sur la carte Arduino déclenchera l'allumage d'une LED et le buzzer émettra un bip pour avertir en cas de détection de mouvement dans cette zone. De plus, sa sensibilité est réglable pour une détection plus précise.
 
-Prácticamente, este módulo se caracteriza por su practicidad, fácil instalación y bajo costo. Además de aplicarse en hogares y oficinas, también es útil en fábricas, almacenes y mercados, lo que protege en gran medida la seguridad de la propiedad.
+En pratique, ce module se caractérise par sa praticité, sa facilité d'installation et son faible coût. En plus des maisons et bureaux, il s'applique également aux usines, entrepôts et marchés, ce qui protège dans une large mesure la sécurité des biens.
 
-**2. Principio de Funcionamiento**
+**2. Principe de Fonctionnement**
 
 ![](media/B14.png)
 
-El cuerpo humano (37°C) siempre emite rayos infrarrojos con una longitud de onda de 10μm, que se aproxima a la que detecta el sensor.
+Le corps humain (37°C) émet toujours un rayonnement infrarouge avec une longueur d'onde de 10μm, ce qui est proche de celle détectée par le capteur.
 
-Por esta razón, este módulo es capaz de detectar el movimiento de seres humanos. Si lo hay, el sensor PIR emite un nivel alto durante aproximadamente 3 segundos y luego emite un nivel bajo.
+C'est pourquoi ce module est capable de détecter les mouvements humains. En cas de détection, le capteur PIR délivre un niveau haut pendant environ 3 secondes, puis un niveau bas.
 
-**3. Diagrama de Conexiones**
+**3. Schéma de Câblage**
 
 ![](media/B15.png)
 
-**4. Código de Prueba**
+**4. Code de Test**
 
-1. Añade los dos bloques básicos y arrastra un bloque de "baud rate" desde “Serial” entre ellos. Configura la velocidad en baudios del puerto serial a 9600.
+1. Ajoutez les deux blocs de base et glissez un bloc "baud rate" depuis “Serial” entre eux. Réglez la vitesse de transmission série à 9600.
 
 ![](media/B16.png)
 
-2. Añade un bloque "if else". Coloca un bloque "read PIR motion sensor" en el recuadro hexagonal y configura la interfaz en IO5, así determinará si hay movimiento humano. Añade dos bloques "serial print" después de "then" y "else" y configura ambos modos en "warp". Si la condición se cumple, imprime “Someone Invaded”. De lo contrario, imprime “No one”, luego añade un retardo de 1s.
+2. Ajoutez un bloc "if else". Placez un bloc "read PIR motion sensor" dans la case hexagonale et réglez l'interface sur IO5, ce qui permettra de déterminer s'il y a un mouvement humain. Ajoutez deux blocs "serial print" après "then" et "else" et réglez les deux modes sur "warp". Si la condition est remplie, affichez “Someone Invaded”. Sinon, affichez “No one”, puis ajoutez un délai de 1 seconde.
 
 ![](media/B17.png)
 
-**Código Completo:**
+**Code Complet :**
 
 ![](media/B18.png)
 
-**5. Resultado de la Prueba**
+**5. Résultat du Test**
 
-Después de conectar el cableado y subir el código, abre el monitor serial y ajusta la velocidad en baudios a 9600. Cuando el sensor detecta movimiento, el puerto serial imprime "Someone Invaded", de lo contrario, imprime “No One”.
+Après avoir connecté le câblage et téléchargé le code, ouvrez le moniteur série et réglez la vitesse à 9600. Lorsque le capteur détecte un mouvement, le port série affiche "Someone Invaded", sinon il affiche “No One”.
 
 ![](media/B19.png)
 
-**6. Código de Expansión**
+**6. Code d'Extension**
 
-Vamos a crear una alarma de invasión. Cuando el sensor PIR detecta presencia humana, el LED se enciende y el buzzer emite sonido. En contraste, el LED se apaga y el buzzer permanece en silencio.
+Créons une alarme d'invasion. Lorsque le capteur PIR détecte une présence humaine, la LED s'allume et le buzzer émet un son. À l'inverse, la LED s'éteint et le buzzer reste silencieux.
 
-**Diagrama de Flujo：**
+**Organigramme :**
 
 ![](media/B20.png)
 
-**Diagrama de Conexiones：**
+**Schéma de Câblage :**
 
 ![](media/B21.png)
 
-**Código：**
+**Code :**
 
 ![](media/B22.png)
 
-**7. Explicación del Código**
+**7. Explication du Code**
 
-Cuando el PIR detecta movimientos humanos, emite un nivel alto. Por lo tanto, podemos determinar si hay movimiento leyendo el pin de la placa de desarrollo conectado a este sensor.
+Lorsque le PIR détecte un mouvement humain, il délivre un niveau haut. Par conséquent, nous pouvons déterminer s'il y a un mouvement en lisant la broche de la carte de développement connectée à ce capteur.
 
 ![](media/B23.png)

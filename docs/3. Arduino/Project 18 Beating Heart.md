@@ -1,14 +1,14 @@
-### Proyecto 18 Corazón Palpitante
+### Projet 18 Cœur Battant
 
-**1. Descripción**
+**1. Description**
 
-En este proyecto, se presentará un corazón palpitante mediante una placa Arduino, una pantalla de matriz de puntos 8X8, una placa de circuito y algunos componentes electrónicos. Mediante programación, puedes controlar la frecuencia de latido, la dimensión del corazón y su brillo.
+Dans ce projet, un cœur battant sera présenté via une carte Arduino, un écran matriciel 8X8, une carte de circuit imprimé et quelques composants électroniques. Grâce à la programmation, vous pouvez contrôler la fréquence des battements, la taille du cœur et sa luminosité.
 
-**2. Diagrama de Conexiones**
+**2. Schéma de câblage**
 
 ![](media/B1.png)
 
-**3. Código de Prueba**
+**3. Code de test**
 
 ```
 /*
@@ -49,8 +49,8 @@ void loop()
 }
 ```
 
-**4. Resultado de la Prueba**
+**4. Résultat du test**
 
-Después de conectar el cableado y subir el código, los dos tamaños de corazones se muestran de forma alternada.
+Après avoir connecté le câblage et téléversé le code, les deux tailles de cœurs s’affichent alternativement.
 
 ![image-20251013113903734](media/B2.png)

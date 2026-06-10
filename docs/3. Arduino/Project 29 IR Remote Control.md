@@ -1,42 +1,42 @@
-### Proyecto 29 Control Remoto IR
+### Projet 29 Télécommande IR
 
-**1. Descripción**
+**1. Description**
 
-El control remoto IR utiliza señal IR para controlar el LED, lo que simplifica en gran medida el proceso de control del LED.
+La télécommande IR utilise un signal IR pour contrôler la LED, ce qui simplifie grandement le processus de contrôle de la LED.
 
-**2. Principio de Funcionamiento**
+**2. Principe de fonctionnement**
 
 ![](media/B41.png)
 
-En este proyecto, a menudo usamos un portador de aproximadamente 38K para la modulación.
+Dans ce projet, nous utilisons souvent un porteuse d’environ 38K pour la modulation.
 
-El sistema de control remoto IR incluye modulación, emisión y recepción. Envía datos mediante modulación, lo que mejora la eficiencia de transmisión y reduce el consumo de energía.
+Le système de télécommande IR comprend la modulation, l’émission et la réception. Il envoie des données par modulation, ce qui améliore l’efficacité de transmission et réduit la consommation d’énergie.
 
-Generalmente, la frecuencia de modulación del portador está dentro de 30kHz~60kHz (usualmente 38kHz). El ciclo de trabajo de la onda cuadrada es 1/3, como se muestra a continuación, lo cual está determinado por el oscilador de cristal de 455kHz en el extremo emisor.
+Généralement, la fréquence de modulation porteuse est comprise entre 30kHz et 60kHz (habituellement 38kHz). Le rapport cyclique de l’onde carrée est de 1/3, comme illustré ci-dessous, ce qui est déterminé par le quartz oscillateur à 455kHz côté émission.
 
-Una división entera de frecuencia es esencial para el oscilador de cristal en este extremo, y el coeficiente de frecuencia usualmente evalúa 12. Por lo tanto, 455kHz÷12≈37.9kHz≈38kHz.
+Une division entière de fréquence est essentielle pour le quartz oscillateur à ce niveau, et le coefficient de fréquence est généralement évalué à 12. Par conséquent, 455kHz÷12≈37,9kHz≈38kHz.
 
-**Diagrama completo de emisión del portador de 38KH:**
+**Schéma d’émission complet de la porteuse 38KH :**
 
 ![](media/B42.jpg)
 
-**Frecuencia del portador:** 38KHz
+**Fréquence porteuse :** 38KHz
 
-**Longitud de onda:** 940nm
+**Longueur d’onde :** 940nm
 
-**Ángulo de recepción:** 90°
+**Angle de réception :** 90°
 
-**Distancia de control:** 6M
+**Distance de contrôle :** 6M
 
-**Diagrama esquemático de los botones del control remoto:**
+**Schéma des boutons de la télécommande :**
 
 ![](media/B43.png)
 
-**3. Diagrama de Conexiones**
+**3. Schéma de câblage**
 
 ![](media/B44.png)
 
-**4. Código de Prueba**
+**4. Code de test**
 
 ```
 /*
@@ -75,23 +75,23 @@ void loop()
 } 
 ```
 
-**5. Resultado de la Prueba**
+**5. Résultat du test**
 
-Después de conectar el cableado y subir el código, abra el monitor serial y configure la velocidad en 9600.
+Après avoir connecté le câblage et téléversé le code, ouvrez le moniteur série et réglez le débit en bauds à 9600.
 
-Presione el botón en el control remoto y verá el valor en hexadecimal.
+Appuyez sur un bouton de la télécommande, et vous verrez la valeur en hexadécimal.
 
 ![](media/B45.png)
 
-**6. Ampliación de Conocimientos**
+**6. Extension des connaissances**
 
-A continuación, usaremos un control remoto IR para controlar el LED. Presione OK para encender el LED y presione nuevamente para apagarlo.
+Ensuite, nous allons utiliser une télécommande IR pour contrôler la LED. Appuyez sur OK pour allumer la LED et appuyez de nouveau pour l’éteindre.
 
-**Diagrama de Conexiones：**
+**Schéma de câblage :**
 
 ![](media/B46.png)
 
-**Código：**
+**Code :**
 
 ```
 /*
@@ -136,6 +136,6 @@ void loop()
 }
 ```
 
-**Resultado de la Prueba:** 
+**Résultat du test :**
 
-Presione OK para encender el LED y presione nuevamente para apagarlo.
+Appuyez sur OK pour allumer la LED et appuyez de nouveau pour l’éteindre.

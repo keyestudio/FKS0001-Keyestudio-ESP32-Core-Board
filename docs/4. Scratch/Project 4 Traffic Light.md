@@ -1,51 +1,51 @@
-### Proyecto 4 Semáforo
+### Projet 4 Feu de Circulation
 
-**1. Descripción**
+**1. Description**
 
-El módulo de semáforo es un dispositivo utilizado para controlar el paso de peatones y vehículos. Incluye una luz roja, una amarilla y una verde, que implican diferentes instrucciones.
+Le module de feu de circulation est un dispositif utilisé pour contrôler le passage des piétons et des véhicules. Il comprend une lumière rouge, une jaune et une verte, qui impliquent différentes consignes.
 
-**Rojo para Detenerse:** Peatones y vehículos deben detenerse.
+**Rouge pour Stop :** Les piétons et les véhicules s'arrêtent.
 
-**Amarillo para Precaución:** Peatones y vehículos deben prepararse para detenerse. Si la conducción ya está en proceso, la velocidad debe ser lenta.
+**Jaune pour Prudence :** Les piétons et les véhicules se préparent à s’arrêter. Si la conduite est déjà en cours, la vitesse doit être réduite.
 
-**Verde para Avanzar:** Peatones y vehículos continúan respetando las normas de tráfico.
+**Vert pour Passage :** Les piétons et les véhicules continuent en respectant le code de la route.
 
-En este proyecto, puedes usar Arduino para escribir código que controle los semáforos. Por ejemplo, establecer la duración de cada luz y el intervalo entre ellas. Además, también puedes añadir un temporizador para cambiar los colores de las luces según un horario.
+Dans ce projet, vous pouvez utiliser Arduino pour écrire du code afin de contrôler les feux de circulation. Par exemple, définir la durée de chaque feu et l’intervalle entre eux. De plus, vous pouvez également ajouter un minuteur pour changer les couleurs des feux selon un planning.
 
-**2. Diagrama de Conexiones**
+**2. Schéma de câblage**
 
 ![](media/A46.png)
 
-**3. Código de Prueba**
+**3. Code de test**
 
-Simplemente simulamos los semáforos: el LED verde se enciende durante 5s, el LED amarillo parpadea 3 veces, y el LED rojo se enciende durante 5s. Y configuramos esto para que se repita en bucle.
+Nous simulons simplement les feux de circulation : la LED verte s’allume pendant 5s, la LED jaune clignote 3 fois, et la LED rouge s’allume pendant 5s. Et nous configurons cela en boucle.
 
-El parpadeo del LED amarillo puede utilizar la instrucción for() que mencionamos en el proyecto 3. Por lo tanto, solo necesitamos establecer el tiempo de iluminación para completar un ciclo del semáforo.
+Le clignotement de la LED jaune peut utiliser l’instruction for() que nous avons mentionnée dans le projet 3. Ainsi, il suffit de définir le temps d’allumage pour compléter un cycle de feu.
 
-1. Arrastra los dos bloques de código.
+1. Faites glisser les deux blocs de code.
 
 ![](media/A47.png)
 
-2. Configura el modo del pin a “output”
+2. Réglez le mode du pin sur « output »
 
 ![](media/A48.png)
 
-3. Arrastra los siguientes bloques de la sección "LED" y configura el pin IO27 a HIGH y luego a LOW. Luego establece el tiempo de retardo a 5s.
+3. Faites glisser les blocs suivants de la partie "LED" et réglez le pin IO27 sur HIGH puis LOW. Ensuite, définissez le délai à 5s.
 
 ![](media/A49.png)
 
-4. Arrastra los siguientes bloques de la sección "Control" y configura el número de repeticiones a 3, luego configura el pin IO26 a HIGH y luego a LOW. Después establece el tiempo de retardo a 0.5s.
+4. Faites glisser les blocs suivants de la partie "Control" et réglez le nombre de répétitions à 3, puis réglez le pin IO26 sur HIGH puis LOW. Ensuite, définissez le délai à 0,5s.
 
 ![](media/A50.png)
 
-5. Repite el paso 3, y configura el pin a IO25.
+5. Répétez l’étape 3, et réglez le pin sur IO25.
 
 ![](media/A51.png)
 
-**Código Completo：**
+**Code complet :**
 
 ![](media/A52.png)
 
-**4. Resultado de la Prueba**
+**4. Résultat du test**
 
-Después de subir el código, el LED verde se encenderá durante 5s, el LED amarillo parpadeará 3 veces, y el LED rojo se encenderá durante 5s.
+Après avoir téléversé le code, la LED verte s’allumera pendant 5s, la LED jaune clignotera 3 fois, et la LED rouge restera allumée pendant 5s.

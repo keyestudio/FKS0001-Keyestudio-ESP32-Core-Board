@@ -1,20 +1,20 @@
-### **Proyecto 13 Mini Lámpara**
+### **Projet 13 Mini Lampe**
 
-**1. Descripción**
+**1. Description**
 
-En este proyecto, vamos a controlar una lámpara mediante Arduino UNO y un botón. Cuando presionamos el botón, el estado de la lámpara cambiará (ENCENDIDO o APAGADO).
+Dans ce projet, nous allons contrôler une lampe via Arduino UNO et un bouton. Lorsque nous appuyons sur le bouton, l’état de la lampe change (ALLUMÉ ou ÉTEINT).
 
-**2. Principio de Funcionamiento**
+**2. Principe de fonctionnement**
 
 ![](media/A53.png)
 
-Cuando el botón está liberado, un voltaje VCC que pasa a través de R29 proporciona un nivel alto para el terminal S. Cuando se presiona, los pines 1 y 3, y los pines 2 y 4 se conectan y el voltaje en S1 llega a GND como un nivel bajo. En este momento, R29 evita un cortocircuito entre VCC y GND.
+Lorsque le bouton est relâché, une tension VCC passant par R29 fournit un niveau haut pour la borne S. Lorsqu’il est pressé, les broches 1 et 3, 2 et 4 sont connectées et la tension sur S1 arrive à la masse (GND) en niveau bas. À ce moment, R29 évite un court-circuit entre VCC et GND.
 
-**3. Diagrama de Conexiones**
+**3. Schéma de câblage**
 
 ![](media/A54.png)
 
-**4. Código de Prueba**
+**4. Code de test**
 
 ```
 /*
@@ -27,38 +27,38 @@ int value = 0;
 
 void setup() 
 {
-  Serial.begin(9600); //Establece la velocidad en baudios del puerto serial a 9600 
-  pinMode(button, INPUT);  //Conecta el pin del botón al puerto digital 8 y configúralo en modo entrada.
+  Serial.begin(9600); //Définir le débit en bauds du port série à 9600 
+  pinMode(button, INPUT);  //Connecter la broche du bouton au port digital 8 et la configurer en mode entrée.
 }
 
 void loop() 
 {
-  value = digitalRead(button);//Lee el valor del botón 
-  Serial.print("Key status:"); //Imprime "Key status:" en el puerto serial 
-  Serial.println(value); //Imprime la variable del botón en el puerto serial y hace salto de línea
+  value = digitalRead(button);//Lire la valeur du bouton 
+  Serial.print("Key status:"); //Afficher "Key status:" sur le port série 
+  Serial.println(value); //Afficher la variable du bouton sur le port série avec saut de ligne
 }
 ```
 
-**5. Resultado de la Prueba**
+**5. Résultat du test**
 
-Después de conectar el cableado y subir el código, abre el monitor serial y configura la velocidad en baudios a 9600.  
-Cuando presionamos el botón, el puerto serial imprime "Key status: 0"; cuando lo soltamos, el puerto serial imprime "Key status: 1".
+Après avoir connecté le câblage et téléversé le code, ouvrez le moniteur série et réglez le débit à 9600.  
+Lorsque nous appuyons sur le bouton, le port série affiche "Key status: 0" ; lorsque nous le relâchons, il affiche "Key status: 1".
 
 ![](media/A55.png)
 
-**6. Ampliación de Conocimientos**
+**6. Extension des connaissances**
 
-A continuación, controlaremos el LED mediante el estado de los botones.
+Ensuite, nous allons contrôler la LED via l’état des boutons.
 
-- **Diagrama de Flujo：**
+- **Organigramme :**
 
 ![](media/A56.png)
 
-- **Diagrama de Conexiones:**
+- **Schéma de câblage :**
 
 ![](media/A57.png)
 
-- **Código**
+- **Code**
 
 ```
 /*
@@ -72,25 +72,25 @@ bool ledState = false;
 
 void setup() 
 {
-  // inicializa el pin digital PIN_LED como salida.
+  // initialiser la broche digitale PIN_LED en sortie.
   pinMode(led, OUTPUT);
   pinMode(button, INPUT);
 }
 
-// la función loop se ejecuta repetidamente para siempre
+// la fonction loop s’exécute en boucle indéfiniment
 void loop() 
 {
-  if (digitalRead(button) == LOW) {    //Cuando el valor del botón es 0 por primera vez, se activa el rebote del botón, por lo que se retrasa 20ms para juzgar si el botón sigue siendo 0. 
-    delay(20);                              //Retraso de 20ms
-    if (digitalRead(button) == LOW) {   //juzga si el valor del botón es 0
-      ledState = !ledState;                 //ledState es igual al inverso de su valor original, lo que permite encender y apagar el LED 
+  if (digitalRead(button) == LOW) {    //Lorsque la valeur du bouton est 0 pour la première fois, un rebond est déclenché, donc un délai de 20ms est appliqué pour vérifier si le bouton est toujours à 0. 
+    delay(20);                              //Délai de 20ms
+    if (digitalRead(button) == LOW) {   //vérifier si la valeur du bouton est 0
+      ledState = !ledState;                 //ledState devient l’inverse de sa valeur initiale, ce qui permet d’allumer ou d’éteindre la LED 
       digitalWrite(led, ledState);
     }
-    while (digitalRead(button) == LOW);     //mantiene el botón presionado en el bucle while, sale cuando se suelta
+    while (digitalRead(button) == LOW);     //maintenir la boucle tant que le bouton est appuyé, en sortir lorsqu’il est relâché
   }
 }
 ```
 
-- **Resultado de la Prueba**
+- **Résultat du test**
 
-Puedes controlar el encendido y apagado del LED rojo mediante el botón rojo.
+Vous pouvez contrôler l’allumage et l’extinction de la LED rouge avec le bouton rouge.

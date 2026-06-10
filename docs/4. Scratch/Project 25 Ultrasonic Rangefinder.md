@@ -1,77 +1,77 @@
-### Proyecto 25 Medidor de Distancia Ultrasónico
+### Projet 25 Télémètre Ultrasonique
 
-**1. Descripción**
+**1. Description**
 
-Este medidor de distancia ultrasónico mide la distancia de obstáculos emitiendo ondas sonoras y luego recibiendo el eco. Es decir, la distancia no es un valor inmediato, sino uno observado mediante un cálculo teórico del tiempo de diferencia entre emisor y receptor.
+Ce télémètre ultrasonique mesure la distance des obstacles en émettant des ondes sonores puis en recevant l’écho. Autrement dit, la distance n’est pas une valeur immédiate, mais une valeur observée par un calcul théorique de la différence de temps entre l’émetteur et le récepteur.
 
-El ultrasónico es capaz de detectar la forma de objetos, configurar puertas automáticas y estimar la velocidad de flujo y presión.
+L’ultrason permet de détecter la forme des objets, de configurer des portes automatiques et d’estimer la vitesse d’écoulement ainsi que la pression.
 
-Además, soporta trabajos cooperativos con computadoras. Como resultado, el valor medido puede ser transmitido a computadoras a través de la placa Arduino.
+De plus, il supporte un travail coopératif avec des ordinateurs. Ainsi, la valeur mesurée peut être transmise aux ordinateurs via une carte Arduino.
 
-En la vida diaria, se usa ampliamente para motores, servos y LEDs, así como para sistemas (navegación automática, control y sistemas de monitoreo de seguridad).
+Dans la vie quotidienne, il est largement utilisé pour les moteurs, servos et LEDs ainsi que dans des systèmes (navigation automatique, contrôle et systèmes de surveillance de sécurité).
 
-**2. Principio de Funcionamiento**
+**2. Principe de fonctionnement**
 
 ![](media/B91.png)
 
-Como todos sabemos, el ultrasónico es un tipo de señal de onda sonora inaudible con alta frecuencia. Similar a un murciélago, este módulo mide la distancia de obstáculos calculando la diferencia de tiempo entre la emisión de la onda y la recepción del eco.
+Comme nous le savons tous, l’ultrason est un type d’onde sonore inaudible à haute fréquence. À l’image d’une chauve-souris, ce module mesure la distance des obstacles en calculant la différence de temps entre l’émission de l’onde et la réception de l’écho.
 
-- **Distancia máxima:** 3M
+- **Distance maximale :** 3M
 
-- **Distancia mínima:** 5cm
+- **Distance minimale :** 5cm
 
-- **Ángulo de detección:** ≤15°
+- **Angle de détection :** ≤15°
 
-**3. Diagrama de Conexiones**
+**3. Schéma de câblage**
 
 ![](media/B92.png)
 
-**4. Código de Prueba**
+**4. Code de test**
 
-En el bloque "forever", construya dos bloques "serial print" y arrastre un bloque "read distance" desde “Ultrasonic”. Configure el pin trig en IO13 y el pin echo en IO14, ambos en cm. No olvide un retardo de 0.5s.
+Dans le bloc "forever", construisez deux blocs "serial print" et glissez un bloc "read distance" depuis “Ultrasonic”. Réglez la broche trig sur IO13 et la broche echo sur IO14, tous deux en cm. N’oubliez pas un délai de 0,5s.
 
 ![](media/B93.png)
 
-**5. Resultado de la Prueba**
+**5. Résultat du test**
 
-Después de conectar el cableado y subir el código, abra el monitor serial para configurar la tasa de baudios a 9600, y el puerto serial comenzará a imprimir el valor de la distancia.
+Après avoir connecté le câblage et téléversé le code, ouvrez le moniteur série, réglez le débit en bauds à 9600, et le port série commence à afficher la valeur de la distance.
 
 ![](media/B94.png)
 
-**6. Ampliación de Conocimientos**
+**6. Extension des connaissances**
 
-Vamos a hacer un medidor de distancia.
+Faisons un télémètre.
 
-Mostramos caracteres en LCD 1602. Programa para mostrar "Keyestudio" en (3,0) y “distance:” en (0,1) seguido del valor de la distancia en (9,1).
+Nous affichons des caractères sur un LCD 1602. Programme pour afficher "Keyestudio" en (3,0) et “distance :” en (0,1) suivi de la valeur de la distance en (9,1).
 
-Cuando el valor es menor que 100 (o 10), aún queda un residuo del tercer (o segundo) dígito. Por lo tanto, es necesario un juicio "if" para determinar una condición específica.
+Lorsque la valeur est inférieure à 100 (ou 10), un résidu du troisième (ou du deuxième) chiffre subsiste encore. Par conséquent, un test "if" est nécessaire pour déterminer une condition précise.
 
-**Diagrama de Conexiones：**
+**Schéma de câblage :**
 
 ![](media/B95.png)
 
-**Código：**
+**Code :**
 
-1. Arrastre los dos bloques básicos.
+1. Glissez les deux blocs de base.
 
-2. En "LCD", inicialice el LCD. Arrastre un bloque “LCD print” y agregue la cadena de caracteres “Keyestudio” (también puede colocarse fuera del bloque "forever" ya que esta pantalla es fija). Agregue un bloque "variable", configure el tipo en int y nombre en "distance" con una asignación inicial de 0.
+2. Dans "LCD", initialisez le LCD. Glissez un bloc “LCD print” et ajoutez la chaîne de caractères “Keyestudio” (cela peut aussi être placé hors du bloc "forever" car cet affichage est fixe). Ajoutez un bloc "variable", définissez le type en int et nommez-le "distance" avec une affectation initiale à 0.
 
 ![](media/B96.png)
 
-3. Asigne el valor leído de la distancia a la variable "distance". Configure el LCD para imprimir “Distance：” seguido del valor de la distancia (y necesitamos calcular previamente los caracteres mostrados al frente para colocar el cursor después de ellos).
+3. Affectez la valeur lue de la distance à la variable "distance". Configurez le LCD pour afficher “Distance :” suivi de la valeur de la distance (et il faut calculer à l’avance les caractères affichés devant pour positionner un curseur après eux).
 
 ![](media/B97.png)
 
-4. Construya un bloque para "borrar residuo de pantalla" cuando disminuya el número de dígitos mostrados. Primero adoptamos una condición para juzgar si la distancia es menor que 100 (o 10). Si es así, se imprimirá un espacio en el residuo del tercer (o segundo) dígito para limpiar la visualización anterior. Por último, no olvide agregar un retardo de 0.5s.
+4. Construisez un bloc "effacer les résidus d’affichage" lorsque le nombre de chiffres affichés diminue. Nous utilisons d’abord une condition pour vérifier si la distance est inférieure à 100 (ou 10). Si c’est le cas, un espace sera imprimé à la place du résidu du troisième (ou du deuxième) chiffre pour effacer l’affichage précédent. Enfin, n’oubliez pas d’ajouter un délai de 0,5s.
 
 ![](media/B98.png)
 
-**Código Completo:**
+**Code complet :**
 
 ![](media/B99.png)
 
-**7. Explicación del Código**
+**7. Explication du code**
 
-Lea la distancia después de configurar el pin trig y el pin echo. La unidad del valor mostrado es opcional (cm o pulgada).
+Lisez la distance après avoir configuré la broche trig et la broche echo. L’unité de la valeur affichée est optionnelle (cm ou pouce).
 
 ![](media/B100.png)

@@ -1,31 +1,31 @@
-### Proyecto 26 Piano Corporal Humano
+### Projet 26 Piano Corporel Humain
 
-**1. Descripción**
+**1. Description**
 
-El piano analógico incluye una placa de desarrollo y un sensor ultrasónico. Permite reproducir diferentes tonos detectando la posición de tus dedos. Así, este módulo es capaz de simular un piano para interpretar música y canciones.
+Le piano analogique comprend une carte de développement et un capteur ultrasonique. Il permet de jouer différentes notes en détectant la position de vos doigts. Ainsi, ce module est capable de stimuler un piano pour interpréter de la musique et des chansons.
 
-**2. Diagrama de Flujo**
+**2. Organigramme**
 
 ![](media/B101.png)
 
-**3. Diagrama de Conexiones**
+**3. Schéma de câblage**
 
 ![](media/B102.png)
 
-**4. Código de Prueba**
+**4. Code de test**
 
-Asigna el valor de distancia a item, y los tonos reproducidos varían según la distancia. Se incluyen siete tonos: Do, Re, Mi, Fa, So, La, Si.
+Attribuez la valeur de distance à item, et les notes jouées varient en fonction de la distance. Sept notes sont incluses : Do, Ré, Mi, Fa, Sol, La, Si.
 
 ![](media/B103.png)
 
-**5. Resultado de la Prueba**
+**5. Résultat du test**
 
-Conecta las conexiones y sube el código.
+Connectez les câblages et téléversez le code.
 
-- Reproduce Do cuando la distancia es menor a 10.
-- Reproduce Re cuando la distancia está entre 10 y 20.
-- Reproduce Mi cuando la distancia está entre 20 y 30.
-- Reproduce Fa cuando la distancia está entre 30 y 40.
-- Reproduce So cuando la distancia está entre 40 y 50.
-- Reproduce La cuando la distancia está entre 50 y 60.
-- Reproduce Si cuando la distancia está entre 60 y 70.
+- Jouer Do lorsque la distance est inférieure à 10.
+- Jouer Ré lorsque la distance est comprise entre 10 et 20.
+- Jouer Mi lorsque la distance est comprise entre 20 et 30.
+- Jouer Fa lorsque la distance est comprise entre 30 et 40.
+- Jouer Sol lorsque la distance est comprise entre 40 et 50.
+- Jouer La lorsque la distance est comprise entre 50 et 60.
+- Jouer Si lorsque la distance est comprise entre 60 et 70.

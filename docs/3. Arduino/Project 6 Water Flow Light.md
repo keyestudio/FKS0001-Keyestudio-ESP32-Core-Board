@@ -1,17 +1,17 @@
-### Proyecto 6 Luz de Flujo de Agua
+### Projet 6 Lumière à flux d'eau
 
-**1. Descripción**
+**1. Description**
 
-Este sencillo proyecto de luz de flujo de agua te ayuda a aprender sobre el empaquetado electrónico. En este proyecto, controlaremos LEDs para cambiar el color a una velocidad especificada mediante una placa Arduino.
+Ce projet simple de lumière à flux d'eau vous permet d'apprendre le montage électronique. Dans ce projet, nous contrôlerons des LEDs pour changer de couleur à une vitesse spécifiée via une carte Arduino.
 
-**2. Diagrama de Conexiones**
+**2. Schéma de câblage**
 
 ![](media/A25.png)
 
-**3. Código de Prueba**
+**3. Code de test**
 
-Una luz de flujo de agua significa que las luces LED se encienden de izquierda a derecha y luego de derecha a izquierda.  
-En este experimento, usamos pines continuos, de modo que la instrucción "for" puede utilizarse no solo para configurar el modo de salida (reemplazando los pines con una variable circular en el código) sino también para la salida.
+Une lumière à flux d'eau signifie que les LEDs s'allument de gauche à droite puis de droite à gauche.  
+Dans cette expérience, nous utilisons des broches consécutives, ce qui permet d'utiliser l'instruction "for" non seulement pour définir le mode sortie (remplacer les broches par une variable circulaire dans le code) mais aussi pour la sortie.
 
 ```
 /*
@@ -44,6 +44,6 @@ void loop()
 }
 ```
 
-**4. Resultado de la Prueba**
+**4. Résultat du test**
 
-Después de subir el código y encender la alimentación, los LEDs se encienden de izquierda a derecha y luego de derecha a izquierda.
+Après avoir téléversé le code et mis sous tension, les LEDs s'allument de gauche à droite puis de droite à gauche.

@@ -1,73 +1,73 @@
-### Proyecto 11 LCD
+### Projet 11 LCD
 
-**1. Descripción**
+**1. Description**
 
-El Arduino I2C 1602 LCD es un dispositivo auxiliar comúnmente utilizado para placas de desarrollo MCU para conectar con sensores y módulos externos. Cuenta con una pantalla LCD de 16 caracteres de ancho y 2 líneas, además de brillo ajustable. Este módulo programable es conveniente para la edición, visualización y gestión de datos. Además, puede mostrar no solo caracteres y cifras, sino también valores de sensores, como temperatura, humedad o presión.
+L'Arduino I2C 1602 LCD est un dispositif auxiliaire couramment utilisé pour les cartes de développement MCU afin de se connecter à des capteurs et modules externes. Il dispose d'un écran LCD à 2 lignes et 16 caractères de large avec une luminosité réglable. Ce module programmable est pratique pour l'édition, l'affichage et la gestion des données. De plus, il peut afficher non seulement des caractères et des chiffres, mais aussi des valeurs de capteurs, comme la température, l'humidité ou la pression.
 
-Como resultado de su utilidad, la pantalla se aplica ampliamente en muchos campos, incluyendo productos para el hogar inteligente, sistemas de monitoreo industrial, sistemas de control de robots y sistemas electrónicos automotrices.
+Grâce à son utilité, cet affichage est largement utilisé dans de nombreux domaines, y compris les produits domotiques, les systèmes de surveillance industrielle, les systèmes de contrôle robotique et les systèmes électroniques automobiles.
 
-**2. Principio de Funcionamiento**
+**2. Principe de fonctionnement**
 
 ![](media/A129.png)
 
-Es el mismo principio de comunicación IIC. Las funciones subyacentes han sido empaquetadas en librerías para que puedas llamarlas directamente. Si te interesa, puedes profundizar en los principios de conducción subyacentes.
+Il fonctionne selon le même principe que la communication IIC. Les fonctions sous-jacentes ont été encapsulées dans des bibliothèques afin que vous puissiez les appeler directement. Si vous êtes intéressé, vous pouvez approfondir les principes de pilotage sous-jacents.
 
-**3. Diagrama de Conexiones**
+**3. Schéma de câblage**
 
 ![](media/A130.png)
 
-**4. Código de Prueba**
+**4. Code de test**
 
-1. Arrastra los dos bloques básicos de código.
+1. Faites glisser les deux blocs de code de base.
 
 ![](media/A131.png)
 
-2. Arrastra el bloque “init LCD” desde “LCD” y configura la dirección I2C a 0x27.
+2. Faites glisser le bloc “init LCD” depuis “LCD” et réglez l’adresse I2C à 0x27.
 
 ![](media/A132.png)
 
-3. Arrastra el bloque "LCD back light" y configúralo en ON. Los caracteres no son fáciles de leer si no hay luz de fondo.
+3. Faites glisser le bloc "LCD back light" et réglez-le sur ON. Les caractères sont difficiles à lire sans rétroéclairage.
 
 ![](media/A133.png)
 
-4. Arrastra un bloque "LCD cursor position" y configura x en 3 y y en 0. Añade un bloque "LCD print" y escribe “keyestudio” en el espacio en blanco.
+4. Faites glisser un bloc "LCD cursor position" et réglez x à 3 et y à 0. Ajoutez un bloc "LCD print" et tapez “keyestudio” dans le champ vide.
 
 ![](media/A134.png)
 
-5. Arrastra un bloque "LCD cursor position" y configura x en 2 y y en 1. Añade un bloque "LCD print" y escribe “Hello,world!” en el espacio en blanco.
+5. Faites glisser un bloc "LCD cursor position" et réglez x à 2 et y à 1. Ajoutez un bloc "LCD print" et tapez “Hello,world!” dans le champ vide.
 
 ![](media/A135.png)
 
-**Código Completo：**
+**Code complet :**
 
 ![](media/A136.png)
 
-**5. Resultado de la Prueba**
+**5. Résultat du test**
 
-Después de conectar el cableado y subir el código, enciende el LCD, y se mostrarán en la pantalla "Hello, world!" y "keyestudio!".
+Après avoir connecté le câblage et téléchargé le code, allumez le LCD, et “Hello, world!” ainsi que “keyestudio!” s’afficheront sur l’écran.
 
-Si los caracteres no se ven claros, ajusta el potenciómetro de la luz de fondo con un pequeño destornillador de ranura.
+Si les caractères sont flous, veuillez ajuster le potentiomètre du rétroéclairage avec un petit tournevis plat.
 
 ![](media/A137.png)
 
-**6. Explicación del Código**
+**6. Explication du code**
 
-1. Configura la dirección de comunicación IIC. En este proyecto, la dirección del LCD 1602 es 0x27.
+1. Définir l’adresse de communication IIC. Dans ce projet, l’adresse du LCD 1602 est 0x27.
 
 ![](media/A138.png)
 
-2. Controla la luz de fondo del LCD. Los caracteres mostrados serán mucho más claros si la luz de fondo está encendida.
+2. Contrôler le rétroéclairage du LCD. Les caractères affichés seront beaucoup plus clairs si le rétroéclairage est activé.
 
 ![](media/A139.png)
 
-3. Configura la posición del cursor. Proporciona una posición precisa mediante los ejes x e y. Los valores posibles son X: 0-15 y Y: 0-1.
+3. Définir la position du curseur. Elle est précisée par les axes x et y. Les valeurs possibles sont X : 0-15 et Y : 0-1.
 
 ![](media/A140.png)
 
-4. Imprime caracteres en el LCD. El espacio en blanco puede llenarse con caracteres o variables, lo que es conveniente para mostrar valores de sensores y módulos.
+4. Afficher des caractères sur le LCD. Le champ peut être rempli avec des caractères ou des variables, ce qui est pratique pour afficher les valeurs des capteurs et modules.
 
 ![](media/A141.png)
 
-5. Hace parpadear el cursor en la posición de visualización. Por defecto, el cursor está inactivo.
+5. Faire clignoter le curseur à la position d’affichage. Par défaut, le curseur est inactif.
 
 ![](media/A142.png)

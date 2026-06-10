@@ -1,101 +1,102 @@
-### Proyecto 21 LED Controlado por Sonido
+### Projet 21 LED Contrôlée par le Son
 
-**1. Descripción**
+**1. Description**
 
-El LED controlado por sonido es un dispositivo utilizado para detectar sonido de manera que controla el brillo del LED, compuesto por una placa Arduino y algunos componentes. Puede conectarse a múltiples sensores como micrófonos. Convierte el sonido en una señal de voltaje variable que es recibida por Arduino para controlar el encendido y apagado del LED.
+La LED contrôlée par le son est un dispositif utilisé pour détecter le son afin de contrôler la luminosité de la LED, composé d’une carte Arduino et de quelques composants. Il peut se connecter à plusieurs capteurs tels que des microphones. Il convertit le son en un signal de tension variable reçu par l’Arduino pour contrôler l’allumage et l’extinction de la LED.
 
-**2. Principio de Funcionamiento**
+**2. Principe de Fonctionnement**
 
 ![](media/B54.png)
 
-Al detectar un sonido, la película electret en el micrófono vibra, lo que cambia la capacitancia y genera un cambio sutil de voltaje.
+Lors de la détection d’un son, la membrane électret du microphone vibre, ce qui modifie la capacité et génère une légère variation de tension.
 
-Luego, utilizamos el chip LM386 para construir un circuito adecuado que amplifique el sonido detectado hasta 200 veces, lo cual puede ajustarse mediante un potenciómetro. Gírelo en sentido horario para aumentar la amplificación.
+Ensuite, nous utilisons la puce LM386 pour construire un circuit approprié afin d’amplifier le son détecté jusqu’à 200 fois, ce qui peut être ajusté par un potentiomètre. Tournez-le dans le sens des aiguilles d’une montre pour augmenter le facteur d’amplification.
 
-**3. Diagrama de Conexiones**
+**3. Schéma de Câblage**
 
 ![](media/B55.png)
 
-**4. Código de Prueba**
+**4. Code de Test**
 
-Encuentre el bloque "leer el valor" en “Sound” y imprima el sonido leído en el puerto serial. Construya los bloques como se muestra a continuación. Preste atención a no agregar un retardo al usar el sensor de sonido.
+Trouvez le bloc "read the value" dans “Sound”, et affichez la valeur sonore lue dans le port série. Construisez les blocs comme suit. Faites attention à ne pas ajouter de délai lors de l’utilisation du capteur sonore.
 
 ![](media/B56.png)
 
-**5. Resultado de la Prueba**
+**5. Résultat du Test**
 
-Después de conectar el cableado y subir el código, abra el monitor serial y configure la tasa de baudios a 9600, el valor analógico se mostrará.
+Après avoir connecté le câblage et téléversé le code, ouvrez le moniteur série et réglez le débit en bauds à 9600, la valeur analogique sera affichée.
 
 ![](media/B57.png)
 
-**6. Código de Expansión**
+**6. Code d’Extension**
 
-La luz de pasillo comúnmente vista es un tipo de luz controlada por sonido. Además, incluye una fotorresistencia.
+La lumière de couloir courante est un type de lumière contrôlée par le son. Par ailleurs, elle inclut également une photorésistance.
 
-A diferencia de eso, aquí establecemos un modelo en el que un LED solo es afectado por el sonido. Cuando el volumen analógico supera 100, el LED se enciende durante 2 segundos y luego se apaga.
+Différemment, ici nous établissons un modèle où une LED est uniquement affectée par le son. Lorsque le volume analogique dépasse 100, la LED s’allume pendant 2 secondes puis s’éteint.
 
-**Diagrama de Flujo：**
+**Organigramme :**
 
 ![](media/B58.png)
 
-**Diagrama de Conexiones：**
+**Schéma de Câblage :**
 
 ![](media/B59.png)
 
-**Código：**
+**Code :**
 
-1. Arrastre dos bloques básicos.
+1. Faites glisser deux blocs de base.
 
-2. Arrastre un bloque "if else" y llene el hexágono con un bloque item＞100. Configure el valor a "leer el valor de sonido IO33". Si la condición se cumple, el LED emite un nivel ALTO en el pin IO25 con un retardo de 2s; de lo contrario, emite un nivel BAJO en el mismo pin sin retardo.
+2. Faites glisser un bloc "if else", et remplissez l’hexagone avec un bloc item＞100. Réglez la valeur sur "read the value of sound IO33". Si la condition est satisfaite, la LED sort un niveau HIGH sur la broche IO25 avec un délai de 2s ; sinon, elle sort un niveau LOW sur la même broche sans délai.
 
 ![](media/B60.png)
 
-**Código Completo:**
+**Code Complet :**
 
 ![](media/B61.png)
 
-**7. Explicación del Código**
+**7. Explication du Code**
 
-Lee el valor del sonido configurando el pin relacionado.
+Lire la valeur du son en configurant la broche correspondante.
 
-![](media/B62.png)Proyecto 22 Medidor de Ruido
+![](media/B62.png)  
+### Projet 22 Mesureur de Bruit
 
-**1. Descripción**
+**1. Description**
 
-El medidor de ruido Arduino representa la señal de sonido en una serie de puntos, que se convierten en patrones mostrados en una matriz de puntos.
+Le mesureur de bruit Arduino traduit le signal sonore en une série de points, qui sont convertis en motifs affichés sur une matrice de points.
 
-**2. Diagrama de Conexiones**
+**2. Schéma de Câblage**
 
 ![](media/B63.png)
 
-**3. Código de Prueba**
+**3. Code de Test**
 
-1. Arrastre los bloques básicos e inicialice la pantalla. Configure el pin CS a IO15 y el brillo a 3. Luego agregue un bloque de variable, seleccione int y nómbrelo como "item" con una asignación inicial de 0.
+1. Faites glisser les blocs de base et initialisez l’affichage. Réglez la broche CS sur IO15 et la luminosité à 3. Ajoutez ensuite un bloc variable, sélectionnez int et nommez-le "item" avec une affectation initiale de 0.
 
-2. Agregue un bloque de variable y nómbrelo "item". Use una función map para convertir el rango del valor de sonido leído de 0-4095 a 0-7, asumiendo que el valor máximo hipotético del sonido es 800.
+2. Ajoutez un bloc variable nommé "item". Utilisez une fonction map pour convertir la plage de la valeur sonore lue de 0-4095 à 0-7, en supposant que la valeur maximale du son est 800.
 
 ![](media/B64.png)
 
-3. Limpie la pantalla.
+3. Effacez l’affichage.
 
-4. Programe una condición. Si la variable item es mayor que -1, la matriz de puntos muestra (x0:0  y0:0 x1:1  y1:0) en color rojo.
+4. Programmez une condition. Si la variable item est supérieure à -1, la matrice de points affiche (x0:0  y0:0 x1:1  y1:0) en rouge.
 
 ![](media/B65.png)
 
-5. Repita el paso 4, pero la condición es si item es mayor que 0. Si es así, se encenderán los puntos en (x0:1  y0:0  x1:1  y1:1). Por analogía, construya bloques de código refiriéndose a las siguientes coordenadas.
+5. Répétez l’étape 4, mais la condition est que item soit supérieur à 0. Si c’est le cas, les points en (x0:1  y0:0  x1:1  y1:1) s’allument. Par analogie, construisez les blocs de code en vous référant aux coordonnées suivantes.
 
-6. Finalmente, actualice la pantalla.
+6. Enfin, rafraîchissez l’affichage.
 
-**Coordenadas de Referencia:**
+**Coordonnées de Référence :**
 
 ![](media/B66.png)
 
 ![](media/B67.png)
 
-**Código Completo:**
+**Code Complet :**
 
 ![](media/B68.png)
 
-**4. Resultado de la Prueba**
+**4. Résultat du Test**
 
-Después de conectar el cableado y subir el código, el nivel de ruido se muestra en la matriz de puntos, como se muestra a continuación.
+Après avoir connecté le câblage et téléversé le code, le niveau sonore est affiché sur la matrice de points, comme montré ci-dessous.

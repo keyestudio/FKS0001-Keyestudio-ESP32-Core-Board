@@ -1,47 +1,47 @@
-### Proyecto 31 Conectar la placa ESP32 a WiFi
+### Projet 31 Connecter la carte ESP32 au WiFi
 
-**1. Descripción**
+**1. Description**
 
-ESP32 cuenta con un módulo integrado de Wi-Fi y Bluetooth que se utiliza ampliamente en el Internet de las Cosas (IoT). Con esta función, puede controlar remotamente la transmisión de datos a través de la red inalámbrica.
+L'ESP32 dispose d'un module Wi-Fi et Bluetooth intégré, largement utilisé dans l'Internet des Objets (IoT). Grâce à cette fonction, il peut contrôler à distance la transmission des données via le réseau sans fil.
 
-En las aplicaciones, ESP32 puede usarse como cliente para conectarse a una red Wi-Fi, o como un hotspot para crear su propia red. A través de estas conexiones, ESP32 recibe comandos para controlar dispositivos externos, como encender/apagar luces y ajustar la temperatura. En el código, se utilizan protocolos como HTTP y MQTT para comunicarse con el servidor y lograr el envío y recepción de datos, con el fin de controlar y monitorear remotamente.
+Dans les applications, l'ESP32 peut être utilisé comme client pour se connecter à un réseau Wi-Fi, ou comme point d'accès pour créer son propre réseau. Grâce à ces connexions, l'ESP32 reçoit des commandes pour contrôler des dispositifs externes, comme allumer/éteindre des lumières et ajuster la température. Dans le code, des protocoles comme HTTP et MQTT sont utilisés pour communiquer avec le serveur afin d'envoyer et recevoir des données, permettant ainsi un contrôle et une surveillance à distance.
 
-**2. WiFi del ESP32**
+**2. WiFi ESP32**
 
-La placa de desarrollo ESP32 viene con Wi-Fi integrado (2.4G) y Bluetooth (4.2), lo que le permite conectarse fácilmente a una red Wi-Fi y comunicarse con otros dispositivos en la red. Puedes mostrar páginas web en tu navegador a través del ESP32.
+La carte de développement ESP32 est équipée d'un Wi-Fi intégré (2.4G) et Bluetooth (4.2), ce qui lui permet de se connecter facilement à un réseau Wi-Fi et de communiquer avec d'autres appareils du réseau. Vous pouvez afficher des pages web dans votre navigateur via l'ESP32.
 
-· Modo estación base (STA / modo cliente Wi-Fi): ESP32 está conectado a un hotspot Wi-Fi (AP).
+· Mode station de base (STA / mode client Wi-Fi) : l'ESP32 est connecté à un point d'accès Wi-Fi (AP).
 
-· Modo AP (Soft-AP / modo hotspot Wi-Fi): dispositivo(s) Wi-Fi está(n) conectado(s) al ESP32.
+· Mode AP (Soft-AP / mode point d'accès Wi-Fi) : un ou plusieurs appareils Wi-Fi sont connectés à l'ESP32.
 
-· Modo AP-STA: ESP32 es tanto hotspot Wi-Fi como un dispositivo Wi-Fi conectado a otra red Wi-Fi.
+· Mode AP-STA : l'ESP32 est à la fois point d'accès Wi-Fi et appareil Wi-Fi connecté à un autre réseau Wi-Fi.
 
-· Estos modos soportan múltiples modos de seguridad, incluyendo WPA, WPA2 y WEP.
+· Ces modes supportent plusieurs modes de sécurité, y compris WPA, WPA2 et WEP.
 
-· Es capaz de escanear hotspots Wi-Fi (activo o pasivo).
+· Il est capable de scanner les points d'accès Wi-Fi (actifs ou passifs).
 
-· Soporta modo promiscuo para monitorear paquetes Wi-Fi IEEE802.11.
+· Il supporte le mode promiscuous pour surveiller les paquets Wi-Fi IEEE802.11.
 
-**3. Diagrama de conexión**
+**3. Schéma de câblage**
 
 ![](media/B50.png)
 
-**Notas:**
+**Notes :**
 
-1. Necesitas preparar un WIFI de frecuencia 2.4GHz (no 5GHz). Puede ser un hotspot móvil o un router.
+1. Vous devez préparer un réseau WIFI à fréquence 2.4GHz (pas 5GHz). Il peut s'agir d'un hotspot mobile ou d'un routeur.
 
-2. La placa ESP32 consume más energía cuando está conectada a la red, por lo que necesitas conectar una fuente de alimentación externa a este kit. Te proporcionamos un portapilas 6XAA (pilas no incluidas), que puedes conectar al puerto DC de la placa integrada ESP32.
+2. La carte ESP32 consomme plus d'énergie lorsqu'elle est connectée au réseau, il est donc nécessaire de connecter une alimentation externe à ce kit. Nous vous fournissons un support pour 6 piles AA (piles non incluses), que vous pouvez connecter au port DC de la carte ESP32 intégrée.
 
    ![](media/B51.jpg)
 
-3. Recuerda el nombre y la contraseña de tu red wifi y complétalos en el código antes de subirlo.
+3. N'oubliez pas le nom et le mot de passe de votre réseau wifi et remplissez-les dans le code avant de le téléverser.
 
 ```
-const char* ssid = "your_SSID"; // Completa con el nombre del WiFi, por ejemplo,= "KEYES"
-const char* password = "your_password"; // Completa con la contraseña del WiFi, por ejemplo,= "123456"
+const char* ssid = "your_SSID"; // Remplissez le nom du WiFi, par exemple,= "KEYES"
+const char* password = "your_password"; // Remplissez le mot de passe WiFi, par exemple,= "123456"
 ```
 
-**4. Subir código**
+**4. Téléversement du code**
 
 ```
 /*
@@ -93,15 +93,15 @@ void loop()
 }
 ```
 
-**5. Resultado de la prueba**
+**5. Résultat du test**
 
-Después de subir el código, el LCD1602 muestra la dirección IP del wifi al que te conectaste con el ESP32.
+Après avoir téléversé le code, l'écran LCD1602 affiche l'adresse IP du réseau wifi auquel l'ESP32 est connecté.
 
 ![](media/B52.png)
 
-**6. Ampliación de conocimientos**
+**6. Extension des connaissances**
 
-La dirección IP muestra “Holly World!”.
+L'adresse IP affiche “Hello World!”.
 
 ```
 #include <WiFi.h>
@@ -109,22 +109,22 @@ La dirección IP muestra “Holly World!”.
 #include <LiquidCrystal_I2C.h>
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
-// WiFi configuration
+// Configuration WiFi
 
-const char* ssid = "your-SSID";     // your WiFi name
-const char* password = "your-PASSWORD";  // your WiFi password
+const char* ssid = "your-SSID";     // votre nom WiFi
+const char* password = "your-PASSWORD";  // votre mot de passe WiFi
 int i = 0;
-// Create a Web Server
+// Création d'un serveur Web
 AsyncWebServer server(80);
 
 void setup() 
 {
-  lcd.init();  // initialize the lcd
+  lcd.init();  // initialiser le lcd
   lcd.backlight();
   lcd.setCursor(0, 0);
   lcd.print("IP:");
 
-  // WiFi connection
+  // Connexion WiFi
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) 
   {
@@ -144,18 +144,18 @@ void setup()
   lcd.setCursor(0, 1);
   lcd.print(WiFi.localIP());
 
-  // Process the client request and return to the page
+  // Traiter la requête client et retourner la page
   server.on("/", HTTP_GET, [](AsyncWebServerRequest* request) {
     String html = generateHTML();
     request->send(200, "text/html", html);
   });
-  // Start the Web server
+  // Démarrer le serveur Web
   server.begin();
 }
 
 String generateHTML()
 {
-  // Generate HTML page
+  // Générer la page HTML
   String html = "<html><head>";
   html += "<h1>Hello, World!</h1>";
   html += "</head></html>";
@@ -167,8 +167,8 @@ void loop()
 }
 ```
 
-**7. Resultado de la prueba**
+**7. Résultat du test**
 
-Usa una computadora o teléfono móvil que esté conectado a la misma red que la placa ESP32, y accede a la dirección IP mostrada en el LCD1602 y verás “Hello world”.
+Utilisez un ordinateur ou un téléphone mobile connecté au même réseau que la carte ESP32, et accédez à l'adresse IP affichée sur le LCD1602, vous verrez “Hello world”.
 
 ![](media/B53.png)

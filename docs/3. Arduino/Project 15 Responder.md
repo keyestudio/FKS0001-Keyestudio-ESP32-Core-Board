@@ -1,20 +1,20 @@
-### Proyecto 15 Respondedor
+### Projet 15 Répondeur
 
-**1. Descripción**
+**1. Description**
 
-Este respondedor programable recibe y envía señales a través de la placa de desarrollo Arduino y un grupo de botones, y juzga la corrección de las respuestas mediante un LED. Es un buen objeto para ejercitar la capacidad de reacción de los estudiantes y captar su atención hacia las preguntas. Si la respuesta es correcta, el participante obtiene muchos puntos.
+Ce répondeur programmable reçoit et envoie des signaux via une carte de développement Arduino et un groupe de boutons, et il juge la justesse des réponses grâce à une LED. C'est un bon outil pour exercer la capacité de réaction des élèves et attirer leur attention sur les questions. Si la réponse est correcte, le répondant obtient beaucoup de points.
 
-Además, simplifica la manipulación de los captadores de preguntas por parte de los profesores y reduce el desorden de respuestas. Incluso puede estimular el interés de los estudiantes por el aprendizaje.
+De plus, il simplifie la gestion des attrapeurs de questions par les enseignants et réduit le désordre des réponses. Il peut même stimuler l'intérêt des élèves pour l'apprentissage.
 
-**2. Diagrama de flujo**
+**2. Organigramme**
 
 ![image-20251013104115790](media/A60.png)
 
-**3. Diagrama de conexiones**
+**3. Schéma de câblage**
 
 ![](media/A61.png)
 
-**4. Código de prueba**
+**4. Code de test**
 
 ```
 /*
@@ -83,8 +83,8 @@ void loop()
 }
 ```
 
-**5. Resultado de la prueba**
+**5. Résultat du test**
 
-Vamos a simular un juego de respuestas rápidas.
+Simulons un jeu de réponses rapides.
 
-Presione el botón rojo para apagar todas las luces LED. Luego podemos seleccionar los botones amarillo, verde y azul para encender las luces LED correspondientes. La persona cuya luz LED se encienda primero puede responder primero.
+Appuyez sur le bouton rouge pour éteindre toutes les LED. Ensuite, nous pouvons sélectionner les boutons jaune, vert et bleu pour allumer les LED correspondantes. La personne dont la LED s'allume en premier peut répondre en premier.

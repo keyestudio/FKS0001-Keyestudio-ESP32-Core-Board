@@ -1,83 +1,83 @@
-### Proyecto 2 LED Respiratorio
+### Projet 2 LED Respirante
 
-**1. Descripción**
+**1. Description**
 
-El LED respiratorio de Arduino utiliza PWM programable a bordo para emitir una forma de onda analógica. Después de encender, el brillo del LED puede ajustarse mediante el ciclo de trabajo de la forma de onda para finalmente lograr el efecto de LED respiratorio.
+La LED respirante Arduino utilise le PWM programmable intégré pour générer une forme d’onde analogique. Après la mise sous tension, la luminosité de la LED peut être ajustée via le cycle de service de la forme d’onde afin de réaliser l’effet de LED respirante.
 
-De esta manera, se puede simular la luz ambiental cambiando el brillo del LED con el tiempo. Además, el LED respiratorio puede formar una mini luz colorida para construir un ambiente tranquilo y cálido.
+De cette manière, la lumière ambiante peut être simulée en modifiant la luminosité de la LED au fil du temps. De plus, la LED respirante peut former une mini lumière colorée pour créer une ambiance tranquille et chaleureuse.
 
-**2. ¿Qué es PWM?**
+**2. Qu’est-ce que le PWM ?**
 
-PWM controla la salida analógica mediante medios digitales, lo que permite ajustar el ciclo de trabajo de la onda (una señal que cambia circularmente entre nivel alto y nivel bajo).
+Le PWM contrôle la sortie analogique par des moyens numériques, ce qui permet d’ajuster le cycle de service de l’onde (un signal alternant cycliquement entre un niveau haut et un niveau bas).
 
-Para Arduino, los puertos digitales de salida de voltaje son LOW y HIGH, que corresponden respectivamente a 0V y 5V. Generalmente, definimos LOW como 0 y HIGH como 1. Arduino emitirá 500 señales de 0 o 1 en 1s. Si son "1", se emitirá 5V. Por el contrario, si son todas 0, la salida será 0V. O si son 010101010101..., el promedio de salida será 2.5V.
+Pour Arduino, les ports numériques de sortie de tension sont LOW et HIGH, correspondant respectivement à 0V et 5V. En général, on définit LOW comme 0 et HIGH comme 1. Arduino émettra 500 signaux de 0 ou 1 en 1 seconde. Si ce sont des "1", 5V seront émis. À l’inverse, s’ils sont tous à 0, la sortie sera 0V. Ou si le signal est 010101010101..., la sortie moyenne sera de 2,5V.
 
-En otras palabras, la proporción de salida de 0 y 1 afecta el valor del voltaje; mientras más señales 0 y 1 se emitan por unidad de tiempo, más preciso será el control.
+Autrement dit, le rapport de sortie entre 0 et 1 influence la valeur de la tension, plus il y a de signaux 0 et 1 émis par unité de temps, plus le contrôle sera précis.
 
 ![](media/A21.png)
 
-**3. Diagrama de Conexiones**
+**3. Schéma de câblage**
 
 ![](media/A22.png)
 
-**4. Código de Prueba**
+**4. Code de test**
 
-Utilizamos la instrucción "for" para incrementar una variable de 0 a 255, y definimos la variable como salida PWM (analogWrite(pin, value)). Por cierto, un tiempo de retardo puede reforzar el control del tiempo de encendido del LED. Luego, usamos otra instrucción "for" para disminuirla de 255 a 0 con un tiempo de retardo para controlar el proceso de atenuación del LED.
+Nous utilisons une instruction "for" pour augmenter une variable de 0 à 255, et définissons cette variable comme sortie PWM (analogWrite(pin, value)). Par ailleurs, un temps de délai peut renforcer le contrôle du temps d’éclairage de la LED. Ensuite, nous utilisons une autre instruction "for" pour la diminuer de 255 à 0 avec un délai afin de contrôler le processus d’atténuation de la LED.
 
-1. Arrastra los dos bloques de código.
+1. Faites glisser les deux blocs de code.
 
 ![](media/A23.png)
 
-2. Arrastra el siguiente bloque desde la parte "Variables" y define el nombre como "item" con una asignación inicial de "0". Coloca este bloque dentro del bloque "forever".
+2. Faites glisser le bloc suivant depuis la partie "Variables", et définissez le nom "item" avec une affectation initiale à "0". Placez ce bloc dans le bloc "forever".
 
 ![](media/A24.png)
 
-3. Arrastra el siguiente bloque desde la parte "Control" y configúralo para 255 veces, que es el valor máximo de PWM.
+3. Faites glisser le bloc suivant depuis la partie "Contrôle" et réglez-le pour 255 répétitions, qui est la valeur maximale du PWM.
 
 ![](media/A25.png)
 
-4. Arrastra el siguiente bloque desde la parte "Variables", pon "item" como el objeto a cambiar y configura el modo a "++".
+4. Faites glisser le bloc suivant depuis la partie "Variables", mettez "item" comme variable modifiée et réglez le mode sur "++".
 
 ![](media/A26.png)
 
-5. Arrastra el siguiente bloque desde la parte “LED” y configura el pin del LED a IO5. Luego añade un bloque de "variable" dentro y rellena el espacio con "item".
+5. Faites glisser le bloc suivant depuis la partie “LED” et réglez la broche LED sur IO5. Ajoutez ensuite un bloc "variable" à l’intérieur et remplissez-le avec "item".
 
 ![](media/A27.png)
 
-6. Arrastra el siguiente bloque desde la parte "Control" y configura el tiempo a 0.01s, es decir, 10ms.
+6. Faites glisser le bloc suivant depuis la partie "Contrôle" et réglez le temps à 0,01 s, soit 10 ms.
 
 ![](media/A28.png)
 
-7. Según los pasos anteriores, construye otro bloque de código con la única diferencia de que el modo de la variable sea "– –".
+7. Selon les étapes précédentes, construisez un autre bloc de code avec la seule différence que le mode de la variable est "– –".
 
 ![](media/A29.png)
 
-**Código Completo：**
+**Code complet :**
 
 ![](media/A30.png)
 
-**5. Resultado de la Prueba**
+**5. Résultat du test**
 
-Después de subir el código, podemos ver que el LED se atenúa gradualmente. "Respira" de manera uniforme.
+Après avoir téléversé le code, on peut voir la LED s’atténuer progressivement. Elle "respire" de manière régulière.
 
-**6. Explicación del Código**
+**6. Explication du code**
 
-1. Este bloque se usa para establecer el rango utilizable de la variable, tipo de variable, nombre y su valor inicial.
+1. Ce bloc sert à définir la plage d’utilisation de la variable, son type, son nom et sa valeur initiale.
 
 ![](media/A31.png)
 
-2. El número de repeticiones puede asignarse en el espacio en blanco de este bloque de repetición.
+2. Le nombre de répétitions peut être assigné dans le champ vide de ce bloc de répétition.
 
 ![](media/A32.png)
 
-3. Ingresa un nombre de variable en el espacio en blanco y su valor aumentará en 1 cada vez que se ejecute el código. "++" puede cambiarse a "– –".
+3. Entrez un nom de variable dans le champ vide et sa valeur augmentera de 1 à chaque exécution du code. "++" peut être changé en "– –".
 
 ![](media/A33.png)
 
-4. Ingresa un nombre de variable en el espacio en blanco y su valor disminuirá en 1 cada vez que se ejecute el código. "– –" puede cambiarse a "++".
+4. Entrez un nom de variable dans le champ vide et sa valeur diminuera de 1 à chaque exécution du code. "– –" peut être changé en "++".
 
 ![](media/A34.png)
 
-5. Este es un módulo de salida PWM, y el recuadro blanco es el valor de la salida PWM.
+5. Il s’agit d’un module de sortie PWM, et la case blanche correspond à la valeur de sortie du PWM.
 
 ![](media/A35.png)

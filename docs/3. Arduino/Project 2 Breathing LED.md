@@ -1,28 +1,28 @@
-### Proyecto 2 LED Respiratorio
+### Projet 2 LED Respirante
 
-**1. Descripción**
+**1. Description**
 
-El LED respiratorio de Arduino utiliza PWM programable a bordo para emitir una forma de onda analógica. Después de encender, el brillo del LED puede ajustarse mediante el ciclo de trabajo de la forma de onda para finalmente lograr el efecto de LED respiratorio.
+La LED respirante Arduino utilise le PWM programmable intégré pour générer une forme d'onde analogique. Après la mise sous tension, la luminosité de la LED peut être ajustée via le cycle de service de la forme d'onde afin de réaliser l'effet de LED respirante.
 
-De esta manera, se puede simular la luz ambiental cambiando el brillo del LED con el tiempo. Además, el LED respiratorio puede formar una mini luz colorida para crear un ambiente tranquilo y cálido.
+De cette manière, la lumière ambiante peut être simulée en modifiant la luminosité de la LED au fil du temps. De plus, la LED respirante peut former une mini lumière colorée pour créer une ambiance tranquille et chaleureuse.
 
-**2. ¿Qué es PWM?**
+**2. Qu'est-ce que le PWM ?**
 
-PWM controla la salida analógica mediante medios digitales, lo que permite ajustar el ciclo de trabajo de la onda (una señal que cambia circularmente entre nivel alto y nivel bajo).
+Le PWM contrôle la sortie analogique par des moyens numériques, ce qui permet d'ajuster le cycle de service de l'onde (un signal alternant circulairement entre un niveau haut et un niveau bas).
 
-Para Arduino, los puertos digitales de salida de voltaje son LOW y HIGH, que corresponden respectivamente a 0V y 5V. Generalmente, definimos LOW como 0 y HIGH como 1. Arduino emitirá 500 señales de 0 o 1 en 1 segundo. Si son "1", se emitirá 5V. Por el contrario, si son todas 0, la salida será 0V. O si son 010101010101..., el promedio de salida será 2.5V.
+Pour Arduino, les ports numériques de sortie de tension sont LOW et HIGH, correspondant respectivement à 0V et 5V. En général, on définit LOW comme 0 et HIGH comme 1. Arduino émettra 500 signaux de 0 ou 1 en 1 seconde. Si ce sont des "1", 5V seront émis. Inversement, s'ils sont tous à 0, la sortie sera de 0V. Ou si le signal est 010101010101..., la sortie moyenne sera de 2,5V.
 
-En otras palabras, la proporción de salida de 0 y 1 afecta el valor del voltaje; cuanto más señales 0 y 1 se emitan por unidad de tiempo, más preciso será el control.
+En d'autres termes, le rapport de sortie entre 0 et 1 influence la valeur de la tension, plus le nombre de signaux 0 et 1 émis par unité de temps est élevé, plus le contrôle sera précis.
 
-Los GPIO34, 35, 36 y 39 del ESP32 no pueden usar PWM.
+Les GPIO34, 35, 36 et 39 de l'ESP32 ne peuvent pas utiliser le PWM.
 
 ![](media/A18.png)
 
-**3. Diagrama de Conexiones**
+**3. Schéma de câblage**
 
 ![](media/A19.png)
 
-**4. Código de Prueba**
+**4. Code de test**
 
 ```
 /*
@@ -56,6 +56,6 @@ void loop()
 }
 ```
 
-**5. Resultado de la Prueba**
+**5. Résultat du test**
 
-Después de cargar el código, veremos que el LED se ilumina y atenúa lentamente, como el ritmo de la respiración.
+Après avoir téléversé le code, nous verrons la LED s'éclaircir et s'assombrir lentement, comme le rythme de la respiration.

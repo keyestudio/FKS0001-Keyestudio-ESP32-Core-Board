@@ -1,31 +1,31 @@
-### Proyecto 32 ESP32 WiFi Control LED
+### Projet 32 ESP32 Contrôle WiFi LED
 
-**1. Descripción**
+**1. Description**
 
-A continuación aprenderemos a controlar el LED a través de wifi desde un teléfono móvil o una computadora.
+Nous allons maintenant apprendre à contrôler la LED via le wifi depuis un téléphone mobile ou un ordinateur.
 
-**Notas:**
+**Notes :**
 
-1. Necesitas preparar una red WIFI de frecuencia 2.4GHz, no de 5GHz. Puede ser un hotspot móvil o un router.
+1. Vous devez préparer un réseau WIFI en fréquence 2,4 GHz, pas en 5 GHz. Cela peut être un hotspot mobile ou un routeur.
 
-2. La placa ESP32 consume más energía cuando está conectada a la red, por lo que necesitas conectar una fuente de alimentación externa a este kit. Te proporcionamos un portapilas 6XAA (pilas no incluidas), que puedes conectar al puerto DC de la placa integrada ESP32.
+2. La carte ESP32 consomme plus d’énergie lorsqu’elle est connectée au réseau, il est donc nécessaire de connecter une alimentation externe à ce kit. Nous vous fournissons un support pour 6 piles AA (piles non incluses), que vous pouvez connecter au port DC de la carte ESP32 intégrée.
 
 ![](media/B54.png)![](media/B55.png)
 
-3. Al usar otros dispositivos para controlar este kit, la placa ESP32 debe estar conectada a la misma red que tu dispositivo de control.
+3. Lors de l’utilisation d’autres appareils pour contrôler ce kit, la carte ESP32 doit être connectée au même réseau que votre appareil de contrôle.
 
-4. Recuerda el nombre y la contraseña de tu red wifi y complétalos en el código antes de subirlo.
+4. N’oubliez pas le nom et le mot de passe de votre réseau wifi et remplissez-les dans le code avant de le téléverser.
 
 ```
-const char* ssid = "your_SSID"; // Completa con el nombre del WiFi, por ejemplo,= "KEYES"
-const char* password = "your_password"; // Completa con la contraseña del WiFi, por ejemplo,= "123456"
+const char* ssid = "your_SSID"; // Remplissez le nom du WiFi, par exemple,= "KEYES"
+const char* password = "your_password"; // Remplissez le mot de passe WiFi, par exemple,= "123456"
 ```
 
-**2. Diagrama de Conexiones**
+**2. Schéma de câblage**
 
 ![](media/B56.png)
 
-**3. Subir Código**
+**3. Téléversement du code**
 
 ```
 #include <WiFi.h>
@@ -34,36 +34,36 @@ const char* password = "your_password"; // Completa con la contraseña del WiFi,
 
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
-// Configuración WiFi
-const char* ssid = "your-SSID";    // nombre de tu WiFi
-const char* password = "your-PASSWORD";  // contraseña de tu WiFi
+// Configuration WiFi
+const char* ssid = "your-SSID";    // nom de votre WiFi
+const char* password = "your-PASSWORD";  // mot de passe de votre WiFi
 
-// Crear un servidor web
+// Création d’un serveur Web
 AsyncWebServer server(80);
 
-// Configuración de pines LED
+// Configuration des pins LED
 #define redLED 12
 #define yellowLED 13
 #define greenLED 14
 #define blueLED 15
 
-// Estado de los LED
+// État des LED
 bool redLEDState = false;
 bool yellowLEDState = false;
 bool greenLEDState = false;
 bool blueLEDState = false;
 int i = 0;
 
-// Crear página HTML
+// Création de la page HTML
 String generateHTML() 
 {
   String html = "<html><head><style>";
   html += "button { font-size: 30px; padding: 15px; margin: 10px; border: none; cursor: pointer; width: 200px; height: 100px; }";
-  html += "button.on { background-color: #4CAF50; color: white; }";   // color del LED encendido
-  html += "button.off { background-color: #f44336; color: white; }";  // color del LED apagado
+  html += "button.on { background-color: #4CAF50; color: white; }";   // couleur LED allumée
+  html += "button.off { background-color: #f44336; color: white; }";  // couleur LED éteinte
   html += "</style></head><body>";
 
-  // Concatenación después de convertir un String constante a un objeto String usando String()
+  // Concaténation après conversion d’une String constante en objet String via String()
   html += "<button id='btn0' class='" + String(redLEDState ? "on" : "off") + "' onclick='toggleLed(0)'>red LED</button>";
   html += "<button id='btn1' class='" + String(yellowLEDState ? "on" : "off") + "' onclick='toggleLed(1)'>yellow LED</button>";
   html += "<button id='btn2' class='" + String(greenLEDState ? "on" : "off") + "' onclick='toggleLed(2)'>green LED</button>";
@@ -89,26 +89,26 @@ String generateHTML()
 
 void setup() 
 {
-  // Inicializar puerto serial
+  // Initialisation du port série
   Serial.begin(115200);
 
-  // Configurar pines LED como salida
+  // Configuration des pins LED en sortie
   pinMode(redLED, OUTPUT);
   pinMode(yellowLED, OUTPUT);
   pinMode(greenLED, OUTPUT);
   pinMode(blueLED, OUTPUT);
-  digitalWrite(redLED, LOW);  // Inicialmente, todos los leds están apagados
+  digitalWrite(redLED, LOW);  // Initialement, toutes les LED sont éteintes
   digitalWrite(yellowLED, LOW);
   digitalWrite(greenLED, LOW);
   digitalWrite(blueLED, LOW);
 
-  lcd.init();  // inicializar el lcd
-  // Comenzamos conectándonos a una red WiFi
+  lcd.init();  // initialisation de l’écran lcd
+  // On commence par se connecter à un réseau WiFi
   lcd.backlight();
   lcd.setCursor(0, 0);
   lcd.print("IP:");
 
-  // Conexión WiFi
+  // Connexion WiFi
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
     lcd.setCursor(i, 1);
@@ -126,12 +126,12 @@ void setup()
   lcd.setCursor(0, 1);
   lcd.print(WiFi.localIP());
 
-  // Procesar solicitudes del cliente
+  // Traitement des requêtes clients
   server.on("/", HTTP_GET, [](AsyncWebServerRequest* request) {
-    request->send(200, "text/html", generateHTML());  // Volver a la página HTML
+    request->send(200, "text/html", generateHTML());  // Retour à la page HTML
   });
 
-  // Controlar estado del LED
+  // Contrôle de l’état des LED
   server.on("/toggle", HTTP_GET, [](AsyncWebServerRequest* request) {
     if (request->hasParam("led")) {
       int led = request->getParam("led")->value().toInt();
@@ -149,21 +149,21 @@ void setup()
         digitalWrite(blueLED, blueLEDState ? HIGH : LOW);
       }
     }
-    request->send(200, "text/plain", "OK");  // Respuesta de vuelta
+    request->send(200, "text/plain", "OK");  // Réponse de retour
   });
 
-  // Iniciar el servidor web
+  // Démarrage du serveur Web
   server.begin();
 }
 
 void loop() 
 {
-  // No es necesario hacer nada en loop(), todo el procesamiento lo realiza el servidor web asíncrono
+  // Rien à faire dans loop(), tout est géré par le serveur Web asynchrone
 }
 ```
 
-**4. Resultado de la Prueba**
+**4. Résultat du test**
 
-Después de subir el código, el LCD1602 muestra la dirección IP del wifi. Usa una computadora o teléfono móvil conectado a la misma red que la placa ESP32, abre el navegador e ingresa la dirección IP, verás la página de control.
+Après le téléversement du code, l’écran LCD1602 affiche l’adresse IP du wifi. Utilisez un ordinateur ou un téléphone mobile connecté au même réseau que la carte ESP32, ouvrez un navigateur et entrez l’adresse IP, vous verrez la page de contrôle.
 
 ![](media/B57.png)

@@ -11,7 +11,7 @@
     3.2 Software Download
 
 
-3.3 Proyectos
+3.3 Projets
 -----------------------------
 
 

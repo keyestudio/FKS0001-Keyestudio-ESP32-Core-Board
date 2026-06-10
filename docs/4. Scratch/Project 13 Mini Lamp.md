@@ -1,102 +1,102 @@
-### Proyecto 13 Mini Lámpara
+### Projet 13 Mini Lampe
 
-**1. Descripción**
+**1. Description**
 
-En este proyecto, vamos a controlar una lámpara mediante Arduino UNO y un botón. Cuando presionamos el botón, el estado de la lámpara cambiará (ENCENDIDO o APAGADO).
+Dans ce projet, nous allons contrôler une lampe via Arduino UNO et un bouton. Lorsque nous appuyons sur le bouton, l’état de la lampe changera (ALLUMÉ ou ÉTEINT).
 
-**2. Principio de Funcionamiento**
+**2. Principe de fonctionnement**
 
 ![](media/A152.png)
 
-Cuando el botón está suelto, un voltaje VCC que pasa a través de R29 proporciona un nivel alto para el terminal S. Cuando se presiona, los pines 1 y 3, y los pines 2 y 4 se conectan y el voltaje en S1 llega a GND como un nivel bajo. En este momento, R29 evita un cortocircuito entre VCC y GND.
+Lorsque le bouton est relâché, une tension VCC passant par R29 fournit un niveau haut pour la borne S. Lorsqu’il est pressé, les broches 1 et 3, ainsi que 2 et 4 sont connectées et la tension sur S1 arrive à la masse (GND) en niveau bas. À ce moment, R29 évite un court-circuit entre VCC et GND.
 
-**3. Diagrama de Conexiones**
+**3. Schéma de câblage**
 
 ![](media/A153.png)
 
-**4. Código de Prueba**
+**4. Code de test**
 
-1. Añade dos bloques básicos.
+1. Ajoutez deux blocs de base.
 
 ![](media/A154.png)
 
-2. Arrastra un bloque "baud rate" de “Serial” y configúralo a 9600.
+2. Faites glisser un bloc "baud rate" depuis “Serial” et réglez-le à 9600.
 
 ![](media/A155.png)
 
-3. Luego arrastra un bloque "print" de “Serial”, escribe “Key status:” en el espacio en blanco y configúralo en "no-warp".
+3. Ensuite, faites glisser un bloc "print" depuis “Serial”, tapez “Key status:” dans le champ vide et réglez-le sur "no-warp".
 
 ![](media/A156.png)
 
-4. Configura el pin IO15 como “input”.
+4. Configurez la broche IO15 en “input”.
 
 ![](media/A157.png)
 
-5. Arrastra otro bloque “Serial print” de “Serial” y configura el modo a "warp". Añade un bloque "state value of button" de “Button” y configura el pin a IO15.
+5. Faites glisser un autre bloc “Serial print” depuis “Serial” et réglez le mode sur "warp". Ajoutez un bloc "state value of button" depuis “Button” et réglez la broche sur IO15.
 
 ![](media/A158.png)
 
-**Código Completo:**
+**Code complet :**
 
 ![](media/A159.png)
 
-**5. Resultado de la Prueba**
+**5. Résultat du test**
 
-Después de conectar el cableado y subir el código, abre el monitor serial y configura la velocidad en baudios a 9600.  
-Cuando presionamos el botón, el puerto serial imprime "Key status: 0"; cuando soltamos el botón, el puerto serial imprime "Key status: 1".
+Après avoir connecté le câblage et téléversé le code, ouvrez le moniteur série et réglez le baud rate à 9600.  
+Lorsque nous appuyons sur le bouton, le port série affiche "Key status: 0" ; lorsque nous relâchons le bouton, le port série affiche "Key status: 1".
 
 ![](media/A160.png)
 
-**6. Expansión de Conocimientos**
+**6. Extension des connaissances**
 
-A continuación, controlaremos el LED a través del estado de los botones.
+Ensuite, nous allons contrôler la LED via l’état des boutons.
 
-**Diagrama de Flujo：**
+**Organigramme :**
 
 ![](media/A161.png)
 
-**Diagrama de Conexiones：**
+**Schéma de câblage :**
 
 ![](media/A162.png)
 
-**Código:**
+**Code :**
 
-1. Arrastra dos bloques básicos.
+1. Faites glisser deux blocs de base.
 
 ![](media/A163.png)
 
-2. Configura el pin del LED como “output” y el pin del botón como “input”.
+2. Réglez la broche LED en “output” et la broche bouton en “input”.
 
 ![](media/A164.png)
 
-3. Arrastra un bloque "if else" de “Control”. Añade un bloque "button pin" de “Button” después de "if" y configura su pin a IO15. Coloca un bloque "LED output" debajo de "if" y configúralo a HIGH, y coloca otro debajo de "else" y configúralo a LOW. Los pines del LED son ambos IO4.
+3. Faites glisser un bloc "if else" depuis “Control”. Ajoutez un bloc "button pin" depuis “Button” après "if" et réglez sa broche sur IO15. Placez un bloc "LED output" sous "if" et réglez la sortie sur HIGH, puis un autre sous "else" et réglez-le sur LOW. Les broches LED sont toutes deux sur IO4.
 
 ![](media/A165.png)
 
-**Código Completo:**
+**Code complet :**
 
 ![](media/A166.png)
 
-**8. Explicación del Código**
+**8. Explication du code**
 
-**Nota: El modo del pin debe configurarse como "input" cuando se usa el módulo de botón.**
+**Note : Le mode de la broche doit être réglé sur "input" lors de l’utilisation du module bouton.**
 
-1. Se evalúa si el botón está presionado. Si es así, este bloque devuelve verdadero.
+1. Détermine si le bouton est pressé. Si oui, ce bloc renvoie vrai.
 
 ![](media/A167.png)
 
-2. Lee el valor del botón. Cuando el botón no está presionado, el valor es 1. De lo contrario, es 0.
+2. Lit la valeur du bouton. Lorsque le bouton n’est pas pressé, la valeur est 1. Sinon, elle est 0.
 
 ![](media/A168.png)
 
-3. Si la condición en el hexágono es verdadera, se ejecuta el bloque "if". De lo contrario, el programa ejecuta el bloque "else".
+3. Si la condition dans l’hexagone est vraie, le bloc "if" sera exécuté. Sinon, le programme exécute le bloc "else".
 
 ![](media/A169.png)
 
-4. Configura la velocidad en baudios. Por favor, asegúrate de que la velocidad en baudios del serial coincida con la del monitor serial, o no imprimirá nada. Las velocidades en baudios comúnmente usadas son 9600 y 115200, aquí configuramos a 9600.
+4. Réglez le baud rate. Veuillez vous assurer que le baud rate série correspond à celui du moniteur série, sinon rien ne s’affichera. Les baud rates couramment utilisés sont 9600 et 115200, ici nous réglons à 9600.
 
 ![](media/A170.png)
 
-5. Imprime caracteres en el monitor serial. Las palabras impresas son las que escribes en el espacio en blanco. Además, se incluyen tres modos de impresión: warp, no-warp y HEX (hexadecimal).
+5. Affiche des caractères sur le moniteur série. Les mots affichés sont ceux que vous tapez dans le champ vide. De plus, trois modes d’impression sont inclus : warp, no-warp et HEX (hexadécimal).
 
 ![](media/A171.png)
