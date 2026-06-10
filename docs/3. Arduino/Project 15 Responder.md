@@ -1,20 +1,20 @@
-### Progetto 15 Risponditore
+### プロジェクト15 レスポンダー
 
-**1. Descrizione**
+**1. 説明**
 
-Questo risponditore programmabile riceve e invia segnali tramite la scheda di sviluppo Arduino e un gruppo di pulsanti, e valuta la correttezza delle risposte tramite un LED. È un ottimo strumento per esercitare la capacità di reazione degli studenti e catturare la loro attenzione sulle domande. Se la risposta è corretta, il partecipante ottiene molti punti.
+このプログラム可能なレスポンダーは、Arduino開発ボードと複数のボタンを通じて信号を入力・受信し、LEDを使って回答の正誤を判定します。学生の反応能力を鍛え、問題への注意を引きつけるのに適した教材です。正解すると、回答者は多くの得点を獲得します。
 
-Inoltre, semplifica la gestione da parte degli insegnanti dei "grabber" delle domande e riduce il disordine delle risposte. Può persino stimolare l’interesse degli studenti nell’apprendimento.
+さらに、教師の質問争奪の操作を簡素化し、回答の混乱を減らします。学生の学習意欲を刺激する効果も期待できます。
 
-**2. Diagramma di flusso**
+**2. フローチャート**
 
 ![image-20251013104115790](media/A60.png)
 
-**3. Schema di collegamento**
+**3. 配線図**
 
 ![](media/A61.png)
 
-**4. Codice di test**
+**4. テストコード**
 
 ```
 /*
@@ -83,8 +83,8 @@ void loop()
 }
 ```
 
-**5. Risultato del test**
+**5. テスト結果**
 
-Simuliamo un gioco di risposta rapida.
+クイックアンサーゲームをシミュレートしてみましょう。
 
-Premere il pulsante rosso per spegnere tutte le luci LED. Poi possiamo selezionare i pulsanti giallo, verde e blu per accendere i LED corrispondenti. La persona il cui LED si accende per prima può rispondere per prima.
+赤いボタンを押すとすべてのLEDが消灯します。その後、黄色、緑、青のボタンを押すことで対応するLEDが点灯します。最初にLEDが点灯した人が最初に回答できます。
