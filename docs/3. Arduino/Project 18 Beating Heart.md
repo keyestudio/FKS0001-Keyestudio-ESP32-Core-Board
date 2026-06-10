@@ -1,14 +1,14 @@
-### Progetto 18 Cuore Pulsante
+### プロジェクト18 ビートするハート
 
-**1. Descrizione**
+**1. 説明**
 
-In questo progetto, un cuore pulsante sarà mostrato tramite una scheda Arduino, un display a matrice di punti 8X8, una scheda circuito e alcuni componenti elettronici. Attraverso la programmazione, è possibile controllare la frequenza del battito, la dimensione del cuore e la sua luminosità.
+このプロジェクトでは、Arduinoボード、8X8ドットマトリックスディスプレイ、回路基板およびいくつかの電子部品を使ってビートするハートを表現します。プログラミングにより、ビートの周波数、ハートの大きさ、明るさを制御できます。
 
-**2. Schema di Collegamento**
+**2. 配線図**
 
 ![](media/B1.png)
 
-**3. Codice di Test**
+**3. テストコード**
 
 ```
 /*
@@ -49,8 +49,8 @@ void loop()
 }
 ```
 
-**4. Risultato del Test**
+**4. テスト結果**
 
-Dopo aver collegato i fili e caricato il codice, le due dimensioni del cuore vengono visualizzate alternativamente.
+配線を接続しコードをアップロードすると、2つのサイズのハートが交互に表示されます。
 
 ![image-20251013113903734](media/B2.png)

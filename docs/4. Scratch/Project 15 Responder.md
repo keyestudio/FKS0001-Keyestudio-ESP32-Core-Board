@@ -1,66 +1,66 @@
-### Progetto 15 Risponditore
+### プロジェクト15 レスポンダー
 
-**1. Descrizione**
+**1. 説明**
 
-Questo risponditore programmabile riceve e invia segnali tramite la scheda di sviluppo Arduino e un gruppo di pulsanti, e valuta la correttezza delle risposte tramite un LED. È un ottimo strumento per esercitare la capacità di reazione degli studenti e catturare la loro attenzione sulle domande. Se la risposta è corretta, il rispondente ottiene molti punti.
+このプログラム可能なレスポンダーは、Arduino開発ボードと複数のボタンを通じて信号を入力・受信し、LEDを使って回答の正誤を判定します。学生の反応能力を鍛え、質問への注意を引きつける良い教材です。正解の場合、回答者は多くの得点を獲得します。
 
-Inoltre, semplifica la gestione da parte degli insegnanti dei "question-grabbers" e riduce il disordine delle risposte. Può persino stimolare l’interesse degli studenti nell’apprendimento.
+さらに、教師の質問取り扱いを簡素化し、回答の混乱を減らします。学生の学習意欲を刺激することも期待できます。
 
-**2. Diagramma di flusso**
+**2. フローチャート**
 
 ![](media/A184.png)
 
-**3. Schema di collegamento**
+**3. 配線図**
 
 ![](media/A185.png)
 
-**4. Codice di test**
+**4. テストコード**
 
-1. Trascina i due blocchi base e inserisci un blocco "variabile" tra di essi. Imposta il tipo di variabile su int e il nome su item con un’assegnazione iniziale di 0. Imposta il pin del LED su “output” e il pin del pulsante su “input”.
+1. 2つの基本ブロックをドラッグし、その間に「変数」ブロックを配置します。変数の型をint、名前をitem、初期値を0に設定します。LEDピンを「出力」、ボタンピンを「入力」に設定します。
 
 ![](media/A186.png)
 
-2. Aggiungi un blocco "LED output", definisci il suo pin su IO27 e imposta l’output su HIGH.  
-3. Trascina un blocco "if" e aggiungi la condizione "interface IO19 button was be pushed?".
+2. 「LED出力」ブロックを追加し、ピンをIO27に設定、出力をHIGHにします。  
+3. 「if」ブロックをドラッグし、条件に「interface IO19 ボタンが押されたか？」を追加します。
 
 ![](media/A187.png)
 
-4. Aggiungi un’impostazione di variabile e quattro blocchi LED output sotto "then". Tra questi, nominiamo la variabile "item" con assegnazione "0", e impostiamo tutti gli output su LOW rispettivamente ai pin 12, 13, 14 e 27 (Il risponditore funziona solo quando tutti i LED sono spenti). Allo stesso modo, non dimenticare un ritardo di 0,2s.
+4. 「then」内に変数設定と4つのLED出力ブロックを追加します。そのうち変数itemを「0」に設定し、ピン12、13、14、27のすべてのLED出力をLOWにします（レスポンダーはすべてのLEDが消灯しているときのみ動作します）。同様に0.2秒の遅延も忘れずに。
 
 ![](media/A188.png)
 
-5. Aggiungi un blocco "repeat until" e imposta "until" su "item = 1", come mostrato sotto. Quando item = 1, esci dal ciclo.
+5. 「repeat until」ブロックを追加し、「until」を「item = 1」に設定します。itemが1になるとループを抜けます。
 
 ![](media/A189.png)
 
-6. Trascina un altro blocco "if" e imposta la condizione "Interface IO16 button was be pushed?". Aggiungi un blocco "LED output" sotto "then" e imposta l’output su HIGH al pin IO12. Aggiungi inoltre un "set item variable by 1" per uscire da questo blocco condizionale.
+6. もう一つ「if」ブロックをドラッグし、条件に「Interface IO16 ボタンが押されたか？」を設定します。「then」内に「LED出力」ブロックを追加し、ピンIO12の出力をHIGHに設定します。そして「item変数を1に設定」してこの条件ブロックを抜けます。
 
 ![](media/A190.png)
 
-7. Ripeti il passo 6, ma imposta l’interfaccia su IO17 e il pin LED su IO13.
+7. ステップ6を繰り返しますが、インターフェースをIO17、LEDピンをIO13に設定します。
 
 ![](media/A191.png)
 
-8. Ripeti nuovamente il passo 6, ma imposta l’interfaccia su IO18 e il pin LED su IO14.
+8. ステップ6を再度操作しますが、インターフェースをIO18、LEDピンをIO14に設定します。
 
 ![](media/A192.png)
 
-**Codice completo:**
+**完成コード:**
 
 ![](media/A193.png)
 
-**5. Risultato del test**
+**5. テスト結果**
 
-Collega i cablaggi e carica il codice. Le risposte dei partecipanti sono valide solo quando il LED rosso è spento (pulsante rosso premuto).
+配線を接続し、コードをアップロードします。回答者の回答は赤色LEDが消灯（赤ボタンが押されている）時のみ有効です。
 
-Quando qualcuno preme il proprio pulsante (giallo, verde o blu), si accende il LED corrispondente insieme al LED rosso. A questo punto, gli altri LED non possono accendersi premendo i pulsanti. L’azione di risposta può essere eseguita solo quando il pulsante rosso viene premuto di nuovo.
+誰かが自分のボタン（黄色、緑、青）を押すと、対応するLEDと赤色LEDが点灯します。この状態では他のLEDは点灯しません。再度赤ボタンが押されるまで、回答動作は行えません。
 
-**6. Spiegazione del codice**
+**6. コード説明**
 
-1. Modulo ciclo condizionale. Quando le condizioni nel riquadro a diamante del modulo sono soddisfatte, il ciclo termina.
+1. 条件ループモジュール。モジュールのひし形ボックス内の条件が満たされると、ループを抜けます。
 
 ![](media/A194.png)
 
-2. Il blocco "=" viene usato per verificare se i due valori sono uguali.
+2. 「=」ブロックは2つの値が等しいかどうかを判定します。
 
 ![](media/A195.png)

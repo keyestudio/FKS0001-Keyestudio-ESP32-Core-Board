@@ -1,77 +1,77 @@
-### Progetto 1 Lampeggio LED
+### プロジェクト1 LED点滅
 
-**1. Descrizione**
+**1. 説明**
 
-Il lampeggio del LED è un progetto semplice pensato per principianti. È sufficiente installare un LED sulla scheda Arduino e caricare il codice sull'IDE Arduino. Questo progetto rafforza l'apprendimento del framework concettuale di Arduino e l'uso dei metodi per principianti.
+LED点滅は初心者向けのシンプルなプロジェクトです。ArduinoボードにLEDを取り付け、Arduino IDEでコードをアップロードするだけで完成します。このプロジェクトはArduinoの概念的な枠組みと使用方法を初心者に強化することを目的としています。
 
-**2. Principio di Funzionamento**
+**2. 動作原理**
 
 ![](media/A7.png)
 
-**LED:** In generale, le porte IO con corrente di uscita limitata possono causare una bassa luminosità del LED, quindi nel circuito viene utilizzato un transistor NPN (Q2) come interruttore. In questo caso, il LED si accende se la base (pin 1) del transistor è a livello alto. Al contrario, il LED si spegne quando la base è a livello basso.
+**LED:** 一般的に、出力電流が制限されたIOポートではLEDの明るさが低くなることがあるため、回路にはスイッチとしてNPNトランジスタ(Q2)が使用されています。この場合、トランジスタのベース(pin 1)が高レベルのときにLEDが点灯します。逆に、ベースが低レベルのときはLEDは消灯します。
 
-**Interruttore a transistor:** In breve, il LED si accende quando la base (pin 1) è a livello alto. Allo stesso tempo, il collettore (pin 3) e l'emettitore (pin 2) sono collegati, e quindi VCC passa attraverso una resistenza di limitazione della corrente al LED e infine a GND, formando un circuito. Al contrario, il LED si spegne quando la base è a livello basso. In questa condizione, collettore ed emettitore sono scollegati e il LED si spegne.
+**トランジスタスイッチ:** 簡単に言うと、ベース(pin 1)が高レベルのときにLEDが点灯します。同時に、コレクタ(pin 3)とエミッタ(pin 2)が接続され、VCCから電流制限抵抗を経てLEDを通り、最終的にGNDに流れる回路が形成されます。逆に、ベースが低レベルのときはコレクタとエミッタが切断され、LEDは消灯します。
 
-**3. Schema di Collegamento**
+**3. 配線図**
 
 ![](media/A8.png)
 
-**4. Codice di Test**
+**4. テストコード**
 
-Secondo i principi precedenti, possiamo controllare il LED tramite i livelli dei pin sulla scheda di sviluppo.
+前述の原理に従い、開発ボードのピンのレベルでLEDを制御できます。
 
-1. Trascina il seguente blocco nella sezione "Events".
+1. 「Events」パートから以下のブロックをドラッグします。
 
 ![](media/A9.png)
 
-2. Trascina il seguente blocco nella sezione "Control".
+2. 「Control」パートから以下のブロックをドラッグします。
 
 ![](media/A10.png)
 
-3. Trascina il seguente blocco nella sezione "Pins" e imposta il pin IO5 come output.
+3. 「Pins」パートから以下のブロックをドラッグし、IO5ピンを出力に設定します。
 
    ![](media/A11.png)
 
-4. Trascina il seguente blocco nella sezione "LED" e imposta il pin IO5 su HIGH.
+4. 「LED」パートから以下のブロックをドラッグし、IO5ピンをHIGHに設定します。
 
 ![](media/A12.png)
 
-5. Trascina il seguente blocco nella sezione "Control".
+5. 「Control」パートから以下のブロックをドラッグします。
 
 ![](media/A13.png)
 
-6. Trascina i seguenti blocchi e imposta il pin IO5 su LOW.
+6. 以下のブロックをドラッグし、IO5ピンをLOWに設定します。
 
 ![](media/A14.png)
 
-**Codice Completo：**
+**完成コード：**
 
 ![](media/A15.png)
 
-**5. Risultato del Test**
+**5. テスト結果**
 
-Dopo aver caricato il codice e acceso l'alimentazione, il LED si accenderà per 1s e si spegnerà per 1s.
+コードをアップロードして電源を入れると、LEDは1秒間点灯し、1秒間消灯します。
 
-**6. Spiegazione del Codice**
+**6. コード説明**
 
-<p style="color:red;">Nota: La modalità del pin deve essere impostata su "output" quando si utilizza il modulo LED.<p>
+<p style="color:red;">注意：LEDモジュールを使用する際はピンモードを「出力(output)」に設定する必要があります。<p>
 
-1. I blocchi di codice non verranno eseguiti se il seguente blocco non è presente.
+1. 以下のブロックが存在しないとコードブロックは実行されません。
 
 ![](media/A16.png)
 
-2. I blocchi di codice nel seguente blocco verranno eseguiti in loop.
+2. 以下のブロック内のコードブロックはループで実行されます。
 
 ![](media/A17.png)
 
-3. È un modulo utilizzato per impostare la modalità del pin (controlla LED e buzzer per la modalità “output”, e legge il modulo sensore per la modalità “input”).
+3. ピンモードを設定するモジュールです（LEDやブザーは「出力(output)」モード、センサーモジュールは「入力(input)」モードで制御します）。
 
 ![](media/A18.png)
 
-4. È un modulo utilizzato per impostare il pin e i livelli ("HIGH" e "LOW").
+4. ピンとレベル（"HIGH"と"LOW"）を設定するモジュールです。
 
 ![](media/A19.png)
 
-5. È un modulo utilizzato per impostare il tempo di ritardo.
+5. 遅延時間を設定するモジュールです。
 
 ![](media/A20.png)

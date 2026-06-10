@@ -1,26 +1,26 @@
-### Progetto 17 Allarme di Invasione
+### プロジェクト17 侵入警報
 
-**1. Descrizione**
+**1. 説明**
 
-Questo sistema di allarme di invasione è in grado di rilevare intrusi in case o piccoli uffici e avvisare il proprietario per prendere misure tempestive.
+この侵入警報システムは、住宅や小規模オフィス内の侵入者を検知し、ホストに対して適時に対策を促すことができます。
 
-In questo progetto, il sensore monitora una determinata area. Un dispositivo sulla scheda Arduino attiverà il LED per accendersi e il buzzer per emettere un segnale acustico di avviso se viene rilevato un movimento in quella zona.
+本プロジェクトでは、センサーが特定のエリアを監視します。Arduinoボード上のデバイスが、そのゾーンで動きを検知するとLEDを点灯させ、ブザーを鳴らして注意を促します。
 
-Virtualmente, questo modulo presenta praticità, facile installazione e costi contenuti. Oltre che per abitazioni e uffici, si applica anche a fabbriche, magazzini e mercati, proteggendo in larga misura la sicurezza della proprietà.
+実際、このモジュールは実用性が高く、設置が簡単でコストも低いです。家庭やオフィスだけでなく、工場、倉庫、市場などにも適用でき、財産の安全を大いに守ります。
 
-**2. Principio di Funzionamento**
+**2. 動作原理**
 
 ![](media/A64.png)
 
-Il corpo umano (37°C) emette sempre raggi infrarossi con una lunghezza d’onda di 10μm, che si avvicina a quella rilevata dal sensore.
+人体（37°C）は常に波長約10μmの赤外線を放射しており、これはセンサーが検知する波長に近いです。
 
-Per questo motivo, questo modulo è in grado di rilevare il movimento di esseri umani. Se presente, il sensore PIR emette un segnale alto per circa 3 secondi. In assenza di movimento, emette un segnale basso.
+このため、このモジュールは人体の動きを検知できます。動きがある場合、PIRセンサーは約3秒間ハイレベルを出力し、動きがなければローを出力します。
 
-**3. Schema di Collegamento**
+**3. 配線図**
 
 ![](media/A65.png)
 
-**4. Codice di Test**
+**4. テストコード**
 
 ```
 /*
@@ -45,25 +45,25 @@ void loop()
 }
 ```
 
-**5. Risultato del Test**
+**5. テスト結果**
 
-Dopo aver collegato i fili e caricato il codice, aprire il monitor seriale impostando la velocità a 9600 baud; la porta seriale mostrerà il valore del PIR. Se il sensore PIR rileva una persona, verrà visualizzato 1.
+配線を接続しコードをアップロードした後、シリアルモニターを開きボーレートを9600に設定すると、シリアルポートにPIRの値が表示されます。PIRセンサーが人を検知すると、1が表示されます。
 
 ![](media/A66.png)
 
-**6. Espansione della Conoscenza**
+**6. 知識拡張**
 
-Realizziamo un allarme di invasione. Quando il sensore PIR rileva un essere umano, il LED si accende e il buzzer emette un suono. Al contrario, il LED si spegne e il buzzer resta silenzioso.
+侵入警報を作りましょう。PIRセンサーが人を検知すると、LEDが点灯しブザーが鳴ります。検知しない場合は、LEDは消灯しブザーは鳴りません。
 
-- **Diagramma di Flusso：**
+- **フローチャート：**
 
 ![](media/A67.png)
 
-- **Schema di Collegamento：**
+- **配線図：**
 
 ![](media/A68.png)
 
-- **Codice：**
+- **コード：**
 
 ```
 /*
@@ -100,6 +100,6 @@ void loop()
 }
 ```
 
-**Risultato del Test**
+**テスト結果**
 
-Se il sensore PIR rileva una persona nelle vicinanze, il LED rosso si accenderà e il buzzer suonerà.
+PIRセンサーが近くの人を検知すると、赤色LEDが点灯しブザーが鳴ります。

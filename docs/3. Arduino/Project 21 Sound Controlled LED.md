@@ -1,22 +1,22 @@
-### Progetto 21 LED Controllato dal Suono
+### プロジェクト21 音声制御LED
 
-**1. Descrizione**
+**1. 説明**
 
-Il LED controllato dal suono è un dispositivo utilizzato per rilevare il suono in modo da controllare la luminosità del LED, composto da una scheda Arduino e alcuni componenti. Può collegarsi a più sensori come i microfoni. Converte il suono in un segnale di tensione variabile che viene ricevuto da Arduino per controllare l'accensione e lo spegnimento del LED.
+音声制御LEDは、音を検出してLEDの明るさを制御するための装置で、Arduinoボードといくつかの部品で構成されています。マイクロフォンなど複数のセンサーに接続可能です。音を電圧信号の変化に変換し、Arduinoが受信してLEDの点灯・消灯を制御します。
 
-**2. Principio di Funzionamento**
+**2. 動作原理**
 
 ![](media/B14.png)
 
-Quando viene rilevato un suono, la pellicola elettretica nel microfono vibra, modificando la capacità e generando una sottile variazione di tensione.
+音を検出すると、マイクロフォン内のエレクトレットフィルムが振動し、静電容量が変化して微小な電圧変化が発生します。
 
-Successivamente, utilizziamo il chip LM3 per costruire un circuito adeguato che amplifica il suono rilevato, regolabile tramite un potenziometro. Ruotandolo in senso orario si aumenta il guadagno.
+次に、LM3チップを使って検出した音を増幅する適切な回路を構築します。増幅度は可変抵抗で調整可能で、時計回りに回すと増幅率が大きくなります。
 
-**3. Schema di Collegamento**
+**3. 配線図**
 
 ![](media/B15.png)
 
-**4. Codice di Test**
+**4. テストコード**
 
 ```
 /*
@@ -39,31 +39,31 @@ void loop()
 }
 ```
 
-**5. Risultato del Test**
+**5. テスト結果**
 
-Dopo aver collegato i fili e caricato il codice, aprire il monitor seriale impostando la velocità a 9600 baud, verrà visualizzato il valore analogico.
+配線を接続しコードをアップロードした後、シリアルモニターを開きボーレートを9600に設定すると、アナログ値が表示されます。
 
 ![](media/B16.png)
 
-**Regolazione della sensibilità:**
+**感度調整：**
 
-Se si ritiene che la sensibilità del sensore sonoro sia adeguata, è possibile regolare il potenziometro del sensore (a destra per la massima sensibilità, a sinistra per la minima sensibilità).
+音声センサーの感度が適切だと感じたら、センサーの可変抵抗を調整します（右回しで最高感度、左回しで最低感度）。
 
 ![](media/B17.png)
 
-**6. Approfondimento**
+**6. 知識の拡張**
 
-La luce da corridoio comunemente vista è un tipo di luce controllata dal suono. Nel frattempo, include anche una fotoresistenza. Diversamente da questa, qui costruiamo un modello in cui un LED è influenzato solo dal suono. Quando il volume analogico supera 100, il LED si accende per 2 secondi e poi si spegne.
+よく見かける廊下のライトは音声制御ライトの一種で、同時にフォトレジスターも含まれています。これとは異なり、ここではLEDが音声のみに影響されるモデルを構築します。アナログ音量が100を超えると、LEDが2秒間点灯し、その後消灯します。
 
-- **Diagramma di Flusso:**
+- **フローチャート：**
 
 ![](media/B18.png)
 
-- **Schema di Collegamento:**
+- **配線図：**
 
 ![](media/B19.png)
 
-- **Codice:**
+- **コード：**
 
 ```
 /*
@@ -94,6 +94,6 @@ void loop()
 }
 ```
 
-- **Risultato del Test**
+- **テスト結果**
 
-Quando il valore rilevato dal sensore sonoro è superiore a 100, il LED rosso si accende.
+音声センサーが検出した値が100を超えると、赤色LEDが点灯します。

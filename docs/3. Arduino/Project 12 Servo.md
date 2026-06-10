@@ -1,38 +1,38 @@
-### Progetto 12 Servo
+### プロジェクト12 サーボ
 
-**1. Descrizione**
+**1. 説明**
 
-Questo servo offre alte prestazioni e alta precisione con un angolo massimo di rotazione di 180°. Pesando solo 9g, è perfettamente adatto a qualsiasi dispositivo mini in molteplici occasioni. Inoltre, presenta un tempo di avvio breve, basso rumore e forte stabilità.
+このサーボは高性能かつ高精度で、最大回転角度は180°です。わずか9gの軽量設計で、さまざまなミニデバイスに最適です。さらに、起動時間が短く、低騒音で安定性が高い特徴があります。
 
-**2. Principio di Funzionamento**
+**2. 動作原理**
 
-**Intervallo angolare:** 180° (360°, 180° e 90°)
+**角度範囲:** 180°（360°、180°、90°）
 
-**Tensione di alimentazione:** 3.3V o 5V
+**駆動電圧:** 3.3V または 5V
 
-**Pin:** Tre fili
+**ピン:** 3本線
 
 ![](media/A49.png)
 
-**GND:** Messa a terra (marrone)
+**GND:** グラウンド（茶色）
 
-**VCC:** Un pin rosso che si collega a un'alimentazione +5V (3.3V)
+**VCC:** +5V（3.3V）電源に接続する赤いピン
 
-**S:** Un pin di segnale arancione controllato tramite segnale PWM
+**S:** PWM信号で制御されるオレンジ色の信号ピン
 
 ![](media/A50.png)
 
-**Principio di Controllo**: L'angolo di rotazione è controllato tramite il duty cycle del PWM. Teoricamente, il ciclo standard del PWM è 20ms (50Hz), quindi la larghezza dell'impulso dovrebbe variare tra 1ms e 2ms. Tuttavia, la larghezza reale dell'impulso raggiunge 0.5ms~2.5ms, corrispondente a 0°～180°. Si noti che, per lo stesso segnale, l'angolo di rotazione può variare a seconda della marca del servo.
+**制御原理:** 回転角度はPWMのデューティサイクルで制御されます。理論上、標準PWM周期は20ms（50Hz）で、パルス幅は1ms～2msの範囲に分布します。しかし実際のパルス幅は0.5ms～2.5msで、これが0°～180°に対応します。同じ信号でも、サーボのブランドによって回転角度が異なる場合があるので注意してください。
 
-**3. Schema di Collegamento**
+**3. 配線図**
 
 ![](media/A51.png)
 
-Aggiungere una fonte di alimentazione esterna invece di usare solo l'USB per l'alimentazione.
+USB電源だけでなく、外部電源を追加してください。
 
 ![](media/A52.png)
 
-**4. Codice di Test**
+**4. テストコード**
 
 ```
 int servoPin = 4;//servo PIN
@@ -68,6 +68,6 @@ void servopulse(int pin, int myangle)
 }
 ```
 
-**5. Risultato del Test**
+**5. テスト結果**
 
-Dopo aver collegato i fili e caricato il codice, il servo inizia a ruotare da 0° a 180° e poi in senso inverso.
+配線を接続しコードをアップロードすると、サーボは0°から180°まで回転し、その後逆方向に回転を開始します。

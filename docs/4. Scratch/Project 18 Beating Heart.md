@@ -1,39 +1,39 @@
-### Progetto 18 Cuore Pulsante
+### プロジェクト18 ビートするハート
 
-**1. Descrizione**
+**1. 説明**
 
-In questo progetto, un cuore pulsante sarà mostrato tramite una scheda Arduino, un display a matrice di punti 8X8, una scheda circuito e alcuni componenti elettronici. Tramite programmazione, è possibile controllare la frequenza del battito, la dimensione del cuore e la sua luminosità.
+このプロジェクトでは、Arduinoボード、8X8ドットマトリックスディスプレイ、回路基板、およびいくつかの電子部品を使ってビートするハートを表現します。プログラミングにより、ビートの周波数、ハートの大きさ、明るさを制御できます。
 
-**2. Schema di Collegamento**
+**2. 配線図**
 
 ![](media/B24.png)
 
-**3. Codice di Test**
+**3. テストコード**
 
-1. Trascina i due blocchi base.
+1. 2つの基本ブロックをドラッグします。
 
-2. Inizializza il display a matrice di punti. Imposta il pin CS su IO15 e la luminosità su 3. Inserisci queste due esecuzioni tra i blocchi base.
+2. ドットマトリックスディスプレイを初期化します。CSピンをIO15に設定し、明るさを3にします。これらの2つの実行を基本ブロックの間に配置します。
 
-Le esecuzioni seguenti sono tutte nel blocco "forever".
+以下の実行はすべて「ずっと」ブロック内にあります。
 
-3. Pulisci il display. Controlla il display per disegnare linee e stabilire il sistema di coordinate e il suo origine come segue. Poi, aggiorna il display per mostrare il cuore più piccolo con un ritardo di 1s.
+3. ディスプレイをクリアします。表示に線を描き、座標系とその原点を以下のように設定します。その後、ディスプレイを更新して小さいハートを表示し、1秒の遅延を入れます。
 
 ![](media/B25.png)
 
 ![](media/B26.png)
 
-4. Ripeti il passo 3 ma disegna le linee come nell’immagine sottostante per mostrare un cuore più grande.
+4. ステップ3を繰り返しますが、以下の画像のように線を描いて大きいハートを表示します。
 
 ![](media/B27.png)
 
 ![](media/B28.png)
 
-**Codice Completo:**
+**完成コード:**
 
 ![](media/B29.png)
 
-**4. Risultato del Test**
+**4. テスト結果**
 
-Dopo aver collegato i fili e caricato il codice, i due cuori di dimensioni diverse vengono visualizzati alternativamente.
+配線を接続しコードをアップロードすると、2つのサイズのハートが交互に表示されます。
 
 ![](media/B30.png)![](media/B31.png)

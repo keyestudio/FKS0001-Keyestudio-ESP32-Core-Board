@@ -1,91 +1,91 @@
-### Progetto 10 Display a matrice di punti
+### プロジェクト10 ドットマトリックスディスプレイ
 
-**1. Descrizione**
+**1. 説明**
 
-Questo modulo consiste in una matrice di LED 8x8 con un pin di controllo per ogni riga e colonna per regolare la luminosità dei LED. Collegandolo alla scheda Arduino, la luminosità dei LED viene controllata per visualizzare caratteri e figure tramite programmazione Arduino. In questo modo, è possibile visualizzare caratteri semplici, numeri e figure. Può essere applicato anche in macchine da gioco o schermi.
+このモジュールは、各行および各列に1つずつの制御ピンを持つ8x8のLEDドットマトリックスで構成されており、LEDの明るさを調整できます。Arduinoボードと接続することで、Arduinoプログラミングを通じてLEDの明るさを制御し、文字や図形を表示します。この方法により、簡単な文字、数字、図形を表示することが可能です。また、ゲーム機やスクリーンにも応用できます。
 
 ![](media/A109.png)
 
-MAX7219 è un IC con comunicazione SPI e può essere utilizzato per controllare la matrice di punti 8x8. La comunicazione SPI del MAX7219 è integrata nelle nostre librerie e può essere richiamata direttamente.
+MAX7219はSPI通信を持つICで、8x8ドットマトリックスの制御に使用できます。MAX7219のSPI通信は当社のライブラリに統合されており、直接呼び出すことができます。
 
-**2. Schema di collegamento**
+**2. 配線図**
 
 ![](media/A110.png)
 
-**3. Codice di prova**
+**3. テストコード**
 
-1. Trascina i due blocchi di codice base.
+1. 基本のコードブロックを2つドラッグします。
 
 ![](media/A111.png)
 
-2. Trascina un blocco "init matrix display" da “Matrix” e imposta CS su IO15. DIN e CLK sono pin fissi rispettivamente su IO23 e IO18.
+2. “Matrix”から「init matrix display」をドラッグし、CSをIO15に設定します。DINとCLKはそれぞれ固定ピンでIO23とIO18です。
 
 ![](media/A112.png)
 
-3. Trascina un blocco "set brightness" e impostalo a 3.
+3. 「set brightness」ブロックをドラッグし、3に設定します。
 
 ![](media/A113.png)
 
-4. Trascina un blocco "image" e scegli l’icona del cuore.
+4. 「image」ブロックをドラッグし、ハートのアイコンを選択します。
 
 ![](media/A114.png)
 
-5. Aggiungi un blocco "refresh" alla fine.
+5. 最後に「refresh」ブロックを追加します。
 
 ![](media/A115.png)
 
-**Codice completo：**
+**完成コード：**
 
 ![](media/A116.png)
 
-**4. Risultato del test**
+**4. テスト結果**
 
-Dopo aver collegato i fili e caricato il codice, sul display a matrice di punti verrà mostrato un cuore, come illustrato di seguito.
+配線を接続しコードをアップロードすると、下図のようにドットマトリックスにハートが表示されます。
 
 ![](media/A117.png)
 
-**5. Spiegazione del codice**
+**5. コード説明**
 
-1. Imposta il pin CS. Nel codice, DIN è fisso su io23 e SLK su io18, mentre il pin CS è opzionale. Per una connessione comoda, selezioniamo io15.
+1. CSピンを設定します。コード内ではDINは固定でio23、SLKはio18ですが、CSピンは任意です。配線の便宜上、io15を選択しています。
 
 ![](media/A118.png)
 
-2. Disegna i pixel. Questo blocco di codice accende o spegne i pixel sulla matrice di punti tramite gli assi x e y, con il rosso per acceso e il nero per spento.
+2. ピクセルを描画します。このコードブロックは、x軸とy軸の座標でドットマトリックスのピクセルを点灯または消灯します。赤は点灯、黒は消灯を示します。
 
 ![](media/A119.png)
 
-3. Disegna una linea. Posiziona la linea tramite due gruppi di coordinate, sempre con rosso per acceso e nero per spento.
+3. 線を描画します。2組の座標点で線を指定し、赤は点灯、黒は消灯を示します。
 
 ![](media/A120.png)
 
-4. Mostra caratteri. Abbiamo aggiunto librerie di caratteri, quindi basta digitare una lettera per visualizzarla sulla matrice di punti. Inoltre, deve essere usato in combinazione con un blocco "rotation 180°".
+4. 文字を表示します。文字ライブラリを追加しているため、文字を入力するだけでドットマトリックスに表示できます。なお、「rotation 180°」ブロックと併用する必要があります。
 
 ![](media/A121.png)
 
-5. Mostra numeri. Analogamente, basta digitare un numero per visualizzarlo sulla matrice di punti, e deve essere usato in combinazione con un blocco "rotation 180°".
+5. 数字を表示します。同様に、数字を入力するだけでドットマトリックスに表示でき、「rotation 180°」ブロックと併用が必要です。
 
 ![](media/A122.png)
 
-6. Mostra stringhe di caratteri scorrevoli. Collocando un blocco "rotation 180°", le stringhe scorrevoli specificate verranno visualizzate dopo aver impostato la velocità.
+6. スクロール文字列を表示します。「rotation 180°」ブロックと組み合わせて、速度を設定すると指定したスクロール文字列が表示されます。
 
 ![](media/A123.png)
 
-7. Visualizza immagini. Per comodità, abbiamo già integrato alcune icone emotive che possono essere selezionate direttamente.
+7. 画像を表示します。便利なように、いくつかの感情アイコンを統合しており、直接選択可能です。
 
 ![](media/A124.png)
 
-8. Visualizza colori di riempimento. Puoi impostare su nero (LED spento) o rosso (LED acceso).
+8. 塗りつぶし色を表示します。黒（LED消灯）または赤（LED点灯）に設定できます。
 
 ![](media/A125.png)
 
-9. Aggiorna il display. La matrice di punti deve essere aggiornata se visualizza qualcosa. Altrimenti, potrebbe verificarsi un errore.
+9. ディスプレイをリフレッシュします。何かを表示する場合はドットマトリックスをリフレッシュする必要があります。そうしないとエラーが発生する可能性があります。
 
 ![](media/A126.png)
 
-10. Imposta la luminosità. Puoi abbassare la luminosità durante il debug per evitare fastidi agli occhi.
+10. 明るさを設定します。デバッグ時に明るさを下げて目を保護することができます。
 
 ![](media/A127.png)
 
-11. Imposta gli angoli di rotazione. Per una maggiore compatibilità con più codici, alcuni dati e icone necessitano di una rotazione per evitare una visualizzazione invertita. Per questo motivo un blocco "rotation 180°" è necessario nei codici.
+11. 回転角度を設定します。より多くのコードとの高い互換性のために、一部のデータやアイコンは反転表示を避けるために回転が必要です。そのため、コード内で「rotation 180°」ブロックが必要となります。
 
 ![](media/A128.png)

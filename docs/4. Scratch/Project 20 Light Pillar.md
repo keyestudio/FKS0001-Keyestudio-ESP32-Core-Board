@@ -1,71 +1,71 @@
-### Progetto 20 Pilastro di Luce
+### プロジェクト20 ライトピラー
 
-**1. Descrizione**
+**1. 説明**
 
-La resistenza (inferiore a 1KΩ) della fotoresistenza varia in base alla luce, quindi può controllare la luminosità della matrice di punti. Durante il controllo, colleghiamo questa resistenza a un pin analogico sulla scheda per monitorare la variazione della resistenza. In questo modo, la luce controlla automaticamente la luminosità del display.
+フォトレジスタの抵抗値（1KΩ未満）は光の強さによって変化し、それによってドットマトリクスの明るさを制御できます。制御する際には、この抵抗をボードのアナログピンに接続して抵抗の変化を監視します。こうすることで、光が自動的にディスプレイの明るさを調整します。
 
-Inoltre, la fotoresistenza è ampiamente utilizzata nella vita quotidiana. Ad esempio, una tenda si apre o si chiude automaticamente in base all'intensità della luce esterna.
+また、フォトレジスタは日常生活でも広く応用されています。例えば、カーテンが外の光の強さに応じて自動的に開閉するなどです。
 
-**2. Principio di Funzionamento**
+**2. 動作原理**
 
 ![](media/B43.png)
 
-Quando è completamente al buio, la resistenza è pari a 0.2MΩ, e la tensione al terminale di segnale (punto 2) si avvicina a 0V. Più la luce è intensa, più la resistenza e la tensione saranno basse.
+完全に暗い状態では、抵抗は0.2MΩとなり、信号端子（ポイント2）の電圧は0Vに近づきます。光が強くなるほど、抵抗と電圧は小さくなります。
 
-**3. Schema di Collegamento**
+**3. 配線図**
 
 ![](media/B44.png)
 
-**4. Codice di Test**
+**4. テストコード**
 
-Il valore analogico della fotoresistenza può essere letto:
+フォトレジスタのアナログ値を読み取る方法：
 
-1. Trascina i due blocchi base. Inserisci il blocco di impostazione della velocità di trasmissione (baud rate) tra di essi e impostalo a 9600.
+1. 基本ブロックを2つドラッグし、その間にボーレート設定ブロックを置き、9600に設定します。
 
-2. Aggiungi un blocco "serial print" nel ciclo "forever" con modalità "warp".
+2. 「forever」ループ内に「シリアルプリント」ブロックを追加し、モードを「warp」に設定します。
 
-3. Trascina un blocco "read the value" da “Light” al blocco "serial print" e imposta il pin su IO33.
+3. 「Light」から「値を読む」ブロックをドラッグして「シリアルプリント」ブロックに接続し、ピンをIO33に設定します。
 
 ![](media/B45.png)
 
-**5. Risultato del Test**
+**5. テスト結果**
 
-Dopo aver collegato i cavi e caricato il codice, apri il monitor seriale impostando la velocità a 9600; verrà visualizzato il valore analogico, nell'intervallo da 0 a 4095.
+配線を接続しコードをアップロードした後、シリアルモニターを開きボーレートを9600に設定すると、アナログ値が0～4095の範囲で表示されます。
 
 ![](media/B46.png)
 
-**6. Codice di Espansione**
+**6. 拡張コード**
 
-In questo progetto di espansione, utilizziamo la fotoresistenza per rilevare l'intensità della luce ambientale. Le due colonne centrali sono incluse in questo esperimento per rappresentare l'intensità luminosa. Più è chiaro, più LED si accenderanno. Questo forma un "pilastro di luce".
+この拡張プロジェクトでは、フォトレジスタを使って周囲の光の強さを検知します。中央の2列を使って光の強さを表現し、明るいほど点灯するLEDが多くなります。これにより「ライトピラー」が形成されます。
 
-**Schema di Collegamento：**
+**配線図：**
 
 ![](media/B47.png)
 
-1. Trascina i due blocchi base.
+1. 基本ブロックを2つドラッグします。
 
-2. In "Matrix", inizializza il display a matrice di punti e imposta il pin CS su IO15. Aggiungi un blocco "brightness setting" e assegnagli il valore 3.
+2. 「Matrix」でドットマトリクスディスプレイを初期化し、ピンCSをIO15に設定します。「明るさ設定」ブロックを追加し、値を3に設定します。
 
 ![](media/B48.png)
 
-3. Trascina un blocco "variable". Imposta il suo ambito su Local, il tipo su int e il nome su light.
+3. 「変数」ブロックをドラッグし、範囲をローカル、型をint、名前をlightに設定します。
 
 ![](media/B49.png)
 
-4. Assegna una funzione map alla variabile. Aggiungi "read the value of light IO33" da "Light" al valore della funzione map, con intervallo da (0,4095) a (0,7).
+4. 変数にマップ関数を割り当てます。「Light」から「IO33の値を読む」ブロックをマップ関数の値に追加し、範囲を(0,4095)から(0,7)に設定します。
 
 ![](media/B50.png)
 
-5. Trova i seguenti blocchi in "Matrix". Pulisci prima il display, poi disegna linee sul display ai punti (x0:3  y0:0, x1:3  y1: variabile light) e (x0:4  y0:0, x1:4  y1: variabile light). Infine aggiorna il display della matrice.
+5. 「Matrix」内の以下のブロックを見つけます。まずディスプレイをクリアし、次にドット(x0:3  y0:0, x1:3  y1:変数light)と(x0:4  y0:0, x1:4  y1:変数light)に線を描画します。最後にマトリクスの表示を更新します。
 
 ![](media/B51.png)
 
-**Codice Completo:**
+**完成コード：**
 
 ![](media/B52.png)
 
-**7. Spiegazione del Codice**
+**7. コード説明**
 
-Legge il valore analogico della fotoresistenza impostando il pin.
+ピンを設定してフォトレジスタのアナログ値を読み取ります。
 
 ![](media/B53.png)

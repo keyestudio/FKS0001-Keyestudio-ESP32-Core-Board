@@ -1,30 +1,30 @@
-### Progetto 33 ESP32 Lettura Dati
+### プロジェクト33 ESP32 データ読み取り
 
-**1. Descrizione**
+**1. 説明**
 
-Abbiamo imparato come controllare il led tramite ESP32 wifi e visualizzare l'indirizzo IP sul LCD1602. Successivamente, utilizzeremo la scheda esp32 per leggere i dati del sensore e trasmetterli alla pagina web.
+ESP32のWiFiを通じてLEDライトを制御し、IPアドレスをLCD1602に表示する方法を学びました。次に、ESP32ボードを使ってセンサーのデータを読み取り、それをウェブページに送信します。
 
-**Note**
+**注意事項**
 
-1. È necessario preparare una rete WIFI a frequenza 2.4GHz, non a 5GHz. Può essere un hotspot mobile o un router.
-2. La scheda ESP32 consuma più energia quando è connessa alla rete, quindi è necessario collegare un'alimentazione esterna a questo kit. Forniamo un supporto per 6 batterie AA (batterie non incluse), che può essere collegato alla porta DC della scheda integrata ESP32.
+1. 2.4GHz帯のWiFiが必要です。5GHz帯は使用できません。モバイルホットスポットやルーターでも構いません。
+2. ESP32ボードはネットワーク接続時に消費電力が増えるため、外部電源の接続が必要です。本キットには6本用の単三電池ホルダー（電池は含まれていません）を用意しており、ESP32統合ボードのDCポートに接続できます。
 
 ![](media/B58.png)![](media/B59.png)
 
-3. Quando si utilizzano altri dispositivi per controllare questo kit, la scheda ESP32 deve essere connessa alla stessa rete del dispositivo di controllo.
+3. 他のデバイスで本キットを制御する場合、ESP32ボードは制御デバイスと同じネットワークに接続されている必要があります。
 
-4. Ricordati il nome e la password della tua rete wifi e inseriscili nel codice prima di caricarlo.
+4. WiFiのネットワーク名とパスワードを覚えておき、アップロード前にコードに入力してください。
 
 ```
-const char* ssid = "your_SSID"; // Inserisci il nome WiFi, ad esempio,= "KEYES"
-const char* password = "your_password"; // Inserisci la password WiFi, ad esempio,= "123456"
+const char* ssid = "your_SSID"; // WiFi名を入力、例: "KEYES"
+const char* password = "your_password"; // WiFiパスワードを入力、例: "123456"
 ```
 
-**2. Schema di Collegamento**
+**2. 配線図**
 
 ![](media/B60.png)
 
-**3. Caricamento Codice**
+**3. コードのアップロード**
 
 ```
 #include <WiFi.h>
@@ -33,29 +33,29 @@ const char* password = "your_password"; // Inserisci la password WiFi, ad esempi
 #include <LiquidCrystal_I2C.h>
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
-// Configurazione WiFi
-const char* ssid = "your-SSID";    // nome WiFi
-const char* password = "your-PASSWORD";  // password WiFi
+// WiFi設定
+const char* ssid = "your-SSID";    // WiFi名
+const char* password = "your-PASSWORD";  // WiFiパスワード
 
-// Creazione Web Server
+// Webサーバー作成
 AsyncWebServer server(80);
 
-// Configurazione DHT11
-xht11 xht(26);                         // imposta il pin del sensore DHT11 su IO26
-unsigned char dat[] = { 0, 0, 0, 0 };  // Definisce un array per memorizzare temperatura e umidità
+// DHT11設定
+xht11 xht(26);                         // DHT11センサーをIO26に設定
+unsigned char dat[] = { 0, 0, 0, 0 };  // 温度と湿度の値を格納する配列
 int i = 0;
 
-// Configurazione fotoresistore
-#define LDRPIN 34  // collega il fotoresistore a GPIO34 (ingresso analogico)
+// フォトレジスタ設定
+#define LDRPIN 34  // フォトレジスタをGPIO34（アナログ入力）に接続
 
 void setup() 
 {
-  lcd.init();  // inizializza il lcd
+  lcd.init();  // LCD初期化
   lcd.backlight();
   lcd.setCursor(0, 0);
   lcd.print("IP:");
 
-  // Connessione WiFi
+  // WiFi接続
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
     lcd.setCursor(i, 1);
@@ -73,22 +73,22 @@ void setup()
   lcd.setCursor(0, 1);
   lcd.print(WiFi.localIP());
 
-  // Gestione richiesta client e risposta alla pagina
+  // クライアントリクエスト処理とページ返却
   server.on("/", HTTP_GET, [](AsyncWebServerRequest* request) {
     String html = generateHTML();
     request->send(200, "text/html", html);
   });
 
-  // Avvio del Web server
+  // Webサーバー開始
   server.begin();
 }
 
 String generateHTML() 
 {
-  // acquisizione valore fotoresistore
-  int lightValue = analogRead(LDRPIN);  // legge il valore analogico del fotoresistore
+  // フォトレジスタ値取得
+  int lightValue = analogRead(LDRPIN);  // フォトレジスタのアナログ値を読み取り
 
-  // Genera pagina HTML
+  // HTMLページ生成
   String html = "<html><head><style>";
   html += "body { font-family: Arial, sans-serif; background-color: #f4f4f4; }";
   html += "h2 { color: #333; }";
@@ -96,24 +96,24 @@ String generateHTML()
   html += "div.sensor h3 { margin: 0; }";
   html += "div.sensor p { font-size: 20px; color: #555; }";
   html += "</style>";
-  // aggiunge aggiornamento automatico, aggiorna la pagina ogni 5 secondi
+  // 自動更新設定、5秒ごとにページをリフレッシュ
   html += "<meta http-equiv='refresh' content='5'>";
   html += "</head><body>";
 
-  // visualizza temperatura e umidità
+  // 温度と湿度の表示
   html += "<div class='sensor'>";
-  html += "<h3>Temperatura</h3>";
+  html += "<h3>Temperature</h3>";
   html += "<p>" + String(dat[2]) + " &deg;C</p>";
   html += "</div>";
 
   html += "<div class='sensor'>";
-  html += "<h3>Umidità</h3>";
+  html += "<h3>Humidity</h3>";
   html += "<p>" + String(dat[0]) + " %</p>";
   html += "</div>";
 
-  // visualizza valore di resistenza del fotoresistore
+  // フォトレジスタの明るさ値表示
   html += "<div class='sensor'>";
-  html += "<h3>Luminosità</h3>";
+  html += "<h3>Luminance</h3>";
   html += "<p>" + String(lightValue) + "</p>";
   html += "</div>";
   html += "</body></html>";
@@ -123,16 +123,16 @@ String generateHTML()
 
 void loop() 
 {
-  // Aggiorna temperatura, umidità e intensità luminosa ogni 2 secondi
+  // 2秒ごとに温度、湿度、光強度を更新
   if (!xht.receive(dat)) {
-    Serial.println("errore sensore");
+    Serial.println("sensor error");
   }
   delay(2000);
 }
 ```
 
-**4. Risultato del Test**
+**4. テスト結果**
 
-Dopo aver caricato il codice, LCD1602 mostra l'indirizzo IP. Usa un computer o un telefono collegato alla stessa rete della scheda ESP32, apri il browser e inserisci l'indirizzo IP, potrai vedere i valori del sensore sulla pagina di controllo che si aggiorna ogni 5 secondi.
+コードをアップロードすると、LCD1602にIPアドレスが表示されます。ESP32ボードと同じネットワークに接続されたパソコンやスマートフォンでブラウザを開き、IPアドレスを入力すると、5秒ごとに更新される制御ページでセンサーの値を確認できます。
 
 ![](media/B61.png)

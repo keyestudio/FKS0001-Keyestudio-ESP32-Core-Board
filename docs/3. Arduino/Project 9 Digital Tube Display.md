@@ -1,52 +1,52 @@
-### Progetto 9 Display a Tubo Digitale
+### プロジェクト9 デジタルチューブディスプレイ
 
-**1. Descrizione**
+**1. 説明**
 
-Questo display a tubo digitale a 4 cifre è un dispositivo utilizzato per visualizzare conteggi o tempo, in grado di mostrare numeri da 0 a 9 e lettere semplici. È composto da quattro tubi digitali, ognuno dei quali ha sette diodi emettitori di luce (LED).
+この4桁のデジタルチューブディスプレイは、カウントや時間を表示するためのデバイスで、0～9の数字および簡単な文字を表示できます。4つのデジタルチューブで構成されており、それぞれに7つの発光ダイオード（LED）が搭載されています。
 
-Inoltre, molteplici funzioni possono essere realizzate collegando i loro pin alla scheda di sviluppo Arduino, come la misurazione del tempo e alcuni giochi memorizzati.
+さらに、ピンをArduino開発ボードに接続することで、時計機能やゲームの保存など複数の機能を実現できます。
 
-**2. Principio di Funzionamento**
+**2. 動作原理**
 
 ![](media/A33.png)
 
-TM1650 utilizza il protocollo IIC e adotta due linee bus (SDA e SCL).
+TM1650はIICプロトコルを利用し、2本のバスライン（SDAとSCL）を採用しています。
 
-**Comando Dati:** 0x48.  
-Questo comando indica al TM1650 di accendere i tubi digitali anziché effettuare la scansione dei tasti.
+**データコマンド:** 0x48  
+このコマンドはTM1650にデジタルチューブを点灯させるよう指示し、キーのスキャンは行いません。
 
-**Comando Display:**
+**表示コマンド:**
 
 ![](media/A34.png)
 
-In realtà, è un byte di dati con bit diversi che rappresentano funzioni differenti.  
-**bit[6:4]:** Imposta la luminosità del LED. Nota che 000 indica la massima luminosità.  
-**bit[3]:** Determina se è presente un punto decimale.  
-**bit[0]:** Determina se accendere il display.
+実際には1バイトのデータで、異なるビットが異なる機能を表します。  
+**bit[6:4]:** LEDの明るさを設定します。000は最も明るいことを示します。  
+**bit[3]:** 小数点の有無を決定します。  
+**bit[0]:** 表示のオン・オフを決定します。
 
-**Accensione del Tubo Digitale**  
-Prendiamo un esempio: luminosità livello 8 senza punto decimale corrisponde a 0x05.  
-Passaggi: Segnale di inizio — Invia 0x48 — Dispositivo slave riceve — Invia 0x05 — Dispositivo slave riceve — Segnale di fine  
-Dopo l’accensione, non è necessario inviare ripetutamente 0x48, poiché la funzione del tubo digitale è stata confermata.  
-Inoltre, la luminosità e i metodi di visualizzazione possono essere elencati con più dati in un unico punto, rendendo il tutto chiaro e salvaspazio.
+**デジタルチューブの点灯**  
+例として、小数点なしのレベル8の明るさは0x05を示します。  
+手順：開始信号 — 0x48送信 — スレーブデバイス受信 — 0x05送信 — スレーブデバイス受信 — 終了信号  
+点灯後は、デジタルチューブの機能が確定しているため、0x48を繰り返し送信する必要はありません。  
+また、明るさや表示方法は複数のデータを一括で列挙できるため、分かりやすく省スペースです。
 
-**Spegnimento del Tubo Digitale**  
-Passaggi: Segnale di inizio — Invia 0x48 — Dispositivo slave riceve — Invia 0x00 — Dispositivo slave riceve — Segnale di fine
+**デジタルチューブの消灯**  
+手順：開始信号 — 0x48送信 — スレーブデバイス受信 — 0x00送信 — スレーブデバイス受信 — 終了信号
 
-**Visualizzazione Numeri sul Tubo Digitale**  
-Prima diciamo al TM1650 di visualizzare numeri sul tubo predeterminato. Successivamente il numero verrà mostrato. I suoi otto bit corrispondono a otto segmenti, con 1 per accendere e 0 per spegnere. Se ci sono dubbi sulla corrispondenza, è possibile accendere bit per bit in un ciclo.
+**デジタルチューブの数字表示**  
+まずTM1650に特定のチューブに数字を表示するよう指示します。すると数字が表示されます。8ビットは8つのセグメントに対応し、1は点灯、0は消灯を意味します。対応関係に疑問がある場合は、ループでビットごとに点灯させて確認できます。
 
-Ad esempio, quando il bit 1 è acceso e visualizza 8, il dato è 0x68. Se è presente un punto, 8 verrà comunque visualizzato inviando 0x7f.  
-Passaggi: Segnale di inizio — Invia 0x68 — Dispositivo slave riceve — Invia 0x7f — Dispositivo slave riceve — Segnale di fine  
-Risultato: 8 viene visualizzato sul Bit 1.
+例えば、ビット1が点灯して8を表示する場合、データは0x68です。小数点がある場合は、0x7fを送信すると8が表示されます。  
+手順：開始信号 — 0x68送信 — スレーブデバイス受信 — 0x7f送信 — スレーブデバイス受信 — 終了信号  
+結果：ビット1に8が表示されます。
 
-Per comodità, può essere creata una matrice di valori corrispondenti da 0 a 9. Dopo ulteriori miglioramenti, è possibile visualizzare numeri, regolare la luminosità, spostare il punto decimale e i tubi.
+便宜上、0～9に対応する値の配列を作成できます。さらに改良すれば、数字表示、明るさ調整、小数点やチューブのシフトが可能です。
 
-**3. Schema di Collegamento**
+**3. 配線図**
 
 ![](media/A35.png)
 
-**4. Codice di Test**
+**4. テストコード**
 
 ```
 /*
@@ -73,13 +73,13 @@ void loop()
 }
 ```
 
-**5. Risultato del Test**
+**5. テスト結果**
 
-Dopo aver collegato i cavi e caricato il codice, il display a tubo digitale mostra "9999", come mostrato di seguito.
+配線を接続しコードをアップロードすると、デジタルチューブディスプレイに「9999」が表示されます。下図参照。
 
 ![](media/A36.png)
 
-**6. Codice Esteso**
+**6. 拡張コード**
 
 ```
 /*
@@ -103,13 +103,13 @@ void setup()
 void loop()
 {
   for(int num=0; num<10000; num++)
-  {   //Se num è inferiore a 10000, num aumenterà di 1 ad ogni ciclo
-    DigitalTube.displayFloatNum(num);   //Valori o variabili nelle parentesi possono essere visualizzati tramite il tubo digitale
+  {   //numが10000未満の場合、1サイクルごとにnumが1ずつ増加します
+    DigitalTube.displayFloatNum(num);   //括弧内の値や変数をデジタルチューブで表示可能
     delay(100);
   }
 }
 ```
 
-**7. Risultato del Test**
+**7. テスト結果**
 
-Dopo aver caricato il codice, il tubo digitale visualizza i numeri da 1 a 9999 tramite il ciclo "for".
+コードをアップロード後、デジタルチューブは「for」ループにより1～9999を表示します。

@@ -1,22 +1,22 @@
-### Progetto 11 LCD
+### プロジェクト11 LCD
 
-**1. Descrizione**
+**1. 説明**
 
-Arduino I2C 1602 LCD è un dispositivo ausiliario comunemente usato per le schede di sviluppo MCU per collegarsi a sensori e moduli esterni. Presenta uno schermo LCD a 16 caratteri di larghezza e 2 linee con luminosità regolabile. Questo modulo programmabile è comodo per la modifica, visualizzazione e gestione dei dati. Inoltre, può mostrare non solo caratteri e cifre, ma anche valori dei sensori, come temperatura, umidità o pressione.
+Arduino I2C 1602 LCDは、MCU開発ボードが外部センサーやモジュールと接続するための一般的な補助デバイスです。16文字×2行のLCD画面と調整可能な輝度を備えています。このプログラム可能なモジュールは、データの編集、表示、管理に便利です。さらに、文字や数字だけでなく、温度、湿度、圧力などのセンサー値も表示できます。
 
-Grazie alla sua versatilità, il display è ampiamente utilizzato in molti settori, inclusi prodotti per la casa intelligente, sistemi di monitoraggio industriale, sistemi di controllo robotico e sistemi elettronici automobilistici.
+その使いやすさから、このディスプレイはスマートホーム製品、産業用監視システム、ロボット制御システム、自動車電子システムなど多くの分野で広く応用されています。
 
-**2. Principio di funzionamento**
+**2. 動作原理**
 
 ![](media/A44.png)
 
-Il principio è lo stesso della comunicazione IIC. Le funzioni di base sono state incapsulate in librerie in modo che possano essere richiamate direttamente. Se sei interessato, puoi approfondire i principi di funzionamento sottostanti.
+IIC通信の原理と同じです。基盤となる機能はライブラリにパッケージ化されているため、直接呼び出して使用できます。興味があれば、基盤となる駆動原理をさらに詳しく調べてみてください。
 
-**3. Schema di collegamento**
+**3. 配線図**
 
 ![](media/A45.png)
 
-**4. Codice di prova**
+**4. テストコード**
 
 ```
 /*
@@ -44,13 +44,13 @@ void loop()
 }
 ```
 
-**5. Risultato del test**
+**5. テスト結果**
 
-Dopo aver collegato i fili e caricato il codice, accendi l’LCD, verranno visualizzati "Hello, world!" e "keyestudio!" sul display.
+配線を接続しコードをアップロードした後、LCDの電源を入れると、「Hello, world!」と「keyestudio!」がLCDに表示されます。
 
 ![](media/A46.png)
 
-Se i caratteri risultano poco chiari, regola il potenziometro della retroilluminazione con un piccolo cacciavite a taglio (usa una forza adeguata per la regolazione). Collega un’alimentazione esterna se necessario.
+文字が不鮮明な場合は、小さなマイナスドライバーでバックライトのポテンショメーターを調整してください（適切な力で調整してください）。必要に応じて外部電源を接続してください。
 
 ![](media/A47.png)
 

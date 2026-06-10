@@ -1,45 +1,45 @@
-### Progetto 6 Luce a Flusso d'Acqua
+### プロジェクト6 水流ライト
 
-**1. Descrizione**
+**1. 説明**
 
-Questo semplice progetto di luce a flusso d'acqua ti aiuta a imparare il confezionamento elettronico. In questo progetto, controlleremo i LED per cambiare colore a una velocità specificata tramite una scheda Arduino.
+このシンプルな水流ライトプロジェクトは、電子パッケージングの学習に役立ちます。本プロジェクトでは、Arduinoボードを使ってLEDの色を指定した速度で変化させます。
 
-**2. Schema di Collegamento**
+**2. 配線図**
 
 ![](media/A74.png)
 
-**3. Codice di Test**
+**3. テストコード**
 
-Una luce a flusso d'acqua consiste in una sequenza di illuminazione dei LED da sinistra a destra.
+水流ライトは、左から右へと流れるLEDの光の列で構成されています。
 
-1. Trascina i due blocchi di codice base.
+1. 基本のコードブロックを2つドラッグします。
 
 ![](media/A75.png)
 
-2. Imposta la modalità del pin su “output”.
+2. ピンモードを「output」に設定します。
 
 ![](media/A76.png)
 
-3. Trascina i seguenti blocchi dalla sezione "LED" e imposta il pin IO15 su LOW, il pin IO12 su HIGH. Poi imposta il tempo di ritardo a 0,2s.
+3. 「LED」パートから以下のブロックをドラッグし、IO15ピンをLOW、IO12ピンをHIGHに設定します。遅延時間を0.2秒に設定してください。
 
 ![](media/A77.png)
 
-4. Trascina i seguenti blocchi dalla sezione "LED" e imposta il pin IO12 su LOW, il pin IO13 su HIGH. Poi imposta il tempo di ritardo a 0,2s.
+4. 「LED」パートから以下のブロックをドラッグし、IO12ピンをLOW、IO13ピンをHIGHに設定します。遅延時間を0.2秒に設定してください。
 
 ![](media/A78.png)
 
-5. Trascina i seguenti blocchi dalla sezione "LED" e imposta il pin IO13 su LOW, il pin IO14 su HIGH. Poi imposta il tempo di ritardo a 0,2s.
+5. 「LED」パートから以下のブロックをドラッグし、IO13ピンをLOW、IO14ピンをHIGHに設定します。遅延時間を0.2秒に設定してください。
 
 ![](media/A79.png)
 
-6. Trascina i seguenti blocchi dalla sezione "LED" e imposta il pin IO14 su LOW, il pin IO15 su HIGH. Poi imposta il tempo di ritardo a 0,2s.
+6. 「LED」パートから以下のブロックをドラッグし、IO14ピンをLOW、IO15ピンをHIGHに設定します。遅延時間を0.2秒に設定してください。
 
    ![](media/A80.png)
 
-**Codice Completo：**
+**完成コード：**
 
 ![](media/A81.png)
 
-**4. Risultato del Test**
+**4. テスト結果**
 
-Dopo aver caricato il codice e acceso l'alimentazione, i LED si accendono da sinistra a destra.
+コードをアップロードして電源を入れると、LEDが左から右へ順に点灯します。

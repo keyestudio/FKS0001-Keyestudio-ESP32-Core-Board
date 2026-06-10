@@ -1,43 +1,43 @@
-### Progetto 22 Misuratore di Rumore
+### プロジェクト22 ノイズメーター
 
-**1. Descrizione**
+**1. 説明**
 
-Il misuratore di rumore Arduino rappresenta il segnale sonoro come una serie di punti, che vengono convertiti in pattern visualizzati sulla matrice di punti.
+Arduinoノイズメーターは音の信号を一連のドットに変換し、それをドットマトリクス上にパターンとして表示します。
 
-**2. Schema di Collegamento**
+**2. 配線図**
 
 ![](media/B63.png)
 
-**3. Codice di Test**
+**3. テストコード**
 
-1. Trascina i blocchi base e inizializza il display. Imposta il pin CS su IO15 e la luminosità a 3. Poi aggiungi un blocco variabile, seleziona int e chiamalo "item" con un valore iniziale di 0.
+1. 基本ブロックをドラッグしてディスプレイを初期化します。ピンCSをIO15に設定し、明るさを3にします。次に変数ブロックを追加し、型をintにして名前を「item」とし、初期値を0に設定します。
 
-2. Aggiungi un blocco variabile e chiamalo "item". Usa una funzione map per convertire il valore sonoro letto da un intervallo 0-4095 a 0-7, considerando però che il valore massimo ipotetico del suono è 800.
+2. 変数ブロックを追加し名前を「item」とします。map関数を使って読み取った音の値の範囲0-4095を0-7に変換します。ただし、音の最大値の仮定は800です。
 
 ![](media/B64.png)
 
-3. Pulisci il display.
+3. ディスプレイをクリアします。
 
-4. Programma una condizione. Se la variabile item è maggiore di -1, la matrice di punti visualizza (x0:0  y0:0 x1:1  y1:0) in colore rosso.
+4. 条件をプログラムします。変数itemが-1より大きい場合、ドットマトリクスは（x0:0  y0:0 x1:1  y1:0）を赤色で表示します。
 
 ![](media/B65.png)
 
-5. Ripeti il passo 4, ma la condizione è che item sia maggiore di 0. In tal caso, si accendono i punti in (x0:1  y0:0  x1:1  y1:1). Per analogia, costruisci i blocchi di codice facendo riferimento alle coordinate seguenti.
+5. ステップ4を繰り返しますが、判定はitemが0より大きいかどうかです。もしそうなら、（x0:1  y0:0  x1:1  y1:1）のドットが点灯します。同様に、以下の座標を参照してコードブロックを作成します。
 
-6. Infine, aggiorna il display.
+6. 最後にディスプレイを更新します。
 
-**Coordinate di Riferimento:**
+**参照座標：**
 
 ![](media/B66.png)
 
 ![](media/B67.png)
 
-**Codice Completo:**
+**完成コード：**
 
 ![](media/B68.png)
 
-**4. Risultato del Test**
+**4. テスト結果**
 
-Dopo aver collegato i cavi e caricato il codice, il livello di rumore viene visualizzato sulla matrice di punti, come mostrato di seguito.
+配線を接続しコードをアップロードすると、下図のようにノイズレベルがドットマトリクスに表示されます。
 
 ![](media/B69.png)![](media/B70.png)![](media/B69.png)![](media/B70.png)

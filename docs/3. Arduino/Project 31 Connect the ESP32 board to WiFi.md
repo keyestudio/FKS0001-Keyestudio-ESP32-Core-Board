@@ -1,47 +1,47 @@
-### Progetto 31 Collegare la scheda ESP32 al WiFi
+### プロジェクト31 ESP32ボードをWiFiに接続する
 
-**1. Descrizione**
+**1. 説明**
 
-ESP32 vanta un modulo Wi-Fi e Bluetooth integrato, ampiamente utilizzato nell'Internet delle Cose (IoT). Grazie a questa funzione, può controllare a distanza la trasmissione dei dati tramite la rete wireless.
+ESP32は内蔵のWi-FiおよびBluetoothモジュールを搭載しており、IoT（モノのインターネット）で広く使用されています。この機能により、無線ネットワークを通じてデータ送信を遠隔制御できます。
 
-Nelle applicazioni, ESP32 può essere utilizzato come client per connettersi a una rete Wi-Fi, oppure come hotspot per creare una propria rete. Attraverso queste connessioni, ESP32 riceve comandi per controllare dispositivi esterni, come accendere/spegnere luci e regolare la temperatura. Nel codice, vengono utilizzati protocolli come HTTP e MQTT per comunicare con il server al fine di inviare e ricevere dati, permettendo così il controllo e il monitoraggio remoto.
+実際の応用では、ESP32はクライアントとしてWi-Fiネットワークに接続したり、ホットスポットとして独自のネットワークを作成したりできます。これらの接続を通じて、ESP32は外部デバイスの制御コマンドを受信し、例えばライトのオン/オフや温度調整を行います。コード内ではHTTPやMQTTなどのプロトコルを使ってサーバーと通信し、データの送受信を行い、遠隔制御や監視を実現します。
 
-**2. WiFi ESP32**
+**2. ESP32のWiFi機能**
 
-La scheda di sviluppo ESP32 è dotata di Wi-Fi integrato (2.4G) e Bluetooth (4.2), che le consentono di connettersi facilmente a una rete Wi-Fi e comunicare con altri dispositivi nella rete. È possibile visualizzare pagine web nel browser tramite ESP32.
+ESP32開発ボードは内蔵のWi-Fi（2.4G）およびBluetooth（4.2）を備えており、Wi-Fiネットワークへの簡単な接続やネットワーク内の他デバイスとの通信が可能です。ESP32を介してブラウザにウェブページを表示できます。
 
-· Modalità stazione base (STA / modalità client Wi-Fi): ESP32 è connesso a un hotspot Wi-Fi (AP).
+· ベースステーションモード（STA / Wi-Fiクライアントモード）：ESP32がWi-Fiホットスポット（AP）に接続されます。
 
-· Modalità AP (Soft-AP / modalità hotspot Wi-Fi): uno o più dispositivi Wi-Fi sono connessi a ESP32.
+· APモード（Soft-AP / Wi-Fiホットスポットモード）：Wi-FiデバイスがESP32に接続されます。
 
-· Modalità AP-STA: ESP32 è sia hotspot Wi-Fi che dispositivo Wi-Fi connesso a un'altra rete Wi-Fi.
+· AP-STAモード：ESP32がWi-Fiホットスポットであると同時に、別のWi-Fiに接続されるデバイスでもあります。
 
-· Queste modalità supportano molteplici modalità di sicurezza, inclusi WPA, WPA2 e WEP.
+· これらのモードはWPA、WPA2、WEPなど複数のセキュリティモードをサポートします。
 
-· È in grado di scansionare hotspot Wi-Fi (attivi o passivi).
+· Wi-Fiホットスポットのスキャン（アクティブまたはパッシブ）が可能です。
 
-· Supporta la modalità promiscuous per monitorare i pacchetti Wi-Fi IEEE802.11.
+· IEEE802.11 Wi-Fiパケットのプロミスキャスモード監視をサポートします。
 
-**3. Schema di collegamento**
+**3. 配線図**
 
 ![](media/B50.png)
 
-**Note:**
+**注意事項:**
 
-1. È necessario preparare un WiFi a frequenza 2.4GHz (non 5GHz). Può essere un hotspot mobile o un router.
+1. 2.4GHz帯のWiFi（5GHzではない）を用意してください。モバイルホットスポットやルーターでも構いません。
 
-2. La scheda ESP32 consuma più energia quando è connessa alla rete, quindi è necessario collegare un'alimentazione esterna a questo kit. Forniamo un supporto per 6 batterie AA (batterie non incluse), che puoi collegare alla porta DC della scheda integrata ESP32.
+2. ESP32ボードはネットワーク接続時に消費電力が増えるため、外部電源を接続する必要があります。6本の単三電池ホルダー（電池は含まれていません）を用意しており、ESP32統合ボードのDCポートに接続できます。
 
    ![](media/B51.jpg)
 
-3. Ricorda il nome e la password della tua rete WiFi e inseriscili nel codice prima di caricarlo.
+3. WiFiのネットワーク名とパスワードを覚えておき、コードにアップロード前に入力してください。
 
 ```
-const char* ssid = "your_SSID"; // Inserisci il nome WiFi, ad esempio,= "KEYES"
-const char* password = "your_password"; // Inserisci la password WiFi, ad esempio,= "123456"
+const char* ssid = "your_SSID"; // WiFi名を入力、例："KEYES"
+const char* password = "your_password"; // WiFiパスワードを入力、例："123456"
 ```
 
-**4. Caricamento del codice**
+**4. コードのアップロード**
 
 ```
 /*
@@ -53,15 +53,15 @@ const char* password = "your_password"; // Inserisci la password WiFi, ad esempi
 #include <LiquidCrystal_I2C.h>
 
 LiquidCrystal_I2C lcd(0x27, 16, 2);
-const char* ssid = "your_SSID"; // imposta il nome del tuo WiFi
-const char* password = "your_password"; // imposta la password del tuo WiFi
+const char* ssid = "your_SSID"; // WiFi名を設定
+const char* password = "your_password"; // WiFiパスワードを設定
 WiFiServer server(80);
 int i = 0;
 
 void setup() 
 {
-  lcd.init();  // inizializza il lcd
-  // Iniziamo con la connessione a una rete WiFi
+  lcd.init();  // LCDを初期化
+  // WiFiネットワークへの接続を開始
   lcd.backlight();
 
   lcd.setCursor(0, 0);
@@ -93,15 +93,15 @@ void loop()
 }
 ```
 
-**5. Risultato del test**
+**5. テスト結果**
 
-Dopo aver caricato il codice, LCD1602 mostra l'indirizzo IP della rete WiFi a cui ESP32 è connesso.
+コードをアップロードすると、LCD1602にESP32が接続したWiFiのIPアドレスが表示されます。
 
 ![](media/B52.png)
 
-**6. Approfondimento**
+**6. 知識の拡張**
 
-L'indirizzo IP visualizza “Hello World!”.
+IPアドレスの表示を「Hello World!」に変更します。
 
 ```
 #include <WiFi.h>
@@ -109,22 +109,22 @@ L'indirizzo IP visualizza “Hello World!”.
 #include <LiquidCrystal_I2C.h>
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
-// Configurazione WiFi
+// WiFi設定
 
-const char* ssid = "your-SSID";     // nome del tuo WiFi
-const char* password = "your-PASSWORD";  // password del tuo WiFi
+const char* ssid = "your-SSID";     // WiFi名
+const char* password = "your-PASSWORD";  // WiFiパスワード
 int i = 0;
-// Crea un Web Server
+// Webサーバーを作成
 AsyncWebServer server(80);
 
 void setup() 
 {
-  lcd.init();  // inizializza il lcd
+  lcd.init();  // LCDを初期化
   lcd.backlight();
   lcd.setCursor(0, 0);
   lcd.print("IP:");
 
-  // Connessione WiFi
+  // WiFi接続
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) 
   {
@@ -144,18 +144,18 @@ void setup()
   lcd.setCursor(0, 1);
   lcd.print(WiFi.localIP());
 
-  // Gestisce la richiesta del client e restituisce la pagina
+  // クライアントのリクエストを処理しページを返す
   server.on("/", HTTP_GET, [](AsyncWebServerRequest* request) {
     String html = generateHTML();
     request->send(200, "text/html", html);
   });
-  // Avvia il Web server
+  // Webサーバーを開始
   server.begin();
 }
 
 String generateHTML()
 {
-  // Genera la pagina HTML
+  // HTMLページを生成
   String html = "<html><head>";
   html += "<h1>Hello, World!</h1>";
   html += "</head></html>";
@@ -167,8 +167,8 @@ void loop()
 }
 ```
 
-**7. Risultato del test**
+**7. テスト結果**
 
-Usa un computer o uno smartphone connesso alla stessa rete della scheda ESP32 e accedi all'indirizzo IP mostrato sul LCD1602: vedrai “Hello world”.
+ESP32ボードと同じネットワークに接続されたパソコンやスマートフォンで、LCD1602に表示されたIPアドレスにアクセスすると、「Hello world」が表示されます。
 
 ![](media/B53.png)

@@ -1,14 +1,14 @@
-### Progetto 22 Misuratore di Rumore
+### プロジェクト22 ノイズメーター
 
-**1. Descrizione**
+**1. 説明**
 
-Il misuratore di rumore sarà in grado di utilizzare il numero di punti sulla matrice LED per riflettere l'intensità del rumore.
+ノイズメーターは、LEDマトリクス上の点の数を使ってノイズの大きさを反映します。
 
-**2. Schema di Collegamento**
+**2. 配線図**
 
 ![](media/B20.png)
 
-**3. Codice di Test**
+**3. テストコード**
 
 ```
 /*
@@ -55,8 +55,8 @@ void loop()
 }  
 ```
 
-**4. Codice di Test**
+**4. テストコードの説明**
 
-Più alto è il valore del suono rilevato dal sensore acustico, più punti si accendono sulla matrice LED.
+音センサーが検出する音の値が大きいほど、LEDマトリクス上の点が多く点灯します。
 
 ![](media/B21.png)![](media/B22.png)

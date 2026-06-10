@@ -1,27 +1,27 @@
-### Progetto 28 Cancello Intelligente
+### プロジェクト28 インテリジェントゲート
 
-**1. Descrizione**
+**1. 説明**
 
-Il cancello intelligente è un sistema di parcheggio intelligente che integra MCU e sensore a ultrasuoni, il quale controlla automaticamente il cancello in base alla distanza delle auto, per gestire meglio l’accesso dei veicoli.
+インテリジェントゲートは、MCUと超音波センサーを統合したインテリジェント駐車場システムであり、車の距離に応じてゲートを自動的に制御し、車両の出入りをより良く管理します。
 
-Quando viene raggiunta una certa distanza, la MCU riceve il segnale dal sensore e stima la distanza tramite l’intensità del segnale. Se l’auto si sta avvicinando o allontanando, la MCU aprirà o chiuderà il cancello tramite un servo.
+一定の距離に達すると、MCUはセンサーから信号を受信し、信号の強度を通じて距離を推定します。車が近づくか離れる場合、MCUはサーボを介してゲートを開閉します。
 
-**2. Diagramma di flusso**
+**2. フローチャート**
 
 ![](media/B110.png)
 
-**3. Schema di collegamento**
+**3. 配線図**
 
 ![](media/B111.png)
 
-**4. Codice di test**
+**4. テストコード**
 
-Definire una variabile "distance" con l’assegnazione del valore di distanza rilevato dal modulo a ultrasuoni.
+超音波モジュールによって検出された距離の値を代入した変数「distance」を定義します。
 
-Successivamente, confrontare il valore di distanza con 30cm. Se è inferiore a 30cm, il servo ruoterà a 180° per 5s. Altrimenti, il servo tornerà a 0°.
+次に、距離の値を30cmと比較します。30cm未満の場合、サーボは5秒間180°に回転します。そうでなければ、サーボは0°に戻ります。
 
 ![](media/B112.png)
 
-**5. Risultato del test**
+**5. テスト結果**
 
-Dopo aver collegato i cavi e caricato il codice, il servo ruoterà a 180° per 5s se la distanza rilevata è inferiore a 30cm. Al contrario, il servo ruoterà a 0°.
+配線を接続しコードをアップロードした後、検出された距離が30cm未満の場合、サーボは5秒間180°に回転します。逆に、サーボは0°に回転します。

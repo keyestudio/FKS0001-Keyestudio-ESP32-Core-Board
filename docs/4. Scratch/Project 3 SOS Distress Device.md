@@ -1,61 +1,61 @@
-### Progetto 3 Dispositivo di Soccorso SOS
+### プロジェクト3 SOS 救難装置
 
-**1. Descrizione**
+**1. 説明**
 
-Il dispositivo SOS è in grado di emettere segnali di soccorso, che coincidono con il principio del codice Morse. È comodo per le emergenze.
+SOS装置はモールス信号の原理に基づいて救難信号を発信することができます。緊急時に便利です。
 
-**2. Schema di Collegamento**
+**2. 配線図**
 
 ![](media/A36.png)
 
-**3. Codice di Test**
+**3. テストコード**
 
-Prima di tutto, dobbiamo chiarire come lampeggia la luce di soccorso SOS: il LED lampeggia rapidamente 3 volte per la lettera “S” e lentamente 3 volte per la lettera “O”.
+まず最初に明確にすべきは、SOS救難ライトの点滅方法です：LEDは「S」のために素早く3回点滅し、「O」のためにゆっくり3回点滅します。
 
-Successivamente, controlliamo il numero di lampeggi e la durata tramite l'istruzione "for" e impostiamo l'intervallo di tempo tra le lettere.
+次に、"for"文を使って点滅回数と点滅時間を制御し、文字間の間隔時間を設定します。
 
-1. Trascina i due blocchi di codice.
+1. 2つのコードブロックをドラッグします。
 
 ![](media/A37.png)
 
-2. Trascina il blocco seguente nella sezione "Pins" e imposta il pin IO5 come output.
+2. 「Pins」パートから以下のブロックをドラッグし、IO5ピンを出力に設定します。
 
 ![](media/A38.png)
 
-**Lettera "S"**
+**文字「S」**
 
-3. Trascina il blocco seguente dalla sezione "Control" e impostalo a 3 volte, poiché "S" significa lampeggiare 3 volte.
+3. 「Control」パートから以下のブロックをドラッグし、3回に設定します。「S」は3回点滅を意味します。
 
 ![](media/A39.png)
 
-4. Trascina i blocchi seguenti dalla sezione "LED" e imposta il pin IO5 su HIGH. Poi imposta il tempo di ritardo a 0.15s.
+4. 「LED」パートから以下のブロックをドラッグし、IO5ピンをHIGHに設定します。次に遅延時間を0.15秒に設定します。
 
 ![](media/A40.png)
 
-5. Trascina i blocchi seguenti dalla sezione "LED" e imposta il pin IO5 su LOW. Poi imposta il tempo di ritardo a 0.1s.
+5. 「LED」パートから以下のブロックをドラッグし、IO5ピンをLOWに設定します。次に遅延時間を0.1秒に設定します。
 
 ![](media/A41.png)
 
-**Lettera O**
+**文字「O」**
 
-6. Riferisciti ai passaggi precedenti per costruire i blocchi di codice seguenti. Modifica l'uscita HIGH con un ritardo di 0.4s e LOW con un ritardo di 0.2s.
+6. 前の手順を参考にして以下のコードブロックを作成します。HIGH出力の遅延を0.4秒、LOWを0.2秒に変更します。
 
 ![](media/A42.png)
 
-**Lettera S**
+**文字「S」**
 
-7. Ripeti i passaggi 3, 4 e 5.
+7. ステップ3、4、5を再度実行します。
 
 ![](media/A43.png)
 
-8. Aggiungi un ritardo di 5s alla fine, e "SOS" si ripeterà ogni 5s.
+8. 最後に5秒の遅延時間を追加し、「SOS」が5秒ごとに繰り返されるようにします。
 
    ![](media/A44.png)
 
-**Codice Completo：**
+**完成コード：**
 
 ![](media/A45.png)
 
-**4. Risultato del Test**
+**4. テスト結果**
 
-Dopo aver caricato il codice, il LED lampeggia rispettivamente 3 volte rapidamente e lentamente.
+コードをアップロードすると、LEDはそれぞれ3回ずつ速く、そして遅く点滅します。

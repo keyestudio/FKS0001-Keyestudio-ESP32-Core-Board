@@ -1,102 +1,102 @@
-### Progetto 13 Mini Lampada
+### プロジェクト13 ミニランプ
 
-**1. Descrizione**
+**1. 説明**
 
-In questo progetto, controlleremo una lampada tramite Arduino UNO e un pulsante. Quando premiamo il pulsante, lo stato della lampada cambierà (ACCESA o SPENTA).
+このプロジェクトでは、Arduino UNOとボタンを使ってランプを制御します。ボタンを押すと、ランプの状態が切り替わります（ONまたはOFF）。
 
-**2. Principio di Funzionamento**
+**2. 動作原理**
 
 ![](media/A152.png)
 
-Quando il pulsante è rilasciato, una tensione VCC che passa attraverso R29 fornisce un livello alto al terminale S. Quando viene premuto, i pin 1 e 3, pin 2 e 4 sono collegati e la tensione su S1 arriva a GND come livello basso. In questo momento, R29 evita un cortocircuito tra VCC e GND.
+ボタンが離されているとき、R29を通る電圧VCCがS端子にハイレベルを供給します。押されると、ピン1と3、ピン2と4が接続され、S1の電圧がGNDに到達してロー レベルになります。この時、R29はVCCとGND間のショートを防ぎます。
 
-**3. Schema di Collegamento**
+**3. 配線図**
 
 ![](media/A153.png)
 
-**4. Codice di Test**
+**4. テストコード**
 
-1. Aggiungi due blocchi base.
+1. 基本ブロックを2つ追加します。
 
 ![](media/A154.png)
 
-2. Trascina un blocco "baud rate" da “Serial” e impostalo a 9600.
+2. “Serial”から「baud rate」をドラッグし、9600に設定します。
 
 ![](media/A155.png)
 
-3. Poi trascina un blocco "print" da “Serial”, digita “Key status:” nel campo vuoto e impostalo su "no-warp".
+3. 次に“Serial”から「print」ブロックをドラッグし、空欄に「Key status:」と入力し、「no-warp」に設定します。
 
 ![](media/A156.png)
 
-4. Imposta il pin IO15 su “input”.
+4. IO15ピンを「input」に設定します。
 
 ![](media/A157.png)
 
-5. Trascina un altro blocco “Serial print” da “Serial” e imposta la modalità su "warp". Aggiungi un blocco "state value of button" da “Button” e imposta il pin su IO15.
+5. もう一つ“Serial print”ブロックを“Serial”からドラッグし、モードを「warp」に設定します。“Button”から「state value of button」を追加し、ピンをIO15に設定します。
 
 ![](media/A158.png)
 
-**Codice Completo:**
+**完成コード：**
 
 ![](media/A159.png)
 
-**5. Risultato del Test**
+**5. テスト結果**
 
-Dopo aver collegato i fili e caricato il codice, apri il monitor seriale e imposta il baud rate a 9600.  
-Quando premiamo il pulsante, la porta seriale stampa "Key status: 0"; quando rilasciamo il pulsante, la porta seriale stampa "Key status: 1".
+配線を接続しコードをアップロードした後、シリアルモニターを開き、ボーレートを9600に設定します。  
+ボタンを押すとシリアルポートに「Key status: 0」と表示され、ボタンを離すと「Key status: 1」と表示されます。
 
 ![](media/A160.png)
 
-**6. Espansione della Conoscenza**
+**6. 知識拡張**
 
-Successivamente, controlleremo il LED tramite lo stato dei pulsanti.
+次に、ボタンの状態を通じてLEDを制御します。
 
-**Diagramma di Flusso：**
+**フローチャート：**
 
 ![](media/A161.png)
 
-**Schema di Collegamento：**
+**配線図：**
 
 ![](media/A162.png)
 
-**Codice:**
+**コード：**
 
-1. Trascina due blocchi base.
+1. 基本ブロックを2つドラッグします。
 
 ![](media/A163.png)
 
-2. Imposta il pin del LED su “output” e il pin del pulsante su “input”.
+2. LEDピンを「output」、ボタンピンを「input」に設定します。
 
 ![](media/A164.png)
 
-3. Trascina un blocco "if else" da “Control”. Aggiungi un blocco "button pin" da “Button” dopo "if" e imposta il suo pin su IO15. Metti un blocco "LED output" sotto "if" e impostalo su HIGH, e un altro sotto "else" impostandolo su LOW. I pin del LED sono entrambi su IO4.
+3. “Control”から「if else」ブロックをドラッグします。“Button”から「button pin」ブロックを「if」の後に追加し、ピンをIO15に設定します。「if」の下に「LED output」ブロックを置き、出力をHIGHに設定し、「else」の下にもう一つ置いてLOWに設定します。LEDピンは両方ともIO4です。
 
 ![](media/A165.png)
 
-**Codice Completo:**
+**完成コード：**
 
 ![](media/A166.png)
 
-**8. Spiegazione del Codice**
+**8. コード説明**
 
-**Nota: La modalità pin deve essere impostata su "input" quando si usa il modulo pulsante.**
+**注意：ボタンモジュールを使用する際はピンモードを必ず「input」に設定してください。**
 
-1. Verifica se il pulsante è premuto. Se sì, questo blocco restituisce true.
+1. ボタンが押されているかどうかを判定します。押されていればこのブロックはtrueを表します。
 
 ![](media/A167.png)
 
-2. Legge il valore del pulsante. Quando il pulsante non è premuto, il valore è 1. Altrimenti, è 0.
+2. ボタンの値を読み取ります。ボタンが押されていないときは値が1、押されているときは0です。
 
 ![](media/A168.png)
 
-3. Se la condizione nel rombo è vera, viene eseguito il blocco "if". Altrimenti, il programma esegue il blocco "else".
+3. 六角形内の条件がtrueの場合、「if」ブロックが実行されます。そうでなければ「else」ブロックが実行されます。
 
 ![](media/A169.png)
 
-4. Imposta il baud rate. Assicurati che il baud rate seriale corrisponda a quello del monitor seriale, altrimenti non verrà stampato nulla. I baud rate comunemente usati sono 9600 e 115200, qui impostiamo 9600.
+4. ボーレートを設定します。シリアルモニターの相手側とボーレートが一致していることを確認してください。そうでないと何も表示されません。一般的なボーレートは9600と115200で、ここでは9600に設定しています。
 
 ![](media/A170.png)
 
-5. Stampa caratteri sul monitor seriale. Le parole stampate sono quelle digitate nel campo vuoto. Inoltre, sono incluse tre modalità di stampa: warp, no-warp e HEX (esadecimale).
+5. シリアルモニターに文字を表示します。表示される文字は空欄に入力したものです。また、表示モードはwarp、no-warp、HEX（16進数）の3種類があります。
 
 ![](media/A171.png)

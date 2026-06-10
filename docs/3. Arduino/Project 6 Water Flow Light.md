@@ -1,17 +1,17 @@
-### Progetto 6 Luce a Flusso d'Acqua
+### プロジェクト6 水流ライト
 
-**1. Descrizione**
+**1. 説明**
 
-Questo semplice progetto di luce a flusso d'acqua ti aiuta a imparare il confezionamento elettronico. In questo progetto, controlleremo i LED per cambiare colore a una velocità specificata tramite una scheda Arduino.
+このシンプルな水流ライトプロジェクトは、電子パッケージングの学習に役立ちます。本プロジェクトでは、Arduinoボードを使ってLEDの色を指定した速度で変化させます。
 
-**2. Schema di Collegamento**
+**2. 配線図**
 
 ![](media/A25.png)
 
-**3. Codice di Test**
+**3. テストコード**
 
-Una luce a flusso d'acqua significa che i LED si accendono da sinistra a destra e poi da destra a sinistra.  
-In questo esperimento, usiamo pin continui, così che l'istruzione "for" possa essere utilizzata non solo per impostare la modalità output (sostituendo i pin con una variabile ciclica nel codice) ma anche per l'output.
+水流ライトとは、LEDが左から右へ、そして右から左へと点灯することを意味します。  
+この実験では連続したピンを使用しているため、"for"文を使って出力モードの設定（コード内のピンを循環変数に置き換える）だけでなく、出力も行うことができます。
 
 ```
 /*
@@ -44,6 +44,6 @@ void loop()
 }
 ```
 
-**4. Risultato del Test**
+**4. テスト結果**
 
-Dopo aver caricato il codice e acceso l'alimentazione, i LED si accendono da sinistra a destra e poi da destra a sinistra
+コードをアップロードして電源を入れると、LEDが左から右へ、そして右から左へと点灯します。

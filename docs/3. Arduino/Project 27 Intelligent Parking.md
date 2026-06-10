@@ -1,20 +1,20 @@
-### Progetto 27 Parcheggio Intelligente
+### プロジェクト27 インテリジェントパーキング
 
-**1. Descrizione**
+**1. 説明**
 
-Questo sistema di parcheggio intelligente rileva e ottimizza la posizione di parcheggio tramite un sensore ad ultrasuoni. Con questo sistema, il parcheggio errato viene evitato in larga misura.
+このインテリジェントパーキングシステムは超音波センサーを使って駐車位置を検出し、最適化します。このシステムにより、誤った駐車を大幅に防止できます。
 
-Per prima cosa, è necessario installare il sensore intorno al parcheggio. Successivamente, rileverà la distanza tra l’auto e i suoi bordi e invierà le informazioni alla scheda di sviluppo per controllare l’auto in modo da regolarla automaticamente nella posizione di parcheggio ottimale.
+まず、駐車場の周囲にセンサーを設置します。次に、車とその周囲の距離を検出し、その情報を開発ボードに送信して、車が自動的に最適な駐車位置に調整されるように制御します。
 
-**2. Diagramma di Flusso**
+**2. フローチャート**
 
 ![](media/B35.png)
 
-**3. Schema di Collegamento**
+**3. 配線図**
 
 ![](media/B36.png)
 
-**4. Codice di Test**
+**4. テストコード**
 
 ```
 /*
@@ -97,8 +97,8 @@ void loop()
 }
 ```
 
-**5. Risultato del Test**
+**5. テスト結果**
 
-Dopo aver collegato i cavi e caricato il codice, verranno visualizzate delle linee sulla matrice di punti. Se la distanza rilevata è inferiore a 50 cm, ci saranno meno linee.
+配線を接続しコードをアップロードすると、ドットマトリクスに線が表示されます。検出された距離が50cm未満の場合、表示される線の数が少なくなります。
 
 ![](media/B37.png)![](media/B38.png)

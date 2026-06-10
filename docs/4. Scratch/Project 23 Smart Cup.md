@@ -1,85 +1,85 @@
-### Progetto 23 Smart Cup
+### プロジェクト23 スマートカップ
 
-**1. Descrizione**
+**1. 説明**
 
-In questo progetto, utilizziamo principalmente la scheda di sviluppo Arduino per creare una smart cup programmabile, che mostra la temperatura del liquido interno tramite un indicatore RGB. È possibile controllare la luminosità della luce impostando una soglia di temperatura. Se la soglia viene superata, la luce si illumina di più. Altrimenti, si attenua.
+このプロジェクトでは、主にArduino開発ボードを採用して、プログラム可能なスマートカップを作成します。カップ内部の液体の温度をRGBインジケーターで表示します。温度の閾値を設定することで、光の明るさを制御できます。閾値を超えると明るくなり、それ以外は暗くなります。
 
-La smart cup aiuta gli utenti a controllare meglio la temperatura dell’acqua da bere e a prevenire efficacemente il surriscaldamento o il congelamento.
+スマートカップは、ユーザーが飲料水の温度をより良く管理し、過熱や凍結を効果的に防ぐのに役立ちます。
 
-**2. Principio di funzionamento**
+**2. 動作原理**
 
 ![](media/B71.png)
 
-Le impostazioni relative al DHT11 sono fornite dai produttori, quindi è sufficiente leggere e processare i dati in ordine secondo il suo diagramma di sequenza.
+DHT11の関連設定はメーカーから提供されているため、そのシーケンスチャートに従って順番にデータを読み取り処理するだけで済みます。
 
-Inoltre, i codici pertinenti sono inclusi nelle nostre librerie, rendendo comodo impostare i pin e leggere i valori.
+さらに、関連コードは当社のライブラリにパッケージ化されており、ピン設定や値の読み取りが簡単に行えます。
 
-**3. Schema di collegamento**
+**3. 配線図**
 
 ![](media/B72.png)
 
-**4. Codice di test**
+**4. テストコード**
 
-1. Trascina due blocchi base. Aggiungi il modulo di impostazione della velocità di trasmissione seriale e imposta il baud rate a 9600.
+1. 基本ブロックを2つドラッグします。シリアルのボーレートモジュールを追加し、ボーレートを9600に設定します。
 
-2. Trascina il modulo DHT dalla sezione “Temperatura e umidità” e imposta il pin su IO26, modalità su dht11.
+2. 「温度と湿度」からDHTモジュールをドラッグし、ピンをIO26、モードをdht11に設定します。
 
 ![](media/B73.png)
 
-3. Aggiungi il modulo di stampa seriale senza a capo, imposta la stampa su “RH:”, poi segui i passaggi successivi e aggiungi un ritardo di 1s.
+3. ラップなしのシリアルプリントモジュールを追加し、プリント内容を「RH:」に設定します。次に以下の手順に従い、1秒の遅延を追加します。
 
-**Codice completo:**
+**完成コード：**
 
 ![](media/B74.png)
 
-**5. Risultato del test**
+**5. テスト結果**
 
-Dopo aver collegato i cavi e caricato il codice, clicca![](media/B75.png)per aprire il monitor seriale, imposta il baud rate a 9600 e verranno visualizzati i valori di temperatura e umidità.
+配線を接続しコードをアップロードした後、![](media/B75.png)をクリックしてシリアルモニターを開き、ボーレートを9600に設定すると、温度と湿度の値が表示されます。
 
 ![](media/B76.png)
 
-**6. Codice di espansione**
+**6. 拡張コード**
 
-In questo esperimento di espansione, realizzeremo una smart cup che può mostrare la temperatura del liquido. Dividiamo 100 in quattro parti con un LED che rappresenta ciascuna:
+この拡張実験では、液体の温度を表示できるスマートカップを作ります。100を4つに分割し、それぞれの範囲をLEDで表します：
 
-- **LED rosso:** 100-75°C
+- **赤色LED：** 100-75°C
 
-- **LED giallo:** 75-50°C
+- **黄色LED：** 75-50°C
 
-- **LED verde:** 50-25°C
+- **緑色LED：** 50-25°C
 
-- **LED blu:** 25-0°C
+- **青色LED：** 25-0°C
 
-**Diagramma di flusso：**
+**フローチャート：**
 
 ![](media/B77.png)
 
-**Schema di collegamento：**
+**配線図：**
 
 ![](media/B78.png)
 
-**Codice：**
+**コード：**
 
-1. Trascina due blocchi base. Poi imposta i 4 pin dei LED su “output”, il pin del DHT11 su IO26, modalità su dht11 e il nome della variabile su temp.
+1. 基本ブロックを2つドラッグします。次に4つのLEDピンを「出力」に設定し、DHT11のピンをIO26、モードをdht11、変数名をtempに設定します。
 
 ![](media/B79.png)
 
-2. Assegna il valore di temperatura del DHT11 alla variabile temp.
+2. DHT11の温度値を変数tempに代入します。
 
 ![](media/B80.png)
 
-3. Usa il blocco "if else" per valutare la variabile temp. Se le condizioni sono soddisfatte, il LED corrispondente si accende, altrimenti si spegne.
+3. "if else"を使って変数tempを判定します。条件を満たせば対応するLEDが点灯し、そうでなければ消灯します。
 
-**Codice completo:**
+**完成コード：**
 
 ![](media/B81.png)
 
-**7. Spiegazione del codice**
+**7. コード説明**
 
-1. In questo blocco di codice, il numero indicato può essere inserito nello spazio vuoto per collegare più sensori di temperatura e umidità. Dopo aver impostato il pin e la modalità, è possibile leggere il valore. In questo progetto, impostiamo la modalità su DHT11.
+1. このコードブロックでは、空欄に番号を入れることで複数の温湿度センサーを接続できます。ピンとモードを設定した後、値を読み取れます。本プロジェクトではモードをDHT11に設定しています。
 
 ![](media/B82.png)
 
-2. Blocco di codice per leggere temperatura e umidità.
+2. 温度と湿度を読み取るコードブロック。
 
 ![](media/B83.png)

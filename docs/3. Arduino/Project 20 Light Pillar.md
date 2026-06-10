@@ -1,24 +1,24 @@
-### Progetto 20 Pilastro di Luce
+### プロジェクト20 ライトピラー
 
-**1. Descrizione**
+**1. 説明**
 
-La resistenza (inferiore a 1KΩ) della fotoresistenza varia in base alla luce, quindi può controllare la luminosità della matrice di punti. Durante il controllo, colleghiamo questa resistenza a un pin analogico sulla scheda per monitorare la variazione della resistenza. In questo modo, la luce controlla automaticamente la luminosità del display.
+フォトレジスタの抵抗値（1KΩ未満）は光の強さによって変化し、それによりドットマトリクスの明るさを制御できます。制御時には、この抵抗をボードのアナログピンに接続して抵抗の変化を監視します。こうすることで、光がディスプレイの明るさを自動的に制御します。
 
-Inoltre, la fotoresistenza è ampiamente utilizzata nella vita quotidiana. Ad esempio, una tenda si apre o si chiude automaticamente in base all'intensità della luce esterna.
+また、フォトレジスタは日常生活でも広く応用されています。例えば、カーテンが外の光の強さに応じて自動的に開閉するなどです。
 
-**2. Principio di Funzionamento**
+**2. 動作原理**
 
 ![](media/B8.png)
 
 ![](media/B9.png)
 
-Quando è completamente al buio, la resistenza è pari a 0,2MΩ, e la tensione al terminale di segnale (punto 2) si avvicina a 0V. Più la luce è intensa, più la resistenza e la tensione saranno basse.
+完全に暗い状態では、抵抗は0.2MΩとなり、信号端子（ポイント2）の電圧は0Vに近づきます。光が強くなるほど、抵抗と電圧は小さくなります。
 
-**3. Schema di Collegamento**
+**3. 配線図**
 
 ![](media/B10.png)
 
-**4. Codice di Test**
+**4. テストコード**
 
 ```
 /*
@@ -43,21 +43,21 @@ void loop()
 }
 ```
 
-**5. Risultato del Test**
+**5. テスト結果**
 
-Dopo aver collegato i fili e caricato il codice, aprire il monitor seriale impostando la velocità di trasmissione a 9600; verrà visualizzato il valore analogico, nell'intervallo da 0 a 4095. Variando l'intensità della luce intorno al sensore, si modifica il valore letto.
+配線を接続しコードをアップロードした後、シリアルモニターを開きボーレートを9600に設定すると、アナログ値が0～4095の範囲で表示されます。周囲の光の強さを変えることで値も変化します。
 
 ![](media/B11.png)
 
-**6. Approfondimento**
+**6. 知識の拡張**
 
-Utilizzeremo questa fotoresistenza per rilevare l'intensità della luce ambientale. Le due colonne centrali sono incluse in questo esperimento per rappresentare l'intensità luminosa. Più è forte, più LED si accenderanno. Questo forma un "pilastro di luce".
+このフォトレジスタを使って周囲の光の強さを感知します。中央の2列はこの実験に含まれており、光の強さを表しています。光が強いほど点灯するLEDの数が増え、「ライトピラー（光の柱）」を形成します。
 
-- **Schema di Collegamento：**
+- **配線図：**
 
 ![](media/B12.png)
 
-- **Codice：**
+- **コード：**
 
 ```
 /*
@@ -94,8 +94,8 @@ void loop()
 }
 ```
 
-- **Risultato del Test**
+- **テスト結果**
 
-Più la luce vicino alla fotoresistenza è intensa, più alta sarà la colonna luminosa della matrice LED.
+フォトレジスタの近くの光が強いほど、LEDマトリクスの光の柱が高くなります。
 
 ![](media/B13.png)

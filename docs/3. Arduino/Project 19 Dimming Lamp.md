@@ -1,24 +1,24 @@
-### Progetto 19 Lampada Dimmerabile
+### プロジェクト19 調光ランプ
 
-**1. Descrizione**
+**1. 説明**
 
-La lampada dimmerabile regola la luminosità del LED tramite un potenziometro e un controller Arduino. La luminosità dipende dal valore di resistenza, che può essere letto e regolato collegando le estremità del potenziometro ai pin digitali o analogici sulla scheda. Inoltre, questo sistema è applicato per controllare la tensione o la corrente di altri dispositivi come ventole, lampadine e riscaldatori.
+調光ランプは、ポテンショメーターとArduinoコントローラーを使ってLEDの明るさを調整します。明るさは抵抗値に依存し、ポテンショメーターの端をボードのデジタルまたはアナログピンに接続することで読み取り・調整が可能です。さらに、このシステムはファン、電球、ヒーターなど他のデバイスの電圧や電流の制御にも応用できます。
 
-**2. Principio di Funzionamento**
+**2. 動作原理**
 
 ![](media/B3.png)
 
 ![](media/B4.png)
 
-Fondamentalmente, il potenziometro è un elemento che può modificare il valore della resistenza. Secondo la legge di Ohm (U=I*R), la resistenza influisce sulla tensione. Il nostro potenziometro è da 10K.
+本質的に、ポテンショメーターは抵抗値を変化させることができる素子です。オームの法則(U=I*R)によれば、抵抗は電圧に影響を与えます。今回のポテンショメーターは10Kです。
 
-In questo progetto, la resistenza massima è 10K. La scheda ESP32 dividerà equamente la tensione di 3V in 4095 parti (3/4095=0.0007326007326). La tensione analogica si ottiene moltiplicando il valore letto per 0.0007326007326.
+このプロジェクトでは、最大抵抗値は10Kです。ESP32ボードは3Vの電圧を4095分割（3/4095=0.0007326007326）します。アナログ電圧は読み取った値に0.0007326007326を掛けることで得られます。
 
-**3. Schema di Collegamento**
+**3. 配線図**
 
 ![](media/B5.png)
 
-**4. Codice di Test**
+**4. テストコード**
 
 ```
 /*
@@ -26,38 +26,38 @@ In questo progetto, la resistenza massima è 10K. La scheda ESP32 dividerà equa
    Project 19.1 Dimming Lamp
   http://www.keyestudio.com
 */
-int pot = 34;      //Definisci la variabile pot su IO34
+int pot = 34;      //Define variable pot to IO34
 
 void setup() 
 {
-  // inserisci qui il codice di setup, da eseguire una volta:
-  Serial.begin(9600);		//Imposta baud rate a 9600
+  // put your setup code here, to run once:
+  Serial.begin(9600);		//Set baud rate to 9600
 }
 
 void loop() 
 {
-  // inserisci qui il codice principale, da eseguire ripetutamente:
-  int value = analogRead(pot);	//Leggi io34 e assegna il valore alla variabile value
-  Serial.println(value);		//Stampa la variabile value e vai a capo
+  // put your main code here, to run repeatedly:
+  int value = analogRead(pot);	//Read io34 and assign it to the variable value
+  Serial.println(value);		//Print the variable value and wrap it around 
   delay(200);
 }
 ```
 
-**5. Risultato del Test**
+**5. テスト結果**
 
-Dopo aver collegato i fili e caricato il codice, aprire il monitor seriale impostando il baud rate a 9600, e verrà visualizzato il valore analogico, nell’intervallo da 0 a 4095. Ruotando il potenziometro si può modificare il valore analogico.
+配線を接続しコードをアップロードした後、シリアルモニターを開きボーレートを9600に設定すると、0～4095の範囲でアナログ値が表示されます。ポテンショメーターを回すことでアナログ値の大きさが変化します。
 
 ![](media/B6.png)
 
-**6. Approfondimento**
+**6. 知識の拡張**
 
-Controlleremo la luminosità del LED tramite un potenziometro. Come sappiamo, questa è influenzata dal PWM. Tuttavia, l’intervallo del valore analogico è 0-4095 mentre quello del PWM è 0-255. Perciò è necessaria la funzione "map(value, fromLow, fromHigh, toLow, toHigh)".
+ポテンショメーターを使ってLEDの明るさを制御します。ご存知のように、これはPWMに影響されます。しかし、アナログ値の範囲は0～4095であるのに対し、PWMの範囲は0～255です。したがって、"map(value, fromLow, fromHigh, toLow, toHigh)"関数が必要になります。
 
-**Schema di Collegamento：**
+**配線図：**
 
 ![](media/B7.png)
 
-**Codice：**
+**コード：**
 
 ```
 /*
@@ -65,24 +65,24 @@ Controlleremo la luminosità del LED tramite un potenziometro. Come sappiamo, qu
    Project 19.2 Dimming Lamp
   http://www.keyestudio.com
 */
-int led = 25;		//Definisci LED su IO25
-int pot = 34;		//Definisci pot su IO34
+int led = 25;		//Define LED to IO25
+int pot = 34;		//Define pot to IO34
 
 void setup() 
 {
-  // inserisci qui il codice di setup, da eseguire una volta:
-  pinMode(led,OUTPUT);		//Imposta il pin LED come output
+  // put your setup code here, to run once:
+  pinMode(led,OUTPUT);		//Set LED pin to output 
 }
 
 void loop() 
 {
-  // inserisci qui il codice principale, da eseguire ripetutamente:
+  // put your main code here, to run repeatedly:
   int value = analogRead(pot);
-  int led_val = map(value,0,4095,0,255);  //Converti l’intervallo del valore analogico del potenziometro in quello necessario  
+  int led_val = map(value,0,4095,0,255);  //Convert the range of potentiometer analog value to the range we need  
   analogWrite(led,led_val);
 }
 ```
 
-**7. Risultato del Test**
+**7. テスト結果**
 
-Dopo che il codice è stato caricato con successo, ruotando il potenziometro si modificherà la luminosità del LED rosso.
+コードのアップロードが成功した後、ポテンショメーターを回すと赤色LEDの明るさが変化します。

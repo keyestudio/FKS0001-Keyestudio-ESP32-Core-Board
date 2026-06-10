@@ -1,20 +1,20 @@
-### Progetto 23 Smart Cup
+### プロジェクト23 スマートカップ
 
-**1. Descrizione**
+**1. 説明**
 
-In questo progetto, utilizziamo principalmente la scheda di sviluppo Arduino per creare una smart cup programmabile, che indica la temperatura del liquido interno tramite un indicatore RGB. È possibile controllare la luminosità della luce impostando una soglia di temperatura. Se la soglia viene superata, la luce si illumina di più. Altrimenti, si attenua.
+本プロジェクトでは、主にArduino開発ボードを採用し、RGBインジケーターで内部液体の温度を表示するプログラム可能なスマートカップを作成します。温度の閾値を設定することで、光の明るさを制御できます。閾値を超えると明るくなり、それ以外は暗くなります。
 
-La smart cup aiuta gli utenti a controllare meglio la temperatura dell'acqua da bere e a prevenire efficacemente il surriscaldamento o il congelamento.
+スマートカップは、ユーザーが飲料水の温度をより適切に管理し、過熱や凍結を効果的に防止するのに役立ちます。
 
-**2. Principio di funzionamento**
+**2. 動作原理**
 
 ![](media/B23.png)
 
-**3. Schema di collegamento**
+**3. 配線図**
 
 ![](media/B24.png)
 
-**4. Codice di test**
+**4. テストコード**
 
 ```
 /*
@@ -51,26 +51,26 @@ void loop()
 }
 ```
 
-**5. Risultato del test**
+**5. テスト結果**
 
-Dopo aver collegato i cavi e caricato il codice, aprire il monitor seriale impostando la velocità a 9600 baud, e verranno visualizzati i valori di temperatura e umidità.
+配線を接続しコードをアップロードした後、シリアルモニターを開きボーレートを9600に設定すると、温度と湿度の値が表示されます。
 
 ![](media/B25.png)
 
-**6. Approfondimento**
+**6. 知識の拡張**
 
-Ora realizzeremo una smart cup che può mostrare la temperatura del liquido. Dividiamo 100 in quattro parti con un LED, come mostrato di seguito:
+ここでは、液体の温度を表示できるスマートカップを作ります。100を4つの範囲に分けてLEDで示します。以下のように設定します：
 
-- **LED Rosso:** 100-75°C
-- **LED Giallo:** 75-50°C
-- **LED Verde:** 50-25°C
-- **LED Blu:** 25-0°C
+- **赤色LED:** 100-75°C
+- **黄色LED:** 75-50°C
+- **緑色LED:** 50-25°C
+- **青色LED:** 25-0°C
 
-**Schema di collegamento：**
+**配線図：**
 
 ![](media/B26.png)
 
-**Codice：**
+**コード：**
 
 ```
 /*
@@ -137,11 +137,11 @@ void loop()
 }
 ```
 
-**Risultato del test**
+**テスト結果**
 
-- **LED Rosso:** 100-75°C
-- **LED Giallo:** 75-50°C
-- **LED Verde:** 50-25°C
-- **LED Blu:** 25-0°C
+- **赤色LED:** 100-75°C
+- **黄色LED:** 75-50°C
+- **緑色LED:** 50-25°C
+- **青色LED:** 25-0°C
 
-Se il LED blu è acceso, significa che la temperatura rilevata dal sensore DHT11 è nell'intervallo 0-25°.
+青色LEDが点灯している場合、DHT11センサーが検出した温度は0〜25°の範囲内であることを意味します。

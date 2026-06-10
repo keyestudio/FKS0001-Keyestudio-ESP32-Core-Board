@@ -1,104 +1,104 @@
-### Progetto 29 Controllo Remoto IR
+### プロジェクト29 IRリモコン制御
 
-**1. Descrizione**
+**1. 説明**
 
-Il telecomando IR utilizza un segnale IR per controllare il LED, semplificando notevolmente il processo di controllo del LED.
+IRリモコンはIR信号を使ってLEDを制御します。これにより、LEDの制御プロセスが大幅に簡素化されます。
 
-**2. Principio di Funzionamento**
+**2. 動作原理**
 
 ![](media/B113.png)
 
-In questo progetto, si utilizza spesso un portante di circa 38K per la modulazione.
+このプロジェクトでは、約38Kのキャリア周波数を変調に使用することが多いです。
 
-Il sistema di controllo remoto IR include modulazione, emissione e ricezione. Invia i dati tramite modulazione, migliorando l'efficienza di trasmissione e riducendo il consumo energetico.
+IRリモコンシステムは変調、送信、受信を含みます。データを変調して送信することで、伝送効率が向上し、消費電力が削減されます。
 
-Generalmente, la frequenza della modulazione del portante è compresa tra 30kHz e 60kHz (solitamente 38kHz). Il duty cycle dell'onda quadra è 1/3, come mostrato di seguito, ed è determinato dall'oscillatore a cristallo da 455kHz sul lato trasmittente.  
-Una divisione di frequenza intera è essenziale per l'oscillatore a cristallo su questo lato, e il coefficiente di frequenza è solitamente valutato a 12. Pertanto, 455kHz÷12≈37.9kHz≈38kHz.
+一般的に、キャリア変調の周波数は30kHz～60kHzの範囲内（通常は38kHz）です。矩形波のデューティ比は1/3で、下図のように送信側の455kHz水晶発振器によって決まります。  
+この端の水晶発振器には整数分周が必須で、周波数係数は通常12と評価されます。したがって、455kHz÷12 ≈ 37.9kHz ≈ 38kHzとなります。
 
-Diagramma completo di emissione del portante a 38KHz:
+38kHzキャリア（完全）送信図：
 
 ![](media/B114.jpg)
 
-- **Frequenza portante:** 38KHz
+- **キャリア周波数:** 38kHz
 
-- **Lunghezza d'onda:** 940nm
+- **波長:** 940nm
 
-- **Angolo di ricezione:** 90°
+- **受信角度:** 90°
 
-- **Distanza di controllo:** 6M
+- **制御距離:** 6m
 
-**Schema dei pulsanti del telecomando:**
+**リモコンボタンの回路図：**
 
 ![](media/B115.png)
 
-**3. Schema di Collegamento**
+**3. 配線図**
 
 ![](media/B116.png)
 
-**4. Codice di Test**
+**4. テストコード**
 
-1. Trascina i due blocchi base.
+1. 基本ブロックを2つドラッグします。
 
-2. Trova e trascina il blocco "IR remote init" da “IR Remote” e imposta il suo pin su IO19. Aggiungi un blocco "baud rate" da "serial" e impostalo a 9600.
+2. 「IR Remote」から「IR remote init」ブロックを見つけてドラッグし、ピンをIO19に設定します。「serial」から「baud rate」ブロックを追加し、9600に設定します。
 
-![](media/B117.png)、
+![](media/B117.png)
 
-3. Trascina un blocco "if" e riempi la sua condizione con "Received data". Solo quando il modulo IR riceve dati, i blocchi di codice dentro "if" verranno eseguiti.
+3. 「if」ブロックをドラッグし、その条件に「Received data」を設定します。IRモジュールがデータを受信した時のみ、「if」内のコードブロックが実行されます。
 
 ![](media/B118.png)
 
-4. Trascina un altro blocco "if" e imposta la sua condizione su "Read the data ＞ 0". Solo quando questa condizione è soddisfatta, la porta seriale inizia a stampare i dati.
+4. もう一つ「if」ブロックをドラッグし、条件を「Read the data ＞ 0」に設定します。この条件が満たされた場合のみ、シリアルポートがデータの出力を開始します。
 
-   Questo sensore funziona così velocemente che il codice può essere eseguito due volte o più mentre si premono i pulsanti di controllo. Tuttavia, la seconda volta di un comando uguale invierà un valore 0, quindi un blocco ">" è necessario per evitare duplicazioni.
+   このセンサーは非常に高速に動作するため、制御ボタンを押している間にコードが2回以上実行されることがあります。しかし、同じコマンドの2回目は0の値を送信するため、重複を避けるために「＞」ブロックが必要です。
 
 ![](media/B119.png)
 
-5. Aggiungi un blocco "serial print" dopo "then". Imposta la stampa dei dati letti dal modulo "IR remote" in modalità "warp".
+5. 「then」の後に「serial print」ブロックを追加し、「IR remote」モジュールから読み取ったデータを「warp」モードで出力するよう設定します。
 
 ![](media/B120.png)
 
-6. Infine, non dimenticare di aggiornare i dati dopo l'esecuzione.
+6. 最後に、実行後にデータをリフレッシュすることを忘れないでください。
 
 ![](media/B121.png)
 
-**Codice Completo:**
+**完成コード：**
 
 ![](media/B122.png)
 
-**5. Risultato del Test**
+**5. テスト結果**
 
-Dopo aver collegato i fili e caricato il codice, apri il monitor seriale e imposta il baud rate a 9600. Premi il pulsante sul telecomando e vedrai il valore in esadecimale.
+配線を接続しコードをアップロードした後、シリアルモニターを開き、ボーレートを9600に設定します。リモコンのボタンを押すと、16進数の値が表示されます。
 
 ![](media/B123.png)
 
-**6. Codice di Espansione**
+**6. 拡張コード**
 
-In questo codice di espansione, realizzeremo una luce controllata da un interruttore remoto IR. Premi OK per accendere il LED e premi di nuovo per spegnerlo.
+この拡張コードでは、IRリモコンスイッチで制御されるライトを作成します。OKボタンを押すとLEDが点灯し、再度押すと消灯します。
 
-Per realizzare questa operazione ripetibile, la variabile "item" è essenziale in tutto il codice. La prima volta, item = 0 quindi i codici in "else" vengono eseguiti per assegnare 1 come nuovo valore. La seconda volta, quando item = 1, invece, il blocco "if" viene eseguito per riassegnare 0, alternativamente.
+この繰り返し操作を実現するために、変数「item」がコード全体で重要です。初回はitem = 0なので、「else」内のコードが実行され1に再代入されます。2回目はitem = 1なので、「if」ブロックが実行され0に再代入されます。
 
-**Schema di Collegamento:**
+**配線図：**
 
 ![](media/B124.png)
 
-**Codice:**
+**コード：**
 
 ![](media/B125.png)
 
-**7. Spiegazione del Codice**
+**7. コード説明**
 
-1. Inizializza il modulo IR remote dopo aver impostato il suo pin di ricezione.
+1. 受信ピンを設定した後、IRリモコンモジュールを初期化します。
 
 ![](media/B126.png)
 
-2. Verifica se il sensore ha ricevuto dati. In tal caso, i blocchi di codice correlati verranno eseguiti.
+2. センサーがデータを受信したかどうかを判定します。受信していれば、関連するコードブロックが実行されます。
 
 ![](media/B127.png)
 
-3. Leggi i dati ricevuti dal controllo remoto IR.
+3. IRリモコンから受信したデータを読み取ります。
 
 ![](media/B128.png)
 
-4. Aggiorna i dati ricevuti dopo ogni esecuzione completa di ricezione.
+4. 受信処理が完了した後、受信データをリフレッシュします。
 
 ![](media/B129.png)

@@ -1,14 +1,14 @@
-### Progetto 24 Stazione Meteo
+### プロジェクト24 天気観測ステーション
 
-**1. Descrizione**
+**1. 説明**
 
-Questa stazione meteo registra la temperatura e l'umidità ambientale tramite scheda Arduino e un sensore di temperatura e umidità.
+この天気観測ステーションは、Arduinoボードと温湿度センサーを使って周囲の温度と湿度の値を記録します。
 
-**2. Schema di Collegamento**
+**2. 配線図**
 
 ![](media/B27.png)
 
-**3. Codice di Test**
+**3. テストコード**
 
 ```
 /*
@@ -46,8 +46,8 @@ void loop()
 }
 ```
 
-**4. Risultato del Test**
+**4. テスト結果**
 
-Dopo aver collegato i cavi e caricato il codice, il display LCD mostrerà direttamente il valore di umidità e temperatura ambientale.
+配線を接続しコードをアップロードすると、LCDディスプレイに周囲の湿度と温度の値が直接表示されます。
 
 ![](media/B28.png)

@@ -1,35 +1,35 @@
-### Progetto 30 Casa Intelligente
+### プロジェクト30 スマートホーム
 
-**1. Descrizione**
+**1. 説明**
 
-In questa era tecnologica, siamo tutti familiari con la casa intelligente. È un sistema che può controllare gli elettrodomestici tramite pulsanti.
+この技術時代において、私たちはスマートホームに慣れ親しんでいます。これはボタンを介して電気機器を制御できるシステムです。
 
-In questo progetto, vogliamo simulare una casa intelligente tramite un telecomando IR. Con Arduino MCU come nucleo, può essere utilizzato per controllare luci, condizionatori, TV e monitor di sicurezza.
+本プロジェクトでは、IRリモコンを使ってスマートホームを模擬します。Arduino MCUをコアにして、照明、エアコン、テレビ、セキュリティモニターの制御に利用できます。
 
-**2. Diagramma di Flusso**
+**2. フローチャート**
 
 ![](media/B130.png)
 
-**3. Schema di Collegamento**
+**3. 配線図**
 
 ![](media/B131.png)
 
-**4. Codice di Test**
+**4. テストコード**
 
-Con il telecomando IR, questa casa intelligente mostra vari valori dei sensori su LCD, inclusi un sensore di temperatura e umidità, un sensore di suono, un fotoresistore, un potenziometro e un sensore ad ultrasuoni.
+IRリモコンを使い、このスマートホームはLCDに温湿度センサー、音センサー、フォトレジスター、ポテンショメーター、超音波センサーなどの各種センサー値を表示します。
 
 ![](media/B132.png)
 
-**5. Risultato del Test**
+**5. テスト結果**
 
-Dopo aver collegato i cavi e caricato il codice, possiamo vedere i contenuti corrispondenti sul LCD premendo i pulsanti. Il pulsante OK cancella la visualizzazione dei sensori.
+配線を接続しコードをアップロードした後、ボタンを押すとLCDに対応する内容が表示されます。OKボタンでセンサー表示をクリアします。
 
 ![](media/B133.png)
 
-**6. Spiegazione del Codice**
+**6. コード説明**
 
-I blocchi sono così numerosi che adottiamo la funzione "Make a Block". Facendo ciò, numerosi blocchi vengono raggruppati e possono essere richiamati direttamente, semplificando notevolmente l’intero programma.
+ブロック数が多いため、「Make a Block」機能を採用しています。これにより、多数のブロックがパッケージ化され直接呼び出せるため、プログラム全体が大幅に簡素化されます。
 
-Clicca su “My Block” per creare un blocco definito dall’utente, e potrai costruire i tuoi blocchi di codice.
+「My Block」をクリックして自作ブロックを作成し、自分だけのコードブロックを構築できます。
 
 ![](media/B134.png)

@@ -1,14 +1,14 @@
-### Progetto 3 Dispositivo di Soccorso SOS
+### プロジェクト3 SOS 救難信号装置
 
-**1. Descrizione**
+**1. 説明**
 
-Il dispositivo Arduino SOS è in grado di emettere segnali di soccorso, che coincidono con il principio del codice Morse. È utile in situazioni di emergenza.
+Arduino SOS装置は、モールス信号の原理に基づいた救難信号を発信することができます。緊急時に便利です。
 
-**2. Schema di Collegamento**
+**2. 配線図**
 
 ![](media/A20.png)
 
-**3. Codice di Test**
+**3. テストコード**
 
 ```
 /*
@@ -57,6 +57,6 @@ void loop()
 }
 ```
 
-**4. Risultato del Test**
+**4. テスト結果**
 
-Dopo che il codice è stato caricato con successo, possiamo vedere che il LED lampeggia 3 volte rapidamente, poi lampeggia 3 volte lentamente e infine lampeggia 3 volte rapidamente, alternando tra veloce e lento.
+コードが正常にアップロードされると、LEDが3回素早く点滅し、その後3回ゆっくり点滅し、再び3回素早く点滅するのが確認できます。速い点滅と遅い点滅が交互に繰り返されます。

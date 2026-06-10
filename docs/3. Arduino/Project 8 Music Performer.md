@@ -1,34 +1,34 @@
-### Progetto 8 Musicista
+### プロジェクト8 音楽演奏者
 
-**1. Descrizione**
+**1. 説明**
 
-In questo progetto, utilizzeremo un altoparlante con amplificatore di potenza per riprodurre musica. Questo altoparlante non solo può suonare semplici canzoni, ma anche eseguire ciò che desideri. Pertanto, puoi programmare altri codici interessanti nel progetto per ottenere risultati di apprendimento splendidi.
+このプロジェクトでは、パワーアンプスピーカーを使って音楽を再生します。このスピーカーは単純な曲を演奏するだけでなく、あなたの望む演奏も可能です。したがって、プロジェクト内で他の面白いコードをプログラムして、素晴らしい学習成果を達成できます。
 
-**2. Principio di funzionamento**
+**2. 動作原理**
 
 ![](media/A28.png)
 
-Il segnale elettrico viene immesso dal pin 1 di RP1 (regola l'intensità del segnale, che corrisponde anche al volume del suono).
+電気信号はRP1のピン1から入力されます（信号の強度を調整し、音量にもなります）。
 
-Dopo l'accoppiamento in C4 e il passaggio attraverso R5, il segnale raggiunge il pin IN- del 8002B, dove viene amplificato operazionalmente e inviato all'altoparlante BEE1.
+C4でカップリングされ、R5を通過した後、信号は8002BのIN-ピンに到達し、そこで演算増幅されてBEE1スピーカーに出力されます。
 
-**Tabella di confronto delle frequenze in C**
+**Cにおける周波数比較表**
 
-|    Nota     | Frequenza(Hz) |      Nota      | Frequenza(Hz) |     Nota     | Frequenza(Hz) |
-| :---------: | :-----------: | :------------: | :-----------: | :----------: | :-----------: |
-| Bemolle  1  Do |      262      | Naturale  1  Do |      523      | Diesis  1  Do |     1047      |
-| Bemolle  2  Re |      294      | Naturale  2  Re |      587      | Diesis  2  Re |     1175      |
-| Bemolle  3  Mi |      330      | Naturale  3  Mi |      659      | Diesis  3  Mi |     1319      |
-| Bemolle  4  Fa |      349      | Naturale  4  Fa |      698      | Diesis  4  Fa |     1397      |
-| Bemolle  5  Sol|      392      | Naturale  5  Sol|      784      | Diesis  5  Sol|     1568      |
-| Bemolle  6  La |      440      | Naturale  6  La |      880      | Diesis  6  La |     1760      |
-| Bemolle  7  Si |      494      | Naturale  7  Si |      988      | Diesis  7  Si |     1967      |
+|    音符     | 周波数(Hz) |      音符      | 周波数(Hz) |     音符     | 周波数(Hz) |
+| :---------: | :--------: | :------------: | :--------: | :----------: | :--------: |
+| フラット 1 ド |    262     | ナチュラル 1 ド |    523     | シャープ 1 ド |   1047     |
+| フラット 2 レ |    294     | ナチュラル 2 レ |    587     | シャープ 2 レ |   1175     |
+| フラット 3 ミ |    330     | ナチュラル 3 ミ |    659     | シャープ 3 ミ |   1319     |
+| フラット 4 ファ |    349     | ナチュラル 4 ファ |    698     | シャープ 4 ファ |   1397     |
+| フラット 5 ソ |    392     | ナチュラル 5 ソ |    784     | シャープ 5 ソ |   1568     |
+| フラット 6 ラ |    440     | ナチュラル 6 ラ |    880     | シャープ 6 ラ |   1760     |
+| フラット 7 シ |    494     | ナチュラル 7 シ |    988     | シャープ 7 シ |   1967     |
 
-**3. Schema di collegamento**
+**3. 配線図**
 
 ![](media/A29.png)
 
-**4. Codice di prova**
+**4. テストコード**
 
 ```
 /*
@@ -64,25 +64,25 @@ void loop()
 }
 ```
 
-**5. Risultato del test**
+**5. テスト結果**
 
-Dopo aver caricato il codice e acceso l'alimentazione, l'amplificatore riproduce ciclicamente toni musicali con frequenze corrispondenti: DO, Re, Mi, Fa, Sol, La, Si.
+コードをアップロードして電源を入れると、アンプは対応する周波数の音階：ド、レ、ミ、ファ、ソ、ラ、シを繰り返し演奏します。
 
-**Regolazione del volume dell'amplificatore di potenza:**
+**パワーアンプの音量調整：**
 
- **Accanto all'altoparlante c'è un potenziometro. Possiamo regolare il volume dell'altoparlante ruotandolo.** (Nota: Si prega di usare una forza adeguata per regolarlo, per non danneggiare il potenziometro)
+**スピーカーの隣にポテンショメーターがあります。これを回すことでスピーカーの音量を調整できます。**（注意：ポテンショメーターを壊さないように適切な力で調整してください）
 
 ![](media/A30.png)
 
-**6. Espansione della conoscenza**
+**6. 知識拡張**
 
-Suoniamo una canzone di compleanno. I collegamenti rimangono invariati.
+誕生日の歌を演奏してみましょう。配線は変更しません。
 
-**Notazione musicale numerica:**
+**数字譜：**
 
 ![](media/A31.png)
 
-**Diagramma di confronto tra Bemolle, Naturale e Diesis**
+**フラット、ナチュラル、シャープの比較図**
 
 ![](media/A32.png)
 

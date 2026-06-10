@@ -1,69 +1,69 @@
-### Progetto 16 Timebomb
+### プロジェクト16 タイムボム
 
-**1. Descrizione**
+**1. 説明**
 
-Questo progetto ti offrirà l'opportunità di sperimentare un interessante gioco della bomba a tempo.
+このプロジェクトでは、面白いタイムボムゲームを体験することができます。  
 
-In questo progetto, la matrice di punti rappresenta la tua bomba a tempo, mentre il tubo digitale mostra il tempo rimanente. I pulsanti non solo controllano la bomba ma permettono anche di impostarne il tempo. Puoi impostare un conto alla rovescia per controllare questa bomba, che esplode quando il conto alla rovescia termina. Inoltre, è adottato un buzzer per l'allarme.
+このプロジェクトでは、ドットマトリクスがタイムボムを表し、デジタルチューブが残り時間を表示します。ボタンは爆弾の操作だけでなく、時間設定も可能です。カウントダウンを設定して爆弾を制御し、カウントダウン終了時に爆発します。それに加えて、ブザーが警報として採用されています。 
 
-In ogni caso, programmando su più sensori, la tua capacità complessiva di pensiero logico può essere migliorata.
+いずれにせよ、複数のセンサーを使ったプログラミングにより、論理的思考の総合力を高めることができます。 
 
-**2. Diagramma di flusso**
+**2. フローチャート**
 
 ![](media/B1.png)
 
-**3. Schema di collegamento**
+**3. 配線図**
 
 ![](media/B2.png)
 
-**4. Codice di test**
+**4. テストコード**
 
-1. Trascina i due blocchi base.
+1. 2つの基本ブロックをドラッグします。
 
 ![](media/B3.png)
 
-2. Imposta il pin del pulsante su “input”.
+2. ボタンのピンを「入力(input)」に設定します。
 
 ![](media/B4.png)
 
-3. Aggiungi un blocco "init matrix display" da "Matrix" e imposta il pin CS su IO15. A seguire, un blocco "brightness" con valore 3 e un blocco "variable" (imposta il tipo variabile su int e il nome su item, assegnando 0 come valore iniziale).
+3. 「Matrix」から「init matrix display」ブロックを追加し、ピンCSをIO15に設定します。続いて、「brightness」ブロックを値3で追加し、「variable」ブロック（変数タイプをint、名前をitem、初期値を0に設定）を追加します。
 
 ![](media/B5.png)
 
-4. In "Matrix", trascina un blocco "fill color" e seleziona "black" (cioè spegni tutti i LED per cancellare la visualizzazione precedente). Aggiungi un blocco "display image" per definire una faccina sorridente. Poi, inserisci un blocco refresh per aggiornare il display.
+4. 「Matrix」から「fill color」ブロックをドラッグし、「black」（すべてのLEDを消灯して前の表示をクリア）を選択します。次に、「display image」ブロックを追加してスマイルフェイスを定義します。最後に、表示を更新するためのリフレッシュブロックを置きます。
 
 ![](media/B6.png)
 
-5. Trascina un blocco "if" e riempi la casella condizione con "interface IO33 button was be pushed?". Aggiungi un blocco "variable mode" dopo "then" e imposta il nome su item e la modalità su "++".
+5. 「if」ブロックをドラッグし、条件欄に「interface IO33 button was be pushed?」を入力します。「then」の後に「variable mode」ブロックを追加し、名前をitem、モードを「++」に設定します。
 
 ![](media/B7.png)
 
-6. Ripeti l’operazione del passo 5, ma imposta l’interfaccia su IO32 e la modalità su "--".
+6. ステップ5の操作を繰り返しますが、インターフェースをIO32に、モードを「--」に設定します。
 
 ![](media/B8.png)
 
-7. Trascina un blocco "if" per verificare se il pin IO26 è premuto. In questo "if", aggiungi un blocco repeat e imposta la condizione su "item" = 0.
+7. 「if」ブロックをドラッグし、ピンIO26が押されたかを判定します。この「if」内に「repeat」ブロックを追加し、条件を「item = 0」に設定します。 
 
-Nel ciclo "repeat until", inserisci un blocco "variable mode" e imposta "item" su "--", come mostrato sotto. Trascina un blocco "TM1650 display" da "Digital tube" e definisci la stringa mostrata come il blocco "variable item". Poi aggiungi un blocco "buzzer output" e imposta l’uscita su HIGH al pin IO27 seguito da un ritardo di 0.5s. Ripeti l’ultima procedura ma imposta l’uscita su LOW.
+「repeat until」ループ内に「variable mode」ブロックを置き、「item」を「--」に設定します。次に、「Digital tube」から「TM1650 display」ブロックをドラッグし、表示文字列を「variable item」ブロックに設定します。続けて、「buzzer output」ブロックを追加し、ピンIO27の出力をHIGHに設定し、0.5秒の遅延を入れます。最後に同じ操作を繰り返しますが、出力をLOWに設定します。
 
 ![](media/B9.png)
 
-8. Programma un altro ciclo e definisci la condizione come "interface IO25 button was be pushed?". Le esecuzioni seguenti sono in questo ciclo. Inserisci un blocco "TM1650 display" e definisci la stringa mostrata come il blocco "variable item". Poi ripeti il passo 4 ma qui imposta l’immagine su una faccina che piange.
+8. もう一つループコードをプログラムし、条件を「interface IO25 button was be pushed?」に設定します。このループ内で実行される処理は以下の通りです。「TM1650 display」ブロックを置き、表示文字列を「variable item」ブロックに設定します。次にステップ4を繰り返しますが、ここでは画像を泣いている顔に設定します。
 
 ![](media/B10.png)
 
-9. Trascina un blocco "if then" e riempi lo spazio vuoto con la condizione: item ＞ 9999. Aggiungi un’istruzione "set item variable by 0" in questo blocco condizione.
+9. 「if then」ブロックをドラッグし、空欄に条件「item ＞ 9999」を入力します。この条件ブロック内に「set item variable by 0」という文を追加します。
 
 ![](media/B11.png)
 
-10. Trascina un blocco "TM1650 display" da "Digital tube" e definisci la stringa mostrata come "variable item". Per lo stesso motivo, non dimenticare un ritardo di 0.2s.
+10. 「Digital tube」から「TM1650 display」ブロックをドラッグし、表示文字列を「variable item」に設定します。同様に、0.2秒の遅延を忘れずに入れます。
 
 ![](media/B12.png)
 
-**Codice completo:**
+**完成コード:**
 
 ![](media/B13.png)
 
-**5. Risultato del test**
+**5. テスト結果**
 
-Dopo aver collegato i fili e caricato il codice, premi il pulsante blu per aggiungere tempo, il verde per ridurre e il rosso per resettare. Premi il pulsante giallo per avviare il conto alla rovescia. Quando termina, la bomba esplode.
+配線を接続しコードをアップロードした後、青ボタンで時間を増やし、緑ボタンで減らし、赤ボタンでリセットします。黄色ボタンを押すとカウントダウンが始まります。カウントダウン終了時に爆弾が爆発します。

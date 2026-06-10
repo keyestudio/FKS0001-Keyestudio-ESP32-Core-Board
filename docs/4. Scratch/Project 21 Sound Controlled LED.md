@@ -1,102 +1,102 @@
-### Progetto 21 LED Controllato dal Suono
+### プロジェクト21 音声制御LED
 
-**1. Descrizione**
+**1. 説明**
 
-Il LED controllato dal suono è un dispositivo utilizzato per rilevare il suono in modo da controllare la luminosità del LED, composto da una scheda Arduino e alcuni componenti. Può collegarsi a più sensori come i microfoni. Converte il suono in un segnale di tensione variabile che viene ricevuto da Arduino per controllare l’accensione e lo spegnimento del LED.
+音声制御LEDは、音を検出してLEDの明るさを制御する装置で、Arduinoボードといくつかの部品で構成されています。マイクロフォンなど複数のセンサーに接続可能です。音を電圧信号に変換し、その信号をArduinoが受け取ってLEDの点灯・消灯を制御します。
 
-**2. Principio di Funzionamento**
+**2. 動作原理**
 
 ![](media/B54.png)
 
-Quando viene rilevato un suono, la pellicola elettrettrica nel microfono vibra, modificando la capacità e generando una sottile variazione di tensione.
+音を検出すると、マイクロフォン内のエレクトレットフィルムが振動し、静電容量が変化して微小な電圧変化が発生します。
 
-Successivamente, utilizziamo il chip LM386 per costruire un circuito adeguato che amplifica il suono rilevato fino a 200 volte, regolabile tramite un potenziometro. Ruotandolo in senso orario si aumenta il fattore di amplificazione.
+次に、LM386チップを使って検出した音を最大200倍まで増幅する適切な回路を構築します。増幅率は可変抵抗で調整可能で、時計回りに回すと増幅率が大きくなります。
 
-**3. Schema di Collegamento**
+**3. 配線図**
 
 ![](media/B55.png)
 
-**4. Codice di Test**
+**4. テストコード**
 
-Trova il blocco "leggi il valore" in “Sound” e stampa il valore letto sulla porta seriale. Costruisci i blocchi come segue. Fai attenzione a non aggiungere un delay quando usi il sensore di suono.
+「Sound」カテゴリの「値を読む」ブロックを見つけ、読み取った音の値をシリアルポートに表示します。ブロックは以下のように組み立ててください。音センサー使用時はdelayを入れないよう注意してください。
 
 ![](media/B56.png)
 
-**5. Risultato del Test**
+**5. テスト結果**
 
-Dopo aver collegato i cavi e caricato il codice, apri il monitor seriale impostando il baud rate a 9600; verrà visualizzato il valore analogico.
+配線を接続しコードをアップロードした後、シリアルモニターを開きボーレートを9600に設定すると、アナログ値が表示されます。
 
 ![](media/B57.png)
 
-**6. Codice di Espansione**
+**6. 拡張コード**
 
-La luce da corridoio comunemente vista è un tipo di luce controllata dal suono. Nel frattempo, include anche una fotoresistenza.
+よく見かける廊下のライトは音声制御ライトの一種で、同時にフォトレジスターも含まれています。
 
-Diversamente da quella, qui creiamo un modello in cui un LED è influenzato solo dal suono. Quando il volume analogico supera 100, il LED si accende per 2 secondi e poi si spegne.
+これとは異なり、ここではLEDが音だけに影響されるモデルを作成します。アナログ音量が100を超えると、LEDが2秒間点灯し、その後消灯します。
 
-**Diagramma di Flusso：**
+**フローチャート：**
 
 ![](media/B58.png)
 
-**Schema di Collegamento：**
+**配線図：**
 
 ![](media/B59.png)
 
-**Codice：**
+**コード：**
 
-1. Trascina due blocchi base.
+1. 基本ブロックを2つドラッグします。
 
-2. Trascina un blocco "if else" e riempi l’esagono con un blocco item＞100. Imposta il valore su "leggi il valore del suono IO33". Se la condizione è soddisfatta, il LED emette un livello HIGH sul pin IO25 con un ritardo di 2s; altrimenti, emette un livello LOW sullo stesso pin senza ritardo.
+2. 「if else」ブロックをドラッグし、六角形には「item＞100」ブロックを入れます。値は「sound IO33の値を読む」に設定します。条件が満たされた場合、IO25ピンでLEDをHIGHレベルにし2秒遅延させます。そうでなければ、同じピンでLOWレベルを出力し遅延はありません。
 
 ![](media/B60.png)
 
-**Codice Completo:**
+**完成コード：**
 
 ![](media/B61.png)
 
-**7. Spiegazione del Codice**
+**7. コード説明**
 
-Legge il valore del suono impostando il pin relativo.
+関連ピンを設定して音の値を読み取ります。
 
 ![](media/B62.png)  
-### Progetto 22 Misuratore di Rumore
+### プロジェクト22 ノイズメーター
 
-**1. Descrizione**
+**1. 説明**
 
-Il misuratore di rumore Arduino rappresenta il segnale sonoro tramite una serie di punti, che vengono convertiti in pattern visualizzati su matrice di punti.
+Arduinoノイズメーターは音の信号を一連のドットに変換し、それをドットマトリックスにパターン表示します。
 
-**2. Schema di Collegamento**
+**2. 配線図**
 
 ![](media/B63.png)
 
-**3. Codice di Test**
+**3. テストコード**
 
-1. Trascina i blocchi base e inizializza il display. Imposta il pin CS su IO15 e la luminosità a 3. Poi aggiungi un blocco variabile, seleziona int e chiamalo "item" con assegnazione iniziale 0.
+1. 基本ブロックをドラッグしディスプレイを初期化します。CSピンをIO15に、明るさを3に設定します。次に変数ブロックを追加し、型をint、名前を「item」、初期値を0に設定します。
 
-2. Aggiungi un blocco variabile chiamato "item". Usa una funzione map per convertire il valore letto del suono da 0-4095 a 0-7, ipotizzando un valore massimo del suono pari a 800.
+2. 変数ブロックを追加し名前を「item」にします。map関数を使い、読み取った音の値の範囲0-4095を0-7に変換します。ただし音の最大値は800と仮定します。
 
 ![](media/B64.png)
 
-3. Pulisci il display.
+3. ディスプレイをクリアします。
 
-4. Programma una condizione. Se la variabile item è maggiore di -1, la matrice di punti visualizza (x0:0  y0:0 x1:1  y1:0) in colore rosso.
+4. 条件をプログラムします。変数itemが-1より大きければ、ドットマトリックスは(x0:0  y0:0 x1:1  y1:0)を赤色で表示します。
 
 ![](media/B65.png)
 
-5. Ripeti il passo 4, ma la condizione è che item sia maggiore di 0. In tal caso, si accendono i punti in (x0:1  y0:0  x1:1  y1:1). Per analogia, costruisci i blocchi di codice riferendoti alle coordinate seguenti.
+5. ステップ4を繰り返しますが、判定はitemが0より大きいかどうかです。条件を満たせば(x0:1  y0:0  x1:1  y1:1)のドットが点灯します。同様に以下の座標を参照してコードブロックを構築します。
 
-6. Infine, aggiorna il display.
+6. 最後にディスプレイを更新します。
 
-**Coordinate di Riferimento:**
+**参照座標：**
 
 ![](media/B66.png)
 
 ![](media/B67.png)
 
-**Codice Completo:**
+**完成コード：**
 
 ![](media/B68.png)
 
-**4. Risultato del Test**
+**4. テスト結果**
 
-Dopo aver collegato i cavi e caricato il codice, il livello di rumore viene visualizzato sulla matrice di punti, come mostrato di seguito.
+配線を接続しコードをアップロードすると、ノイズレベルがドットマトリックスに表示されます。以下のように表示されます。

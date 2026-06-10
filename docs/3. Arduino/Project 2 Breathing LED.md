@@ -1,28 +1,28 @@
-### Progetto 2 LED Respirante
+### プロジェクト2 ブリージングLED
 
-**1. Descrizione**
+**1. 説明**
 
-Il LED respirante Arduino utilizza il PWM programmabile a bordo per generare un'onda analogica. Dopo l'accensione, la luminosità del LED può essere regolata tramite il duty cycle dell'onda per realizzare l'effetto di LED respirante.
+ArduinoのブリージングLEDは、オンボードのプログラム可能なPWMを利用してアナログ波形を出力します。電源を入れると、波形のデューティサイクルを調整することでLEDの明るさを変化させ、最終的にブリージングLEDの効果を実現します。
 
-In questo modo, la luce ambientale può essere simulata variando la luminosità del LED nel tempo. Inoltre, il LED respirante può formare una mini luce colorata per creare un ambiente tranquillo e caldo.
+この方法により、時間経過に伴ってLEDの明るさを変化させることで環境光をシミュレートできます。また、ブリージングLEDはカラフルなミニライトとして、落ち着いた暖かい雰囲気を作り出すことができます。
 
-**2. Cos'è il PWM?**
+**2. PWMとは？**
 
-Il PWM controlla l'uscita analogica tramite mezzi digitali, permettendo di regolare il duty cycle dell'onda (un segnale che alterna ciclicamente tra livello alto e livello basso).
+PWMはデジタル手段でアナログ出力を制御するもので、波形のデューティサイクル（高レベルと低レベルを周期的に切り替える信号）を調整できます。
 
-Per Arduino, le porte digitali di uscita di tensione sono LOW e HIGH, che corrispondono rispettivamente a 0V e 5V. Generalmente, definiamo LOW come 0 e HIGH come 1. Arduino emette 500 segnali di 0 o 1 in 1 secondo. Se sono "1", verranno emessi 5V. Al contrario, se sono tutti 0, l'uscita sarà 0V. Oppure, se sono 010101010101..., la media dell'uscita sarà 2,5V.
+Arduinoの場合、電圧出力のデジタルポートはLOWとHIGHで、それぞれ0Vと5Vに対応します。一般的にLOWを0、HIGHを1と定義します。Arduinoは1秒間に500回の0または1の信号を出力します。信号が「1」の場合は5Vが出力されます。逆にすべて0の場合は0Vが出力されます。あるいは0101010101...のように交互に出力されると、平均出力は2.5Vになります。
 
-In altre parole, il rapporto di uscita tra 0 e 1 influenza il valore di tensione; più segnali 0 e 1 vengono emessi per unità di tempo, più preciso sarà il controllo.
+つまり、0と1の出力比率が電圧値に影響し、単位時間あたりに出力される0と1の信号が多いほど制御はより正確になります。
 
-I GPIO34, 35, 36 e 39 dell'ESP32 non possono utilizzare il PWM.
+ESP32のGPIO34、35、36、39はPWMを使用できません。
 
 ![](media/A18.png)
 
-**3. Schema di Collegamento**
+**3. 配線図**
 
 ![](media/A19.png)
 
-**4. Codice di Test**
+**4. テストコード**
 
 ```
 /*
@@ -56,6 +56,6 @@ void loop()
 }
 ```
 
-**5. Risultato del Test**
+**5. テスト結果**
 
-Dopo aver caricato il codice, vedremo il LED illuminarsi e spegnersi lentamente, proprio come il ritmo della respirazione.
+コードをアップロードすると、LEDがゆっくりと明るくなり、暗くなる様子が見られ、まるで呼吸のリズムのようです。

@@ -1,42 +1,42 @@
-### Progetto 10 Display a Matrice di Punti
+### プロジェクト10 ドットマトリックスディスプレイ
 
-**1. Descrizione**
+**1. 説明**
 
-Questo modulo consiste in una matrice di LED 8x8 con un pin di controllo per ogni riga e colonna per regolare la luminosità dei LED. Collegandolo alla scheda Arduino, la luminosità dei LED viene controllata per visualizzare caratteri e figure tramite programmazione Arduino. In questo modo, è possibile visualizzare caratteri semplici, numeri e figure. Può essere applicato anche in macchine da gioco o schermi.
+このモジュールは8x8のLEDドットマトリックスで構成されており、各行および各列に1つずつ制御ピンがあり、LEDの明るさを調整します。Arduinoボードと接続することで、Arduinoプログラミングを通じてLEDの明るさを制御し、文字や図形を表示します。この方法により、簡単な文字、数字、図形を表示することが可能です。また、ゲーム機やスクリーンにも応用できます。
 
-**2. Principio di Funzionamento**
+**2. 動作原理**
 
 ![](media/A37.png)
 
-MAX7219 è un IC con comunicazione SPI e può essere utilizzato per controllare la matrice di punti 8x8. La comunicazione SPI del MAX7219 è integrata nelle nostre librerie e può essere richiamata direttamente.
+MAX7219はSPI通信を持つICで、8x8ドットマトリックスの制御に使用できます。MAX7219のSPI通信は当社のライブラリに統合されており、直接呼び出すことができます。
 
-**Funzionamento del Modulo Matrice di Punti**
+**ドットマトリックスモジュロ操作**
 
-Clicca sul link per il Modulo ：[http://dotmatrixtool.com/#](http://dotmatrixtool.com/#)
+モジュロのリンクはこちら：[http://dotmatrixtool.com/#](http://dotmatrixtool.com/#)
 
-**Passaggi:**
+**手順:**
 
-1. Clicca sul link e imposta l'altezza e la larghezza della matrice di punti. Qui impostiamo entrambi a 8.
+1. リンクをクリックし、ドットマトリックスの高さと幅を設定します。ここでは両方とも8に設定します。
 
 ![](media/A38.png)
 
-2. Imposta "Byte Order" su "Column Major".
+2. 「Byte Order」を「Column Major」に設定します。
 
 ![](media/A39.png)
 
-3. Imposta "Endian" su "Big Endian".
+3. 「Endian」を「Big Endian」に設定します。
 
 ![](media/A40.png)
 
-4. Clicca sulle tessere bianche per formare il motivo desiderato (clicca di nuovo per deselezionare), quindi clicca su "Generate" per generare un array per questa icona. Copia questo array e incollalo nel codice, così il motivo verrà visualizzato sulla matrice di punti.
+4. 白いタイルをクリックして表示したいパターンを作成します（再度クリックすると選択解除）。その後「Generate」をクリックしてこのアイコンの配列を生成します。この配列をコピーしてコードに貼り付けると、パターンがドットマトリックスに表示されます。
 
 ![](media/A41.png)
 
-**3. Schema di Collegamento**
+**3. 配線図**
 
 ![](media/A42.png)
 
-**4. Codice di Test**
+**4. テストコード**
 
 ```
 /*
@@ -55,9 +55,9 @@ const byte IMAGES[8] = {0x30, 0x78, 0x7c, 0x3e, 0x3e, 0x7c, 0x78, 0x30};
 void setup() 
 {
   lc.shutdown(0,false);
-  // Imposta la luminosità a un valore medio
+  // Set brightness to a medium value
   lc.setIntensity(0,8);
-  // Pulisce il display
+  // Clear the display
   lc.clearDisplay(0);  
 }
 
@@ -70,8 +70,8 @@ void loop()
 }
 ```
 
-**5. Risultato del Test**
+**5. テスト結果**
 
-Dopo aver collegato i fili e caricato il codice, un cuore verrà visualizzato sulla matrice di punti, come mostrato di seguito.
+配線を接続しコードをアップロードすると、下図のようにドットマトリックスにハートが表示されます。
 
 ![](media/A43.png)

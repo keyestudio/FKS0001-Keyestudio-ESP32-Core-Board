@@ -1,22 +1,22 @@
-### Progetto 7 Buzzer Attivo
+### プロジェクト7 アクティブブザー
 
-**1. Descrizione**
+**1. 説明**
 
-Un buzzer attivo è un componente utilizzato come allarme, promemoria o dispositivo di intrattenimento, che produce un suono affidabile. Inoltre, permette di generare suoni altamente controllabili, rendendo i nostri progetti più interessanti.
+アクティブブザーは、アラーム、リマインダー、またはエンターテインメントデバイスとして使用される部品で、信頼性の高い音を発します。さらに、高度に制御可能な音を発生させることができるため、プロジェクトをより面白くします。
 
-**2. Principio di Funzionamento**
+**2. 動作原理**
 
 ![](media/A26.png)
 
-Un buzzer attivo integra un multivibratore, quindi emette suono solo tramite tensione DC. Il pin 1 del buzzer è collegato a VCC e il pin 2 è controllato da un triode. Quando viene fornito un livello alto alla base (pin 1) del triode, il suo collettore (pin 3) e l'emettitore (pin 2) si collegano a GND, e il buzzer emette suono.
+アクティブブザーはマルチバイブレータを内蔵しているため、直流電圧のみで音を出します。ブザーのピン1はVCCに接続され、ピン2はトライオードによって制御されます。トライオードのベース（ピン1）に高レベルが供給されると、コレクタ（ピン3）とエミッタ（ピン2）がGNDに接続され、ブザーが音を発します。
 
-Al contrario, se forniamo un livello basso alla base, gli altri pin saranno scollegati, quindi il buzzer rimarrà silenzioso.
+逆に、ベースに低レベルを供給すると、他のピンは切断されるため、ブザーは静かなままになります。
 
-**3. Schema di Collegamento**
+**3. 配線図**
 
 ![](media/A27.png)
 
-**4. Codice di Test**
+**4. テストコード**
 
 ```
  /*
@@ -40,6 +40,6 @@ void loop()
 }
 ```
 
-**5. Risultato del Test**
+**5. テスト結果**
 
-Dopo aver caricato il codice e acceso l'alimentazione, il buzzer emette un suono per 1s e rimane silenzioso per 1s.
+コードをアップロードして電源を入れると、ブザーは1秒間音を出し、1秒間静かになります。

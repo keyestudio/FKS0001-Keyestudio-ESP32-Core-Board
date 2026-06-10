@@ -1,71 +1,71 @@
-### Progetto 19  Lampada Dimmerabile
+### プロジェクト19  調光ランプ
 
-**1. Descrizione**
+**1. 説明**
 
-La lampada dimmerabile regola la luminosità del LED tramite un potenziometro e un controller Arduino. La luminosità dipende dal valore della resistenza, che può essere letta e regolata collegando le estremità del potenziometro ai pin digitali o analogici sulla scheda.  
-Inoltre, questo sistema è applicato per controllare la tensione o la corrente di altri dispositivi come ventole, lampadine e riscaldatori.
+調光ランプは、ポテンショメーターとArduinoコントローラーを使ってLEDの明るさを調整します。明るさは抵抗値に依存し、ポテンショメーターの端子をボードのデジタルまたはアナログピンに接続することで読み取り・調整が可能です。  
+さらに、このシステムはファン、電球、ヒーターなど他のデバイスの電圧や電流の制御にも応用できます。
 
-**2. Principio di Funzionamento**
+**2. 動作原理**
 
 ![](media/B32.png)
 
-Fondamentalmente, il potenziometro è un elemento che può modificare il valore della resistenza. Secondo la legge di Ohm (U=I*R), la resistenza influisce sulla tensione. Il nostro potenziometro è da 10K.
+本質的に、ポテンショメーターは抵抗値を変化させる部品です。オームの法則(U=I*R)により、抵抗は電圧に影響を与えます。今回のポテンショメーターは10Kです。
 
-In questo progetto, la resistenza massima è 10K. La scheda ESP32 dividerà equamente la tensione di 3V in 4095 parti (3/4095=0.0007326007326). La tensione analogica si ottiene moltiplicando il valore letto per 0.0007326007326.
+このプロジェクトでは最大抵抗が10Kです。ESP32ボードは3Vの電圧を4095分割（3/4095=0.0007326007326）し、読み取った値に0.0007326007326を掛けることでアナログ電圧を得ます。
 
-**3. Schema di Collegamento**
+**3. 配線図**
 
 ![](media/B33.png)
 
-**4. Codice di Test**
+**4. テストコード**
 
-Il valore analogico del potenziometro può essere letto:
+ポテンショメーターのアナログ値を読み取る方法：
 
-1. Trascina i due blocchi base. Inserisci il blocco di impostazione della baud rate tra di essi e impostalo a 9600.
+1. 基本ブロックを2つドラッグし、その間にボーレート設定ブロックを置き、9600に設定します。
 
-2. Aggiungi un blocco "serial print" nel ciclo "forever" e seleziona "warp" come modalità di stampa.
+2. 「forever」ループ内に「serial print」ブロックを追加し、印刷モードを「warp」に設定します。
 
-3. Trascina un blocco "read the value" da “pot” al serial print, e imposta il pin su IO33.
+3. 「pot」から「read the value」をドラッグしてserial printに接続し、ピンをIO33に設定します。
 
 ![](media/B34.png)
 
-**5. Risultato del Test**
+**5. テスト結果**
 
-Dopo aver collegato i cavi e caricato il codice, apri il monitor seriale impostando la baud rate a 9600, e il valore analogico verrà visualizzato nell’intervallo da 0 a 4095.
+配線を接続しコードをアップロード後、シリアルモニターを開いてボーレートを9600に設定すると、アナログ値が0〜4095の範囲で表示されます。
 
 ![](media/B35.png)
 
-**6. Codice di Espansione**
+**6. 拡張コード**
 
-Controlleremo la luminosità del LED tramite un potenziometro. Come sappiamo, è influenzata dal PWM. Tuttavia, l’intervallo del valore analogico è 0-4095 mentre quello del PWM è 0-255. Perciò è necessaria una funzione "map(value, fromLow, fromHigh, toLow, toHigh)".
+ポテンショメーターでLEDの明るさを制御します。ご存知の通り、PWMに影響されます。ただし、アナログ値の範囲は0〜4095で、PWMの範囲は0〜255です。したがって、「map(value, fromLow, fromHigh, toLow, toHigh)」関数が必要です。
 
-**Schema di Collegamento：**
+**配線図：**
 
 ![](media/B36.png)
 
-1. Trascina i due blocchi base.  
-2. Aggiungi un blocco variabile e impostalo come locale. Seleziona "int" come tipo e chiamalo "pot".
+1. 基本ブロックを2つドラッグします。  
+2. 変数ブロックを追加し、ローカルに設定します。型は「int」を選び、名前を「pot」とします。
 
 ![](media/B37.png)
 
-3. Trascina una funzione "map" da “Data” e posizionala nell’assegnazione. Imposta il valore di "map" su "read the value of pot IO33", con intervallo da (0,4095) a (0,255).
+3. 「Data」から「map」関数をドラッグし、代入位置に置きます。mapの値を「pot IO33の値を読み取る」に設定し、範囲を(0,4095)から(0,255)に変換します。
 
 ![](media/B38.png)
 
-4. Infine aggiungi un blocco "LED analogWrite". Imposta il pin su IO25 e il valore analogico sulla variabile "pot".
+4. 最後に「LED analogWrite」ブロックを追加し、ピンをIO25、アナログ値を変数「pot」に設定します。
 
 ![](media/B39.png)
 
-**Codice Completo:**
+**完成コード：**
 
 ![](media/B40.png)
 
-**7. Spiegazione del Codice**
+**7. コード説明**
 
-1. Funzione **map**. L’intervallo del valore analogico può essere convertito da 0-4095 a 0-255.
+1. **map**関数。アナログ値の範囲を0〜4095から0〜255に変換します。
 
 ![](media/B41.png)
 
-2. Legge il valore analogico del potenziometro impostando il suo pin.
+2. ポテンショメーターのピンを設定してアナログ値を読み取ります。
 
 ![](media/B42.png)

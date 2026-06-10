@@ -1,22 +1,22 @@
-### Progetto 4 Semaforo
+### プロジェクト4 交通信号機
 
-**1. Descrizione**
+**1. 説明**
 
-Il modulo semaforo è un dispositivo utilizzato per controllare il percorso di pedoni e veicoli. Include una luce rossa, una gialla e una verde, che indicano istruzioni diverse.
+交通信号機モジュールは、歩行者や車両の通行を制御するための装置です。赤、黄、緑の3つのライトがあり、それぞれ異なる指示を示します。
 
-**Rosso per Stop:** Pedoni e veicoli devono fermarsi.
+**赤は停止:** 歩行者と車両は進行を停止します。
 
-**Giallo per Attenzione:** Pedoni e veicoli devono prepararsi a fermarsi. Se la marcia è già in corso, la velocità deve essere ridotta.
+**黄は注意:** 歩行者と車両は停止の準備をします。すでに走行中の場合は速度を落とすべきです。
 
-**Verde per Procedere:** Pedoni e veicoli possono continuare rispettando il codice della strada.
+**緑は進行:** 歩行者と車両は交通規則を守りながら進み続けます。
 
-In questo progetto, puoi usare Arduino per scrivere codice che controlli i semafori. Ad esempio, impostare la durata di ogni luce e l’intervallo di tempo tra di esse. Inoltre, puoi aggiungere un timer per modificare i colori delle luci secondo una programmazione.
+このプロジェクトでは、Arduinoを使って交通信号機を制御するコードを書くことができます。例えば、各ライトの点灯時間やそれらの間隔を設定できます。さらに、タイマーを追加してライトの色をスケジュール通りに切り替えることも可能です。
 
-**2. Schema di Collegamento**
+**2. 配線図**
 
 ![](media/A21.png)
 
-**3. Codice di Test**
+**3. テストコード**
 
 ```
 /*
@@ -55,6 +55,6 @@ void loop()
 }
 ```
 
-**4. Risultato del Test**
+**4. テスト結果**
 
-Dopo aver caricato il codice, il LED verde si accenderà per 5 secondi, il LED giallo lampeggerà 3 volte e il LED rosso si accenderà per 5 secondi, in ciclo continuo.
+コードをアップロードすると、緑のLEDが5秒間点灯し、黄のLEDが3回点滅し、赤のLEDが5秒間点灯する動作が繰り返されます。

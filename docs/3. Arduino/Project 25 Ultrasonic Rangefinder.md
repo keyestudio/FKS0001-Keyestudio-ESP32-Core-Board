@@ -1,32 +1,32 @@
-### Progetto 25 Misuratore di Distanza Ultrasonico
+### プロジェクト25 超音波距離計
 
-**1. Descrizione**
+**1. 説明**
 
-Questo misuratore di distanza ultrasonico misura la distanza degli ostacoli emettendo onde sonore e poi ricevendo l'eco. Cioè, la distanza non è un valore immediato, ma uno osservato tramite un calcolo teorico della differenza di tempo tra emettitore e ricevitore.
+この超音波距離計は、音波を発信し、そのエコーを受信することで障害物までの距離を測定します。つまり、距離は即時の値ではなく、発信と受信の時間差を理論的に計算して得られる観測値です。
 
-L'ultrasuono è in grado di rilevare la forma degli oggetti, attivare porte automatiche e stimare la velocità di flusso e la pressione.
+超音波は物体の形状検出、自動ドアの設置、流速や圧力の推定に利用できます。
 
-Inoltre, supporta lavori cooperativi con computer. Di conseguenza, il valore misurato può essere trasmesso ai computer tramite scheda Arduino.
+さらに、コンピュータとの連携も可能です。そのため、測定値はArduinoボードを介してコンピュータに送信できます。
 
-Nella vita quotidiana, è ampiamente utilizzato per motori, servocomandi e LED così come per sistemi (navigazione automatica, controllo e sistemi di monitoraggio della sicurezza).
+日常生活では、モーター、サーボ、LEDだけでなく、自動ナビゲーション、制御、セキュリティ監視システムなどにも広く使われています。
 
-**2. Principio di Funzionamento**
+**2. 動作原理**
 
 ![](media/B29.png)
 
-Come tutti sappiamo, l'ultrasuono è un tipo di segnale sonoro ad alta frequenza non udibile. Simile a un pipistrello, questo modulo misura la distanza degli ostacoli calcolando la differenza di tempo tra l'emissione dell'onda e la ricezione dell'eco.
+ご存知の通り、超音波は高周波の人間には聞こえない音波信号の一種です。コウモリのように、このモジュールは波の発信とエコー受信の時間差を計算して障害物までの距離を測定します。
 
-**Distanza massima:** 3M
+**最大距離:** 3M
 
-**Distanza minima:** 5cm
+**最小距離:** 5cm
 
-**Angolo di rilevamento:** ≤15°
+**検出角度:** ≤15°
 
-**3. Schema di Collegamento**
+**3. 配線図**
 
 ![](media/B30.png)
 
-**4. Codice di Test**
+**4. テストコード**
 
 ```
 /*
@@ -74,25 +74,25 @@ void loop()
 }
 ```
 
-**5. Risultato del Test**
+**5. テスト結果**
 
-Dopo aver collegato i fili e caricato il codice, aprire il monitor seriale impostando la velocità di trasmissione a 9600, la porta seriale stampa il valore della distanza.
+配線を接続しコードをアップロードした後、シリアルモニターを開きボーレートを9600に設定すると、シリアルポートに距離の値が表示されます。
 
 ![](media/B31.png)
 
-**6. Approfondimento**
+**6. 知識の拡張**
 
-Creiamo un misuratore di distanza.
+距離計を作ってみましょう。
 
-Visualizziamo i caratteri su LCD 1602. Programmare per mostrare "Keyestudio" in (3,0) e “distance:” in (0,1) seguito dal valore della distanza in (9,1).
+LCD 1602に文字を表示します。プログラムでは(3,0)に「Keyestudio」、(0,1)に「distance:」を表示し、(9,1)に距離の値を表示します。
 
-Quando il valore è inferiore a 100 (o 10), rimane un residuo della terza (o della seconda) cifra. Pertanto, è necessario un controllo "if" per determinare una certa condizione.
+値が100（または10）未満の場合、3桁目（または2桁目）の残像が残るため、特定の条件を判定するために「if」文が必要です。
 
-**Schema di Collegamento：**
+**配線図：**
 
 ![](media/B32.png)
 
-**Codice：**
+**コード：**
 
 ```
 /*

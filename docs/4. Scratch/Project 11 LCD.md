@@ -1,73 +1,73 @@
-### Progetto 11 LCD
+### プロジェクト11 LCD
 
-**1. Descrizione**
+**1. 説明**
 
-Arduino I2C 1602 LCD è un dispositivo ausiliario comunemente usato per le schede di sviluppo MCU per collegarsi a sensori esterni e moduli. Presenta uno schermo LCD a 2 linee con caratteri larghi 16 bit e luminosità regolabile. Questo modulo programmabile è comodo per la modifica, visualizzazione e gestione dei dati. Inoltre, può mostrare non solo caratteri e cifre ma anche valori dei sensori, come temperatura, umidità o pressione.
+Arduino I2C 1602 LCDは、MCU開発ボードが外部センサーやモジュールと接続するための一般的な補助デバイスです。16文字×2行のLCD画面と調整可能な輝度を備えています。このプログラム可能なモジュールは、データの編集、表示、管理に便利です。さらに、文字や数字だけでなく、温度、湿度、圧力などのセンサー値も表示できます。
 
-Grazie alla sua versatilità, il display è ampiamente utilizzato in molti settori, inclusi prodotti per la casa intelligente, sistemi di monitoraggio industriale, sistemi di controllo robotico e sistemi elettronici automobilistici.
+その使いやすさから、このディスプレイはスマートホーム製品、産業監視システム、ロボット制御システム、自動車電子システムなど多くの分野で広く利用されています。
 
-**2. Principio di Funzionamento**
+**2. 動作原理**
 
 ![](media/A129.png)
 
-Il principio è lo stesso della comunicazione IIC. Le funzioni di base sono state incapsulate in librerie in modo che possano essere richiamate direttamente. Se sei interessato, puoi approfondire i principi di funzionamento sottostanti.
+IIC通信の原理と同じです。基盤となる機能はライブラリにパッケージ化されているため、直接呼び出すことができます。興味があれば、基盤となる駆動原理をさらに詳しく調べてみてください。
 
-**3. Schema di Collegamento**
+**3. 配線図**
 
 ![](media/A130.png)
 
-**4. Codice di Test**
+**4. テストコード**
 
-1. Trascina i due blocchi di codice base.
+1. 基本のコードブロックを2つドラッグします。
 
 ![](media/A131.png)
 
-2. Trascina il blocco “init LCD” da “LCD” e imposta l’indirizzo I2C a 0x27.
+2. 「LCD」から「init LCD」ブロックをドラッグし、I2Cアドレスを0x27に設定します。
 
 ![](media/A132.png)
 
-3. Trascina il blocco "LCD back light" e impostalo su ON. I caratteri sono difficili da leggere senza retroilluminazione.
+3. 「LCD back light」ブロックをドラッグし、ONに設定します。バックライトがないと文字が見づらくなります。
 
 ![](media/A133.png)
 
-4. Trascina un blocco "LCD cursor position" e imposta x a 3 e y a 0. Aggiungi un blocco "LCD print" e digita “keyestudio” nello spazio vuoto.
+4. 「LCD cursor position」ブロックをドラッグし、xを3、yを0に設定します。「LCD print」ブロックを追加し、空欄に「keyestudio」と入力します。
 
 ![](media/A134.png)
 
-5. Trascina un blocco "LCD cursor position" e imposta x a 2 e y a 1. Aggiungi un blocco "LCD print" e digita “Hello,world!” nello spazio vuoto.
+5. 「LCD cursor position」ブロックをドラッグし、xを2、yを1に設定します。「LCD print」ブロックを追加し、空欄に「Hello,world!」と入力します。
 
 ![](media/A135.png)
 
-**Codice Completo：**
+**完成コード：**
 
 ![](media/A136.png)
 
-**5. Risultato del Test**
+**5. テスト結果**
 
-Dopo aver collegato i cavi e caricato il codice, accendi l’LCD e verranno visualizzati “Hello, world!” e “keyestudio!” sul display.
+配線を接続しコードをアップロードした後、LCDの電源を入れると、「Hello, world!」と「keyestudio!」がLCDに表示されます。
 
-Se i caratteri non sono chiari, regola il potenziometro della retroilluminazione con un piccolo cacciavite a taglio.
+文字が不鮮明な場合は、小さなマイナスドライバーでバックライトのポテンショメーターを調整してください。
 
 ![](media/A137.png)
 
-**6. Spiegazione del Codice**
+**6. コード説明**
 
-1. Imposta l’indirizzo di comunicazione IIC. In questo progetto, l’indirizzo dell’LCD 1602 è 0x27.
+1. IIC通信アドレスを設定します。このプロジェクトではLCD 1602のアドレスは0x27です。
 
 ![](media/A138.png)
 
-2. Controlla la retroilluminazione dell’LCD. I caratteri visualizzati saranno molto più chiari se la retroilluminazione è attiva.
+2. LCDのバックライトを制御します。バックライトがONだと表示される文字がよりはっきり見えます。
 
 ![](media/A139.png)
 
-3. Imposta la posizione del cursore. Fornisce una posizione precisa tramite gli assi x e y. I valori possibili sono X: 0-15 e Y: 0-1.
+3. カーソル位置を設定します。x軸とy軸で正確な位置を指定します。設定可能な値はX: 0-15、Y: 0-1です。
 
 ![](media/A140.png)
 
-4. Stampa i caratteri sull’LCD. Lo spazio vuoto può essere riempito con caratteri o variabili, comodo per visualizzare i valori provenienti da sensori e moduli.
+4. LCDに文字を表示します。空欄には文字や変数を入力でき、センサーやモジュールからの値を表示するのに便利です。
 
 ![](media/A141.png)
 
-5. Fai lampeggiare il cursore nella posizione di visualizzazione. Di default, il cursore è inattivo.
+5. 表示位置でカーソルを点滅させます。デフォルトではカーソルは非アクティブです。
 
 ![](media/A142.png)

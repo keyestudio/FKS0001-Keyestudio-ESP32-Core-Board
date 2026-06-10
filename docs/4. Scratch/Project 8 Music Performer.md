@@ -1,46 +1,46 @@
-### Progetto 8 Music Performer
+### プロジェクト8 音楽演奏者
 
-**1. Descrizione**
+**1. 説明**
 
-In questo progetto, utilizzeremo un altoparlante con amplificatore di potenza per riprodurre musica. Questo altoparlante non solo può suonare semplici canzoni, ma anche eseguire ciò che desideri. Pertanto, puoi programmare altri codici interessanti nel progetto per ottenere risultati di apprendimento splendidi.
+このプロジェクトでは、パワーアンプスピーカーを使って音楽を再生します。このスピーカーは単純な曲を再生するだけでなく、あなたの望む演奏も可能です。したがって、プロジェクト内で他の面白いコードをプログラムして、素晴らしい学習成果を達成できます。
 
-**2. Principio di Funzionamento**
+**2. 動作原理**
 
 ![](media/A89.png)
 
-Il segnale elettrico viene immesso dal pin 1 di RP1 (regola l'intensità del segnale, che corrisponde anche al volume del suono).  
-Dopo l'accoppiamento in C4 e il passaggio attraverso R5, il segnale raggiunge il pin IN- del 8002B, dove viene amplificato operazionalmente e inviato all'altoparlante BEE1.
+電気信号はRP1のピン1から入力されます（信号の強度を調整し、音量にもなります）。
+C4でカップリングした後、R5を通過し、信号は8002BのIN-ピンに到達します。ここで信号は演算増幅され、BEE1スピーカーに出力されます。
 
-**3. Schema di Collegamento**
+**3. 配線図**
 
 ![](media/A90.png)
 
-**4. Codice di Test**
+**4. テストコード**
 
 ![](media/A91.png)
 
-**5. Risultato del Test**
+**5. テスト結果**
 
-Dopo aver caricato il codice e acceso l'alimentazione, l'amplificatore riproduce ciclicamente toni musicali con frequenze corrispondenti: DO, Re, Mi, Fa, So, La, Si.
+コードをアップロードして電源を入れると、アンプは対応する周波数の音階（ド、レ、ミ、ファ、ソ、ラ、シ）を順番に再生します。
 
-**6. Espansione della Conoscenza**
+**6. 知識の拡張**
 
-Facciamo suonare una canzone di compleanno. Abbiamo già aggiunto alcune canzoni nella libreria, quindi puoi trascinare direttamente questi blocchi di canzoni da "Music".
+誕生日の歌を演奏させてみましょう。ライブラリにはすでにいくつかの曲が追加されているので、「Music」からこれらの曲ブロックを直接ドラッグできます。
 
-**Codice:**
+**コード:**
 
 ![](media/A92.png)
 
-**7. Spiegazione del Codice**
+**7. コードの説明**
 
-1. Imposta la frequenza del tono. Dopo aver impostato il pin, possiamo selezionare la frequenza per comporre la musica.
+1. 音階の周波数を設定します。ピンを設定した後、周波数を選択して音楽を作曲できます。
 
 ![](media/A93.png)
 
-2. Modulo musicale, per comodità d'uso, abbiamo integrato 6 brani nel codice, quindi basta impostare il pin e selezionare la musica.
+2. 音楽モジュールは使いやすさのために6曲をコード内に統合しています。したがって、ピンを設定し、音楽を選択するだけで済みます。
 
 ![](media/A94.png)
 
-3. Modulo di stop, basta impostare il pin corrispondente per fermare la musica.
+3. 再生停止モジュールは、対応するピンを設定するだけで音楽を停止できます。
 
 ![](media/A95.png)

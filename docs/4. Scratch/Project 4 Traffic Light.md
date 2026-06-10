@@ -1,51 +1,51 @@
-### Progetto 4 Semaforo
+### プロジェクト4 交通信号機
 
-**1. Descrizione**
+**1. 説明**
 
-Il modulo semaforo è un dispositivo utilizzato per controllare il percorso di pedoni e veicoli. Include una luce rossa, una gialla e una verde, che implicano diverse istruzioni.
+交通信号機モジュールは、歩行者や車両の通行を制御するための装置です。赤、黄、緑の3つのライトがあり、それぞれ異なる指示を示します。
 
-**Rosso per Stop:** Pedoni e veicoli devono fermarsi.
+**赤は停止:** 歩行者と車両は進行を停止します。
 
-**Giallo per Attenzione:** Pedoni e veicoli devono prepararsi a fermarsi. Se la guida è già in corso, la velocità deve essere ridotta.
+**黄は注意:** 歩行者と車両は停止の準備をします。すでに走行中の場合は速度を落とすべきです。
 
-**Verde per Procedere:** Pedoni e veicoli possono continuare rispettando il codice della strada.
+**緑は進行:** 歩行者と車両は交通規則を守りながら進み続けます。
 
-In questo progetto, puoi usare Arduino per scrivere codice che controlla i semafori. Ad esempio, impostare la durata di ogni luce e l’intervallo di tempo tra di esse. Inoltre, puoi anche aggiungere un timer per modificare i colori delle luci secondo una programmazione.
+このプロジェクトでは、Arduinoを使って交通信号機を制御するコードを書くことができます。例えば、各ライトの点灯時間やそれらの間の間隔時間を設定します。さらに、タイマーを追加してライトの色をスケジュールに合わせて変更することも可能です。
 
-**2. Schema di Collegamento**
+**2. 配線図**
 
 ![](media/A46.png)
 
-**3. Codice di Test**
+**3. テストコード**
 
-Stimoliamo semplicemente i semafori: il LED verde si accende per 5s, il LED giallo lampeggia 3 volte, e il LED rosso si accende per 5s. Impostiamo questo ciclo in loop.
+交通信号機を簡単にシミュレートします：緑のLEDが5秒間点灯し、黄のLEDが3回点滅し、赤のLEDが5秒間点灯します。これをループさせます。
 
-Il lampeggio del LED giallo può utilizzare l’istruzione for() che abbiamo menzionato nel progetto 3. Quindi, dobbiamo solo impostare il tempo di accensione per completare un ciclo del semaforo.
+黄のLEDの点滅は、プロジェクト3で紹介した`for()`文を利用できます。したがって、点灯時間を設定するだけで交通信号機を完成させることができます。
 
-1. Trascina i due blocchi di codice.
+1. 2つのコードブロックをドラッグします。
 
 ![](media/A47.png)
 
-2. Imposta la modalità del pin su “output”
+2. ピンモードを「output」に設定します。
 
 ![](media/A48.png)
 
-3. Trascina i seguenti blocchi dalla sezione "LED" e imposta il pin IO27 su HIGH e poi su LOW. Poi imposta il tempo di delay a 5s.
+3. 「LED」パーツから以下のブロックをドラッグし、IO27ピンをHIGHにしてからLOWにします。遅延時間を5秒に設定します。
 
 ![](media/A49.png)
 
-4. Trascina i seguenti blocchi dalla sezione "Control" e imposta il numero di ripetizioni a 3, poi imposta il pin IO26 su HIGH e poi su LOW. Imposta il tempo di delay a 0.5s.
+4. 「Control」パーツから以下のブロックをドラッグし、繰り返し回数を3に設定します。次にIO26ピンをHIGHにしてからLOWにします。遅延時間を0.5秒に設定します。
 
 ![](media/A50.png)
 
-5. Ripeti il passo 3, impostando il pin su IO25.
+5. ステップ3を繰り返し、ピンをIO25に設定します。
 
 ![](media/A51.png)
 
-**Codice Completo：**
+**完成コード：**
 
 ![](media/A52.png)
 
-**4. Risultato del Test**
+**4. テスト結果**
 
-Dopo aver caricato il codice, il LED verde si accenderà per 5s, il LED giallo lampeggerà 3 volte, e il LED rosso rimarrà acceso per 5s.
+コードをアップロードすると、緑のLEDが5秒間点灯し、黄のLEDが3回点滅し、赤のLEDが5秒間点灯します。

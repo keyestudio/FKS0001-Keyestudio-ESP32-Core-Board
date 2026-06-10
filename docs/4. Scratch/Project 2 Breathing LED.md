@@ -1,83 +1,83 @@
-### Progetto 2 LED Respirante
+### プロジェクト2 ブリージングLED
 
-**1. Descrizione**
+**1. 説明**
 
-Il LED respirante Arduino utilizza il PWM programmabile a bordo per generare un'onda analogica. Dopo l'accensione, la luminosità del LED può essere regolata tramite il duty cycle dell'onda per realizzare l'effetto di LED respirante.
+ArduinoのブリージングLEDは、オンボードのプログラム可能なPWMを利用してアナログ波形を出力します。電源を入れると、波形のデューティサイクルを調整することでLEDの明るさを変化させ、最終的にブリージングLEDの効果を実現します。
 
-In questo modo, la luce ambientale può essere simulata variando la luminosità del LED nel tempo. Inoltre, il LED respirante può formare una mini luce colorata per creare un ambiente tranquillo e caldo.
+この方法により、時間経過に伴ってLEDの明るさを変化させることで環境光をシミュレートできます。また、ブリージングLEDはカラフルなミニライトとして、落ち着いた暖かい雰囲気を作り出すことができます。
 
-**2. Cos'è il PWM?**
+**2. PWMとは？**
 
-Il PWM controlla l'uscita analogica tramite mezzi digitali, permettendo di regolare il duty cycle dell'onda (un segnale che alterna ciclicamente tra livello alto e livello basso).
+PWMはデジタル手段でアナログ出力を制御するもので、波形のデューティサイクル（高レベルと低レベルが周期的に切り替わる信号）を調整できます。
 
-Per Arduino, le porte digitali di uscita di tensione sono LOW e HIGH, che corrispondono rispettivamente a 0V e 5V. Generalmente, definiamo LOW come 0 e HIGH come 1. Arduino emette 500 segnali di 0 o 1 in 1 secondo. Se sono "1", verranno emessi 5V. Al contrario, se sono tutti 0, l'uscita sarà 0V. Oppure, se sono 010101010101..., l'uscita media sarà 2,5V.
+Arduinoの場合、電圧出力のデジタルポートはLOWとHIGHで、それぞれ0Vと5Vに対応します。一般的にLOWを0、HIGHを1と定義します。Arduinoは1秒間に500回の0または1の信号を出力します。もしそれらがすべて「1」であれば5Vが出力されます。逆にすべて0なら0Vが出力されます。あるいは0101010101...のように交互であれば、平均出力は2.5Vになります。
 
-In altre parole, il rapporto tra segnali 0 e 1 influenza il valore di tensione; più segnali 0 e 1 vengono emessi per unità di tempo, più preciso sarà il controllo.
+つまり、0と1の出力比率が電圧値に影響し、単位時間あたりに出力される0と1の信号が多いほど制御はより正確になります。
 
 ![](media/A21.png)
 
-**3. Schema di Collegamento**
+**3. 配線図**
 
 ![](media/A22.png)
 
-**4. Codice di Test**
+**4. テストコード**
 
-Utilizziamo l'istruzione "for" per incrementare una variabile da 0 a 255, definendo la variabile come uscita PWM (analogWrite(pin, value)). Inoltre, un tempo di ritardo può rafforzare il controllo del tempo di accensione del LED. Successivamente, usiamo un altro ciclo "for" per diminuirla da 255 a 0 con un tempo di ritardo per controllare il processo di attenuazione del LED.
+「for」文を使って変数を0から255まで増加させ、その変数をPWM出力（analogWrite(pin, value)）として定義します。なお、遅延時間を設けることでLEDの点灯時間の制御を強化できます。次に、別の「for」文で255から0まで減少させ、遅延時間を設けてLEDの減光プロセスを制御します。
 
-1. Trascina i due blocchi di codice.
+1. 2つのコードブロックをドラッグします。
 
 ![](media/A23.png)
 
-2. Trascina il blocco seguente dalla sezione "Variabili" e definisci il nome come "item" con un'assegnazione iniziale "0". Inserisci questo blocco nel blocco "forever".
+2. 「変数」パートから以下のブロックをドラッグし、名前を「item」、初期値を「0」に設定します。このブロックを「ずっと」ブロック内に入れます。
 
 ![](media/A24.png)
 
-3. Trascina il blocco seguente dalla sezione "Controllo" e impostalo a 255 volte, che è il valore massimo del PWM.
+3. 「制御」パートから以下のブロックをドラッグし、繰り返し回数をPWMの最大値である255に設定します。
 
 ![](media/A25.png)
 
-4. Trascina il blocco seguente dalla sezione "Variabili", imposta "item" come oggetto modificato e il modo su "++".
+4. 「変数」パートから以下のブロックをドラッグし、変更対象を「item」、モードを「++」に設定します。
 
 ![](media/A26.png)
 
-5. Trascina il blocco seguente dalla sezione “LED” e imposta il pin LED su IO5. Poi aggiungi un blocco "variabile" al suo interno e inserisci "item" nel campo vuoto.
+5. 「LED」パートから以下のブロックをドラッグし、LEDピンをIO5に設定します。さらに「変数」ブロックを追加し、空欄に「item」を入力します。
 
 ![](media/A27.png)
 
-6. Trascina il blocco seguente dalla sezione "Controllo" e imposta il tempo a 0,01s, cioè 10ms.
+6. 「制御」パートから以下のブロックをドラッグし、時間を0.01秒（10ms）に設定します。
 
 ![](media/A28.png)
 
-7. Seguendo i passaggi precedenti, costruisci un altro blocco di codice con l’unica differenza del modo variabile "– –".
+7. これまでの手順に従い、変数モードが「– –」だけ異なるもう一つのコードブロックを作成します。
 
 ![](media/A29.png)
 
-**Codice Completo：**
+**完成コード：**
 
 ![](media/A30.png)
 
-**5. Risultato del Test**
+**5. テスト結果**
 
-Dopo aver caricato il codice, possiamo vedere che il LED si attenua gradualmente. "Respira" in modo uniforme.
+コードをアップロードすると、LEDが徐々に暗くなり、均等に「呼吸」しているように見えます。
 
-**6. Spiegazione del Codice**
+**6. コード説明**
 
-1. Questo blocco serve a impostare l’intervallo utilizzabile della variabile, il tipo di variabile, il nome e il valore iniziale.
+1. このブロックは変数の使用範囲、変数の種類、名前、初期値を設定するためのものです。
 
 ![](media/A31.png)
 
-2. Il numero di ripetizioni può essere assegnato nel campo vuoto di questo blocco di ripetizione.
+2. この繰り返しブロックの空欄に繰り返し回数を指定できます。
 
 ![](media/A32.png)
 
-3. Inserisci un nome di variabile nel campo vuoto e il suo valore aumenterà di 1 ogni volta che il codice viene eseguito. "++" può essere modificato in "– –".
+3. 空欄に変数名を入力すると、コード実行ごとにその値が1ずつ増加します。「++」は「– –」に変更可能です。
 
 ![](media/A33.png)
 
-4. Inserisci un nome di variabile nel campo vuoto e il suo valore diminuirà di 1 ogni volta che il codice viene eseguito. "– –" può essere modificato in "++".
+4. 空欄に変数名を入力すると、コード実行ごとにその値が1ずつ減少します。「– –」は「++」に変更可能です。
 
 ![](media/A34.png)
 
-5. Questo è un modulo di uscita PWM, e la casella bianca rappresenta il valore del PWM in uscita.
+5. これはPWM出力モジュールで、白いボックスが出力PWMの値を示します。
 
 ![](media/A35.png)

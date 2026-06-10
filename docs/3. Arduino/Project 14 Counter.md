@@ -1,18 +1,18 @@
-### Progetto 14 Contatore
+### プロジェクト14 カウンター
 
-**1. Descrizione**
+**1. 説明**
 
-Il contatore a tubo digitale Arduino a 4 bit può registrare numeri da 0 a 9999. Dispone di regolazione della velocità di visualizzazione, modalità di conteggio e funzione di reset. Questo modulo è ampiamente utilizzato in contatori in tempo reale (come il conteggio delle pressioni di un pulsante e la rotazione di un motore DC), apparecchiature per giochi e sperimentazioni.
+Arduino 4ビットデジタル管カウンターは、0～9999の範囲内の数字を記録できます。表示速度、カウントモードの調整、およびリセット機能を備えています。このモジュールは、リアルタイムカウンター（ボタン押下やDCモーターの回転数カウントなど）、ゲーム、実験機器に広く応用されています。
 
-**2. Diagramma di flusso**
+**2. フローチャート**
 
 ![](media/A58.png)
 
-**3. Schema di collegamento**
+**3. 配線図**
 
 ![](media/A59.png)
 
-**4. Codice di test**
+**4. テストコード**
 
 ```
 /*
@@ -68,6 +68,6 @@ void loop()
 }
 ```
 
-**4. Risultato del test**
+**4. テスト結果**
 
-Dopo aver collegato i fili e caricato il codice, premere il pulsante verde per aggiungere 1, il giallo per sottrarre 1 e il rosso per resettare. Tenendo premuto il pulsante, il valore visualizzato continuerà ad aumentare o diminuire.
+配線を接続しコードをアップロードした後、緑ボタンを押すと1ずつ加算、黄ボタンで1ずつ減算、赤ボタンでリセットします。ボタンを押し続けると、表示値が連続して加算または減算されます。

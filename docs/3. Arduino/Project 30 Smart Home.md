@@ -1,20 +1,20 @@
-### Progetto 30 Casa Intelligente
+### プロジェクト30 スマートホーム
 
-**1. Descrizione**
+**1. 説明**
 
-In questa era tecnologica, siamo tutti familiari con la casa intelligente. È un sistema che può controllare gli elettrodomestici tramite pulsanti.
+この技術の時代において、私たちは皆スマートホームに馴染みがあります。これはボタンを介して電気機器を制御できるシステムです。
 
-In questo progetto, vogliamo simulare una casa intelligente tramite un telecomando IR. Con Arduino MCU come nucleo, può essere utilizzato per controllare luci, condizionatori, TV e monitor di sicurezza.
+本プロジェクトでは、IRリモコンを使ってスマートホームを模擬します。Arduino MCUをコアに、照明、エアコン、テレビ、セキュリティモニターの制御に利用できます。
 
-**2. Diagramma di Flusso**
+**2. フローチャート**
 
 ![](media/B47.png)
 
-**3. Schema di Collegamento**
+**3. 配線図**
 
 ![](media/B48.png)
 
-**4. Codice di Test**
+**4. テストコード**
 
 ```
 /*
@@ -218,8 +218,8 @@ void show_pot()  //Read the analog value of potentiometer
 }
 ```
 
-**5. Risultato del Test**
+**5. テスト結果**
 
-Dopo aver collegato i fili e caricato il codice, possiamo vedere i contenuti corrispondenti sul LCD premendo i pulsanti. Il pulsante OK cancella la visualizzazione dei sensori.
+配線を接続しコードをアップロードした後、ボタンを押すとLCDに対応する内容が表示されます。OKボタンでセンサー表示をクリアします。
 
 ![](media/B49.png)

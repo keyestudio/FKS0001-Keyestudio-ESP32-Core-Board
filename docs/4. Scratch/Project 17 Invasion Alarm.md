@@ -1,63 +1,63 @@
-### Progetto 17 Allarme di Invasione
+### プロジェクト17 侵入警報
 
-**1. Descrizione**
+**1. 説明**
 
-Questo sistema di allarme di invasione è in grado di rilevare intrusi in case o piccoli uffici e avvisare il proprietario per prendere misure tempestive.
+この侵入警報システムは、住宅や小規模オフィス内の侵入者を検知し、ホストに警告して適時対策を取れるようにします。
 
-In questo progetto, il sensore monitora una determinata area. Un dispositivo sulla scheda Arduino attiverà il LED per accendersi e il buzzer per emettere un segnale acustico di avviso se viene rilevato un movimento in quella zona. Inoltre, la sua sensibilità è regolabile per una rilevazione più precisa.
+本プロジェクトでは、センサーが特定のエリアを監視します。Arduinoボード上のデバイスが、そのゾーンで動きを検知するとLEDを点灯させ、ブザーを鳴らして注意を促します。さらに、感度は調整可能で、より正確な検出が可能です。
 
-In pratica, questo modulo offre praticità, facile installazione e costi contenuti. Oltre a case e uffici, si applica anche a fabbriche, magazzini e mercati, proteggendo in larga misura la sicurezza della proprietà.
+実際、このモジュールは実用性が高く、設置が簡単でコストも低いです。住宅やオフィスだけでなく、工場、倉庫、市場などにも適用でき、財産の安全を大いに守ります。
 
-**2. Principio di Funzionamento**
+**2. 動作原理**
 
 ![](media/B14.png)
 
-Il corpo umano (37°C) emette sempre raggi infrarossi con una lunghezza d’onda di 10μm, che si avvicina a quella rilevata dal sensore.
+人体（37°C）は常に波長10μmの赤外線を放射しており、これはセンサーが検出する波長に近いです。
 
-Per questo motivo, questo modulo è in grado di rilevare il movimento degli esseri umani. Se presente, il sensore PIR emette un segnale alto per circa 3 secondi, poi torna a segnale basso.
+このため、このモジュールは人体の動きを検知できます。動きがあるとPIRセンサーは約3秒間ハイレベルを出力し、その後ローに戻ります。
 
-**3. Schema di Collegamento**
+**3. 配線図**
 
 ![](media/B15.png)
 
-**4. Codice di Test**
+**4. テストコード**
 
-1. Aggiungere i due blocchi base e trascinare un blocco "baud rate" da “Serial” tra di essi. Impostare la velocità di trasmissione seriale a 9600.
+1. 2つの基本ブロックを追加し、その間に「Serial」から「baud rate」ブロックをドラッグします。シリアルのボーレートを9600に設定します。
 
 ![](media/B16.png)
 
-2. Aggiungere un blocco "if else". Inserire un blocco "read PIR motion sensor" nel riquadro esagonale e impostare l’interfaccia su IO5, così da determinare se c’è un movimento umano. Aggiungere due blocchi "serial print" dopo "then" e "else" e impostare entrambi i modi su "warp". Se la condizione è soddisfatta, stampare “Someone Invaded”. Altrimenti, stampare “No one”, quindi aggiungere un ritardo di 1s.
+2. 「if else」ブロックを追加します。六角形のボックスに「read PIR motion sensor」ブロックを入れ、インターフェースをIO5に設定します。これで人体の動きを判定します。「then」と「else」の後にそれぞれ「serial print」ブロックを2つ追加し、両方のモードを「warp」に設定します。条件が満たされた場合は「Someone Invaded」と表示し、そうでなければ「No one」と表示します。最後に1秒の遅延時間を追加します。
 
 ![](media/B17.png)
 
-**Codice Completo:**
+**完成コード：**
 
 ![](media/B18.png)
 
-**5. Risultato del Test**
+**5. テスト結果**
 
-Dopo aver collegato i cavi e caricato il codice, aprire il monitor seriale e impostare la velocità a 9600. Quando il sensore rileva un movimento, la porta seriale stampa "Someone Invaded", altrimenti stampa “No One”.
+配線を接続しコードをアップロードした後、シリアルモニターを開きボーレートを9600に設定します。センサーが動きを検知するとシリアルポートに「Someone Invaded」と表示され、動きがなければ「No One」と表示されます。
 
 ![](media/B19.png)
 
-**6. Codice di Espansione**
+**6. 拡張コード**
 
-Creiamo un allarme di invasione. Quando il sensore PIR rileva un essere umano, il LED si accende e il buzzer emette un suono. Al contrario, il LED si spegne e il buzzer resta silenzioso.
+侵入警報を作りましょう。PIRセンサーが人体を検知するとLEDが点灯し、ブザーが鳴ります。逆に、LEDは消灯しブザーは静かになります。
 
-**Diagramma di Flusso：**
+**フローチャート：**
 
 ![](media/B20.png)
 
-**Schema di Collegamento：**
+**配線図：**
 
 ![](media/B21.png)
 
-**Codice：**
+**コード：**
 
 ![](media/B22.png)
 
-**7. Spiegazione del Codice**
+**7. コード説明**
 
-Quando il PIR rileva movimenti umani, emette un segnale alto. Pertanto, possiamo stabilire se c’è un movimento leggendo il pin della scheda di sviluppo collegato a questo sensore.
+PIRが人体の動きを感知するとハイレベルを出力します。したがって、このセンサーに接続された開発ボードのピンを読み取ることで動きの有無を判断できます。
 
 ![](media/B23.png)

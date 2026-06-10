@@ -1,61 +1,61 @@
-### Progetto 14 Contatore
+### プロジェクト14 カウンター
 
-**1. Descrizione**
+**1. 説明**
 
-Il contatore a tubo digitale Arduino a 4 bit può registrare numeri da 0 a 9999. Dispone di regolazione della velocità di visualizzazione, modalità di conteggio e funzione di reset. Questo modulo è ampiamente utilizzato in contatori in tempo reale (come il conteggio delle pressioni di un pulsante e la rotazione di un motore DC), giochi e apparecchiature sperimentali.
+Arduino 4ビットデジタル管カウンターは、0～9999の範囲内の数字を記録できます。表示速度、カウントモードの調整、およびリセット機能を備えています。このモジュールは、リアルタイムカウンター（ボタン押下やDCモーターの回転数カウントなど）、ゲーム、実験機器に広く応用されています。
 
-**2. Diagramma di flusso**
+**2. フローチャート**
 
 ![](media/A172.png)
 
-**3. Schema di collegamento**
+**3. 配線図**
 
 ![](media/A173.png)
 
-**4. Codice di test**
+**4. テストコード**
 
-1. Trascina i due blocchi base.
+1. 2つの基本ブロックをドラッグします。
 
 ![](media/A174.png)
 
-2. Imposta il pin del pulsante su “input”.
+2. ボタンピンを「入力」に設定します。
 
 ![](media/A175.png)
 
-3. Inserisci un blocco "variabile". Imposta il tipo di variabile su int e il nome su item. Assegna 0 come valore iniziale.
+3. 「変数」ブロックを置きます。変数の型をint、名前をitemに設定し、初期値を0にします。
 
 ![](media/A176.png)
 
-4. Trascina un blocco "if" da “Control” (viene eseguito solo quando la condizione è soddisfatta). Metti un blocco “Button pressed” da “Button” nella casella condizione (quella esagonale) e imposta il pin su IO19. Trascina un blocco "modalità variabile" e posizionalo dopo "then", definendolo come "item" e impostando la modalità su "++".
+4. 「制御」から「if」ブロックをドラッグします（条件が満たされたときのみ実行されます）。「ボタン」から「ボタンが押された」ブロックを条件ボックス（六角形）に入れ、ピンをIO19に設定します。「変数操作」ブロックを「then」の後に置き、変数をitem、操作モードを「++」に設定します。
 
 ![](media/A177.png)
 
-5. Ripeti il passo 4, ma imposta l’interfaccia su IO18 e la modalità su "– –".
+5. ステップ4を繰り返しますが、ピンをIO18、モードを「--」に設定します。
 
 ![](media/A178.png)
 
-6. Trascina un altro blocco "if" da “Control” e definisci la condizione "il pulsante dell’interfaccia IO17 è stato premuto?". Metti un blocco di impostazione variabile dopo "then" e imposta la variabile a 0.
+6. 「制御」から別の「if」ブロックをドラッグし、条件を「IO17のボタンが押されたか？」に設定します。「then」の後に変数設定ブロックを置き、変数を0に設定します。
 
 ![](media/A179.png)
 
-7. Trascina un blocco "if" da “Control”. Trova il blocco "＞" in “Operators” e riempi il campo sinistro con la "variabile item" e quello destro con "9999". Inoltre, metti un blocco di impostazione variabile dopo "then" e imposta la variabile a 0.
+7. 「制御」から「if」ブロックをドラッグします。「演算」から「＞」ブロックを見つけ、左側に変数item、右側に9999を入れます。「then」の後に変数設定ブロックを置き、変数を0に設定します。
 
 ![](media/A180.png)
 
-8. Trascina un blocco "TM1650 display" da "Digital tube" e imposta la stringa visualizzata sul blocco "variabile item". Infine, non dimenticare di aggiungere un ritardo di 0,2s.
+8. 「デジタル管」から「TM1650表示」ブロックをドラッグし、表示文字列を変数itemブロックに設定します。最後に、0.2秒の遅延を忘れずに追加します。
 
 ![](media/A181.png)
 
-**Codice completo:**
+**完成コード：**
 
 ![](media/A182.png)
 
-**5. Risultato del test**
+**5. テスト結果**
 
-Dopo aver collegato i cavi e caricato il codice, premi il pulsante verde per aggiungere 1, quello giallo per sottrarre 1 e quello rosso per resettare.
+配線を接続しコードをアップロードした後、緑のボタンを押すと1加算、黄色のボタンで1減算、赤のボタンでリセットができます。
 
-**6. Spiegazione del codice**
+**6. コード説明**
 
-Il blocco **">"** viene usato per il confronto tra due valori. Questi due campi possono essere sostituiti sia da numeri che da variabili.
+**「＞」** ブロックは2つの値の比較に使います。この2つの空欄には数字または変数を入れることができます。
 
 ![](media/A183.png)

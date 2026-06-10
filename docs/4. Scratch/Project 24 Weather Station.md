@@ -1,39 +1,39 @@
-### Progetto 24 Stazione Meteo
+### プロジェクト24 天気観測ステーション
 
-**1. Descrizione**
+**1. 説明**
 
-Questa stazione meteo registra la temperatura e l'umidità ambientale tramite una scheda Arduino e un sensore di temperatura e umidità.
+この天気観測ステーションは、Arduinoボードと温湿度センサーを使って周囲の温度と湿度の値を記録します。
 
-Inoltre, permette di regolare i valori di temperatura e umidità in base ai parametri ambientali come metodo per ottenere condizioni ambientali confortevoli.
+さらに、環境パラメータに応じて温度と湿度の値を調整することで、快適な環境条件を実現します。
 
-**2. Schema di Collegamento**
+**2. 配線図**
 
 ![](media/B84.png)
 
-**3. Codice di Test**
+**3. テストコード**
 
-1. Aggiungere due moduli base. Inizializzare l'LCD 1602 e accendere la retroilluminazione dell'LCD 1602 (ricordarsi di impostare l'LCD su ON). Impostare il pin del dht su IO26 e la modalità su dht11. Impostare due variabili int “RH“ e “temp“ a 0.
+1. 2つの基本モジュールを追加します。LCD 1602を初期化し、LCD 1602のバックライトをONにします（LCDをONに切り替えることを忘れないでください）。dhtのピンをIO26に設定し、モードをdht11に設定します。2つのint変数「RH」と「temp」を0に設定します。
 
 ![](media/B85.png)
 
-2. Assegnare il valore di umidità alla variabile RH e il valore di temperatura alla variabile temp.
+2. 湿度の値を変数RHに、温度の値を変数tempに割り当てます。
 
 ![](media/B86.png)
 
-3. Impostare la posizione di visualizzazione dell'LCD su x: 0 e y: 0. Aggiungere il modulo di visualizzazione lcd e impostare il carattere da visualizzare su "humidity:". Aggiungere nuovamente il modulo di visualizzazione lcd e aggiungere la variabile RH nella casella bianca.
+3. LCDの表示位置をx: 0、y: 0に設定します。lcd表示モジュールを追加し、表示文字を「humidity:」に設定します。もう一度lcd表示モジュールを追加し、変数RHを白いボックスに追加します。
 
 ![](media/B87.png)
 
-4. Ripetere il passo 3, ma impostare y: 1 e il carattere da visualizzare su “temperature:” e aggiungere la variabile temp nella casella bianca.
+4. ステップ3を繰り返しますが、yを1に設定し、表示文字を「temperature:」にして、変数tempを白いボックスに追加します。
 
 ![](media/B88.png)
 
-**Codice Completo:**
+**完成コード:**
 
 ![](media/B89.png)
 
-**4. Risultato del Test**
+**4. テスト結果**
 
-Dopo aver collegato i cavi e caricato il codice, l'LCD mostrerà direttamente i valori di umidità e temperatura ambientale.
+配線を接続しコードをアップロードすると、LCD表示に周囲の湿度と温度の値が直接表示されます。
 
 ![](media/B90.png)

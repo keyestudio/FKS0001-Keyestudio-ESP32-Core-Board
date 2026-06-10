@@ -1,22 +1,22 @@
-### Progetto 16 Timebomb
+### プロジェクト16 タイムボム
 
-**1. Descrizione**
+**1. 説明**
 
-Questo progetto ti offrirà l'opportunità di sperimentare un interessante gioco della bomba a tempo.
+このプロジェクトでは、面白いタイムボムゲームを体験することができます。  
 
-In questo progetto, la matrice di punti rappresenta la tua bomba a tempo, mentre il tubo digitale mostra il tempo rimanente. I pulsanti non solo controllano la bomba ma permettono anche di impostarne il tempo. Puoi impostare un conto alla rovescia per controllare questa bomba, che esplode quando il conto alla rovescia termina. Inoltre, viene utilizzato un buzzer per l'allarme.
+このプロジェクトでは、ドットマトリクスがタイムボムを表し、デジタルチューブが残り時間を表示します。ボタンは爆弾の操作だけでなく、時間の設定も可能です。カウントダウンを設定して爆弾を制御し、カウントダウンが終了すると爆発します。それに加えて、ブザーが警報として採用されています。 
 
-In ogni caso, programmando su più sensori, la tua capacità complessiva di pensiero logico può essere migliorata.
+いずれにせよ、複数のセンサーをプログラミングすることで、論理的思考の総合的な能力を高めることができます。 
 
-**2. Diagramma di flusso**
+**2. フローチャート**
 
 ![](media/A62.png)
 
-**3. Schema di collegamento**
+**3. 配線図**
 
 ![](media/A63.png)
 
-**4. Codice di test**
+**4. テストコード**
 
 ```
 /*
@@ -124,6 +124,6 @@ void loop()
 }
 ```
 
-**5. Risultato del test**
+**5. テスト結果**
 
-Dopo aver collegato i fili e caricato il codice, il pulsante blu (aumento) e il pulsante verde (diminuzione) possono essere utilizzati per impostare il tempo, mentre il pulsante giallo può essere usato per avviare il conto alla rovescia. Quando il conto alla rovescia termina, la faccina sorridente sul display a matrice di punti si trasforma in una faccia che piange, simulando l'esplosione della bomba. Premendo il pulsante rosso è possibile resettare il programma.
+配線を接続しコードをアップロードした後、青ボタン（増加）と緑ボタン（減少）で時間を設定でき、黄色ボタンでカウントダウンを開始できます。カウントダウンが終了すると、ドットマトリクスディスプレイのスマイリーフェイスが泣き顔に変わり、爆弾の爆発をシミュレートします。赤ボタンを押すとプログラムをリセットできます。

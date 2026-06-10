@@ -1,24 +1,24 @@
-### Progetto 5 Luce Ambientale Arcobaleno
+### プロジェクト5 レインボーアンビエントライト
 
-**1. Descrizione**
+**1. 説明**
 
-Il LED Arduino 2812RGB è una luce programmabile colorata e suggestiva, il cui colore, luminosità e ritmo sono regolabili. Questa luce ambientale arcobaleno può essere utilizzata come decorazione dinamica a piacere. Oppure può essere controllata per "danzare con la musica". Importante, può essere migliorata come allarme. Il suo sensore integrato rileva l’ambiente circostante per avvisare gli utenti cambiando colore, luminosità e ritmo.
+Arduino 2812RGB LEDは、色、明るさ、リズムを調整可能なプログラム可能なカラフルで夢のようなライトです。このレインボーアンビエントライトは、動的な装飾として自由に使用できます。また、「音楽に合わせて踊る」ように制御することも可能です。重要なのは、アラームとしても改良できる点です。内蔵センサーが周囲環境を検知し、色、明るさ、リズムを変化させてユーザーに警告します。
 
-**2. Principio di Funzionamento**
+**2. 動作原理**
 
 ![](media/A22.png)
 
-Il protocollo dati adotta una modalità di comunicazione a codice single-line return-to-zero. Dopo il reset del pixel all’accensione, il terminale DIN riceve i dati dal controller. I primi 24 bit di dati in arrivo vengono estratti dal primo pixel e inviati al registro dati interno.
+データプロトコルは、単一線のリターン・トゥ・ゼロコードの通信モードを採用しています。電源投入時にピクセルがリセットされると、DIN端子がコントローラーからデータを受信します。最初に到着した24ビットのデータは最初のピクセルによって抽出され、内部データレジスタに送られます。
 
-I dati rimanenti vengono amplificati da un circuito di amplificazione e trasmessi tramite la porta DOUT al pixel successivo in cascata. Durante la trasmissione attraverso i pixel, il segnale diminuisce di 24 bit ogni volta.
+残りのデータは増幅回路によって増幅され、DOUTポートを通じて次のカスケードされたピクセルに送信されます。ピクセルを通過するごとに信号は24ビットずつ減少します。
 
-Inoltre, il pixel adotta una tecnologia di rimodellamento e inoltro automatico, per cui il numero di pixel in cascata è limitato solo dalla velocità di trasmissione del segnale.
+さらに、ピクセルは自動整形および転送技術を採用しているため、ピクセルのカスケード数は信号伝送速度によってのみ制限されます。
 
-**3. Schema di Collegamento**
+**3. 配線図**
 
 ![](media/A23.png)
 
-**4. Codice di Test**
+**4. テストコード**
 
 ```
 /*
@@ -51,22 +51,22 @@ void loop()
 }
 ```
 
-**5. Risultato del Test**
+**5. テスト結果**
 
-Dopo aver caricato il codice e acceso l’alimentazione, il LED si illuminerà con colori diversi.
+コードをアップロードして電源を入れると、LEDが異なる色で点灯します。
 
-Da sinistra a destra：
+左から右へ：
 
-- Il primo LED RGB è rosso  
-- Il secondo LED RGB è verde  
-- Il terzo LED RGB è blu  
-- Il quarto LED RGB è giallo  
-- Il quinto LED RGB è viola  
-- Il sesto LED RGB è bianco  
+- 1番目のRGB LEDは赤色
+- 2番目のRGB LEDは緑色
+- 3番目のRGB LEDは青色
+- 4番目のRGB LEDは黄色
+- 5番目のRGB LEDは紫色
+- 6番目のRGB LEDは白色
 
 ![](media/A24.png)
 
-**6. Codice Esteso**
+**6. 拡張コード**
 
 ```
 /*
@@ -205,6 +205,6 @@ uint32_t Wheel(byte WheelPos)
 }
 ```
 
-**7. Risultato del Test**
+**7. テスト結果**
 
-Dopo aver caricato il codice e acceso l’alimentazione, il LED si illuminerà con colori diversi e realizzerà uno spettacolo di luci.
+コードをアップロードして電源を入れると、LEDがさまざまな色で点灯し、ライトショーを行います。

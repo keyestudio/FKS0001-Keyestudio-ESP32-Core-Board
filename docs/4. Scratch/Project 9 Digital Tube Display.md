@@ -1,77 +1,77 @@
-### Progetto 9 Display a Tubo Digitale
+### プロジェクト9 デジタルチューブディスプレイ
 
-**1. Descrizione**
+**1. 説明**
 
-Questo display a tubo a 4 cifre è un dispositivo utilizzato per visualizzare conteggi o tempo, in grado di mostrare numeri da 0 a 9 e lettere semplici. È composto da quattro tubi digitali, ognuno dei quali ha sette diodi a emissione luminosa (LED).
+この4桁のデジタルチューブディスプレイは、カウントや時間を表示するためのデバイスで、0～9の数字および簡単な文字を表示できます。4つのデジタルチューブで構成されており、それぞれに7つの発光ダイオード（LED）が搭載されています。
 
-Inoltre, possono essere realizzate più funzioni collegando i loro pin alla scheda di sviluppo Arduino, come la misurazione del tempo e alcuni giochi memorizzati.
+さらに、ピンをArduino開発ボードに接続することで、時計機能や簡単なゲームの保存など、複数の機能を実現できます。
 
-**2. Principio di Funzionamento**
+**2. 動作原理**
 
 ![](media/A96.png)
 
-TM1650 utilizza il protocollo IIC e adotta due linee bus (SDA e SCL).
+TM1650はIICプロトコルを利用し、2本のバスライン（SDAとSCL）を採用しています。
 
-Il codice è fornito nei nostri blocchi, e il tubo digitale visualizzerà i numeri tramite questo codice.
+コードは当社のブロックで提供されており、このコードを通じてデジタルチューブに数字が表示されます。
 
-**3. Schema di Collegamento**
+**3. 配線図**
 
 ![](media/A97.png)
 
-**4. Codice di Test**
+**4. テストコード**
 
-Per mostrare i numeri sul display, è sufficiente trascinare un blocco "TM 1650 display" da "Digital tube" e impostare la stringa numerica su 9999.
+ディスプレイに数字を表示するには、「Digital tube」から「TM 1650 display」ブロックをドラッグし、数字の文字列を9999に設定するだけです。
 
 ![](media/A98.png)
 
-**5. Risultato del Test**
+**5. テスト結果**
 
-Dopo aver collegato i fili e caricato il codice, il display a tubo digitale mostra "9999", come mostrato di seguito.
+配線を接続しコードをアップロードすると、デジタルチューブディスプレイに「9999」が表示されます。以下のように表示されます。
 
 ![](media/A99.png)
 
-**6. Codice Esteso**
+**6. 拡張コード**
 
-Passiamo a operazioni più complesse. Invece di numeri statici, lo gestiamo per mostrare numeri dinamici.
+少し難しい操作をしてみましょう。静的な数字ではなく、動的な数字を表示させます。
 
-Il codice seguente manipola i tubi per visualizzare da 1 a 9999.
+以下のコードは、1～9999までの数字をデジタルチューブに表示します。
 
-1. Trascina i due blocchi di codice base.
+1. 基本のコードブロックを2つドラッグします。
 
 ![](media/A100.png)
 
-2. Trascina il seguente blocco da "Variables". Imposta il tipo su int e il nome su item, assegnando 0 come valore iniziale.
+2. 「Variables」から以下のブロックをドラッグし、型をint、名前をitemに設定し、初期値を0に割り当てます。
 
 ![](media/A101.png)
 
-3. Trascina il seguente blocco da "Control" e impostalo per 9999 volte.
+3. 「Control」から以下のブロックをドラッグし、9999回に設定します。
 
 ![](media/A102.png)
 
-4. Trascina una "modalità variabile" da "Variables", definisci il nome come item e imposta la modalità su "++".
+4. 「Variables」から「variable mode」をドラッグし、名前をitemに設定、モードを「++」にします。
 
-5. Trascina un blocco "TM 1650 display" da "Digital tube" e sostituisci il valore stringa con la variabile item. Aggiungi un ritardo di 0,5s dopo di esso.
+5. 「Digital tube」から「TM 1650 display」ブロックをドラッグし、文字列の値を変数itemに置き換えます。その後、0.5秒の遅延時間を追加します。
 
 ![](media/A103.png)
 
-6. Aggiungi un blocco "set variable" dopo il blocco "repeat". Imposta la variabile item a 0. Altrimenti, il valore di item uscirà dall'intervallo di visualizzazione dopo 9999 cicli.
+6. 「repeat」ブロックの後に「set variable」ブロックを追加し、item変数を0に設定します。そうしないと、9999回ループ後にitemの値が表示範囲外になります。
 
 ![](media/A104.png)
 
-**Codice Completo：**
+**完成コード：**
 
 ![](media/A105.png)
 
-**7. Spiegazione del Codice**
+**7. コード説明**
 
-1. Imposta la stringa da visualizzare. Digita direttamente i numeri o le lettere che vuoi mostrare nel campo vuoto.
+1. 表示する文字列を設定します。空欄に表示したい数字や文字を直接入力します。
 
 ![](media/A106.png)
 
-2. Imposta l'ON o OFF di questo tubo digitale TM 1650. Ogni tubo può essere controllato separatamente.
+2. このTM 1650デジタルチューブのON/OFFを設定します。各チューブは個別に制御可能です。
 
 ![](media/A107.png)
 
-3. È possibile cancellare il display o usarlo come interruttore principale per accendere o spegnere il tubo digitale.
+3. 表示をクリアしたり、デジタルチューブのマスタースイッチとしてON/OFFを切り替えたりできます。
 
 ![](media/A108.png)

@@ -1,49 +1,49 @@
-### Progetto 7 Buzzer Attivo
+### プロジェクト7 アクティブブザー
 
-**1. Descrizione**
+**1. 説明**
 
-Un buzzer attivo è un componente utilizzato come allarme, promemoria o dispositivo di intrattenimento, che produce un suono affidabile.
+アクティブブザーは、アラームやリマインダー、または娯楽用のデバイスとして使用される部品で、信頼性の高い音を発生します。
 
-Inoltre, permette di generare suoni altamente controllabili, rendendo i nostri progetti più interessanti.
+さらに、高度に制御可能な音を鳴らすことができるため、プロジェクトをより面白くします。
 
-**2. Principio di Funzionamento**
+**2. 動作原理**
 
 ![](media/A82.png)
 
-Un buzzer attivo integra un multivibratore, quindi emette suono solo tramite tensione DC. Il pin 1 del buzzer si collega a VCC e il pin 2 è controllato da un triode. Quando viene fornito un livello alto alla base (pin 1) del triode, il collettore (pin 3) e l'emettitore (pin 2) si collegano a GND, e il buzzer emette suono.
+アクティブブザーはマルチバイブレータを内蔵しているため、直流電圧のみで音を出します。ブザーのピン1はVCCに接続し、ピン2はトライオードで制御されます。トライオードのベース（ピン1）に高レベルが入力されると、コレクタ（ピン3）とエミッタ（ピン2）がGNDに接続され、ブザーが音を発します。
 
-Al contrario, se forniamo un livello basso alla base, gli altri pin saranno scollegati, quindi il buzzer rimarrà silenzioso.
+逆に、ベースに低レベルを入力すると他のピンは切断され、ブザーは静かになります。
 
-**3. Schema di Collegamento**
+**3. 配線図**
 
 ![](media/A83.png)
 
-**4. Codice di Test**
+**4. テストコード**
 
-Se la scheda di sviluppo emette un livello alto, il buzzer emetterà suono. Se emette un livello basso, il buzzer smetterà di suonare.
+開発ボードが高レベルを出力すると、ブザーが音を出します。低レベルを出力すると、ブザーは鳴り止みます。
 
-1. Trascina i due blocchi di codice base.
+1. 基本のコードブロックを2つドラッグします。
 
 ![](media/A84.png)
 
-2. Trascina i seguenti blocchi dalla sezione "Buzzer" e imposta il pin IO5 su HIGH. Poi imposta il tempo di ritardo a 1s.
+2. 「Buzzer」パートから以下のブロックをドラッグし、IO5ピンをHIGHに設定します。遅延時間は1秒に設定します。
 
 ![](media/A85.png)
 
-3. Trascina i seguenti blocchi dalla sezione "Buzzer" e imposta il pin IO5 su LOW. Poi imposta il tempo di ritardo a 1s.
+3. 「Buzzer」パートから以下のブロックをドラッグし、IO5ピンをLOWに設定します。遅延時間は1秒に設定します。
 
 ![](media/A86.png)
 
-**Codice Completo：**
+**完成コード：**
 
 ![](media/A87.png)
 
-**5. Risultato del Test**
+**5. テスト結果**
 
-Dopo aver caricato il codice e acceso l'alimentazione, il buzzer emette suono per 1s e rimane silenzioso per 1s.
+コードをアップロードして電源を入れると、ブザーは1秒間音を鳴らし、1秒間静かになります。
 
-**6. Spiegazione del Codice**
+**6. コード説明**
 
-Blocco di output del buzzer. Prima definiamo il pin su IO5 e poi impostiamo l'uscita su "HIGH" o "LOW". Il buzzer emetterà un beep quando è su HIGH, mentre rimarrà silenzioso su LOW.
+ブザー出力ブロックです。まずピンをIO5に定義し、出力を「HIGH」または「LOW」に設定します。HIGHのときブザーが鳴り、LOWのときは静かになります。
 
 ![](media/A88.png)

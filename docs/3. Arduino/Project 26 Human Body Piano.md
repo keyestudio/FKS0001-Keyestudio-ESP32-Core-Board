@@ -1,18 +1,18 @@
-### Progetto 26 Pianoforte Corpo Umano
+### プロジェクト26 人体ピアノ
 
-**1. Descrizione**
+**1. 説明**
 
-Il pianoforte analogico include una scheda di sviluppo e un sensore a ultrasuoni. Permette di suonare diverse tonalità rilevando la posizione delle tue dita. Pertanto, questo modulo è in grado di stimolare un pianoforte per eseguire musica e canzoni.
+アナログピアノは、開発ボードと超音波センサーを含みます。指の位置を検出することで異なる音色を演奏することができます。したがって、このモジュールはピアノを刺激して音楽や曲を演奏することが可能です。
 
-**2. Diagramma di Flusso**
+**2. フローチャート**
 
 ![](media/B33.png)
 
-**3. Schema di Collegamento**
+**3. 配線図**
 
 ![](media/B34.png)
 
-**4. Codice di Test**
+**4. テストコード**
 
 ```
 /*
@@ -90,14 +90,14 @@ void loop()
 }
 ```
 
-**5. Risultato del Test**
+**5. テスト結果**
 
-Collega i cablaggi e carica il codice.
+配線を接続し、コードをアップロードしてください。
 
-- Suona Do quando la distanza è inferiore a 10.
-- Suona Re quando la distanza è compresa tra 10 e 20.
-- Suona Mi quando la distanza è compresa tra 20 e 30.
-- Suona Fa quando la distanza è compresa tra 30 e 40.
-- Suona So quando la distanza è compresa tra 40 e 50.
-- Suona La quando la distanza è compresa tra 50 e 60.
-- Suona Si quando la distanza è compresa tra 60 e 70.
+- 距離が10未満のときにDoを演奏します。  
+- 距離が10〜20の範囲内のときにReを演奏します。  
+- 距離が20〜30の範囲内のときにMiを演奏します。  
+- 距離が30〜40の範囲内のときにFaを演奏します。  
+- 距離が40〜50の範囲内のときにSoを演奏します。  
+- 距離が50〜60の範囲内のときにLaを演奏します。  
+- 距離が60〜70の範囲内のときにSiを演奏します。

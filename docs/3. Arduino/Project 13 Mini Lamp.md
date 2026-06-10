@@ -1,20 +1,20 @@
-### **Progetto 13 Mini Lampada**
+### **プロジェクト13 ミニランプ**
 
-**1. Descrizione**
+**1. 説明**
 
-In questo progetto, controlleremo una lampada tramite Arduino UNO e un pulsante. Quando premiamo il pulsante, lo stato della lampada cambierà (ACCESA o SPENTA).
+このプロジェクトでは、Arduino UNOとボタンを使ってランプを制御します。ボタンを押すと、ランプの状態が切り替わります（ONまたはOFF）。
 
-**2. Principio di Funzionamento**
+**2. 動作原理**
 
 ![](media/A53.png)
 
-Quando il pulsante è rilasciato, una tensione VCC che passa attraverso R29 fornisce un livello alto al terminale S. Quando viene premuto, i pin 1 e 3, pin 2 e 4 sono collegati e la tensione su S1 arriva a GND come livello basso. In questo momento, R29 evita un cortocircuito tra VCC e GND.
+ボタンが離されているとき、R29を通った電圧VCCがS端子に高レベルを供給します。押されると、ピン1と3、ピン2と4が接続され、S1の電圧がGNDに接続されて低レベルになります。このとき、R29はVCCとGND間の短絡を防ぎます。
 
-**3. Schema di Collegamento**
+**3. 配線図**
 
 ![](media/A54.png)
 
-**4. Codice di Test**
+**4. テストコード**
 
 ```
 /*
@@ -27,38 +27,38 @@ int value = 0;
 
 void setup() 
 {
-  Serial.begin(9600); //Imposta la velocità di trasmissione seriale a 9600 
-  pinMode(button, INPUT);  //Collega il pin del pulsante alla porta digitale 8 e impostalo in modalità input.
+  Serial.begin(9600); //シリアル通信のボーレートを9600に設定
+  pinMode(button, INPUT);  //ボタンピンをデジタルポート8に接続し、入力モードに設定
 }
 
 void loop() 
 {
-  value = digitalRead(button);//Legge il valore del pulsante 
-  Serial.print("Key status:"); //Stampa "Key status:" sulla porta seriale 
-  Serial.println(value); //Stampa la variabile del pulsante sulla porta seriale e va a capo
+  value = digitalRead(button);//ボタンの値を読み取る
+  Serial.print("Key status:"); //シリアルポートに「Key status:」を表示
+  Serial.println(value); //ボタンの値をシリアルポートに表示し改行
 }
 ```
 
-**5. Risultato del Test**
+**5. テスト結果**
 
-Dopo aver collegato i fili e caricato il codice, apri il monitor seriale e imposta la velocità a 9600.  
-Quando premiamo il pulsante, la porta seriale stampa "Key status: 0"; quando lo rilasciamo, la porta seriale stampa "Key status: 1".
+配線を接続しコードをアップロードした後、シリアルモニターを開きボーレートを9600に設定します。  
+ボタンを押すとシリアルポートに「Key status: 0」と表示され、離すと「Key status: 1」と表示されます。
 
 ![](media/A55.png)
 
-**6. Espansione della Conoscenza**
+**6. 知識の拡張**
 
-Successivamente, controlleremo il LED tramite lo stato del pulsante.
+次に、ボタンの状態を使ってLEDを制御します。
 
-- **Diagramma di Flusso：**
+- **フローチャート：**
 
 ![](media/A56.png)
 
-- **Schema di Collegamento:**
+- **配線図：**
 
 ![](media/A57.png)
 
-- **Codice**
+- **コード**
 
 ```
 /*
@@ -72,25 +72,25 @@ bool ledState = false;
 
 void setup() 
 {
-  // inizializza il pin digitale PIN_LED come output.
+  // デジタルピンPIN_LEDを出力として初期化
   pinMode(led, OUTPUT);
   pinMode(button, INPUT);
 }
 
-// la funzione loop viene eseguita ripetutamente all'infinito
+// loop関数は永遠に繰り返し実行される
 void loop() 
 {
-  if (digitalRead(button) == LOW) {    //Quando il valore del pulsante è 0 per la prima volta, si attiva il rimbalzo del pulsante, quindi si ritarda di 20ms per verificare se il pulsante è ancora a 0. 
-    delay(20);                              //Ritardo di 20ms
-    if (digitalRead(button) == LOW) {   //verifica se il valore del pulsante è 0
-      ledState = !ledState;                 //ledState diventa l'inverso del suo valore originale, utile per accendere e spegnere il LED 
+  if (digitalRead(button) == LOW) {    //ボタンの値が初めて0になったとき、チャタリングが発生するため20ms遅延して再度判定
+    delay(20);                              //20ms遅延
+    if (digitalRead(button) == LOW) {   //ボタンの値が0か判定
+      ledState = !ledState;                 //ledStateを反転させ、LEDのON/OFFを切り替える
       digitalWrite(led, ledState);
     }
-    while (digitalRead(button) == LOW);     //mantiene il ciclo while finché il pulsante è premuto, esce quando viene rilasciato
+    while (digitalRead(button) == LOW);     //ボタンが押されている間はループを保持し、離すと抜ける
   }
 }
 ```
 
-- **Risultato del Test**
+- **テスト結果**
 
-Puoi controllare l'accensione e lo spegnimento del LED rosso tramite il pulsante rosso.
+赤いボタンで赤色LEDの点灯・消灯を制御できます。
